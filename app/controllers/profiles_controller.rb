@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_profile!, :except => [:index, :show]
   before_action :set_profile, only: [:show, :edit, :update]
-  impressionist actions: [:show,:index], unique: [:session_hash]
+  #impressionist actions: [:show,:index], unique: [:session_hash]
 
   # GET /profiles
   # GET /profiles.json
