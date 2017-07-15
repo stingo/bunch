@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @profile.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @profile.last_name %>
+</p>
+
+<% if @profile.pesnavatar? %>
+        <%=link_to (image_tag @profile.pesnavatar.url(:small), :class => "media-object img-circle thumb64 btn-raised btn-circle"), @profile %>
+        <% else %> 
+        <%= image_tag("noimage.jpg", :class => "media-object img-circle thumb64 btn-raised btn-circle") %>
+
+
+       <% end %>
+
+<%= link_to 'Edit', edit_profile_path(@profile) %> |
+<%= link_to 'Back', profiles_path %>

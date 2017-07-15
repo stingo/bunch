@@ -1,4 +1,4 @@
-class PsnavatarUploader < CarrierWave::Uploader::Base
+class PesnavatarUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick

@@ -1,14 +1,55 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bunch</title>
+    <title>Ingh</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
+
+   <div class="layout-container">
+
+        <%= render '/layouts/nav' %>
+
+
+       <span class="notice"><%= notice %></span>
+
     <%= yield %>
+
+    <span class="alert"><%= alert %></span>
+         <%# content_for :script do %>
+             
+              <%# new app.Urban_terms;%>
+
+          <%# end %>
+
+<script>
+  $(function() {
+    <%= yield :script %>
+  });
+</script>
+
+
+    </div>
+
+
+    <!--script>
+      $(document).on('ready page:load', function () {
+        $('#how_tag_ids').chosen({
+          allow_single_deselect: true,
+          width: '100%'
+        })
+      });
+    </script-->
+
+
+
+
+
   </body>
+
 </html>

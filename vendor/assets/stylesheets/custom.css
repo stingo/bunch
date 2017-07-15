@@ -6,6 +6,19 @@
 	background: rgba(0, 0, 0, 0) linear-gradient(40deg, #d1edf0 10%, #ecc8c6 100%) !important; 
 }
 
+.bldtitle {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    font-weight: 600;
+    height: 36px;
+    min-height: 42px;
+    margin: 15px 0 0 5px;
+    font-size: 15px;
+    
+
+}
+
 .bgplain{
 	background: #F4F4F4 !important; 
 }

@@ -208,13 +208,48 @@
 
 
        <% end %> 
+
+
+        <%# if event.profile.pesnavatar? %>
+        <%# link_to (image_tag(event.profile.pesnavatar.url(:small), :class => "media-object img-circle img-responsive text-center", :alt =>"profile")), profile_path(event.profile_id) %>
+
+
+         
+
+        <%# else %> 
+        <%# link_to (image_tag("noimage.jpg", :class => "media-object img-circle img-responsive text-center", :alt =>"profile")), profile_path(event.profile_id) %>
+
+
+       <%#ß end %> 
+
+
+
                              
 
                             
                         
                      
-                        <p class="image-caption text-center">
-                            #<%= link_to event.name, event %> @ <% if event.locations.any? %>
+                        <p class="image-caption text-center bldtitle">
+
+
+
+
+
+
+
+
+                        <% if event.name.present? %>
+                            
+
+                            <%=  link_to (truncate(sanitize(event.name, tags: %w(strong em p u br #ff0000 font-size)), length: 610)), event %>
+
+                            <% else %>
+
+                            <% end %>
+
+
+
+                            <% if event.locations.any? %>
 
 <p class="in-inner"><i class="fa fa-fw fa-map-marker fa-2x" style="color:#337ab7; font-size: 20px;"></i><%= render event.locations %></p>
 
@@ -224,7 +259,11 @@
                     <div class="image-info shadow-inner">
                         <h5 class="title">Fusce aliquet ac quam at tincidunt</h5>
                         <div class="pull-right">
-                            <small>by</small> <a href="javascript:;">Camryn Wong</a>
+                            <small>by</small> 
+
+                            <%= link_to event.profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ event.profile.last_name.split(" ").map(&:capitalize).join(" "), profile_path(event.profile_id) if event.profile.first_name || event.profile.last_name %>
+
+
                         </div>
                         <div class="rating">
                             <span class="star active"></span>
@@ -233,8 +272,22 @@
                             <span class="star"></span>
                             <span class="star"></span>
                         </div>
+
+                        <%# if event.description.present? %>
+
                         <div class="desc">
-                            Fusce eu rutrum nisi, ut pretium mi. Sed mollis nisi sed auctor molestie. Vestibulum dictum pharetra leo sed euismod. <%= link_to "Edit", edit_event_path(event), class: "" %>
+                           
+                            
+
+                            <%#truncate(sanitize(event.description, tags: %w(strong em p u br #ff0000 font-size)), length: 160) {link_to 'continue', event } %>
+
+                            <%# else %>
+                            <%# end %>
+
+
+
+
+                            <%= link_to "Edit", edit_event_path(event), class: "" %>
                         </div>
                     </div>
                 </div>            
