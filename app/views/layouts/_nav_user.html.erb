@@ -1,0 +1,386 @@
+
+
+ <!-- begin #header -->
+    <div id="header" class="header navbar navbar-default navbar-fixed-top">
+        <!-- begin container -->
+        <div class="container">
+                    <!-- begin mobile sidebar expand / collapse button -->
+        <div class="navbar-header">
+
+        <span class="navbar-logo"></span><%= link_to "Inside GH", root_path, turbolinks: true, :class => "navbar-brand" %>
+
+
+         
+
+
+
+
+
+          <button type="button" class="navbar-toggle" data-click="sidebar-toggled">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+       
+
+
+<ul class="nav navbar-nav navbar-center">
+    
+
+<!--search-->
+
+<li>
+
+          <%# form_with url: search_path, local: true, method: :get, :class => "navbar-form full-width" do |form| %>
+              <div class="form-group">
+                <!--input type="text" name="q" id="q" class="form-control" placeholder="Search insideGH" data-behavior= "autocomplete"  /-->
+                <%# form.text_field :q, placeholder: "Autocomplete Search", data: { behavior: "autocomplete" }, class: "form-control mr-sm-2" %>
+
+                <div class="mda-form-control-line" id="urban_terms-search-results"></div>
+
+                <button type="submit" class="btn btn-search"><i class="fa fa-search"></i></button>
+              </div >
+        
+            <%# end %>
+
+          </li>
+    <!--form class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" type="text" placeholder="Search" data-behaviour="autocomplete">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">search</button>
+        
+
+    </form-->
+            
+
+           
+<%# form_tag urban_terms_path && hows_path, :class =>"navbar-form full-width", method: :get do %>
+              <!--div class="form-group">
+                <input type="text" name="q" id="q" class="form-control" placeholder="Search insideGH" />
+
+                <div class="mda-form-control-line" id="urban_terms-search-results"></div>
+
+                <button type="submit" class="btn btn-search"><i class="fa fa-search"></i></button>
+              </div-->
+        
+            <%# end %>
+
+          </li>
+
+<!--search ends-->
+
+</ul>
+
+
+
+        </div>
+
+
+
+
+
+
+
+        <!-- end mobile sidebar expand / collapse button -->
+            <!-- end navbar-header -->
+            <!-- begin #header-navbar -->
+            <div class="collapse navbar-collapse" id="header-navbar">
+                <!-- begin header navigation right -->
+        
+
+        <ul class="nav navbar-nav navbar-right">
+
+
+
+
+
+    
+
+
+
+<!--E-->
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+                 <!--li>
+                    <%# link_to "Ghana Urban Terms", urban_terms_path %>
+                </li>
+
+
+
+                
+                <li>
+                    <%#link_to "How To", hows_path %>
+
+                </li-->
+
+
+
+
+
+                <!--Browse starts-->
+        <li class="dropdown">
+            <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14">
+              
+
+              <i class="fa fa-globe"></i><!--em class="ion-plus"></em--> <strong>Browse</strong>
+
+              
+              
+            </a>
+            <ul class="dropdown-menu media-list pull-right animated fadeInDown">
+                           
+                            
+
+                            <li class="media">
+                               
+                                    <div class="media-left"><i class="fa fa-bug media-object bg-red"></i></div>
+                                    <div class="media-body">    
+
+
+                                        <h6><%# link_to 'Urban Term', urban_terms_path, :class => "media-heading" %>
+                                            <%= link_to 'Events', new_event_path, :class => "media-heading" %>
+                                        </h6>
+                                        <div class="text-muted f-s-11">25 minutes ago</div>
+
+
+                                    </div>
+                             
+                            </li>
+
+
+
+
+    <li class="media">
+                               
+                                    <div class="media-left"><i class="fa fa-plus media-object bg-green"></i></div>
+                                    <div class="media-body">    
+
+
+                                        <h6><%# link_to 'How To', hows_path, :class => "media-heading" %>
+                                            <%= link_to 'Locatios', new_location_path, :class => "media-heading" %>
+                                        </h6>
+                                        <div class="text-muted f-s-11">25 minutes ago</div>
+
+
+                                    </div>
+                             
+        </li>
+
+
+
+
+
+                            <li class="dropdown-footer text-center">
+                                <a href="javascript:;">View more</a>
+                            </li>
+            </ul>
+
+
+
+
+
+
+          </li>
+
+
+
+
+<!--Browse ends-->
+
+
+
+<!--Add starts-->
+        <li class="dropdown">
+            <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14">
+              
+
+              <i class="fa fa-plus"></i><!--em class="ion-plus"></em--><strong>Add</strong>
+
+              
+              
+            </a>
+            <ul class="dropdown-menu media-list pull-right animated fadeInDown">
+                           
+                            
+
+                            <li class="media">
+                               
+                                    <div class="media-left"><i class="fa fa-bug media-object bg-red"></i></div>
+                                    <div class="media-body">    
+
+
+                                        <h6><%#link_to 'Urban Term', new_urban_term_path, :class => "media-heading" %>
+                                            <%= link_to 'Events', new_event_path, :class => "media-heading" %>
+                                        </h6>
+                                        <div class="text-muted f-s-11">25 minutes ago</div>
+
+
+                                    </div>
+                             
+                            </li>
+
+
+
+
+    <li class="media">
+                               
+                                    <div class="media-left"><i class="fa fa-plus media-object bg-green"></i></div>
+                                    <div class="media-body">    
+
+
+                                        <h6><%# link_to 'How To', new_how_path, :class => "media-heading" %>
+                                            <%= link_to 'Locatios', new_location_path, :class => "media-heading" %>
+                                        </h6>
+                                        <div class="text-muted f-s-11">25 minutes ago</div>
+
+
+                                    </div>
+                             
+        </li>
+
+
+
+
+
+                            <li class="dropdown-footer text-center">
+                                <a href="javascript:;">View more</a>
+                            </li>
+            </ul>
+
+
+
+
+
+
+          </li>
+
+
+
+
+<!--Add ends-->
+
+
+          <li class="dropdown">
+            <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14">
+              <i class="fa fa-bell-o"></i>
+              <span class="label">5</span>
+            </a>
+            <ul class="dropdown-menu media-list pull-right animated fadeInDown">
+                            <li class="dropdown-header">Notifications (5)</li>
+                            <li class="media">
+                                <a href="javascript:;">
+                                    <div class="media-left"><i class="fa fa-bug media-object bg-red"></i></div>
+                                    <div class="media-body">
+                                        <h6 class="media-heading">Server Error Reports</h6>
+                                        <div class="text-muted f-s-11">3 minutes ago</div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="media">
+                                <a href="javascript:;">
+                                    <div class="media-left"><img src="assets/img/user-1.jpg" class="media-object" alt="" /></div>
+                                    <div class="media-body">
+                                        <h6 class="media-heading">John Smith</h6>
+                                        <p>Quisque pulvinar tellus sit amet sem scelerisque tincidunt.</p>
+                                        <div class="text-muted f-s-11">25 minutes ago</div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="media">
+                                <a href="javascript:;">
+                                    <div class="media-left"><img src="assets/img/user-2.jpg" class="media-object" alt="" /></div>
+                                    <div class="media-body">
+                                        <h6 class="media-heading">Olivia</h6>
+                                        <p>Quisque pulvinar tellus sit amet sem scelerisque tincidunt.</p>
+                                        <div class="text-muted f-s-11">35 minutes ago</div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="media">
+                                <a href="javascript:;">
+                                    <div class="media-left"><i class="fa fa-plus media-object bg-green"></i></div>
+                                    <div class="media-body">
+                                        <h6 class="media-heading"> New User Registered</h6>
+                                        <div class="text-muted f-s-11">1 hour ago</div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="media">
+                                <a href="javascript:;">
+                                    <div class="media-left"><i class="fa fa-envelope media-object bg-blue"></i></div>
+                                    <div class="media-body">
+                                        <h6 class="media-heading"> New Email From John</h6>
+                                        <div class="text-muted f-s-11">2 hour ago</div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="dropdown-footer text-center">
+                                <a href="javascript:;">View more</a>
+                            </li>
+            </ul>
+          </li>
+          <li class="dropdown navbar-user">
+            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+              
+            
+
+     
+
+             <% if current_profile.pesnavatar? %>
+        <%= image_tag current_profile.pesnavatar.url(:small), :class => "img-circle" %>
+        <% else %> 
+        <%= image_tag("noimage.jpg", :class => "img-circle ") %>
+
+
+       <% end %>
+
+
+
+              <%# "(Admin)" if current_profile.admin? %>
+
+
+
+              <span class="hidden-xs"><%= current_profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ current_profile.last_name.split(" ").map(&:capitalize).join(" ") if current_profile.first_name || current_profile.last_name %> <%= "(Admin)" if current_profile.admin? %> </span> <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu animated fadeInLeft">
+              <li class="arrow"></li>
+              <li><%= link_to "Profile page", current_profile %></li>
+              <li><a href="javascript:;"><span class="badge badge-danger pull-right">2</span> Inbox</a></li>
+              <li><a href="javascript:;">Calendar</a></li>
+              <li><a href="javascript:;">Setting</a></li>
+              <li class="divider"></li>
+
+              <li><%= link_to('Log Out', destroy_profile_session_path, :method => :delete) %></li>
+            </ul>
+          </li>
+
+          
+        </ul>
+        <!-- end header navigation right -->
+            </div>
+            <!-- end #header-navbar -->
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- end #header -->
+
+
+
