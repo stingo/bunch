@@ -10,6 +10,9 @@ class LocationsController < ApplicationController
   # GET /locations/1
   # GET /locations/1.json
   def show
+    @location = Location.find(params[:id])
+
+    @location_events = @location.events #paginate(page: params[:page], per_page: 5)
   end
 
   # GET /locations/new
