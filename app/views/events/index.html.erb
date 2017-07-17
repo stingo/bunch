@@ -66,25 +66,25 @@
     <!-- end search-banner -->
     
  <!-- begin page-title -->
-    <div class="page-title has-bg">
-        <!-- begin bg-cover -->
+    <!--div class="page-title has-bg">
+         begin bg-cover 
         <div class="bg-cover">
-            <%= image_tag("cover3.jpg") %>
+            <%# image_tag("cover3.jpg") %>
         </div>
-        <!-- end bg-cover -->
-        <!-- begin container -->
+         end bg-cover 
+        begin container 
         <div class="container">
-            <!-- begin breadcrumb -->
+             begin breadcrumb 
             <ul class="breadcrumb">
                 <li><a href="index.html">Forum</a></li>
                 <li><a href="category_list.html">Twitter Bootstrap</a></li>
                 <li class="active">&nbsp;</li>
             </ul>
-            <!-- end breadcrumb -->
+             end breadcrumb -
             <h1>How to create an arrow by using css?</h1>
         </div>
-        <!-- end container -->
-    </div>
+         end container 
+    </div-->
     <!-- end page-title -->
 
 
@@ -143,34 +143,8 @@
         <!-- begin #content -->
         <div id="conten" class="conten">
             <!-- begin breadcrumb -->
-            <ol class="breadcrumb pull-right">
-                <li><a href="javascript:;">Home</a></li>
-                <li class="active">Gallery</li>
-            </ol>
-            <!-- end breadcrumb -->
-            <!-- begin page-header -->
-            <h1 class="page-header">Gallery <small>header small text goes here...</small></h1>
-            <!-- end page-header -->
-            
-            <div id="options" class="m-b-10">
-                <span class="gallery-option-set" id="filter" data-option-key="filter">
-                    <a href="#show-all" class="btn btn-default btn-xs active" data-option-value="*">
-                        Show All
-                    </a>
-                    <a href="#gallery-group-1" class="btn btn-default btn-xs" data-option-value=".gallery-group-1">
-                        Gallery Group 1
-                    </a>
-                    <a href="#gallery-group-2" class="btn btn-default btn-xs" data-option-value=".gallery-group-2">
-                        Gallery Group 2
-                    </a>
-                    <a href="#gallery-group-3" class="btn btn-default btn-xs" data-option-value=".gallery-group-3">
-                        Gallery Group 3
-                    </a>
-                    <a href="#gallery-group-4" class="btn btn-default btn-xs" data-option-value=".gallery-group-4">
-                        Gallery Group 4
-                    </a>
-                </span>
-            </div>
+<br><br>
+ 
 
 
   <%# @events.each do |event| %>       
@@ -186,9 +160,13 @@
     <% @events.each_slice(3) do |events| %>
   <div class="col-md-12">
     <% events.each do |event| %>
-     <div class="col-md-4 col-xs-6 ">
+     <div class="col-md-4">
 
 
+  <!-- begin row -->
+     
+ 
+          
 
 
      <div class="image gallery-group-1 card shadow-wrapper ">
@@ -204,23 +182,15 @@
 
 
         <% else %> 
-        <%= link_to (image_tag("login-bg/bg-3.jpg", :class => "img-responsive", :alt =>"event image")), event_path(event) %>
+        <%= link_to (image_tag("login-bg/bg-3.jpg", :class => "img-responsive img-h", :alt =>"event image")), event_path(event) %>
 
 
        <% end %> 
 
 
-        <%# if event.profile.pesnavatar? %>
-        <%# link_to (image_tag(event.profile.pesnavatar.url(:small), :class => "media-object img-circle img-responsive text-center", :alt =>"profile")), profile_path(event.profile_id) %>
 
 
-         
-
-        <%# else %> 
-        <%# link_to (image_tag("noimage.jpg", :class => "media-object img-circle img-responsive text-center", :alt =>"profile")), profile_path(event.profile_id) %>
-
-
-       <%#ß end %> 
+   
 
 
 
@@ -229,7 +199,7 @@
                             
                         
                      
-                        <p class="image-caption text-center bldtitle">
+                      
 
 
 
@@ -238,7 +208,20 @@
 
 
 
-                        <% if event.name.present? %>
+                <table class="text-inverse m-t-10 width-full">
+                  <tr>
+                      <td>
+                          <% if event.profile.pesnavatar? %>
+        <%= link_to (image_tag(event.profile.pesnavatar.url(:small), :class => "pull-left m-r-10 img-circle img-responsive thumb35", :alt =>"profile")), profile_path(event.profile_id) %>
+
+
+        <% else %> 
+        <%= link_to (image_tag("noimage.jpg", :class => "pull-left m-r-10 img-circle img-responsive thumb35", :alt =>"profile")), profile_path(event.profile_id) %>
+
+
+       <% end %>
+                          
+                          <div class="m-t-4"> <% if event.name.present? %>
                             
 
                             <%=  link_to (truncate(sanitize(event.name, tags: %w(strong em p u br #ff0000 font-size)), length: 610)), event %>
@@ -246,6 +229,12 @@
                             <% else %>
 
                             <% end %>
+                              
+                            </div>
+                      </td>
+                  </tr>
+                 
+              </table>
 
 
 
@@ -254,8 +243,11 @@
 <p class="in-inner"><i class="fa fa-fw fa-map-marker fa-2x" style="color:#337ab7; font-size: 20px;"></i><%= render event.locations %></p>
 
 <% end %>
-                        </p>
+                        
                     </div>
+
+
+
                     <div class="image-info shadow-inner">
                         <h5 class="title">Fusce aliquet ac quam at tincidunt</h5>
                         <div class="pull-right">

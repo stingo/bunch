@@ -26,7 +26,7 @@ gem 'carrierwave', '~> 1.0'
 gem 'mini_magick'
 gem 'fog', '~> 1.38'
 gem 'selectize-rails'
-gem "awesome_print", require:"ap"
+gem 'awesome_print', '~> 1.6', '>= 1.6.1'
 gem 'simple_form', '~> 3.5'
 gem 'will_paginate', '~> 3.1', '>= 3.1.6'
 gem 'bootstrap-will_paginate', '~> 1.0'
