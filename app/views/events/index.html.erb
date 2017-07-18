@@ -91,10 +91,14 @@
 
    
       <!-- Main section-->
-  
+ 
+
         <section class="bgplain">
           <div class="container bgplain">
             <div class="row fh">
+
+
+
      <!-- Left starts -->           
 
               <!--div class="col-md-3 fh-md oa text-center">
@@ -110,7 +114,7 @@
 
     
             
-<!-- Mid starts --> <div class="col-md-9 fh-md oa">
+<!-- Mid starts --> <div class="col-md-10 fh-md oa">
 
 
 
@@ -171,6 +175,22 @@
 
      <div class="image gallery-group-1 card shadow-wrapper ">
                     <div class="image-inner img-responsive">
+
+                      <!-- START dropdown--><% if event.profile == current_profile %>
+                        <span class="pull-right dropdown" style="margin-bottom: -60px";>
+                          <h1 data-toggle="dropdown" class="btn bg-white btn-flat btn-flat-icon"><em class="ion-android-more-vertical"></em></h1>
+                          <ul role="menu" class="dropdown-menu md-dropdown-menu dropdown-menu-right">
+                            <li><a href="#">Hide post</a></li>
+                            <li><%= link_to "Edit", edit_event_path(event), class: "" %></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Report</a></li>
+                          </ul>
+                        </span>
+
+                        <% else %>
+                         <% end %>
+
+                        <!-- END dropdown-->
                     
                         
 
@@ -208,55 +228,47 @@
 
 
 
-                <table class="text-inverse m-t-10 width-full">
-                  <tr>
-                      <td>
-                          <% if event.profile.pesnavatar? %>
-        <%= link_to (image_tag(event.profile.pesnavatar.url(:small), :class => "pull-left m-r-10 img-circle img-responsive thumb35", :alt =>"profile")), profile_path(event.profile_id) %>
+  
+
+
+
+
+              <div class="card-offset p0">
+                  <div class="card-offset-item text-left">
+
+                  <% if event.profile.pesnavatar? %>
+        <%= link_to (image_tag(event.profile.pesnavatar.url(:small), :class => "pull-left m-r-10 img-circle img-responsive thumb35 btn-raised btn-circle", :alt =>"profile")), profile_path(event.profile_id) %>
 
 
         <% else %> 
-        <%= link_to (image_tag("noimage.jpg", :class => "pull-left m-r-10 img-circle img-responsive thumb35", :alt =>"profile")), profile_path(event.profile_id) %>
+        <%= link_to (image_tag("noimage.jpg", :class => "pull-left m-r-10 img-circle img-responsive thumb35 btn-raised btn-circle", :alt =>"profile")), profile_path(event.profile_id) %>
 
 
-       <% end %>
-                          
-                          <div class="m-t-4"> <% if event.name.present? %>
-                            
+       <% end %><br><span class="m-r-20" style="margin-top:60px"> <small>by</small> <%= link_to event.profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ event.profile.last_name.split(" ").map(&:capitalize).join(" "), profile_path(event.profile_id) if event.profile.first_name || event.profile.last_name %></span>
 
-                            <%=  link_to (truncate(sanitize(event.name, tags: %w(strong em p u br #ff0000 font-size)), length: 610)), event %>
-
-                            <% else %>
-
-                            <% end %>
-                              
-                            </div>
-                      </td>
-                  </tr>
-                 
-              </table>
+       
+                  </div>
+                </div>
 
 
 
-                            <% if event.locations.any? %>
 
-<p class="in-inner"><i class="fa fa-fw fa-map-marker fa-2x" style="color:#337ab7; font-size: 20px;"></i><%= render event.locations %></p>
 
-<% end %>
                         
                     </div>
 
-
+<br>
 
                     <div class="image-info shadow-inner">
-                        <h5 class="title">Fusce aliquet ac quam at tincidunt</h5>
-                        <div class="pull-right">
-                            <small>by</small> 
+                        <h4 class="title blk"><% if event.name.present? %>
+                            
 
-                            <%= link_to event.profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ event.profile.last_name.split(" ").map(&:capitalize).join(" "), profile_path(event.profile_id) if event.profile.first_name || event.profile.last_name %>
+                            <%=  link_to (truncate(sanitize(event.name.titleize, tags: %w(strong em p u br #ff0000 font-size)),:class =>"blk", length: 30)), event %>
 
+                            <% else %>
 
-                        </div>
+                            <% end %></h4>
+                        
                         <div class="rating">
                             <span class="star active"></span>
                             <span class="star active"></span>
@@ -266,6 +278,8 @@
                         </div>
 
                         <%# if event.description.present? %>
+
+                        <hr>
 
                         <div class="desc">
                            
@@ -279,8 +293,17 @@
 
 
 
-                            <%= link_to "Edit", edit_event_path(event), class: "" %>
+<span class="in-inner"><i class="fa fa-fw fa-map-marker fa-2x" style="color:#337ab7; font-size: 20px;"></i><%= render event.locations if event.locations.present? %></span> <%= event.venue if event.venue.present? %>
+
+
+
+
+                            
                         </div>
+
+
+                         <hr>
+                         gggggg
                     </div>
                 </div>            
 
@@ -328,7 +351,7 @@
               <!-- Right starts -->
               
 
-              <div class="col-md-3 fh-md oa text-center">
+              <div class="col-md-2 fh-md oa text-center">
                 <div class="p-lg">
                   <h5>Right Column</h5>
                   <p class="text-center">Nullam pretium fermentum sapien ut convallis.</p>

@@ -15,10 +15,10 @@
  *= require font-awesome
  * require_tree .
  * require_self
- *= custom
  */
  
  @import 'custom';
+ @import 'navdouble';
  @import 'lightbox';
  @import "bootstrap-sprockets";
  @import "bootstrap";

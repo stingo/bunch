@@ -20,6 +20,11 @@
     <%= form.text_field :name, id: :event_name %>
   </div>
 
+    <div class="field">
+    <%= form.label :venue %>
+    <%= form.text_field :venue, :placeholder => "Specify where it's held" %>
+  </div>
+
 
  <div class="form-group">
     <%# form.label :location_ids, "locations" %>
@@ -52,15 +57,18 @@
 
   <div class="field">
   <label><h5 class="m0 text-primary">Date</h5></label>
-    <%# form.label :eventdate %>
-    <%# form.datetime_select :eventdate, id: :event_eventdate %>
-    <%= form.date_select :eventdate %><br><br>
-  <label><h5 class="m0 text-primary">Time </h5></label>
-  <%= form.time_select :eventdate, :ignore_date => true %>
+    <%= form.label :eventdate %>
+    <%= form.datetime_select :eventdate, id: :event_eventdate %>
+    <%# form.date_select :eventdate %><br><br>
+  <!--label><h5 class="m0 text-primary">Time </h5></label>
+  <%# form.time_select :eventdate, :ignore_date => true %>
 
-  </div>
+  </div-->
 
   <br><br>
+
+  <%= form.label :end_date %>
+    <%= form.datetime_select :eventdate, id: :end_date %>
 
 
   <div class="field">
