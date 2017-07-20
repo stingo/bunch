@@ -162,7 +162,8 @@
   
              
     <% @events.each_slice(3) do |events| %>
-  <div class="col-md-12">
+  <div class="col-md-12 ">
+
     <% events.each do |event| %>
      <div class="col-md-4">
 
@@ -173,7 +174,7 @@
           
 
 
-     <div class="image gallery-group-1 card shadow-wrapper ">
+     <div class="image gallery-group-1 card shadow-wrapper">
                     <div class="image-inner img-responsive">
 
                       <!-- START dropdown--><% if event.profile == current_profile %>
@@ -315,6 +316,7 @@
      </div>
     <% end %>
   </div>
+
 <% end %>   
 
 

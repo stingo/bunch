@@ -13,6 +13,8 @@
  *= require selectize
  *= require selectize.default
  *= require font-awesome
+ *= require 'masonry/transitions'
+ *= require 'masonry/infinitescroll'
  * require_tree .
  * require_self
  */
@@ -44,3 +46,6 @@
  @import "main_plugins/font-awesome/css/font-awesome.min";
  @import "main_plugins/jquery-ui/themes/base/minified/jquery-ui.min.css";
  @import "main_css/theme/default";
+
+
+

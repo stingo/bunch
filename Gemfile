@@ -30,6 +30,9 @@ gem 'awesome_print', '~> 1.6', '>= 1.6.1'
 gem 'simple_form', '~> 3.5'
 gem 'will_paginate', '~> 3.1', '>= 3.1.6'
 gem 'bootstrap-will_paginate', '~> 1.0'
+gem 'masonry-rails'
+
+
 
 #gem 'figaro', '~> 1.1', '>= 1.1.1'
 #gem 'inf', '~> 0.0.9'

@@ -15,64 +15,127 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :event_name %>
+
+
+
+
+<!-- Main section-->
+      <main class="">
+        <!-- Page content-->
+
+
+
+
+
+
+          <div class="container container-sm">
+            <div class="card">
+
+
+
+              <div class="card-body reader-block">
+
+
+
+
+
+
+
+<!--start-->
+
+<!-- begin row -->
+      <div class="row">
+                <!-- begin col-6 -->
+          <div class="col-md-12">
+ <!-- begin panel -->
+                    <div class="panel panel-inverse" data-sortable-id="form-stuff-3">
+                        <div class="panel-heading">
+                            <div class="panel-heading-btn">
+                                <!--a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a-->
+                                
+                                <%= link_to events_path, :class => "btn btn-xs btn-icon btn-circle btn-danger", method: :get do %><i class="fa fa-times"></i>
+                                <% end %>
+
+
+
+                            </div>
+                            <h3 class="panel-title">Event Details</h3>
+                        </div>
+                        <div class="panel-body">
+                            <form action="/" method="POST">
+                                <fieldset>
+                                    <legend>Legend</legend>
+
+
+
+                                        <div class="mda-form-control">
+                                        <label for="exampleInputEmail1">EVENT TITLE</label>
+                                        <%= form.text_field :name, :class => "form-control", :placeholder => "Give it a short distict name" %>
+                                    </div>
+                                    <br>
+
+                                                                       <div class="form-group">
+
+                                  <label for="exampleInputEmail1">DATE & TIME</label>
+                                     <div class="row row-space-10">
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control"  id="datetimepicker3" placeholder="Min Date" />
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" id="datetimepicker4" placeholder="Max Date" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <br>
+
+
+
+
+
+
+ <%# form.collection_check_boxes :location_ids, Location.all, :id, :name do |cb| %>
+
+<%# cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %>
+
+<%# end %>
+
+<div class="form-group">
+    <%= form.label :location_ids, "CLOSE LOCATION" %>
+    <%= form.select :location_ids, Location.all.pluck(:name, :id), {}, { multiple: true, class: "selectize" } %>
   </div>
-
-    <div class="field">
-    <%= form.label :venue %>
-    <%= form.text_field :venue, :placeholder => "Specify where it's held" %>
-  </div>
-
-
- <div class="form-group">
-    <%# form.label :location_ids, "locations" %>
-    <%# form.select :location_ids, Location.all.pluck(:name, :id), {}, { multiple: true, class: "selectize" } %>
-  </div>
-
-
-<%= form.collection_check_boxes :location_ids, Location.all, :id, :name do |cb| %>
-
-<%= cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %>
-
-<% end %>
-           <%# form.label :location_name %><br>
-
-
-<%# form.collection_select :location_id, Location.all, :id, :name, {prompt: "Select a location" }, input_html: { class: "dropdown-toggle" } %>
-
-
- <%# select_tag(:location_id, options_for_select(@locations), :prompt => “Select one!”) %>
-
 <br>
 
+ <%# form.fields_for :thing_locations do |event| %>
+   
+      <%# event.collection_select :location_id, Location.all, :id, :name %>
+
+    
+  <%# end %>
 
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :event_description %>
-  </div>
-  <br>
-
-  <div class="field">
-  <label><h5 class="m0 text-primary">Date</h5></label>
-    <%= form.label :eventdate %>
-    <%= form.datetime_select :eventdate, id: :event_eventdate %>
-    <%# form.date_select :eventdate %><br><br>
-  <!--label><h5 class="m0 text-primary">Time </h5></label>
-  <%# form.time_select :eventdate, :ignore_date => true %>
-
-  </div-->
-
-  <br><br>
-
-  <%= form.label :end_date %>
-    <%= form.datetime_select :eventdate, id: :end_date %>
 
 
-  <div class="field">
-    <label><h5 class="m0 text-primary">Add Event image </h5></label>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">VENUE</label>
+                                        <%= form.text_field :venue, :class => "form-control", :placeholder => "Specify where it's held" %>
+                                        
+                                    </div>
+                                    <br>
+
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">EVENT DESCRIPTION</label>
+                                        <%= form.text_area :description, :class => "form-control", :placeholder => "Add more details of your event" %>
+                                        
+                                    </div>
+                                    <br>
+
+
+
+                                    <div class="form-group">
+    <legend>FEATURED IMAGE</legend>
     <%= form.file_field :eventpic %>
     <% if form.object.eventpic? %>
       <%= image_tag form.object.eventpic.large.url, :class => "img-responsive" %>
@@ -81,51 +144,100 @@
       <%= form.check_box :remove_eventpic %> 
     <% end %>
   </div>
-
-    
-
-
   <br>
 
 
 
+ 
+                               
 
 
 
-  <div class="actions">
-    <%= form.submit %>
+                                  
 
 
 
 
+
+
+                                 
+                                    <button type="submit" class="btn btn-sm btn-primary m-r-5"> <%= form.submit class: "btn btn-primary" %></button>
+
+                                    <button type="submit" class="btn btn-sm btn-danger m-r-5"> <%= link_to 'Cancel', events_path %></button>
+                                    
+
+
+
+                                    
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- end panel -->
 <% end %>
+                    </div>
+                    </div>
+                    </div>
+
+<!--end-->
 
 
 
-    <!--selectise-->
+            <!--div class="card">
+              <div class="card-body reader-block">
+                
 
-    <div class="modal fade location-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-  <div class="modal-dialog modal-sm" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-        <h4 class="modal-title" id="mySmallModalLabel">Add Location</h4>
-      </div>
-      <div class="modal-body">
-        <%= form_for Location.new do |f| %>
-          <div class="form-group">
-            <%= f.label :name %>
-            <%= f.text_field :name, class: "form-control" %>
+                <span class="text-center"><strong>BREAKING IT DOWN</strong></span>
+              <br>
+               
+
+              <span><%# @how.inaction %></span>
+
+
+
+
+
+                <div class="text-center">
+
+                      post  image
+
+                      </div>
+
+
+
+
+
+
+
+              </div>
+            </div-->
+
+
+
+            <!--breaking it down ends-->
+
+            <!--images starts -->
+
+
+
+
+            <!--Video ends -->
+
+<!-- comments card-->
+
+
+              
+
+
+
+
           </div>
-          <div class="form-group">
-            <%= f.label :description %>
-            <%= f.text_area :desc, class: "form-control" %>
-          </div>
-          <div class="form-group">
-            <%= f.submit class: "btn btn-primary" %>
-          </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
+
+
+
+    
+        <!-- Page footer-->
+        <footer><span>2017 - Centric app.</span></footer>
+      </main>
+
+
