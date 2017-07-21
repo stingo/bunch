@@ -247,6 +247,7 @@
 
        <% end %><br><span class="m-r-20" style="margin-top:60px"> <small>by</small> <%= link_to event.profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ event.profile.last_name.split(" ").map(&:capitalize).join(" "), profile_path(event.profile_id) if event.profile.first_name || event.profile.last_name %></span>
 
+
        
                   </div>
                 </div>
@@ -261,10 +262,10 @@
 <br>
 
                     <div class="image-info shadow-inner">
-                        <h4 class="title blk"><% if event.name.present? %>
+                        <h4 class="title blk in-inner m-t-5"><% if event.name.present? %>
                             
 
-                            <%=  link_to (truncate(sanitize(event.name.titleize, tags: %w(strong em p u br #ff0000 font-size)),:class =>"blk", length: 30)), event %>
+                            <%= link_to (truncate(sanitize(event.name.titleize, tags: %w(strong em p u br #ff0000 font-size)),:class =>"blk in-inner m-t-5", length: 30)), event %>
 
                             <% else %>
 
@@ -283,6 +284,10 @@
                         <hr>
 
                         <div class="desc">
+
+                          <span class="in-inner"><i class="fa fa-fw fa-clock-o fa-2x" style="color:#337ab7; font-size: 20px;"></i><%= event.eventdate.strftime('%a, %e %b %Y %H:%M') %></span>
+
+                          <hr>
                            
                             
 
@@ -294,7 +299,7 @@
 
 
 
-<span class="in-inner"><i class="fa fa-fw fa-map-marker fa-2x" style="color:#337ab7; font-size: 20px;"></i><%= render event.locations if event.locations.present? %></span> <%= event.venue if event.venue.present? %>
+<span class="in-inner"><i class="fa fa-fw fa-map-marker fa-2x" style="color:#337ab7; font-size: 20px;"></i><%= render event.locations if event.locations.present? %> <%= event.venue if event.venue.present? %></span>
 
 
 
