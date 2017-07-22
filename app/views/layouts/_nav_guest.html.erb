@@ -9,16 +9,16 @@
 
 
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-<div id="flipkart-navbar">
+<div id="flipkart-navbar" class="nav-shadow" style="background-color: #f1f1f1; color: #000000">
     <div class="container">
         <div class="row row1">
             <ul class="largenav pull-right">
-                <li class="upper-links"><a class="links" href="/events/new">New event</a></li>
-                 <li class="upper-links wht"> <%= link_to "Events", events_path %> </li>
-                <li class="upper-links"><a class="links" href="#">Link 3</a></li>
-                <li class="upper-links"><a class="links" href="#">Link 4</a></li>
-                <li class="upper-links"><a class="links" href="#">Link 5</a></li>
-                <li class="upper-links"><a class="links" href="#">Link 6</a></li>
+                <li class="upper-links blk"><a class="links" href="/events/new">New event</a></li>
+                 <li class="upper-links blk"> <%= link_to "Events", events_path %> </li>
+                <li class="upper-links blk"><a class="links" href="#">Link 3</a></li>
+                <li class="upper-links blk"><a class="links" href="#">Link 4</a></li>
+                <li class="upper-links blk"><a class="links" href="#">Link 5</a></li>
+                <li class="upper-links blk"><a class="links" href="#">Link 6</a></li>
 
 
 
@@ -55,9 +55,9 @@
 
 
                 <li class="upper-links">
-                <%= link_to('Login', new_profile_session_path, :class => "upper-links wht" )  %>/ 
+                <%= link_to('Login', new_profile_session_path, :class => "upper-links blk" )  %>/ 
 
-        <%= link_to('Register', new_profile_registration_path, :class => "upper-links wht" ) %>
+        <%= link_to('Register', new_profile_registration_path, :class => "upper-links blk" ) %>
 
          
           </li>
@@ -68,7 +68,7 @@
         <div class="row row2">
             <div class="col-sm-2">
                 <h2 style="margin:0px;"><span class="smallnav menu" onclick="openNav()">☰ Inside GH</span></h2>
-                <h1 style="margin:0px;"><span class="largenav wht"><%= link_to "Inside GH", root_path, turbolinks: true, :class => "navbar-brand upper-links wht" %>
+                <h1 style="margin:0px;"><span class="largenav blk"><%= link_to "Inside GH", root_path, turbolinks: true, :class => "navbar-brand upper-links blk" %>
 </span></h1>
             </div>
 
@@ -102,7 +102,7 @@
     </div>
 </div>
 <div id="mySidenav" class="sidenav">
-    <div class="container" style="background-color: #2874f0; padding-top: 10px;">
+    <div class="container" style="background-color: #FEFEFE; padding-top: 10px;">
         <span class="sidenav-heading">Home</span>
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
     </div>
