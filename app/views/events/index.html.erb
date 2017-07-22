@@ -171,25 +171,36 @@
   <!-- begin row -->
      
  
-          
-
 
      <div class="image gallery-group-1 card shadow-wrapper">
                     <div class="image-inner img-responsive">
 
-                      <!-- START dropdown--><% if event.profile == current_profile %>
-                        <span class="pull-right dropdown" style="margin-bottom: -60px";>
+                      <!-- START dropdown--><%# if event.profile == current_profile %>
+                        <!--span class="pull-right dropdown" style="margin-bottom: -60px";>
                           <h1 data-toggle="dropdown" class="btn bg-white btn-flat btn-flat-icon"><em class="ion-android-more-vertical"></em></h1>
                           <ul role="menu" class="dropdown-menu md-dropdown-menu dropdown-menu-right">
                             <li><a href="#">Hide post</a></li>
-                            <li><%= link_to "Edit", edit_event_path(event), class: "" %></li>
+                            <li><%# link_to "Edit", edit_event_path(event), class: "" %></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="#">Report</a></li>
                           </ul>
-                        </span>
+                        </span-->
 
-                        <% else %>
-                         <% end %>
+                        <%# else %>
+                         <%# end %>
+
+
+                         <!--p class="image-caption">
+                            #2343 - Madness Arch
+                        </p-->
+
+                        <span class="pull-left dropdown image-inner" style="margin-top: 0px; position: absolute; height: 30px; background: #000000; color: #ffffff; padding: 2px 8px 0 0px; opacity: 0.6";>
+                         
+                            #2343 - Madness Arch
+
+                     
+                          
+                        </span>
 
                         <!-- END dropdown-->
                     
@@ -203,10 +214,16 @@
 
 
         <% else %> 
-        <%= link_to (image_tag("login-bg/bg-3.jpg", :class => "img-responsive img-h", :alt =>"event image")), event_path(event) %>
+        <%# link_to (image_tag("login-bg/bg-3.jpg", :class => "img-responsive img-h", :alt =>"event image")), event_path(event) %>
+
+        
+
+        <%= link_to (image_tag("http://via.placeholder.com/405x285", :class => "img-responsive", :alt =>"event image")), event_path(event) %>
 
 
        <% end %> 
+
+       
 
 
 
@@ -279,15 +296,17 @@
                             <span class="star"></span>
                         </div>
 
-                        <%# if event.description.present? %>
+                        <%# if event.description.present? '%a, %e %b %Y %H:%M%>
 
                         <hr>
 
                         <div class="desc">
 
-                          <span class="in-inner"><i class="fa fa-fw fa-clock-o fa-2x" style="color:#337ab7; font-size: 20px;"></i><%= event.eventdate.strftime('%a, %e %b %Y %H:%M') %></span>
+                          <span class="in-inner"><i class="fa fa-fw fa-clock-o fa-2x" style="color:#337ab7; font-size: 20px;"></i><%= event.eventdate.strftime("%a, %e %b %Y %H:%M") %></span>
 
                           <hr>
+
+                          
                            
                             
 

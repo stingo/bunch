@@ -32,6 +32,9 @@ gem 'will_paginate', '~> 3.1', '>= 3.1.6'
 gem 'bootstrap-will_paginate', '~> 1.0'
 gem 'masonry-rails'
 
+gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
+                              :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
+
 
 
 #gem 'figaro', '~> 1.1', '>= 1.1.1'

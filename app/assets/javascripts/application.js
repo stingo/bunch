@@ -17,6 +17,7 @@
 //= require selectize
 //= require lightbox
 //= require masonry/jquery.masonry
+//= require bootstrap-datepicker
 //= require_tree .
 //= require bootstrap-sprockets
 //= require navdouble

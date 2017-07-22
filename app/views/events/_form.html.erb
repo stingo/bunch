@@ -77,20 +77,39 @@
                                     <br>
 
 
+                                    
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">START DATE & TIME</label>
-                                        <%= form.datetime_select :eventdate, :class => "form-control", :placeholder => "Event start time" %>
+                                        <label for="exampleInputEmail1">START DATE & TIME</label><br>
+                                        <%= form.datetime_select :eventdate, :class => "form-control", :placeholder => "Event end time" %>
                                         
                                     </div>
                                     <br>
 
+                                    <%# form.text_field :eventdate, :discard_minute=> true,  :placeholder => "Specify where it's held", data:{ provide:'datepicker' } %>
+
+
+
+
 
                                      <div class="form-group">
-                                        <label for="exampleInputEmail1">END DATE & TIME</label>
+                                        <label for="exampleInputEmail1">END DATE & TIME</label><br>
                                         <%= form.datetime_select :end_date, :class => "form-control", :placeholder => "Event end time" %>
                                         
                                     </div>
                                     <br>
+
+                                    
+
+
+
+                                <%# form.datetime_select :eventdate, { ampm: true, order: [:day, :month, :year] }, { class: "form-control" } %>
+
+
+                                  <div class="form-group">
+                                        <label for="exampleInputEmail1">VENUE</label>
+                                        <%= form.text_field :venue, :class => "form-control", :placeholder => "Specify where it's held" %>
+                                        
+                                    </div>
 
                                                                        <!--div class="form-group">
 
@@ -106,6 +125,10 @@
                                     </div-->
 
                                     <br>
+
+
+
+                                    
 
 
 
@@ -134,12 +157,7 @@
 
 
 
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">VENUE</label>
-                                        <%= form.text_field :venue, :class => "form-control", :placeholder => "Specify where it's held" %>
-                                        
-                                    </div>
-                                    <br>
+                                    
 
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">EVENT DESCRIPTION</label>
