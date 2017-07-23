@@ -19,6 +19,11 @@
 
 }
 
+.hrdash {
+    border-bottom: 1px dashed #ddd;
+}
+
+
 .gallery .image-caption {
     position: absolute !important;
     top: 15px !important;

@@ -163,6 +163,7 @@
              
     <% @events.each_slice(3) do |events| %>
   <div class="col-md-12 ">
+  <br>
 
     <% events.each do |event| %>
      <div class="col-md-4">
@@ -175,19 +176,19 @@
      <div class="image gallery-group-1 card shadow-wrapper">
                     <div class="image-inner img-responsive">
 
-                      <!-- START dropdown--><%# if event.profile == current_profile %>
-                        <!--span class="pull-right dropdown" style="margin-bottom: -60px";>
-                          <h1 data-toggle="dropdown" class="btn bg-white btn-flat btn-flat-icon"><em class="ion-android-more-vertical"></em></h1>
+                      <!-- START dropdown--><% if event.profile == current_profile %>
+                        <span class="pull-right dropdown" style="margin-bottom: -60px";>
+                          <h1 data-toggle="dropdown" class="btn bg-white btn-link btn-flat-icon"><em class="ion-android-more-vertical"></em></h1>
                           <ul role="menu" class="dropdown-menu md-dropdown-menu dropdown-menu-right">
                             <li><a href="#">Hide post</a></li>
-                            <li><%# link_to "Edit", edit_event_path(event), class: "" %></li>
+                            <li><%= link_to "Edit", edit_event_path(event), class: "" %></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="#">Report</a></li>
                           </ul>
-                        </span-->
+                        </span>
 
-                        <%# else %>
-                         <%# end %>
+                        <% else %>
+                         <% end %>
 
 
                          <!--p class="image-caption">
@@ -279,7 +280,7 @@
 <br>
 
                     <div class="image-info shadow-inner">
-                        <h4 class="title blk in-inner m-t-5"><% if event.name.present? %>
+                        <h4 class="title blk in-inner m-t-5 hrdash"><% if event.name.present? %>
                             
 
                             <%= link_to (truncate(sanitize(event.name.titleize, tags: %w(strong em p u br #ff0000 font-size)),:class =>"blk in-inner m-t-5", length: 30)), event %>
@@ -298,7 +299,7 @@
 
                         <%# if event.description.present? '%a, %e %b %Y %H:%M%>
 
-                        <hr>
+                        
 
                         <div class="desc">
 
@@ -321,14 +322,19 @@
 <span class="in-inner"><i class="fa fa-fw fa-map-marker fa-2x" style="color:#337ab7; font-size: 20px;"></i><%= render event.locations if event.locations.present? %> <%= event.venue if event.venue.present? %></span>
 
 
+<hr>
+
+
+
+
 
 
                             
                         </div>
 
 
-                         <hr>
-                         gggggg
+                     <span class="text-center"> like </span>    
+                        
                     </div>
                 </div>            
 
