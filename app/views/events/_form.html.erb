@@ -170,7 +170,7 @@
 
                                     <div class="form-group">
     <legend>FEATURED IMAGE</legend>
-    <%= form.file_field :eventpic %>
+    <%= form.file_field :eventpic, class: "btn btn-primary" %>
     <% if form.object.eventpic? %>
       <%= image_tag form.object.eventpic.large.url, :class => "img-responsive" %>
       <br>
