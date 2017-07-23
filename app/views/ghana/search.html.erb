@@ -1,0 +1,85 @@
+
+    <!-- begin search-banner -->
+    <div class="search-banner has-bg">
+      
+        <div class="bg-cover">
+        <%= image_tag("coverbw.jpg") %>
+
+        </div>
+
+        <div class="container">
+
+
+        
+           
+            
+
+             
+
+
+
+
+
+
+
+              <h1>1,293 Post for discussion</h1>
+             
+
+
+             <%# form_tag @urban_terms_path, method: :get do %>
+
+            <!--div class="input-group m-b-20">
+
+             <input type="text" name="q" id="q" placeholder="Search insideGH" data-localize="header.SEARCH" class="form-control input-lg">
+
+
+
+             <div class="mda-form-control-line" id="urban_terms-search-results"></div>
+                
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-lg"><i class="fa fa-search"></i></button>
+                </span>
+            </div-->
+
+            <%# end %>
+
+
+
+     
+
+
+
+<%= form_with url: search_path, local: true, method: :get, :class => "" do |form| %>
+
+   <div class="section-container">
+                        <div class="input-group m-b-20">
+                        <input type="text" name="q" id="q" placeholder="Search insideGH" data-localize="header.SEARCH" class="form-control input-lg">
+                            
+
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-inverse btn-lg"><i class="fa fa-search"></i></button>
+                            </span>
+
+
+
+                        </div>
+                    </div>
+
+     <% end %>       
+
+
+
+            <h5>Browse by Popular Categories</h5>
+            <ul class="popular-tags">
+                <li><a href="#"><i class="fa fa-circle text-danger"></i> CSS</a></li>
+                <li><a href="#"><i class="fa fa-circle text-primary"></i> Bootstrap</a></li>
+                <li><a href="#"><i class="fa fa-circle text-warning"></i> Javascript</a></li>
+                <li><a href="#"><i class="fa fa-circle"></i> jQuery</a></li>
+                <li><a href="#"><i class="fa fa-circle text-success"></i> Android</a></li>
+                <li><a href="#"><i class="fa fa-circle text-muted"></i> iOS</a></li>
+                <li><a href="#"><i class="fa fa-circle text-purple"></i> Template</a></li>
+            </ul>
+        </div>
+      
+    </div>
+    <!-- end search-banner -->

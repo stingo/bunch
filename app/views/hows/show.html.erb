@@ -1,0 +1,680 @@
+<!-- Main section-->
+
+
+
+
+
+    <!-- begin #page-title -->
+  
+       
+
+   
+    <!-- end #page-title -->
+      <main class="">
+        <!-- Page content-->
+
+
+
+
+
+
+
+        <section class="custombgD9E0E7">
+          <div class="container-overlap bg-red-500"><%# image_tag "cover2.jpg" %>
+
+          
+            
+           
+
+
+
+            <div class="container container-md">
+
+
+
+
+
+            <div class="row"><!--row begins for user info & Title-->
+                      <div class="col-xs-6 col-md-2 text-center"><!--row begins for Profile-->
+                        <!--div class="box-placeholder"-->
+
+                         <!--Profilephoto-->
+          <% if @how.profile.pesnavatar? %>
+        <%= link_to (image_tag(@how.profile.pesnavatar.url(:large), :class => "img-circle thumb48 btn-raised btn-circle text-center", :alt =>"user")), profile_path(@how.profile_id) %>
+
+
+         
+
+        <% else %> 
+        <%= link_to (image_tag("noimage.jpg", :class => "media-object img-circle thumb40 btn-raised btn-circle text-center", :alt =>"user")), profile_path(@how.profile_id) %>
+
+
+       <% end %> 
+
+       <!--end of Profilephoto-->
+
+       <div class="mt indark wht"><!--user  name begins-->
+
+
+
+<small>Posted by</small>
+
+
+<%= link_to @how.profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ @how.profile.last_name.split(" ").map(&:capitalize).join(" "), profile_path(@how.profile_id) if @how.profile.first_name || @how.profile.last_name %>
+
+<br>
+
+<span class="text-center top10px">
+
+
+
+
+
+
+
+
+
+
+
+       </div><!--user  ends -->
+
+
+          <!--/div-->
+            </div><!--row ends for profile-->
+
+ 
+
+                      <div class="col-xs-12 col-sm-6 col-md-8"><!--row begins for Title-->
+                        <!--div class="box-placeholder"-->
+
+
+
+
+                        <!--h2 class="text-center cap"><%#raw @how.name if @how.name? %></h2-->
+
+
+
+                        <% if @how.name? %>
+<h2 class="text-center cap"><%= best_in_place_if @how.profile == current_profile, @how, :name,  :as => :textarea, :class => "txtgrey", :ok_button => 'Save ',  :cancel_button => ' Cancel' %></h2>
+
+<% else %>
+
+<% end %>
+
+                        
+
+
+
+
+
+
+
+                        <div class="pull-right pl">
+                      <small class="">
+
+
+                      <%# time_ago_in_words(Time.now) %>
+
+
+      <% if @how.created_at > Time.now.beginning_of_day %>
+    <%="#{time_ago_in_words(@how.created_at)} ago"%> 
+<% else %>
+    <%= @how.created_at.strftime("%b %d, %Y %I:%M %p") %> 
+<% end %>
+
+                  
+
+
+                      
+                        
+
+
+
+                      <!--/div-->
+
+                    </small>
+
+
+
+                        </div>
+
+
+   
+
+                 
+
+                 <%# "Tagged:" if @how.tag_ids.present? %> <span class="tags text-center wht"><%# raw @how.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></span>
+
+        
+
+                 <hr>
+                       
+
+
+
+<span class="text-center">
+
+                       <div class="col-sm-3 bordered-right" style="font-size: 16px; color: #ffffff;"> 
+
+                       <p><em class="ion-eye icon-2x"></em>
+                      
+                       <strong><%# @how.impressionist_count(:filter=>:session_hash) %></strong>
+                       </p>
+
+                       </div>
+
+
+                    <div class="col-sm-3 bordered-right wht semi-bold"> 
+   
+                    
+                      <br>
+
+                       <%# link_to like_how_path(@how), method: :put do %>
+  
+  <%# "Like".pluralize(@how.get_upvotes.size) %> <%# @how.get_upvotes.size %>
+<%# end %>
+
+
+               
+
+                      </div>
+
+ 
+
+
+                     <div class="col-sm-3 bordered-right wht" style="font-size: 16px; color: #ffffff;"> 
+                   
+                     <a href="#comments">
+                      <p><em class="ion-chatbubble-working icon-2x"></em>
+                      
+                       <strong><%# @how.comment_threads.count == 0 ? "0" : @how.comment_threads.count %></strong>
+                       </p>
+
+                       </a>
+
+                       </div>
+
+
+
+
+
+
+                       <!-- Inner card-->
+                    
+                     
+                        <!-- START dropdown-->
+                        <div class="col-xs-3 dropdown">
+                          <span type="button" data-toggle="dropdown" class="wht" style="font-size: 16px; color: #ffffff;""><strong>
+
+                          <a href="#">
+
+                          <em class="ion-android-share-alt icon-2x"></em>
+                          <strong>Share</strong>
+
+                          </a>
+
+                          </strong></span>
+                          <ul role="menu" class="dropdown-menu md-dropdown-menu dropdown-menu-right">
+                            <li><a href="#">Hide post</a></li>
+                            <li><a href="#">Stop following</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Report</a></li>
+                          </ul>
+                        </div>
+                        <!-- END dropdown-->
+                        </span>
+                       
+
+
+
+
+<%# "Created on #{@definition.created_at.strftime("%m/%e/%Y at %w:%M %p")}, Last modified on #{@definition.updated_at.strftime("%m/%e/%Y at %w:%M %p")}" %>
+
+                    
+                      
+
+
+                     
+
+
+
+
+
+
+
+<!-- Widgets ends-->
+
+
+
+                      </div><!--row ends for Title-->
+
+
+<!--div class="col-xs-6 col-md-2">
+  
+likes
+
+
+</div-->
+
+
+
+
+
+
+            </div><!--row ends for user info & Title-->
+
+              
+
+            
+
+
+             
+
+
+            </div>
+          </div>
+
+
+
+
+
+          <div class="container container-sm">
+            <div class="card">
+
+
+
+
+
+
+              <div class="card-body reader-block">
+
+
+               <%# link_to like_how_path(@how), method: :put do %>
+  <i class="fa fa-fw fa-thumbs-up fa-2x"></i>
+  <%# @how.get_upvotes.size %>
+<%# end %>
+
+<%# link_to dislike_how_path(@how), method: :put do %>
+  <i class="fa fa-fw fa-thumbs-down fa-2x"></i>
+  <%# @how.get_downvotes.size %>
+<%# end %>
+
+
+
+
+
+
+
+                   <!--edit/destroy user's hows-->
+<% if profile_signed_in? && current_profile == @how.profile %>
+
+                    
+                  <div class="card-divider cutbtn20px"></div>
+                  <div class="card-offset cutbtn20px">
+                    <div class="card-offset-item text-right cutbtn20px">
+
+                   
+
+
+                    
+
+
+                         
+                <%= link_to edit_how_path(@how) do %><span class="btn-raised btn btn-warning btn-circle btn-lg"><em class="ion-edit"></em> <% end %></span>
+
+                
+
+
+                <%= link_to @how, method: :delete, remote: true, data: { confirm: 'Are you sure you want to delete this post?' } do %><span class="btn-raised btn btn-default btn-circle btn-lg"><em class="ion-close"></em> <% end %></span>
+
+               
+
+
+                    </div>
+                  </div>
+                   <% else %>
+
+                    <% end %>
+
+                  <!--edit end-->
+
+
+
+
+
+
+
+
+
+            <!-- Accordion-->
+        
+              <div class="panel-group" id="accordion">
+
+
+
+
+
+              <% if @how.howcover.presence %>
+            <div class="panel panel-inverse overflow-hidden">
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  <a class="accordion-toggle accordion-toggle-styled" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                      <i class="fa fa-plus-circle pull-right"></i> 
+                    Image
+                  </a>
+                </h3>
+              </div>
+              <div id="collapseOne" class="panel-collapse collapse in">
+                <div class="panel-body">
+
+
+                <!--images starts -->
+
+
+             <div class="card">
+
+
+        <%= image_tag(@how.howcover.url(:large), :class => "img-responsive", :alt =>"gallery") if @how.howcover? %>
+
+
+            </div>
+
+            <!--images ends -->
+                  
+
+
+
+                </div>
+              </div>
+            </div>
+
+            <% else %> 
+            <% end %>
+
+
+
+
+            
+
+
+
+
+
+
+<!--content text-->
+
+
+<% if @how.description.presence %>
+
+
+            <div class="panel panel-inverse overflow-hidden">
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                      <i class="fa fa-plus-circle pull-right"></i> 
+                    Duration: <%# @how.days %>d <%# @how.hours %>h <%# @how.minutes %>m
+                  </a>
+                </h3>
+              </div>
+              <div id="collapseThree" class="panel-collapse collapse in">
+                <div class="panel-body">
+
+
+<% if @how.subtitle.present? %>
+<strong class="text-center lead semi-bold text-db upcase"><%= best_in_place_if @how.profile == current_profile, @how, :subtitle,  :as => :textarea, :ok_button => 'Save ',  :cancel_button => ' Cancel' %></strong>
+
+<% else %>
+
+<% end %>
+
+
+                <!--text content-->
+
+
+
+
+                <!--strong class="text-center lead semi-bold text-db"><%#raw @how.subtitle.upcase if @how.subtitle %></strong-->
+              <br>
+               
+              <span class="lead"><%=raw @how.description if @how.description %></span>
+
+              
+
+             <h4></h4>
+
+
+
+             <% if @how.subtitle1.present? %>
+<strong class="text-center lead semi-bold text-db upcase"><%= best_in_place_if @how.profile == current_profile, @how, :subtitle1,  :as => :textarea, :ok_button => 'Save ',  :cancel_button => ' Cancel' %></strong>
+
+<% else %>
+
+<% end %>
+
+
+
+
+
+
+
+             <!--strong class="text-center lead semi-bold text-db"><%#raw @how.subtitle1.upcase if @how.subtitle1 %></strong-->
+              
+              <br>
+
+              <span class="lead"><%=raw @how.subbody1 if @how.subbody1 %></span>
+
+
+                <!--text content ends-->
+                  
+
+
+                </div>
+              </div>
+            </div>
+
+
+      <% else %> 
+      <% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- video-->
+
+
+
+
+
+            <% if @how.video.presence %>
+
+            <div class="panel panel-inverse overflow-hidden">
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                      <i class="fa fa-plus-circle pull-right"></i> 
+                    Video
+                  </a>
+                </h3>
+              </div>
+              <div id="collapseTwo" class="panel-collapse collapse">
+                <div class="panel-body text-center">
+
+                <%= embed(@how.video) %>
+                  
+
+                </div>
+              </div>
+            </div>
+
+            <% else %> 
+            <% end %>
+
+
+          </div>
+        
+          <!-- Accordion ends-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              
+
+                <br>
+
+                <%# "Tagged:" if @how.tag_ids.present? %> <span class="tags text-center "><%# raw @how.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></span>
+              
+
+              </div>
+            </div>
+
+
+
+
+            <!--div class="card">
+              <div class="card-body reader-block">
+                
+
+                <span class="text-center"><strong>BREAKING IT DOWN</strong></span>
+              <br>
+               
+
+              <span><%# @how.inaction %></span>
+
+
+
+
+
+                <div class="text-center">
+
+                      post  image
+
+                      </div>
+
+
+
+
+
+
+
+              </div>
+            </div-->
+
+
+
+            <!--breaking it down ends-->
+
+            <!--images starts -->
+
+
+
+
+
+            <!--Video starts -->
+
+
+             <div class="card">
+              <div class="card-body reader-block">
+                
+
+              
+
+
+                <!--div class="image gallery-group-1">
+                    <div class="image-inner">
+                       
+
+                       <a href="<%# @how.howcover.url(:large) if @howhowcover? %>" data-lightbox="gallery-group-1">
+
+
+
+
+        <%# image_tag(@how.howcover.url(:large), :class => "img-responsive", :alt =>"gallery") if @how.howcover? %>
+
+     
+
+</a>
+
+
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+              </div>
+            </div>
+
+            <Video ends -->
+
+<!-- comments card-->
+
+
+               <div class="card" id="comments">
+              <div class="card-body reader-block">
+                
+
+              
+                <%# render partial: "comments/template", locals: {commentable: @how, new_comment: @comment} %>  
+
+                  
+              
+              </div>
+            </div>
+
+
+
+
+          </div>
+
+
+
+        </section>
+
+        
+       
+                  
+
+              
+
+             
+               
+                    
+                     
+                
+
+                
+       
+    
+        <!-- Page footer-->
+        <footer><span>2017 - Centric app.</span></footer>
+      </main>
+
+<script src="https://cdn.rawgit.com/skipser/youtube-autoresize/master/youtube-autoresizer.js"></script>

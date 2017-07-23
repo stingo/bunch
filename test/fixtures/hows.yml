@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  howcover: MyString
+  video: MyString
+  duration: 2017-07-23 07:57:43
+  recipetips: MyText
+  slug: MyString
+  subtitle: MyString
+  subtitle1: MyString
+  subtitle2: MyString
+  subtitle3: MyString
+  subbody1: MyText
+  subbody2: MyText
+  subbody3: MyText
+
+two:
+  name: MyString
+  description: MyText
+  howcover: MyString
+  video: MyString
+  duration: 2017-07-23 07:57:43
+  recipetips: MyText
+  slug: MyString
+  subtitle: MyString
+  subtitle1: MyString
+  subtitle2: MyString
+  subtitle3: MyString
+  subbody1: MyText
+  subbody2: MyText
+  subbody3: MyText

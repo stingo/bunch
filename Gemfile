@@ -34,6 +34,9 @@ gem 'masonry-rails'
 
 gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
                               :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
+gem 'trix', '~> 0.9.0'
+gem 'friendly_id', '~> 5.1.0'
+gem 'best_in_place', github: 'bernat/best_in_place'
 
 
 

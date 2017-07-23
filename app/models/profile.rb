@@ -9,6 +9,7 @@ class Profile < ApplicationRecord
 	has_many :locations, through: :thing_locations
 	
 	has_many :events, dependent: :destroy
+	has_many :hows, dependent: :destroy
 
 	mount_uploader :pesnavatar, PesnavatarUploader
 	mount_uploader :profilecover, ProfilecoverUploader

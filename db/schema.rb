@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170717223657) do
+ActiveRecord::Schema.define(version: 20170723070203) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,27 @@ ActiveRecord::Schema.define(version: 20170717223657) do
     t.string "venue"
     t.datetime "end_date"
     t.index ["profile_id", "created_at"], name: "index_events_on_profile_id_and_created_at"
+  end
+
+  create_table "hows", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "howcover"
+    t.string "video"
+    t.datetime "duration"
+    t.text "recipetips"
+    t.string "slug"
+    t.string "subtitle"
+    t.string "subtitle1"
+    t.string "subtitle2"
+    t.string "subtitle3"
+    t.text "subbody1"
+    t.text "subbody2"
+    t.text "subbody3"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "profile_id"
+    t.index ["profile_id", "created_at"], name: "index_hows_on_profile_id_and_created_at"
   end
 
   create_table "locations", force: :cascade do |t|
