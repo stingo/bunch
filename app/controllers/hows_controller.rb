@@ -1,6 +1,7 @@
 class HowsController < ApplicationController
   before_action :authenticate_profile!, :except => [:index, :show]
   before_action :set_how, only: [:show, :edit, :update, :destroy]
+  impressionist actions: [:show,:index], unique: [:session_hash]
 
   # GET /hows
   # GET /hows.json
@@ -11,6 +12,7 @@ class HowsController < ApplicationController
   # GET /hows/1
   # GET /hows/1.json
   def show
+    impressionist(@how)
   end
 
   # GET /hows/new

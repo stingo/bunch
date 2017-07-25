@@ -38,6 +38,8 @@ gem 'trix', '~> 0.9.0'
 gem 'friendly_id', '~> 5.1.0'
 gem 'best_in_place', github: 'bernat/best_in_place'
 
+gem 'impressionist'
+
 
 
 #gem 'figaro', '~> 1.1', '>= 1.1.1'
