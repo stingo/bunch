@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery.turbolinks
+//= require jquery.easy-autocomplete
 //= require rails-ujs
 //= require turbolinks
 //= require selectize

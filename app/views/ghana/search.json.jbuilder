@@ -7,7 +7,7 @@ end
 
 json.events do
   json.array!(@events) do |event|
-    json.title event.title
+    json.name event.name
     json.url event_path(event)
   end
 end

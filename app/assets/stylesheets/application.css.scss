@@ -16,6 +16,8 @@
  *= require 'masonry/transitions'
  *= require 'masonry/infinitescroll'
  *= require bootstrap-datepicker3
+ *= require easy-autocomplete
+ *= require easy-autocomplete.themes
  *= require trix
  * require_tree .
  * require_self

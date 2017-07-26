@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :events
   resources :profiles
   resources :ghana, :only => [:index, :search]
+
+  get :search, controller: :ghana
   
 
 

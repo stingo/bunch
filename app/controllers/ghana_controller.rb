@@ -1,4 +1,9 @@
 class GhanaController < ApplicationController
+
+  #before_action :force_json, only: :search 
+
+
+
 def index
 
   
@@ -37,16 +42,25 @@ end
      #@urban_terms = UrbanTerm.all
   #end
 
-  #def search
-    #@hows = How.ransack(title_cont: params[:q]).result(distinct: true)
+  def search
+    @hows = How.ransack(title_cont: params[:q]).result(distinct: true)
+    @events = Event.ransack(title_cont: params[:q]).result(distinct: true)
     #@urban_terms = UrbanTerm.ransack(title_cont: params[:q]).result(distinct: true)
 
-    #respond_to do |format|
-      #format.html {}
-      #format.json {
-        #@hows = @hows.limit(5)
+    respond_to do |format|
+      format.html {}
+      format.json {
+        @hows = @hows.limit(5)
+        @events = @events.limit(5)
         #@urban_terms = @urban_terms.limit(5)
-      #}
-    #end
-  #end
+      }
+    end
+  end
+
+  #private 
+
+    #def force_json 
+        #request.format = :json 
+    #end 
+
 end

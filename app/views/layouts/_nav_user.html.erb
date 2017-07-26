@@ -78,22 +78,34 @@
             </ul>
         </div>
         <div class="row row2">
-            <div class="col-sm-2">
-                 <h2 style="margin:0px;"><span class="smallnav menu" onclick="openNav()">☰ Inside GH</span></h2>
-                <h1 style="margin:0px;"><span class="largenav wht"><%= link_to "Inside GH", root_path, turbolinks: true, :class => "navbar-brand upper-links wht" %> </h2>
+          
+
+
+                 <div class="col-sm-2">
+                <h2 style="margin:0px;"><span class="smallnav menu" onclick="openNav()">☰ inside GH</span></h2>
+                <h1 style="margin:0px;"><span class="largenav"><%= link_to "Inside GH", root_path, turbolinks: true, :class => "navbar-brand upper-links wht" %></span></h1>
+            
             </div>
-            <div class="flipkart-navbar-search smallsearch col-sm-8 col-xs-11">
+            <%= form_with url: search_path, local: true, method: :get, :class => "flipkart-navbar-search smallsearch col-sm-8 col-xs-11" do |form| %>
+          
+                
+
                 <div class="row">
                     <div class="input-group m-b-20">
                 
-                <input type="text" class="form-control input-lg" placeholder="Search the forums" />
+                <%= form.text_field :q, placeholder: "Autocomplete Search", data: { behavior: "autocomplete" }, class: "form-control input-lg" %>
+
+                
                 <span class="input-group-btn">
                     <button type="submit" class="btn btn-lg"><i class="fa fa-search"></i></button>
                 </span>
             </div>
 
                 </div>
-            </div>
+
+          
+
+ <% end %>
             <div class="cart largenav col-sm-2">
                 <a class="cart-button">
                     <svg class="cart-svg " width="16 " height="16 " viewBox="0 0 16 16 ">
