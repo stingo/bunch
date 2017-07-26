@@ -22,23 +22,13 @@
         <section class="custombgD9E0E7">
           <div class="container-overlap bg-red-500"><%# image_tag "cover2.jpg" %>
 
-          
-            
-           
-
-
-
             <div class="container container-md">
 
 
 
-
-
-            <div class="row"><!--row begins for user info & Title-->
-                      <div class="col-xs-6 col-md-2 text-center"><!--row begins for Profile-->
-                        <!--div class="box-placeholder"-->
-
-                         <!--Profilephoto-->
+<!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+<div class="row"><!-- Grid starts-->
+  <div class="col-6 col-md-2 text-center"><!--Profilephoto-->
           <% if @how.profile.pesnavatar? %>
         <%= link_to (image_tag(@how.profile.pesnavatar.url(:large), :class => "img-circle thumb48 btn-raised btn-circle text-center", :alt =>"user")), profile_path(@how.profile_id) %>
 
@@ -49,161 +39,57 @@
         <%= link_to (image_tag("noimage.jpg", :class => "media-object img-circle thumb40 btn-raised btn-circle text-center", :alt =>"user")), profile_path(@how.profile_id) %>
 
 
-       <% end %> 
+       <% end %>
+
+       <br>
+
+       <small>Posted by</small>
+
+
+<%= link_to @how.profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ @how.profile.last_name.split(" ").map(&:capitalize).join(" "), profile_path(@how.profile_id) if @how.profile.first_name || @how.profile.last_name %> 
+<small>
+<% if @how.created_at > Time.now.beginning_of_day %>
+    <%="#{time_ago_in_words(@how.created_at)} ago"%> 
+<% else %>
+    <%= @how.created_at.strftime("%b %d, %Y %I:%M %p") %> 
+<% end %></small>
 
        <!--end of Profilephoto-->
-
-       <div class="mt indark wht"><!--user  name begins-->
-
-
-
-<small>Posted by</small>
+         
+       </div><!-- Grid left-->
 
 
-<%= link_to @how.profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ @how.profile.last_name.split(" ").map(&:capitalize).join(" "), profile_path(@how.profile_id) if @how.profile.first_name || @how.profile.last_name %>
-
-<br>
-
-<span class="text-center top10px">
+  <div class="col-6 col-md-8"><!--mid for title-->
 
 
-
-
-
-
-
-
-
-
-
-       </div><!--user  ends -->
-
-
-          <!--/div-->
-            </div><!--row ends for profile-->
-
- 
-
-                      <div class="col-xs-12 col-sm-6 col-md-8"><!--row begins for Title-->
-                        <!--div class="box-placeholder"-->
-
-
-
-
-                        <!--h2 class="text-center cap"><%#raw @how.name if @how.name? %></h2-->
-
-
-
-                        <% if @how.name? %>
+<span class=" text-center"><% if @how.name? %>
 <h2 class="text-center cap"><%= best_in_place_if @how.profile == current_profile, @how, :name,  :as => :textarea, :class => "txtgrey", :ok_button => 'Save ',  :cancel_button => ' Cancel' %></h2>
 
 <% else %>
 
 <% end %>
+</span><!--title ends-->
 
-                        
+<hr>
 
+<div class="text-center">
 
-
-
-
-
-
-                        <div class="pull-right pl">
-                      <small class="">
-
-
-                      <%# time_ago_in_words(Time.now) %>
-
-
-      <% if @how.created_at > Time.now.beginning_of_day %>
-    <%="#{time_ago_in_words(@how.created_at)} ago"%> 
-<% else %>
-    <%= @how.created_at.strftime("%b %d, %Y %I:%M %p") %> 
-<% end %>
-
+                       Views <%= @how.impressionist_count(:filter=>:session_hash) %> | Likes 3 | Comments 2
                   
 
-
-                      
-                        
+    </div>
 
 
 
-                      <!--/div-->
-
-                    </small>
 
 
 
-                        </div>
 
+  </div><!-- Grid mid ends-->
+  <div class="col-6 col-md-2 text-center dropdown">
 
-   
-
-                 
-
-                 <%# "Tagged:" if @how.tag_ids.present? %> <span class="tags text-center wht"><%# raw @how.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></span>
-
-        
-
-                 <hr>
+  <!-- START dropdown-->
                        
-
-
-
-<span class="text-center">
-
-                       <div class="col-sm-3 bordered-right" style="font-size: 16px; color: #ffffff;"> 
-
-                       <p><em class="ion-eye icon-2x"></em>
-                      
-                       <strong><%= @how.impressionist_count(:filter=>:session_hash) %></strong>
-                       </p>
-
-                       </div>
-
-
-                    <div class="col-sm-3 bordered-right wht semi-bold"> 
-   
-                    
-                      <br>
-
-                       <%# link_to like_how_path(@how), method: :put do %>
-  
-  <%# "Like".pluralize(@how.get_upvotes.size) %> <%# @how.get_upvotes.size %>
-<%# end %>
-
-
-               
-
-                      </div>
-
- 
-
-
-                     <div class="col-sm-3 bordered-right wht" style="font-size: 16px; color: #ffffff;"> 
-                   
-                     <a href="#comments">
-                      <p><em class="ion-chatbubble-working icon-2x"></em>
-                      
-                       <strong><%# @how.comment_threads.count == 0 ? "0" : @how.comment_threads.count %></strong>
-                       </p>
-
-                       </a>
-
-                       </div>
-
-
-
-
-
-
-                       <!-- Inner card-->
-                    
-                     
-                        <!-- START dropdown-->
-                        <div class="col-xs-3 dropdown">
                           <span type="button" data-toggle="dropdown" class="wht" style="font-size: 16px; color: #ffffff;""><strong>
 
                           <a href="#">
@@ -220,21 +106,12 @@
                             <li role="separator" class="divider"></li>
                             <li><a href="#">Report</a></li>
                           </ul>
-                        </div>
-                        <!-- END dropdown-->
-                        </span>
                        
+                        <!-- END dropdown-->
+    
 
-
-
-
-<%# "Created on #{@definition.created_at.strftime("%m/%e/%Y at %w:%M %p")}, Last modified on #{@definition.updated_at.strftime("%m/%e/%Y at %w:%M %p")}" %>
-
-                    
-                      
-
-
-                     
+  </div><!-- right-->
+</div><!-- Grid ends-->
 
 
 
@@ -242,26 +119,10 @@
 
 
 
-<!-- Widgets ends-->
 
 
 
-                      </div><!--row ends for Title-->
-
-
-<!--div class="col-xs-6 col-md-2">
-  
-likes
-
-
-</div-->
-
-
-
-
-
-
-            </div><!--row ends for user info & Title-->
+          
 
               
 
