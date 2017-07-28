@@ -9,6 +9,8 @@ class HowsController < ApplicationController
     @hows = How.all
   end
 
+
+
   # GET /hows/1
   # GET /hows/1.json
   def show

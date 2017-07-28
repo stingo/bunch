@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170725064900) do
+ActiveRecord::Schema.define(version: 20170728052539) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -119,6 +119,21 @@ ActiveRecord::Schema.define(version: 20170725064900) do
     t.integer "event_id"
     t.integer "location_id"
     t.integer "profile_id"
+  end
+
+  create_table "urbanterms", force: :cascade do |t|
+    t.string "title"
+    t.text "meaning1"
+    t.text "meaning2"
+    t.text "origin"
+    t.text "example1"
+    t.text "example2"
+    t.text "example3"
+    t.text "example4"
+    t.string "termcover"
+    t.string "termaudio"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

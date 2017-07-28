@@ -3,12 +3,6 @@
     <body>
 
 
-
-
-
-
-
-
     
     <!-- begin #page-title -->
     <div id="page-title" class="page-title has-bg bg-red-500">
@@ -63,8 +57,189 @@
 
 
 
+   
+      <!-- Main section-->
+  
+        <section class="custombgD9E0E7">
+          <div class="container custombgD9E0E7">
+            <div class="row fh">
+     <!-- Left starts -->           
+
+              <!--div class="col-md-3 fh-md oa text-center">
+                <div class="p-lg">
+                  <h5>Left Column</h5>
+                  <p class="">Nullam pretium fermentum sapien ut convallis.</p>
+                </div>
+                <div class="p-lg">
+                  <p>Pellentesque sed purus libero. Nam eleifend, ipsum at suscipit pellentesque, diam enim dignissim nunc, eu egestas sem velit vel nunc. Phasellus vel nisl orci.</p>
+                </div>
+              </div-->
+        <!-- Left Ends -->  
+
+    
+            
+<!-- Mid starts --> <div class="col-md-9 fh-md oa">
 
 
+
+
+
+
+<!-- begin #content -->
+    <div id="content" class="conten">
+      <!-- begin breadcrumb -->
+      <!--ol class="breadcrumb pull-right">
+        <li><a href="javascript:;">Home</a></li>
+        <li><a href="javascript:;">Extra</a></li>
+        <li class="active">Search Results</li>
+      </ol-->
+      <!-- end breadcrumb -->
+      <!-- begin page-header -->
+      <!--h1 class="page-header">Search Results <small>3 results found</small></h1-->
+      <!-- end page-header -->
+      
+      <!-- begin row -->
+      <div class="row">
+          <!-- begin col-12 -->
+          <div class="col-md-12">
+              <div class="result-container">
+                  <!--div class="input-group m-b-20">
+                            <input type="text" class="form-control input-white" placeholder="Enter keywords here..." />
+                            <div class="input-group-btn">
+                                <button type="button" class="btn btn-inverse"><i class="fa fa-search"></i> Search</button>
+                                <button type="button" class="btn btn-inverse dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-cog"></i>
+                                </button>
+                                <ul class="dropdown-menu pull-right">
+                                    <li><a href="javascript:;">Action</a></li>
+                                    <li><a href="javascript:;">Another action</a></li>
+                                    <li><a href="javascript:;">Something else here</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="javascript:;">Separated link</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="dropdown pull-left">
+                            <a href="javascript:;" class="btn btn-white btn-white-without-border dropdown-toggle" data-toggle="dropdown">
+                                Filters by <span class="caret m-l-5"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="javascript:;">Posted Date</a></li>
+                                <li><a href="javascript:;">View Count</a></li>
+                                <li><a href="javascript:;">Total View</a></li>
+                                <li class="divider"></li>
+                                <li><a href="javascript:;">Location</a></li>
+                            </ul>
+                        </div>
+                        <div class="btn-group m-l-10 m-b-20">
+                            <a href="javascript:;" class="btn btn-white btn-white-without-border"><i class="fa fa-list"></i></a>
+                            <a href="javascript:;" class="btn btn-white btn-white-without-border"><i class="fa fa-th"></i></a>
+                            <a href="javascript:;" class="btn btn-white btn-white-without-border"><i class="fa fa-th-large"></i></a>
+                        </div-->
+                        <!--ul class="pagination pagination-without-border pull-right m-t-0">
+                            <li class="disabled"><a href="javascript:;">«</a></li>
+                            <li class="active"><a href="javascript:;">1</a></li>
+                            <li><a href="javascript:;">2</a></li>
+                            <li><a href="javascript:;">3</a></li>
+                            <li><a href="javascript:;">4</a></li>
+                            <li><a href="javascript:;">5</a></li>
+                            <li><a href="javascript:;">6</a></li>
+                            <li><a href="javascript:;">7</a></li>
+                            <li><a href="javascript:;">»</a></li>
+                        </ul!-->
+                        
+                        <br>
+
+                        <ul class="result-list">
+  <% @hows.reverse.each do |how| %>                           
+
+
+                            <li>
+                                <div class="col-md-1 text-center">
+                                   
+                                   <% if how.profile.pesnavatar? %>
+        <%= link_to (image_tag(how.profile.pesnavatar.url(:small), :class => "media-object img-circle img-responsive text-center", :alt =>"profile")), profile_path(how.profile_id) %>
+
+
+         
+
+        <% else %> 
+        <%= link_to (image_tag("noimage.jpg", :class => "media-object img-circle img-responsive text-center", :alt =>"profile")), profile_path(how.profile_id) %>
+
+
+       <% end %>
+
+
+       <h6 class="cutbtn20px inblack"><%= link_to how.profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ how.profile.last_name.split(" ").map(&:capitalize).join(" "), profile_path(how.profile_id) if how.profile.first_name || how.profile.last_name %></h6>
+
+
+
+
+                                </div>
+                                <div class="col-md-9 result-info">
+
+<h3 class="title" style="border-bottom: 1px dashed #ddd;"> <%= link_to how.name, how %> </h3>
+
+
+<p class="location"><%# timeago_tag Time.zone.now, :nojs => true, :limit => 10.days.ago %>, 
+
+<%# "Tagged:" if how.tag_ids.present? %> <span class="tags text-center"><%# raw how.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></span>
+
+</p>
+                                    
+
+
+<% if how.description.present? %>
+
+                                     <span class="desc">
+        
+
+
+
+        <%# truncate(sanitize(how.body, tags: %w(strong em p u br div ul ol li #ff0000 font-size)), length: 160) %>
+<%# link_to 'read more', how %> 
+
+
+<%#sanitize how.body.truncate(160) {link_to 'read more', how } %>
+
+<%=truncate(sanitize(how.description, tags: %w(strong em p u br #ff0000 font-size)), length: 260) {link_to 'continue', how } %>
+
+
+      <% else %>
+
+      <% end %>                             
+
+
+                                    
+  <%# if how.body.length > 250 %>
+    <%# raw truncate(how.body, length: 250) %>
+    <%# link_to '...Read more', '', class: "read-more-#{how.id}" %>
+    <!--script>
+      $('.read-more-<%= how.id %>').on('click', function(e) {
+        e.preventDefault()
+        $(this).parent().html('<%= escape_javascript how.description %>')
+      })
+    </script>
+  <%# else %>
+    <% #sanitize how.body %>
+  <%# end %>
+<div-->
+
+
+
+
+                                    <!--div class="btn-row">
+                                        <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Analytics"><i class="fa fa-fw fa-bar-chart-o"></i></a>
+                                        <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Tasks"><i class="fa fa-fw fa-tasks"></i></a>
+                                        <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Configuration"><i class="fa fa-fw fa-cog"></i></a>
+                                        <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Performance"><i class="fa fa-fw fa-tachometer"></i></a>
+                                        <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Users"><i class="fa fa-fw fa-user"></i></a>
+                                    </div-->
+                                </div>
+
+
+<div class="col-md-2 result-info text-center" style="border-left: 1px dashed #ddd; padding-right: 0px; margin-bottom: 0px margin-right: 0px !important;">
 
 
 
@@ -75,326 +250,145 @@
 
 
     
-    <!-- begin #content -->
-    <div id="content" class="content">
-        <!-- begin container -->
-        <div class="container">
-            <!-- begin row -->
-            <div class="row row-space-30">
-                <!-- begin col-9 -->
-                <div class="col-md-9">
-                    <!-- begin post-list -->
-                    <ul class="post-list">
-                        <li>
-                            <!-- begin post-left-info -->
-                            <div class="post-left-info">
-                                <div class="post-date">
-                                    <span class="day">03</span>
-                                    <span class="month">SEPT</span>
-                                </div>
-                                <div class="post-likes">
-                                    <i class="fa fa-heart-o"></i>
-                                    <span class="number">520</span>
-                                </div>
-                            </div>
-                            <!-- end post-left-info -->
-                            <!-- begin post-content -->
-                            <div class="post-content">
-                                <!-- begin post-image -->
-                                <div class="post-image post-image-with-carousel">
-                                    <!-- begin carousel -->
-                                    <div id="carousel-post" class="carousel slide" data-ride="carousel">
-                                        <!-- begin carousel-indicators -->
-                                        <ol class="carousel-indicators">
-                                            <li data-target="#carousel-post" data-slide-to="0" class="active"></li>
-                                            <li data-target="#carousel-post" data-slide-to="1"></li>
-                                            <li data-target="#carousel-post" data-slide-to="2"></li>
-                                        </ol>
-                                        <!-- end carousel-indicators -->
-                                        <!-- begin carousel-inner -->
-                                        <div class="carousel-inner">
-                                            <div class="item active">
-                                                <a href="post_detail.html"><img src="assets/img/post1.jpg" alt="" /></a>
-                                            </div>
-                                            <div class="item">
-                                                <a href="post_detail.html"><img src="assets/img/post2.jpg" alt="" /></a>
-                                            </div>
-                                            <div class="item">
-                                                <a href="post_detail.html"><img src="assets/img/post3.jpg" alt="" /></a>
-                                            </div>
-                                        </div>
-                                        <!-- end carousel-inner -->
-                                        <!-- begin carousel-control -->
-                                        <a class="left carousel-control" href="#carousel-post" role="button" data-slide="prev">
-                                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                                        </a>
-                                        <a class="right carousel-control" href="#carousel-post" role="button" data-slide="next">
-                                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                                        </a>
-                                        <!-- end carousel-control -->
-                                    </div>
-                                    <!-- end carousel -->
-                                </div>
-                                <!-- end post-image -->
-                                <!-- begin post-info -->
-                                <div class="post-info">
-                                    <h4 class="post-title">
-                                        <a href="post_detail.html">Bootstrap Carousel Blog Post</a>
-                                    </h4>
-                                    <div class="post-by">
-                                        Posted By <a href="#">admin</a> <span class="divider">|</span> <a href="#">Sports</a>, <a href="#">Mountain</a>, <a href="#">Bike</a> <span class="divider">|</span> 2 Comments
-                                    </div>
-                                    <div class="post-desc">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis elit dolor, elementum ut ligula ultricies, 
-                                        aliquet eleifend risus. Vivamus ut auctor sapien. Morbi at nibh id lorem viverra commodo augue dui, in pellentesque odio tempor.
-                                         Etiam lobortis vel enim vitae facilisis. Suspendisse ac faucibus diam, non malesuada nisl. Maecenas vel aliquam eros, sit amet gravida lacus. 
-                                         nteger dictum, nulla [...]
-                                    </div>
-                                </div>
-                                <!-- end post-info -->
-                                <!-- begin read-btn-container -->
-                                <div class="read-btn-container">
-                                    <a href="post_detail.html">Read More <i class="fa fa-angle-double-right"></i></a>
-                                </div>
-                                <!-- end read-btn-container -->
-                            </div>
-                            <!-- end post-content -->
-                        </li>
-                        <li>
-                            <!-- begin post-left-info -->
-                            <div class="post-left-info">
-                                <div class="post-date">
-                                    <span class="day">21</span>
-                                    <span class="month">OCT</span>
-                                </div>
-                                <div class="post-likes">
-                                    <i class="fa fa-heart-o"></i>
-                                    <span class="number">1,292</span>
-                                </div>
-                            </div>
-                            <!-- end post-left-info -->
-                            <!-- begin post-content -->
-                            <div class="post-content">
-                                <!-- begin post-image -->
-                                <div class="post-image">
-                                    <a href="post_detail.html"><img src="assets/img/post4.jpg" alt="" /></a>
-                                </div>
-                                <!-- end post-image -->
-                                <!-- begin post-info -->
-                                <div class="post-info">
-                                    <h4 class="post-title">
-                                        <a href="post_detail.html">Demonstration Blog Post</a>
-                                    </h4>
-                                    <div class="post-by">
-                                        Posted By <a href="#">admin</a> <span class="divider">|</span> <a href="#">Sports</a>, <a href="#">Parachute</a>, <a href="#">Blue Sky</a> <span class="divider">|</span> 12 Comments
-                                    </div>
-                                    <div class="post-desc">
-                                         Pellentesque sit amet lectus at urna tempus tincidunt. Curabitur aliquet nisl ut magna efficitur scelerisque. 
-                                         Mauris molestie elementum massa eget bibendum. Sed mauris tortor, condimentum nec efficitur lobortis, tempus ac metus. 
-                                         Donec molestie, tortor ut rhoncus consectetur, ipsum elit maximus nulla, a vulputate augue massa ac dolor. 
-                                         Quisque euismod ornare cursus. Ut consequat pellentesque mattis [...]
-                                    </div>
-                                </div>
-                                <!-- end post-info -->
-                                <!-- begin read-btn-container -->
-                                <div class="read-btn-container">
-                                    <a href="post_detail.html" class="read-btn">Read More <i class="fa fa-angle-double-right"></i></a>
-                                </div>
-                                <!-- end read-btn-container -->
-                            </div>
-                            <!-- end post-content -->
-                        </li>
-                        <li>
-                            <!-- begin post-left-info -->
-                            <div class="post-left-info">
-                                <div class="post-date">
-                                    <span class="day">18</span>
-                                    <span class="month">OCT</span>
-                                </div>
-                                <div class="post-likes">
-                                    <i class="fa fa-heart-o"></i>
-                                    <span class="number">1,743</span>
-                                </div>
-                            </div>
-                            <!-- end post-left-info -->
-                            <!-- begin post-content -->
-                            <div class="post-content">
-                                <!-- begin post-video -->
-                                <div class="post-video">
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/_5aKcpAhTOk" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                                <!-- end post-video -->
-                                <!-- begin post-info -->
-                                <div class="post-info">
-                                    <h4 class="post-title">
-                                        <a href="post_detail.html">Blog Post Video</a>
-                                    </h4>
-                                    <div class="post-by">
-                                        Posted By <a href="#">admin</a> <span class="divider">|</span> <a href="#">Movies</a>, <a href="#">Minions</a>, <a href="#">Trailer</a> <span class="divider">|</span> 1,292 Comments
-                                    </div>
-                                    <div class="post-desc">
-                                        Praesent maximus malesuada purus, sit amet auctor velit scelerisque nec. Suspendisse eget pellentesque dui, ut egestas orci. 
-                                        Proin eget massa et magna faucibus pulvinar. Quisque tortor orci, volutpat vel auctor non, varius a augue. Cras non ante arcu. 
-                                        Phasellus sit amet dolor non est dictum convallis vel eu lectus. 
-                                        Etiam consectetur non leo at auctor. Proin porttitor tellus arcu, in accumsan eros tincidunt eget[...]
-                                    </div>
-                                </div>
-                                <!-- end post-info -->
-                                <!-- begin read-btn-container -->
-                                <div class="read-btn-container">
-                                    <a href="post_detail.html">Read More <i class="fa fa-angle-double-right"></i></a>
-                                </div>
-                                <!-- end read-btn-container -->
-                            </div>
-                            <!-- end post-content -->
-                        </li>
-                        <li>
-                            <!-- begin post-left-info -->
-                            <div class="post-left-info">
-                                <div class="post-date">
-                                    <span class="day">12</span>
-                                    <span class="month">OCT</span>
-                                </div>
-                                <div class="post-likes">
-                                    <i class="fa fa-heart-o"></i>
-                                    <span class="number">3,673</span>
-                                </div>
-                            </div>
-                            <!-- end post-left-info -->
-                            <!-- begin post-content -->
-                            <div class="post-content">
-                                <!-- begin blockquote -->
-                                <blockquote>
-                                    "What is design? It's where you stand with a foot in two worlds - the world of technology and the world of people and human purposes - and you try to bring the two together."
-                                </blockquote>
-                                <!-- end blockquote -->
-                                <!-- begin post-info -->
-                                <div class="post-info">
-                                    <h4 class="post-title">
-                                        <a href="post_detail.html">Blockquote Post</a>
-                                    </h4>
-                                    <div class="post-by">
-                                        Posted By <a href="#">admin</a> <span class="divider">|</span> <a href="#">Animals</a>, <a href="#">Mountain</a>, <a href="#">Natural</a> <span class="divider">|</span> 2 Comments
-                                    </div>
-                                    <div class="post-desc">
-                                        Ut vulputate sem id egestas faucibus. Phasellus volutpat malesuada lacus, eu semper enim hendrerit a. 
-                                        Mauris vehicula sapien sit amet eros pharetra dignissim. Quisque sed elit hendrerit, tempor sem ut, faucibus massa. 
-                                        Aliquam rutrum id massa interdum dapibus. Proin augue massa, feugiat eu velit vitae, vulputate ullamcorper turpis. 
-                                        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.  [...]
-                                    </div>
-                                </div>
-                                <!-- end post-info -->
-                                <!-- begin read-btn-container -->
-                                <div class="read-btn-container">
-                                    <a href="post_detail.html" class="read-btn">Read More <i class="fa fa-angle-double-right"></i></a>
-                                </div>
-                                <!-- begin read-btn-container -->
-                            </div>
-                            <!-- end post-content -->
-                        </li>
-                    </ul>
-                    <!-- end post-list -->
+ 
+    <h5 class="text-center"> <a href="#">
+                       <i class="fa fa-eye fa-2x" style="color:#337ab7; font-size: 20px;"></i></a>
+                       <br><strong><%= how.impressionist_count(:filter=>:session_hash) %></strong></h5>
+     
+
+     <span class="">
+
+
+
+
+     <%# how.comment_threads.count == 0 ? "0" : how.comment_threads.count %> <%# link_to "Comment".pluralize(how.comment_threads.count == 0 ? "0" : how.comment_threads.count), how_path(how) %> 
+<hr>
+
+
+</span>
+
                     
-                    <div class="section-container">
-                        <!-- begin pagination -->
-                        <div class="pagination-container text-center">
-                            <ul class="pagination m-t-0 m-b-0">
-                                <li class="disabled"><a href="javascript:;">Prev</a></li>
+<span class="text-center">
+                      <%# link_to like_how_path(how), method: :put do %>
+
+  <i class="fa fa-fw fa-thumbs-up fa-lg"></i>
+
+  <%# how.get_upvotes.size %>
+<%# end %>
+
+<%# link_to dislike_how_path(how), method: :put do %>
+ <i class="fa fa-fw fa-thumbs-down fa-lg"></i>
+  <%# how.get_downvotes.size %>
+<%# end %>
+
+</span>
+
+
+     
+
+
+</div>
+                            
+
+                            </li>
+
+<% end %>
+
+
+
+                            
+
+
+
+                        </ul>
+
+                        <%# will_paginate @hows %>
+
+
+                        <div class="clearfix">
+                            <ul class="pagination pagination-without-border pull-right">
+                                <li class="disabled"><a href="javascript:;">«</a></li>
                                 <li class="active"><a href="javascript:;">1</a></li>
                                 <li><a href="javascript:;">2</a></li>
                                 <li><a href="javascript:;">3</a></li>
-                                <li><span class="text">...</span></li>
-                                <li><a href="javascript:;">1797</a></li>
-                                <li><a href="javascript:;">Next</a></li>
+                                <li><a href="javascript:;">4</a></li>
+                                <li><a href="javascript:;">5</a></li>
+                                <li><a href="javascript:;">6</a></li>
+                                <li><a href="javascript:;">7</a></li>
+                                <li><a href="javascript:;">»</a></li>
                             </ul>
                         </div>
-                        <!-- end pagination -->
                     </div>
-                </div>
-                <!-- end col-9 -->
-                <!-- begin col-3 -->
-                <div class="col-md-3">
-                    <!-- begin section-container -->
-                    <div class="section-container">
-                        <div class="input-group sidebar-search">
-                            <input type="text" class="form-control" placeholder="Search Our Stories..." />
-                            <span class="input-group-btn">
-                                <button class="btn btn-inverse" type="button"><i class="fa fa-search"></i></button>
-                            </span>
-                        </div>
-                    </div>
-                    <!-- end section-container -->
-                    <!-- begin section-container -->
-                    <div class="section-container">
-                        <h4 class="section-title"><span>Categories</span></h4>
-                        <ul class="sidebar-list">
-                            <li><a href="#">Sports (20)</a></li>
-                            <li><a href="#">Outdoor Sports (45)</a></li>
-                            <li><a href="#">Indoor Sports (1,292)</a></li>
-                            <li><a href="#">Video Shooting (12)</a></li>
-                            <li><a href="#">Drone (229)</a></li>
-                            <li><a href="#">Uncategorized (1,482)</a></li>
-                        </ul>
-                    </div>
-                    <!-- end section-container -->
-                    <!-- begin section-container -->
-                    <div class="section-container">
-                        <h4 class="section-title"><span>Recent Post</span></h4>
-                        <ul class="sidebar-recent-post">
-                            <li>
-                                <div class="info">
-                                    <h4 class="title"><a href="#">Lorem ipsum dolor sit amet.</a></h4>
-                                    <div class="date">23 December 2015</div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="info">
-                                    <h4 class="title"><a href="#">Vestibulum a cursus arcu.</a></h4>
-                                    <div class="date">16 December 2015</div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="info">
-                                    <h4 class="title"><a href="#">Nullam vel condimentum lectus. </a></h4>
-                                    <div class="date">7 December 2015</div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="info">
-                                    <h4 class="title"><a href="#">Proin in dui egestas libero posuere ullamcorper. </a></h4>
-                                    <div class="date">20 November 2015</div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="info">
-                                    <h4 class="title"><a href="#">Interdum et malesuada fames ac ante.</a></h4>
-                                    <div class="date">5 November 2015</div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- end section-container -->
-                    <!-- begin section-container -->
-                    <div class="section-container">
-                        <h4 class="section-title"><span>Follow Us</span></h4>
-                        <ul class="sidebar-social-list">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                        </ul>
-                    </div>
-                    <!-- end section-container -->
-                </div>
-                <!-- end col-3 -->
-            </div>
-            <!-- end row -->
-        </div>
-        <!-- end container -->
+          </div>
+          <!-- end col-12 -->
+      </div>
+      <!-- end row -->
     </div>
     <!-- end #content -->
+
+
+
+
+
+
+
+
+<!-- Mid Ends --> </div>      
+
+               
+
+     
+
+
+              <!-- Right starts -->
+              
+
+              <div class="col-md-3 fh-md oa text-center">
+                <div class="p-lg">
+                  <h5>Right Column</h5>
+                  <p class="text-center">Nullam pretium fermentum sapien ut convallis.</p>
+                </div>
+                <div class="p-lg">
+                  <p>Pellentesque sed purus libero. Nam eleifend, ipsum at suscipit pellentesque, diam enim dignissim nunc, eu egestas sem velit vel nunc. Phasellus vel nisl orci.</p>
+
+              </div>
+              </div>
+
+
+            
+
+            </div>
+          </div>
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+   <!-- Right Ends -->
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
     <!-- begin #footer -->
     <div id="footer" class="footer">
@@ -402,87 +396,63 @@
         <div class="container">
             <!-- begin row -->
             <div class="row">
-                <!-- begin col-3 -->
-                <div class="col-md-3 col-sm-3">
+                <!-- begin col-4 -->
+                <div class="col-md-4">
                     <!-- begin section-container -->
                     <div class="section-container">
-                        <h4 class="footer-title">Categories</h4>
-                        <ul class="categories">
-                            <li><a href="#">Sports</a></li>
-                            <li><a href="#">Outdoor Sports</a></li>
-                            <li><a href="#">Indoor Sports</a></li>
-                            <li><a href="#">Video Shooting</a></li>
-                            <li><a href="#">Drone</a></li>
-                            <li><a href="#">Uncategorized</a></li>
-                        </ul>
+                        <h4>About Color Admin</h4>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultrices ipsum in elementum porttitor. 
+                            Cras porttitor fermentum nisl non elementum. Nulla in placerat libero. Nulla pharetra purus eget diam dictum 
+                            ullamcorper nec et eros. Suspendisse consectetur nulla ut volutpat aliquam.
+                        </p>
                     </div>
                     <!-- end section-container -->
                 </div>
-                <!-- end col-3 -->
-                <!-- begin col-3 -->
-                <div class="col-md-3 col-sm-3">
+                <!-- end col-4 -->
+                <!-- begin col-4 -->
+                <div class="col-md-4">
                     <!-- begin section-container -->
                     <div class="section-container">
-                        <h4 class="footer-title">Archives</h4>
-                        <ul class="archives">
-                            <li><a href="#">June 2015</a> <span class="total">(102)</span></li>
-                            <li><a href="#">May 2015</a> <span class="total">(46)</span></li>
-                            <li><a href="#">April 2015</a> <span class="total">(84)</span></li>
-                            <li><a href="#">March 2015</a> <span class="total">(67)</span></li>
-                            <li><a href="#">February 2015</a> <span class="total">(99)</span></li>
-                            <li><a href="#">January 2015</a> <span class="total">(113)</span></li>
-                            <li><a href="#">December 2014</a> <span class="total">(25)</span></li>
-                        </ul>
-                    </div>
-                    <!-- end section-container -->
-                </div>
-                <!-- end col-3 -->
-                <!-- begin col-3 -->
-                <div class="col-md-3 col-sm-3">
-                    <!-- begin section-container -->
-                    <div class="section-container">
-                        <h4 class="footer-title">Recent Posts</h4>
-                        <ul class="recent-post">
+                        <h4>Latest Post</h4>
+                        <ul class="latest-post">
                             <li>
-                                <h4>
-                                    <a href="#">Nam ut urna hendrerit</a>
-                                    <span class="time">February 22, 2015</span>
-                                </h4>
+                                <h4 class="title"><a href="#">Consectetur adipiscing elit ultrices</a></h4>
+                                <p class="time">yesterday 10:42am</p>
                             </li>
                             <li>
-                                <h4>
-                                    <a href="#">Class aptent taciti sociosqu</a>
-                                    <span class="time">July 15, 2015</span>
-                                </h4>
+                                <h4 class="title"><a href="#">Fusce ultrices ipsum porttitor</a></h4>
+                                <p class="time">10/04/2015</p>
                             </li>
                             <li>
-                                <h4>
-                                    <a href="#">Donec rhoncus arcu</a>
-                                    <span class="time">March 21, 2015</span>
-                                </h4>
+                                <h4 class="title"><a href="#">Cras porttitor fermentum adipiscing</a></h4>
+                                <p class="time">02/04/2015</p>
                             </li>
                         </ul>
                     </div>
                     <!-- end section-container -->
                 </div>
-                <!-- end col-3 -->
-                <!-- begin col-3 -->
-                <div class="col-md-3 col-sm-3">
+                <!-- end col-4 -->
+                <!-- begin col-4 -->
+                <div class="col-md-4">
+                    <!-- begin section-container -->
                     <div class="section-container">
-                        <h4 class="footer-title">About Color Admin</h4>
-                        <address>
-                            <strong>Twitter, Inc.</strong><br />
-                            795 Folsom Ave, Suite 600<br />
-                            San Francisco, CA 94107<br />
-                            P: (123) 456-7890<br />
-                            <br />
-                            <strong>Full Name</strong><br />
-                            <a href="#">first.last@example.com</a>
-                        </address>
+                        <h4>New Users</h4>
+                        <!--ul class="new-user">
+                            <li><a href="#"><img src="assets/img/user-1.jpg" alt="" /></a></li>
+                            <li><a href="#"><img src="assets/img/user-2.jpg" alt="" /></a></li>
+                            <li><a href="#"><img src="assets/img/user-3.jpg" alt="" /></a></li>
+                            <li><a href="#"><img src="assets/img/user-4.jpg" alt="" /></a></li>
+                            <li><a href="#"><img src="assets/img/user-5.jpg" alt="" /></a></li>
+                            <li><a href="#"><img src="assets/img/user-6.jpg" alt="" /></a></li>
+                            <li><a href="#"><img src="assets/img/user-7.jpg" alt="" /></a></li>
+                            <li><a href="#"><img src="assets/img/user-8.jpg" alt="" /></a></li>
+                            <li><a href="#"><img src="assets/img/user-9.jpg" alt="" /></a></li>
+                        </ul-->
                     </div>
                     <!-- end section-container -->
                 </div>
-                <!-- end col-3 -->
+                <!-- end col-4 -->
             </div>
             <!-- end row -->
         </div>
@@ -491,18 +461,11 @@
     <!-- end #footer -->
     <!-- begin #footer-copyright -->
     <div id="footer-copyright" class="footer-copyright">
-        <!-- begin container -->
         <div class="container">
-            <span class="copyright">&copy; 2015 SeanTheme All Right Reserved</span>
-            <ul class="social-media-list">
-                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fa fa-rss"></i></a></li>
-            </ul>
+            &copy; 2014 - 2015 SeanTheme All Right Reserved
+            <a href="#">Contact Us</a> 
+            <a href="#">Knowledge Base</a>
         </div>
-        <!-- end container -->
     </div>
     <!-- end #footer-copyright -->
     <!-- begin theme-panel -->
@@ -519,19 +482,35 @@
         </div>
     </div>
     <!-- end theme-panel -->
+  
+  <!-- ================== BEGIN BASE JS ================== -->
+ 
+  <!-- ================== END BASE JS ================== -->
+  
+  <script>    
+      $(document).ready(function() {
+          App.init();
+      });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
-    <!-- ================== BEGIN BASE JS ================== -->
-    <script src="assets/plugins/jquery/jquery-1.9.1.min.js"></script>
-    <script src="assets/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
-    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-    <!--[if lt IE 9]>
-        <script src="assets/crossbrowserjs/html5shiv.js"></script>
-        <script src="assets/crossbrowserjs/respond.min.js"></script>
-        <script src="assets/crossbrowserjs/excanvas.min.js"></script>
-    <![endif]-->
-    <script src="assets/plugins/jquery-cookie/jquery.cookie.js"></script>
-    <script src="assets/js/apps.min.js"></script>
-    <!-- ================== END BASE JS ================== -->
+    
     
     <script>
         $(document).ready(function() {

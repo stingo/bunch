@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Urbanterms</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Meaning1</th>
+      <th>Meaning2</th>
+      <th>Origin</th>
+      <th>Example1</th>
+      <th>Example2</th>
+      <th>Example3</th>
+      <th>Example4</th>
+      <th>Termcover</th>
+      <th>Termaudio</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @urbanterms.each do |urbanterm| %>
+      <tr>
+        <td><%= urbanterm.title %></td>
+        <td><%= urbanterm.meaning1 %></td>
+        <td><%= urbanterm.meaning2 %></td>
+        <td><%= urbanterm.origin %></td>
+        <td><%= urbanterm.example1 %></td>
+        <td><%= urbanterm.example2 %></td>
+        <td><%= urbanterm.example3 %></td>
+        <td><%= urbanterm.example4 %></td>
+        <td><%= urbanterm.termcover %></td>
+        <td><%= urbanterm.termaudio %></td>
+        <td><%= link_to 'Show', urbanterm %></td>
+        <td><%= link_to 'Edit', edit_urbanterm_path(urbanterm) %></td>
+        <td><%= link_to 'Destroy', urbanterm, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Urbanterm', new_urbanterm_path %>

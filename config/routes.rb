@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :urbanterms
   resources :hows
   resources :locations
   devise_for :profiles
