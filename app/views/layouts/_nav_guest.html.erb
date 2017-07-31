@@ -1,97 +1,301 @@
 
-<div class="flipkart-navbar navbar header navbar navbar-default navbar-fixed-top" style="background-color: #e3f2fd;" >
-    <div class="container">
-        <div class="row row1">
-            <ul class="largenav pull-right">
-                <li class="upper-links blk"><a class="links" href="http://clashhacks.in/">Link 1</a></li>
-               
-                <li class="upper-links blk"><a class="links" href="http://clashhacks.in/">Link 3</a></li>
-                <li class="upper-links blk"><a class="links" href="http://clashhacks.in/">Link 4</a></li>
-                <li class="upper-links blk"><a class="links" href="http://clashhacks.in/">Link 5</a></li>
-                <li class="upper-links blk"><a class="links" href="http://clashhacks.in/">Link 6</a></li>
-                <li class="upper-links blk">
-                    <a class="links blk" href="http://clashhacks.in/">
-                        <svg class="" width="16px" height="12px" style="overflow: visible;">
-                            <path d="M8.037 17.546c1.487 0 2.417-.93 2.417-2.417H5.62c0 1.486.93 2.415 2.417 2.415m5.315-6.463v-2.97h-.005c-.044-3.266-1.67-5.46-4.337-5.98v-.81C9.01.622 8.436.05 7.735.05 7.033.05 6.46.624 6.46 1.325v.808c-2.667.52-4.294 2.716-4.338 5.98h-.005v2.972l-1.843 1.42v1.376h14.92v-1.375l-1.842-1.42z" fill="#fff"></path>
-                        </svg>
-                    </a>
-                </li>
+<nav class="[ navbar navbar-fixed-top ][ navbar-bootsnipp animate ] " role="navigation">
+        <div class="[ container ]">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="[ navbar-header ]">
+                <button type="button" class="[ navbar-toggle ]" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="[ sr-only ]">Toggle navigation</span>
+                    <span class="[ icon-bar ]"></span>
+                    <span class="[ icon-bar ]"></span>
+                    <span class="[ icon-bar ]"></span>
+                </button>
+                <div class="[ animbrand ]">
+                    
+
+                    <%= link_to "inside GH", root_path, turbolinks: true, :class => "[ navbar-brand ][ animate ]" %>
 
 
-
-
-
-                <li class="upper-links blk">
-
-             <%= link_to('Login', new_profile_session_path, :class => "upper-links blk")  %>/ 
-
-        <%= link_to('Register', new_profile_registration_path, :class => "upper-links blk" ) %>
-                </li>
-            </ul>
-        </div>
-        <div class="row row2">
-            <div class="col-sm-2">
-                <h2 style="margin:0px;"><span class="smallnav menu" onclick="openNav()">☰ inside GH</span></h2>
-                <h1 style="margin:0px;"><span class="largenav">inside GH</span></h1>
-            </div>
-
-
-<%= form_with url: search_path, local: true, method: :get, :class => "flipkart-navbar-search smallsearch col-sm-8 col-xs-11" do |form| %>
-          
-                
-
-                <div class="row">
-                    <div class="input-group m-b-20">
-                
-                <%= form.text_field :q, placeholder: "Autocomplete Search", data: { behavior: "autocomplete" }, class: "form-control input-lg" %>
-
-
-
-                
-                <span class="input-group-btn">
-                    <button type="submit" class="btn btn-lg btn-success"><i class="fa fa-search"></i></button>
-                </span>
-            </div>
 
                 </div>
+            </div>
 
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="[ collapse navbar-collapse ]" id="bs-example-navbar-collapse-1">
+                <ul class="[ nav navbar-nav navbar-right ]">
+                    <li class="[ visible-xs ]">
+
+                        <!--form action="http://bootsnipp.com/search" method="GET" role="search">
+                            <div class="[ input-group ]">
+                                <input type="text" class="[ form-control ]" name="q" placeholder="Search for snippets">
+                                <span class="[ input-group-btn ]">
+                                    <button class="[ btn btn-primary ]" type="submit"><span class="[ glyphicon glyphicon-search ]"></span></button>
+                                    <button class="[ btn btn-danger ]" type="reset"><span class="[ glyphicon glyphicon-remove ]"></span></button>
+                                </span>
+                            </div>
+                        </form-->
+
+
+
+                                  <%= form_with url: search_path, local: true, method: :get, :class => "input-group" do |form| %>
+               <div class="[ input-group ]">
+                <!--input type="text" name="q" id="q" class="form-control" placeholder="Search insideGH" data-behavior= "autocomplete"  /-->
+                <%= form.text_field :q, placeholder: "Autocomplete Search", class: "form-control" %>
+
+                <span class="[ input-group-btn ]">
+                                    <button class="[ btn btn-primary ]" type="submit"><span class="[ glyphicon glyphicon-search ]"></span></button>
+
+                <button class="[ btn btn-danger ]" type="reset"><span class="[ glyphicon glyphicon-remove ]"></span></button>
+                                </span>
+              </div >
+        
+            <% end %>
+
+
+
+                    </li>
+
+                    <li class="[ hidden-xs ]"><a href="#toggle-search" class="[ animate ]">Search&nbsp<span class="[ glyphicon glyphicon-search ]"></span></a></li>
+
+
+
+                    <li><a href="#" class="[ animate ]">About</a></li>
+                    <li>
+                    
+                    <%= link_to 'Urban Term', urbanterms_path, :class => "[ animate ]media-heading" %></li>
+
+
+                        <li><a href="#" class="[ dropdown-toggle ][ animate ]" data-toggle="dropdown">Resources <span class="[ caret ]"></span></a></li>
+
+
+                        <ul class="[ dropdown-menu ]" role="menu">
+                            
+
+                            <li><a href="#" class="[ animate ]">Blog <span class="[ pull-right glyphicon glyphicon-pencil ]"></span></a></li>
+
+
+                            <li><a href="#" class="[ animate ]">List of resources <span class="[ pull-right glyphicon glyphicon-align-justify ]"></span></a></li>
+                            <li><a href="#" class="[ animate ]">Download Bootstrap <span class="[ pull-right glyphicon glyphicon-cloud-download ]"></span></a></li>
+                            <li class="[ dropdown-header ]">Bootstrap Templates</li>
+                            <li><a href="#" class="[ animate ]">Browse Templates <span class="[ pull-right glyphicon glyphicon-shopping-cart ]"></span></a></li>
+                            <li class="[ dropdown-header ]">Builders</li>
+                            <li><a href="#" class="[ animate ]">Form Builder <span class="[ pull-right glyphicon glyphicon-tasks ]"></span></a></li>
+                            <li><a href="#" class="[ animate ]">Button Builder <span class="[ pull-right glyphicon glyphicon-edit ]"></span></a></li>
+                        </ul>
+                    </li>
+                    <li class="[ dropdown ]">
+                        <a href="#" class="[ dropdown-toggle ][ animate ]" data-toggle="dropdown">Snippets <span class="[ caret ]"></span></a>
+                        <ul class="[ dropdown-menu ]" role="menu">
+                            <li><a href="#" class="[ animate ]">Featured <span class="[ pull-right glyphicon glyphicon-star ]"></span></a></li>
+                            <li><a href="#" class="[ animate ]">Tags  <span class="[ pull-right glyphicon glyphicon-tags ]"></span></a></li>
+                            <li class="[ dropdown-header ]">By Bootstrap Version</li>
+                            <li><a href="#" class="[ animate ]">3.2.0</a></li>
+                            <li><a href="#" class="[ animate ]">3.1.0</a></li>
+                            <li><a href="#" class="[ animate ]">3.0.3</a></li>
+                            <li><a href="#" class="[ animate ]">3.0.1</a></li>
+                            <li><a href="#" class="[ animate ]">3.0.0</a></li>
+                            <li><a href="#" class="[ animate ]">2.3.2</a></li>
+                        </ul>
+                    </li>
+
+                   
+                 
+
+
+
+
+
+                 <li class="dropdown">
+            <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14">
+              <i class="fa fa-bell-o"></i>
+              <span class="label">5</span>
+            </a>
+            <ul class="dropdown-menu media-list pull-right animated fadeInDown">
+                            <li class="dropdown-header">Notifications (5)</li>
+                            <li class="media">
+                                <a href="javascript:;">
+                                    <div class="media-left"><i class="fa fa-bug media-object bg-red"></i></div>
+                                    <div class="media-body">
+                                        <h6 class="media-heading">Server Error Reports</h6>
+                                        <div class="text-muted f-s-11">3 minutes ago</div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="media">
+                                <a href="javascript:;">
+                                    <div class="media-left"><img src="assets/img/user-1.jpg" class="media-object" alt="" /></div>
+                                    <div class="media-body">
+                                        <h6 class="media-heading">John Smith</h6>
+                                        <p>Quisque pulvinar tellus sit amet sem scelerisque tincidunt.</p>
+                                        <div class="text-muted f-s-11">25 minutes ago</div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="media">
+                                <a href="javascript:;">
+                                    <div class="media-left"><img src="assets/img/user-2.jpg" class="media-object" alt="" /></div>
+                                    <div class="media-body">
+                                        <h6 class="media-heading">Olivia</h6>
+                                        <p>Quisque pulvinar tellus sit amet sem scelerisque tincidunt.</p>
+                                        <div class="text-muted f-s-11">35 minutes ago</div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="media">
+                                <a href="javascript:;">
+                                    <div class="media-left"><i class="fa fa-plus media-object bg-green"></i></div>
+                                    <div class="media-body">
+                                        <h6 class="media-heading"> New User Registered</h6>
+                                        <div class="text-muted f-s-11">1 hour ago</div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="media">
+                                <a href="javascript:;">
+                                    <div class="media-left"><i class="fa fa-envelope media-object bg-blue"></i></div>
+                                    <div class="media-body">
+                                        <h6 class="media-heading"> New Email From John</h6>
+                                        <div class="text-muted f-s-11">2 hour ago</div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="dropdown-footer text-center">
+                                <a href="javascript:;">View more</a>
+                            </li>
+            </ul>
+          </li>
           
-
- <% end %>
-
+         <li>
 
 
+                               
+                                    <%# image_tag("noimage.jpg", :class => "img-circle img30") %> 
 
 
-            
+                                    <span class="hidden-md hidden-sm hidden-xs">
 
 
 
-            <div class="cart largenav col-sm-2">
-                <a class="cart-button">
-                    <svg class="cart-svg " width="16 " height="16 " viewBox="0 0 16 16 ">
-                        <path d="M15.32 2.405H4.887C3 2.405 2.46.805 2.46.805L2.257.21C2.208.085 2.083 0 1.946 0H.336C.1 0-.064.24.024.46l.644 1.945L3.11 9.767c.047.137.175.23.32.23h8.418l-.493 1.958H3.768l.002.003c-.017 0-.033-.003-.05-.003-1.06 0-1.92.86-1.92 1.92s.86 1.92 1.92 1.92c.99 0 1.805-.75 1.91-1.712l5.55.076c.12.922.91 1.636 1.867 1.636 1.04 0 1.885-.844 1.885-1.885 0-.866-.584-1.593-1.38-1.814l2.423-8.832c.12-.433-.206-.86-.655-.86 " fill="#fff "></path>
-                    </svg> Link
-                    <span class="item-number ">0</span>
-                </a>
+
+
+
+
+
+
+
+                                    </span>
+                               
+                            </li>
+      
+                    
+
+
+                </ul>
             </div>
         </div>
+        <div class="[ bootsnipp-search animate ]">
+            <div class="[ container ]">
+               <%= form_with url: search_path, local: true, method: :get, :class => "smallsearch col-sm-8 col-xs-11" do |form| %>
+                    <div class="[ input-group ]">
+
+                        <!--input type="text" class="[ form-control ]" name="q" placeholder="Search for snippets and hit enter"-->
+
+                        <%= form.text_field :q, placeholder: "Search and select or hit enter", data: { behavior: "autocomplete" }, class: "form-control input-lg" %>
+                        
+
+                        <span class="[ input-group-btn ]">
+                            <button class="[ btn btn-danger ]" type="reset"><span class="[ glyphicon glyphicon-remove ]"></span></button>
+                        </span>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+
+<!-- Second Nav -->
+
+
+  <nav class="[ navbar navbar-defaulf ][ navbar-bootsnipp animate ] topclose-20" role="navigation">
+        <div class="[ container ]">
+
+    <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <!--a class="navbar-brand" href="#">Brand</a-->
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse animated fadeIn" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav animated fadeIn navbar-left">
+        <!--li class="active"><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li-->
+        
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"> DROPDOWN <span class="caret"></span></a>
+          <ul class="dropdown-menu animated flipInX" role="menu">
+            <li><a href="#"> SubItem 01</a></li>
+            <li><a href="#"> SubItem 02</a></li>
+            <li><a href="#"> SubItem 03</a></li>
+          </ul>
+        </li>
+      </ul>
+
+
+
+
+
+    <div class="col-sm-3 col-md-8">
+
+
+
+
+
+                <%= form_with url: search_path, local: true, method: :get, :class => "m-t-1" do |form| %>
+
+  
+                        <div class="input-group">
+                        
+                        <%= form.text_field :q, placeholder: "Search and select or hit enter", data: { behavior: "autocomplete" }, class: "form-control input-lg" %>
+                            
+
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-inverse btn-lg"><i class="fa fa-search"></i></button>
+                            </span>
+
+
+
+                    </div>
+
+     <% end %> 
+
     </div>
-</div>
-<div id="mySidenav" class="sidenav">
-    <div class="container" style="background-color: #2874f0; padding-top: 10px;">
-        <span class="sidenav-heading">Home</span>
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-    </div>
-    <a href="#">yes</a>
-    <a href="#">Link</a>
-    <a href="#">Link</a>
-    <a href="#">Link</a>
-</div>
- <br><br> <br><br> <br><br> 
 
 
 
 
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#">Link</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Action</a></li>
+          <li><a href="#">Another action</a></li>
+          <li><a href="#">Something else here</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Separated link</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div><!-- /.navbar-collapse -->
+    
 
-
+  </div><!-- /.container-fluid -->
+</nav>

@@ -15,6 +15,7 @@ class HowsController < ApplicationController
   # GET /hows/1.json
   def show
     impressionist(@how)
+     @how = How.find(params[:id])
   end
 
   # GET /hows/new

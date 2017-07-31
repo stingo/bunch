@@ -53,7 +53,8 @@
 
    <div class="section-container">
                         <div class="input-group m-b-20">
-                        <input type="text" name="q" id="q" placeholder="Search insideGH" data-localize="header.SEARCH" class="form-control input-lg">
+                        
+                        <%= form.text_field :q, placeholder: "Search and select or hit enter", data: { behavior: "autocomplete" }, class: "form-control input-lg" %>
                             
 
                             <span class="input-group-btn">
@@ -65,7 +66,9 @@
                         </div>
                     </div>
 
-     <% end %>       
+     <% end %> 
+
+    
 
 
 

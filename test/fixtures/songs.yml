@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  songcover: MyString
+  audio: MyString
+  lyricstitle: MyString
+  lyricsbody1: MyText
+  lyricschorus1: MyText
+  lyricsbody2: MyText
+  lyricschorus2: MyText
+  lyricsbody3: MyText
+  lyricschorus3: MyText
+  youtubeurl: 
+  slug: MyString
+
+two:
+  title: MyString
+  description: MyText
+  songcover: MyString
+  audio: MyString
+  lyricstitle: MyString
+  lyricsbody1: MyText
+  lyricschorus1: MyText
+  lyricsbody2: MyText
+  lyricschorus2: MyText
+  lyricsbody3: MyText
+  lyricschorus3: MyText
+  youtubeurl: 
+  slug: MyString

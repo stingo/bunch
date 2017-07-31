@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170728052539) do
+ActiveRecord::Schema.define(version: 20170729125500) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -113,6 +113,23 @@ ActiveRecord::Schema.define(version: 20170728052539) do
     t.index ["confirmation_token"], name: "index_profiles_on_confirmation_token", unique: true
     t.index ["email"], name: "index_profiles_on_email", unique: true
     t.index ["reset_password_token"], name: "index_profiles_on_reset_password_token", unique: true
+  end
+
+  create_table "songs", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "songcover"
+    t.string "audio"
+    t.text "lyricsbody1"
+    t.text "lyricschorus1"
+    t.text "lyricsbody2"
+    t.text "lyricschorus2"
+    t.text "lyricsbody3"
+    t.text "lyricschorus3"
+    t.string "youtubeurl"
+    t.string "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "thing_locations", force: :cascade do |t|

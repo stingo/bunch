@@ -12,14 +12,26 @@
 //
 //= require jquery
 //= require jquery.turbolinks
+//= require jquery_ujs
+//= require turbolinks
 //= require jquery.easy-autocomplete
 //= require rails-ujs
-//= require turbolinks
 //= require selectize
 //= require lightbox
 //= require masonry/jquery.masonry
 //= require bootstrap-datepicker
 //= require trix
+//= require btsnip
 //= require_tree .
 //= require bootstrap-sprockets
 //= require navdouble
+
+            $(window).scroll(function() {
+			if ($(document).scrollTop() > 150) {
+                alert('hi');
+			$('.logo').height(200);
+
+			}
+			else {
+    		$('.logo').height(100);
+			});

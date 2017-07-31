@@ -19,6 +19,21 @@
 
 }
 
+.topgap {
+
+  margin-top: 53px !important;
+
+}
+
+.topdouble{
+  top:-30px;
+}
+
+.topclose-20{
+  margin-top: 0px !important;
+margin-bottom: 0px !important;
+}
+
 .hrdash {
     border-bottom: 1px dashed #ddd;
 }
