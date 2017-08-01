@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
-<!--[if !IE]><!-->
-<html lang="en">
-<!--<![endif]-->
-<head>
-  <meta charset="utf-8" />
-  <title>Color Admin | Support Forum Front End Theme</title>
-  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
-  <meta content="" name="description" />
-  <meta content="" name="author" />
- 
-</head>
+
 <body>
     <!-- begin #header -->
     
@@ -66,38 +54,39 @@
     <!-- end search-banner -->
     
  <!-- begin page-title -->
-    <div class="page-title has-bg">
-        <!-- begin bg-cover -->
+    <!--div class="page-title has-bg">
+         begin bg-cover 
         <div class="bg-cover">
-            <%= image_tag("cover3.jpg") %>
+            <%# image_tag("cover3.jpg") %>
         </div>
-        <!-- end bg-cover -->
-        <!-- begin container -->
+         end bg-cover 
+        begin container 
         <div class="container">
-
-
-        
-            <!-- begin breadcrumb -->
+             begin breadcrumb 
             <ul class="breadcrumb">
                 <li><a href="index.html">Forum</a></li>
                 <li><a href="category_list.html">Twitter Bootstrap</a></li>
                 <li class="active">&nbsp;</li>
             </ul>
-            <!-- end breadcrumb -->
+             end breadcrumb -
             <h1>How to create an arrow by using css?</h1>
         </div>
-        <!-- end container -->
-    </div>
+         end container 
+    </div-->
     <!-- end page-title -->
 
 
 
    
       <!-- Main section-->
-  
-        <section class="custombgD9E0E7">
-          <div class="container custombgD9E0E7">
+
+
+        <section class="bgplain">
+          <div class="container bgplain">
             <div class="row fh">
+
+
+
      <!-- Left starts -->           
 
               <!--div class="col-md-3 fh-md oa text-center">
@@ -113,7 +102,7 @@
 
     
             
-<!-- Mid starts --> <div class="col-md-9 fh-md oa">
+<!-- Mid starts --> <div class="col-md-10 fh-md oa">
 
 
 
@@ -137,144 +126,107 @@
       <div class="row">
           <!-- begin col-12 -->
           <div class="col-md-12">
-              <div class="result-container">
-                  <!--div class="input-group m-b-20">
-                            <input type="text" class="form-control input-white" placeholder="Enter keywords here..." />
-                            <div class="input-group-btn">
-                                <button type="button" class="btn btn-inverse"><i class="fa fa-search"></i> Search</button>
-                                <button type="button" class="btn btn-inverse dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-cog"></i>
-                                </button>
-                                <ul class="dropdown-menu pull-right">
-                                    <li><a href="javascript:;">Action</a></li>
-                                    <li><a href="javascript:;">Another action</a></li>
-                                    <li><a href="javascript:;">Something else here</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="javascript:;">Separated link</a></li>
-                                </ul>
-                            </div>
-                        </div>
 
-                        <div class="dropdown pull-left">
-                            <a href="javascript:;" class="btn btn-white btn-white-without-border dropdown-toggle" data-toggle="dropdown">
-                                Filters by <span class="caret m-l-5"></span>
-                            </a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="javascript:;">Posted Date</a></li>
-                                <li><a href="javascript:;">View Count</a></li>
-                                <li><a href="javascript:;">Total View</a></li>
-                                <li class="divider"></li>
-                                <li><a href="javascript:;">Location</a></li>
-                            </ul>
-                        </div>
-                        <div class="btn-group m-l-10 m-b-20">
-                            <a href="javascript:;" class="btn btn-white btn-white-without-border"><i class="fa fa-list"></i></a>
-                            <a href="javascript:;" class="btn btn-white btn-white-without-border"><i class="fa fa-th"></i></a>
-                            <a href="javascript:;" class="btn btn-white btn-white-without-border"><i class="fa fa-th-large"></i></a>
-                        </div-->
-                        <!--ul class="pagination pagination-without-border pull-right m-t-0">
-                            <li class="disabled"><a href="javascript:;">«</a></li>
-                            <li class="active"><a href="javascript:;">1</a></li>
-                            <li><a href="javascript:;">2</a></li>
-                            <li><a href="javascript:;">3</a></li>
-                            <li><a href="javascript:;">4</a></li>
-                            <li><a href="javascript:;">5</a></li>
-                            <li><a href="javascript:;">6</a></li>
-                            <li><a href="javascript:;">7</a></li>
-                            <li><a href="javascript:;">»</a></li>
-                        </ul!-->
+
+
+
+<div class="result-container"><!--container results-->
+
+        <!-- begin #content -->
+        <div id="conten" class="conten">
+            <!-- begin breadcrumb -->
+<br><br>
+ 
+
+
+  <%# @events.each do |event| %>       
+       <%# link_to(image_tag(event.eventpic.url(:thumb)), event.eventpic.url(:large), data: { lightbox: "example-set", title: event.name }) %>  
+  <%# end %>
+ 
+
+
+
+
+  
+             
+    <% @events.each_slice(3) do |events| %>
+  <div class="col-md-12 ">
+  <br>
+
+    <% events.each do |event| %>
+     <div class="col-md-4">
+
+
+  <!-- begin row -->
+     
+ 
+
+     <div class="image gallery-group-1 card shadow-wrapper">
+                    <div class="image-inner img-responsive">
+
+                      <!-- START dropdown--><% if event.profile == current_profile %>
+                        <span class="pull-right dropdown" style="margin-bottom: -60px";>
+                          <h1 data-toggle="dropdown" class="btn bg-white btn-link btn-flat-icon"><em class="ion-android-more-vertical"></em></h1>
+                          <ul role="menu" class="dropdown-menu md-dropdown-menu dropdown-menu-right">
+                            <li><a href="#">Hide post</a></li>
+                            <li><%= link_to "Edit", edit_event_path(event), class: "" %></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Report</a></li>
+                          </ul>
+                        </span>
+
+                        <% else %>
+                         <% end %>
+
+
+                         <!--p class="image-caption">
+                            #2343 - Madness Arch
+                        </p-->
+
+                        <span class="pull-left dropdown image-inner" style="margin-top: 0px; position: absolute; height: 30px; background: #000000; color: #ffffff; padding: 2px 8px 0 0px; opacity: 0.6";>
+                         
+                            #2343 - Madness Arch
+
+                     
+                          
+                        </span>
+
+                        <!-- END dropdown-->
+                    
                         
-                        <br>
 
-                        <ul class="result-list">
-  <% @hows.reverse.each do |how| %>                           
+                         <%# link_to image_tag(("login-bg/bg-3.jpg"), data: { lightbox: "gallery-group-1" }, :class => "img-responsive"), image_tag(("login-bg/bg-3.jpg"), :class => "img-responsive") %>
 
 
-                            <li>
-                                <div class="col-md-1 text-center">
-                                   
-                                   <% if how.profile.pesnavatar? %>
-        <%= link_to (image_tag(how.profile.pesnavatar.url(:small), :class => "media-object img-circle img-responsive text-center", :alt =>"profile")), profile_path(how.profile_id) %>
+        <% if event.eventpic? %>
+        <%= link_to (image_tag(event.eventpic.url(:thumb), :class => "img-responsive", :alt =>"event image")), event_path(event) %>
 
-
-         
 
         <% else %> 
-        <%= link_to (image_tag("noimage.jpg", :class => "media-object img-circle img-responsive text-center", :alt =>"profile")), profile_path(how.profile_id) %>
+        <%# link_to (image_tag("login-bg/bg-3.jpg", :class => "img-responsive img-h", :alt =>"event image")), event_path(event) %>
 
-
-       <% end %>
-
-
-       <h6 class="cutbtn20px inblack"><%= link_to how.profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ how.profile.last_name.split(" ").map(&:capitalize).join(" "), profile_path(how.profile_id) if how.profile.first_name || how.profile.last_name %></h6>
-
-
-
-
-                                </div>
-                                <div class="col-md-9 result-info">
-
-<h3 class="title" style="border-bottom: 1px dashed #ddd;"> <%= link_to how.name, how %> </h3>
-
-
-<p class="location"><%# timeago_tag Time.zone.now, :nojs => true, :limit => 10.days.ago %>, 
-
-<%# "Tagged:" if how.tag_ids.present? %> <span class="tags text-center"><%# raw how.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></span>
-
-</p>
-                                    
-
-
-<% if how.description.present? %>
-
-                                     <span class="desc">
         
 
+        <%= link_to (image_tag("http://via.placeholder.com/405x285", :class => "img-responsive", :alt =>"event image")), event_path(event) %>
 
 
-        <%# truncate(sanitize(how.body, tags: %w(strong em p u br div ul ol li #ff0000 font-size)), length: 160) %>
-<%# link_to 'read more', how %> 
+       <% end %> 
 
-
-<%#sanitize how.body.truncate(160) {link_to 'read more', how } %>
-
-<%=truncate(sanitize(how.description, tags: %w(strong em p u br #ff0000 font-size)), length: 260) {link_to 'continue', how } %>
-
-
-      <% else %>
-
-      <% end %>                             
-
-
-                                    
-  <%# if how.body.length > 250 %>
-    <%# raw truncate(how.body, length: 250) %>
-    <%# link_to '...Read more', '', class: "read-more-#{how.id}" %>
-    <!--script>
-      $('.read-more-<%= how.id %>').on('click', function(e) {
-        e.preventDefault()
-        $(this).parent().html('<%= escape_javascript how.description %>')
-      })
-    </script>
-  <%# else %>
-    <% #sanitize how.body %>
-  <%# end %>
-<div-->
+       
 
 
 
 
-                                    <!--div class="btn-row">
-                                        <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Analytics"><i class="fa fa-fw fa-bar-chart-o"></i></a>
-                                        <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Tasks"><i class="fa fa-fw fa-tasks"></i></a>
-                                        <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Configuration"><i class="fa fa-fw fa-cog"></i></a>
-                                        <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Performance"><i class="fa fa-fw fa-tachometer"></i></a>
-                                        <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Users"><i class="fa fa-fw fa-user"></i></a>
-                                    </div-->
-                                </div>
+   
 
 
-<div class="col-md-2 result-info text-center" style="border-left: 1px dashed #ddd; padding-right: 0px; margin-bottom: 0px margin-right: 0px !important;">
+
+                             
+
+                            
+                        
+                     
+                      
 
 
 
@@ -283,77 +235,118 @@
 
 
 
-
-    
- 
-    <h5 class="text-center"> <a href="#">
-                       <i class="fa fa-eye fa-2x" style="color:#337ab7; font-size: 20px;"></i></a>
-                       <br><strong><%= how.impressionist_count(:filter=>:session_hash) %></strong></h5>
-     
-
-     <span class="">
+  
 
 
 
 
-     <%# how.comment_threads.count == 0 ? "0" : how.comment_threads.count %> <%# link_to "Comment".pluralize(how.comment_threads.count == 0 ? "0" : how.comment_threads.count), how_path(how) %> 
+              <div class="card-offset p0">
+                  <div class="card-offset-item text-left">
+
+                  <% if event.profile.pesnavatar? %>
+        <%= link_to (image_tag(event.profile.pesnavatar.url(:small), :class => "pull-left m-r-10 img-circle img-responsive thumb35 btn-raised btn-circle", :alt =>"profile")), profile_path(event.profile_id) %>
+
+
+        <% else %> 
+        <%= link_to (image_tag("noimage.jpg", :class => "pull-left m-r-10 img-circle img-responsive thumb35 btn-raised btn-circle", :alt =>"profile")), profile_path(event.profile_id) %>
+
+
+       <% end %><br><span class="m-r-20" style="margin-top:60px"> <small>by</small> <%= link_to event.profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ event.profile.last_name.split(" ").map(&:capitalize).join(" "), profile_path(event.profile_id) if event.profile.first_name || event.profile.last_name %></span>
+
+
+       
+                  </div>
+                </div>
+
+
+
+
+
+                        
+                    </div>
+
+<br>
+
+                    <div class="image-info shadow-inner">
+                        <h4 class="title blk in-inner m-t-5 hrdash"><% if event.name.present? %>
+                            
+
+                            <%= link_to (truncate(sanitize(event.name.titleize, tags: %w(strong em p u br #ff0000 font-size)),:class =>"blk in-inner m-t-5", length: 30)), event %>
+
+                            <% else %>
+
+                            <% end %></h4>
+                        
+                        <div class="rating">
+                            <span class="star active"></span>
+                            <span class="star active"></span>
+                            <span class="star"></span>
+                            <span class="star"></span>
+                            <span class="star"></span>
+                        </div>
+
+                        <%# if event.description.present? '%a, %e %b %Y %H:%M%>
+
+                        
+
+                        <div class="desc">
+
+                          <span class="in-inner"><i class="fa fa-fw fa-clock-o fa-2x" style="color:#337ab7; font-size: 20px;"></i><%= event.eventdate.strftime("%a, %e %b %Y %H:%M") %></span>
+
+                          <hr>
+
+                          
+                           
+                            
+
+                            <%#truncate(sanitize(event.description, tags: %w(strong em p u br #ff0000 font-size)), length: 160) {link_to 'continue', event } %>
+
+                            <%# else %>
+                            <%# end %>
+
+
+
+
+<span class="in-inner"><i class="fa fa-fw fa-map-marker fa-2x" style="color:#337ab7; font-size: 20px;"></i><%= render event.locations if event.locations.present? %> <%= event.venue if event.venue.present? %></span>
+
+
 <hr>
 
 
-</span>
 
-                    
-<span class="text-center">
-                      <%# link_to like_how_path(how), method: :put do %>
-
-  <i class="fa fa-fw fa-thumbs-up fa-lg"></i>
-
-  <%# how.get_upvotes.size %>
-<%# end %>
-
-<%# link_to dislike_how_path(how), method: :put do %>
- <i class="fa fa-fw fa-thumbs-down fa-lg"></i>
-  <%# how.get_downvotes.size %>
-<%# end %>
-
-</span>
-
-
-     
-
-
-</div>
-                            
-
-                            </li>
-
-<% end %>
 
 
 
                             
-
-
-
-                        </ul>
-
-                        <%# will_paginate @hows %>
-
-
-                        <div class="clearfix">
-                            <ul class="pagination pagination-without-border pull-right">
-                                <li class="disabled"><a href="javascript:;">«</a></li>
-                                <li class="active"><a href="javascript:;">1</a></li>
-                                <li><a href="javascript:;">2</a></li>
-                                <li><a href="javascript:;">3</a></li>
-                                <li><a href="javascript:;">4</a></li>
-                                <li><a href="javascript:;">5</a></li>
-                                <li><a href="javascript:;">6</a></li>
-                                <li><a href="javascript:;">7</a></li>
-                                <li><a href="javascript:;">»</a></li>
-                            </ul>
                         </div>
+
+
+                     <span class="text-center"> like </span>    
+                        
                     </div>
+                </div>            
+
+ 
+
+
+
+
+     </div>
+    <% end %>
+  </div>
+
+<% end %>   
+
+
+
+        </div><!-- end #content -->
+                 
+</div><!--container results-->
+       
+
+
+
+
           </div>
           <!-- end col-12 -->
       </div>
@@ -378,7 +371,7 @@
               <!-- Right starts -->
               
 
-              <div class="col-md-3 fh-md oa text-center">
+              <div class="col-md-2 fh-md oa text-center">
                 <div class="p-lg">
                   <h5>Right Column</h5>
                   <p class="text-center">Nullam pretium fermentum sapien ut convallis.</p>
