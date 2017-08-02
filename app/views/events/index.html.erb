@@ -186,9 +186,202 @@
                         
                         <br>
 
-                        <ul class="result-list">
-  hhhhh
-                            </ul>
+<ul class="result-list">
+
+
+
+<% @events.each_slice(3) do |events| %>
+  <div class="col-md-12 ">
+  <br>
+
+    <% events.each do |event| %>
+     <div class="col-md-4">
+
+
+  <!-- begin row -->
+     
+ 
+
+     <div class="image gallery-group-1 card shadow-wrapper">
+                    <div class="image-inner img-responsive">
+
+                      <!-- START dropdown--><% if event.profile == current_profile %>
+                        <span class="pull-right dropdown" style="margin-bottom: -60px";>
+                          <h1 data-toggle="dropdown" class="btn bg-white btn-link btn-flat-icon"><em class="ion-android-more-vertical"></em></h1>
+                          <ul role="menu" class="dropdown-menu md-dropdown-menu dropdown-menu-right">
+                            <li><a href="#">Hide post</a></li>
+                            <li><%= link_to "Edit", edit_event_path(event), class: "" %></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Report</a></li>
+                          </ul>
+                        </span>
+
+                        <% else %>
+                         <% end %>
+
+
+                         <!--p class="image-caption">
+                            #2343 - Madness Arch
+                        </p-->
+
+                        <span class="pull-left dropdown image-inner" style="margin-top: 0px; position: absolute; height: 30px; background: #000000; color: #ffffff; padding: 2px 8px 0 0px; opacity: 0.6";>
+                         
+                            #2343 - Madness Arch
+
+                     
+                          
+                        </span>
+
+                        <!-- END dropdown-->
+                    
+                        
+
+                         <%# link_to image_tag(("login-bg/bg-3.jpg"), data: { lightbox: "gallery-group-1" }, :class => "img-responsive"), image_tag(("login-bg/bg-3.jpg"), :class => "img-responsive") %>
+
+
+        <% if event.eventpic? %>
+        <%= link_to (image_tag(event.eventpic.url(:thumb), :class => "img-responsive", :alt =>"event image")), event_path(event) %>
+
+
+        <% else %> 
+        <%# link_to (image_tag("login-bg/bg-3.jpg", :class => "img-responsive img-h", :alt =>"event image")), event_path(event) %>
+
+        
+
+        <%= link_to (image_tag("http://via.placeholder.com/405x285", :class => "img-responsive", :alt =>"event image")), event_path(event) %>
+
+
+       <% end %> 
+
+       
+
+
+
+
+   
+
+
+
+                             
+
+                            
+                        
+                     
+                      
+
+
+
+
+
+
+
+
+  
+
+
+
+
+              <div class="card-offset p0">
+                  <div class="card-offset-item text-left">
+
+                  <% if event.profile.pesnavatar? %>
+        <%= link_to (image_tag(event.profile.pesnavatar.url(:small), :class => "pull-left m-r-10 img-circle img-responsive thumb35 btn-raised btn-circle", :alt =>"profile")), profile_path(event.profile_id) %>
+
+
+        <% else %> 
+        <%= link_to (image_tag("noimage.jpg", :class => "pull-left m-r-10 img-circle img-responsive thumb35 btn-raised btn-circle", :alt =>"profile")), profile_path(event.profile_id) %>
+
+
+       <% end %><br><span class="m-r-20" style="margin-top:60px"> <small>by</small> <%= link_to event.profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ event.profile.last_name.split(" ").map(&:capitalize).join(" "), profile_path(event.profile_id) if event.profile.first_name || event.profile.last_name %></span>
+
+
+       
+                  </div>
+                </div>
+
+
+
+
+
+                        
+                    </div>
+
+<br>
+
+                    <div class="image-info shadow-inner">
+                        <h4 class="title blk in-inner m-t-5 hrdash"><% if event.name.present? %>
+                            
+
+                            <%= link_to (truncate(sanitize(event.name.titleize, tags: %w(strong em p u br #ff0000 font-size)),:class =>"blk in-inner m-t-5", length: 30)), event %>
+
+                            <% else %>
+
+                            <% end %></h4>
+                        
+                        <div class="rating">
+                            <span class="star active"></span>
+                            <span class="star active"></span>
+                            <span class="star"></span>
+                            <span class="star"></span>
+                            <span class="star"></span>
+                        </div>
+
+                        <%# if event.description.present? '%a, %e %b %Y %H:%M%>
+
+                        
+
+                        <div class="desc">
+
+                          <span class="in-inner"><i class="fa fa-fw fa-clock-o fa-2x" style="color:#337ab7; font-size: 20px;"></i><%= event.eventdate.strftime("%a, %e %b %Y %H:%M") %></span>
+
+                          <hr>
+
+                          
+                           
+                            
+
+                            <%#truncate(sanitize(event.description, tags: %w(strong em p u br #ff0000 font-size)), length: 160) {link_to 'continue', event } %>
+
+                            <%# else %>
+                            <%# end %>
+
+
+
+
+<span class="in-inner"><i class="fa fa-fw fa-map-marker fa-2x" style="color:#337ab7; font-size: 20px;"></i><%= render event.locations if event.locations.present? %> <%= event.venue if event.venue.present? %></span>
+
+
+<hr>
+
+
+
+
+
+
+                            
+                        </div>
+
+
+                     <span class="text-center"> like </span>    
+                        
+                    </div>
+                </div>            
+
+ 
+
+
+
+
+     </div>
+    <% end %>
+  </div>
+
+<% end %>   
+
+
+
+
+</ul>
                         </div>
                     </div>
           </div>
