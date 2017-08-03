@@ -43,9 +43,11 @@ gem 'impressionist'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'ransack', '~> 1.7'
 gem "binding_of_caller" 
+gem 'fog-aws'
 
 
-#gem 'figaro', '~> 1.1', '>= 1.1.1'
+
+gem 'figaro'
 #gem 'inf', '~> 0.0.9'
 
 
