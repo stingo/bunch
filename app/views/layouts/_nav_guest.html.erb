@@ -104,14 +104,22 @@
 
 
 
-                 <li class="dropdown">
+                  
+
+
+
+
+<li class="dropdown">
             <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14">
               <i class="fa fa-bell-o"></i>
               <span class="label">5</span>
             </a>
-            <ul class="dropdown-menu media-list pull-right animated fadeInDown">
+            <ul class="dropdown-menu media-list pull-left animated fadeInDown">
                             <li class="dropdown-header">Notifications (5)</li>
-                            <li class="media">
+                           
+
+
+                            <!--li class="media">
                                 <a href="javascript:;">
                                     <div class="media-left"><i class="fa fa-bug media-object bg-red"></i></div>
                                     <div class="media-body">
@@ -160,14 +168,37 @@
                             </li>
                             <li class="dropdown-footer text-center">
                                 <a href="javascript:;">View more</a>
-                            </li>
+                            </li-->
             </ul>
           </li>
-          
-         <li>
 
+
+
+
+
+
+
+
+
+<!--user sessions-->
+
+                                    <li class="[ animate ] >
+
+                                    <%# image_tag("noimage.jpg", :class => "img-circle img30") %> 
+
+
+                                    <span class="hidden-md hidden-sm hidden-xs">
+
+
+<%= link_to('Login', new_profile_session_path)  %> 
 
                                
+                                    </li>
+
+
+
+                                    <li class="[ animate ] >
+
                                     <%# image_tag("noimage.jpg", :class => "img-circle img30") %> 
 
 
@@ -175,6 +206,14 @@
 
 
 
+<%= link_to('Register', new_profile_registration_path ) %>
+
+
+                                    </li>
+
+
+
+<!--user sessions end-->
 
 
 
@@ -182,14 +221,16 @@
 
 
 
-                                    </span>
-                               
-                            </li>
-      
-                    
 
 
-                </ul>
+
+        </ul>
+
+
+
+
+
+
             </div>
         </div>
         <div class="[ bootsnipp-search animate ]">

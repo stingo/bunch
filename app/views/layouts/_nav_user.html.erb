@@ -1,284 +1,110 @@
 
+<nav class="[ navbar navbar-fixed-top ][ navbar-bootsnipp animate ] " role="navigation">
+        <div class="[ container ]">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="[ navbar-header ]">
+                <button type="button" class="[ navbar-toggle ]" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="[ sr-only ]">Toggle navigation</span>
+                    <span class="[ icon-bar ]"></span>
+                    <span class="[ icon-bar ]"></span>
+                    <span class="[ icon-bar ]"></span>
+                </button>
+                <div class="[ animbrand ]">
+                    
 
- <!-- begin #header -->
-    <div id="header" class="header navbar navbar-default navbar-fixed-top">
-        <!-- begin container -->
-        <div class="container">
-                    <!-- begin mobile sidebar expand / collapse button -->
-        <div class="navbar-header">
-
-        <span class="navbar-logo"></span><%= link_to "Inside GH", root_path, turbolinks: true, :class => "navbar-brand" %>
-
-
-         
-
-
-
-
-
-          <button type="button" class="navbar-toggle" data-click="sidebar-toggled">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-       
+                    <%= link_to "inside GH", root_path, turbolinks: true, :class => "[ navbar-brand ][ animate ]" %>
 
 
-<ul class="nav navbar-nav navbar-center">
-    
 
-<!--search-->
+                </div>
+            </div>
 
-<li>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="[ collapse navbar-collapse ]" id="bs-example-navbar-collapse-1">
+                <ul class="[ nav navbar-nav navbar-right ]">
+                    <li class="[ visible-xs ]">
 
-          <%# form_with url: search_path, local: true, method: :get, :class => "navbar-form full-width" do |form| %>
-              <div class="form-group">
+                        <!--form action="http://bootsnipp.com/search" method="GET" role="search">
+                            <div class="[ input-group ]">
+                                <input type="text" class="[ form-control ]" name="q" placeholder="Search for snippets">
+                                <span class="[ input-group-btn ]">
+                                    <button class="[ btn btn-primary ]" type="submit"><span class="[ glyphicon glyphicon-search ]"></span></button>
+                                    <button class="[ btn btn-danger ]" type="reset"><span class="[ glyphicon glyphicon-remove ]"></span></button>
+                                </span>
+                            </div>
+                        </form-->
+
+
+
+                                  <%= form_with url: search_path, local: true, method: :get, :class => "input-group" do |form| %>
+               <div class="[ input-group ]">
                 <!--input type="text" name="q" id="q" class="form-control" placeholder="Search insideGH" data-behavior= "autocomplete"  /-->
-                <%# form.text_field :q, placeholder: "Autocomplete Search", data: { behavior: "autocomplete" }, class: "form-control mr-sm-2" %>
+                <%= form.text_field :q, placeholder: "Autocomplete Search", class: "form-control" %>
 
-                <div class="mda-form-control-line" id="urban_terms-search-results"></div>
+                <span class="[ input-group-btn ]">
+                                    <button class="[ btn btn-primary ]" type="submit"><span class="[ glyphicon glyphicon-search ]"></span></button>
 
-                <button type="submit" class="btn btn-search"><i class="fa fa-search"></i></button>
+                <button class="[ btn btn-danger ]" type="reset"><span class="[ glyphicon glyphicon-remove ]"></span></button>
+                                </span>
               </div >
         
-            <%# end %>
-
-          </li>
-    <!--form class="form-inline my-2 my-lg-0">
-    <input class="form-control mr-sm-2" type="text" placeholder="Search" data-behaviour="autocomplete">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">search</button>
-        
-
-    </form-->
-            
-
-           
-<%# form_tag urban_terms_path && hows_path, :class =>"navbar-form full-width", method: :get do %>
-              <!--div class="form-group">
-                <input type="text" name="q" id="q" class="form-control" placeholder="Search insideGH" />
-
-                <div class="mda-form-control-line" id="urban_terms-search-results"></div>
-
-                <button type="submit" class="btn btn-search"><i class="fa fa-search"></i></button>
-              </div-->
-        
-            <%# end %>
-
-          </li>
-
-<!--search ends-->
-
-</ul>
+            <% end %>
 
 
 
-        </div>
+                    </li>
+
+                    <li class="[ hidden-xs ]"><a href="#toggle-search" class="[ animate ]">Search&nbsp<span class="[ glyphicon glyphicon-search ]"></span></a></li>
 
 
 
+                    <li><a href="#" class="[ animate ]">About</a></li>
+                    <li>
+                    
+                    <%= link_to 'Urban Term', urbanterms_path, :class => "[ animate ]media-heading" %></li>
 
 
+                        <li><a href="#" class="[ dropdown-toggle ][ animate ]" data-toggle="dropdown">Resources <span class="[ caret ]"></span></a></li>
 
 
-        <!-- end mobile sidebar expand / collapse button -->
-            <!-- end navbar-header -->
-            <!-- begin #header-navbar -->
-            <div class="collapse navbar-collapse" id="header-navbar">
-                <!-- begin header navigation right -->
-        
-
-        <ul class="nav navbar-nav navbar-right">
-
-
-
-
-
-    
-
-
-
-<!--E-->
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-                 <!--li>
-                    <%# link_to "Ghana Urban Terms", urban_terms_path %>
-                </li>
-
-
-
-                
-                <li>
-                    <%#link_to "How To", hows_path %>
-
-                </li-->
-
-
-
-
-
-                <!--Browse starts-->
-        <li class="dropdown">
-            <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14">
-              
-
-              <i class="fa fa-globe"></i><!--em class="ion-plus"></em--> <strong>Browse</strong>
-
-              
-              
-            </a>
-            <ul class="dropdown-menu media-list pull-right animated fadeInDown">
-                           
+                        <ul class="[ dropdown-menu ]" role="menu">
                             
 
-                            <li class="media">
-                               
-                                    <div class="media-left"><i class="fa fa-bug media-object bg-red"></i></div>
-                                    <div class="media-body">    
+                            <li><a href="#" class="[ animate ]">Blog <span class="[ pull-right glyphicon glyphicon-pencil ]"></span></a></li>
 
 
-                                        <h6><%# link_to 'Urban Term', urban_terms_path, :class => "media-heading" %>
-                                            <%= link_to 'Events', new_event_path, :class => "media-heading" %>
-                                        </h6>
-                                        <div class="text-muted f-s-11">25 minutes ago</div>
+                            <li><a href="#" class="[ animate ]">List of resources <span class="[ pull-right glyphicon glyphicon-align-justify ]"></span></a></li>
+                            <li><a href="#" class="[ animate ]">Download Bootstrap <span class="[ pull-right glyphicon glyphicon-cloud-download ]"></span></a></li>
+                            <li class="[ dropdown-header ]">Bootstrap Templates</li>
+                            <li><a href="#" class="[ animate ]">Browse Templates <span class="[ pull-right glyphicon glyphicon-shopping-cart ]"></span></a></li>
+                            <li class="[ dropdown-header ]">Builders</li>
+                            <li><a href="#" class="[ animate ]">Form Builder <span class="[ pull-right glyphicon glyphicon-tasks ]"></span></a></li>
+                            <li><a href="#" class="[ animate ]">Button Builder <span class="[ pull-right glyphicon glyphicon-edit ]"></span></a></li>
+                        </ul>
+                    </li>
+                    <li class="[ dropdown ]">
+                        <a href="#" class="[ dropdown-toggle ][ animate ]" data-toggle="dropdown">Snippets <span class="[ caret ]"></span></a>
+                        <ul class="[ dropdown-menu ]" role="menu">
+                            <li><a href="#" class="[ animate ]">Featured <span class="[ pull-right glyphicon glyphicon-star ]"></span></a></li>
+                            <li><a href="#" class="[ animate ]">Tags  <span class="[ pull-right glyphicon glyphicon-tags ]"></span></a></li>
+                            <li class="[ dropdown-header ]">By Bootstrap Version</li>
+                            <li><a href="#" class="[ animate ]">3.2.0</a></li>
+                            <li><a href="#" class="[ animate ]">3.1.0</a></li>
+                            <li><a href="#" class="[ animate ]">3.0.3</a></li>
+                            <li><a href="#" class="[ animate ]">3.0.1</a></li>
+                            <li><a href="#" class="[ animate ]">3.0.0</a></li>
+                            <li><a href="#" class="[ animate ]">2.3.2</a></li>
+                        </ul>
+                    </li>
 
-
-                                    </div>
-                             
-                            </li>
-
-
-
-
-    <li class="media">
-                               
-                                    <div class="media-left"><i class="fa fa-plus media-object bg-green"></i></div>
-                                    <div class="media-body">    
-
-
-                                        <h6><%# link_to 'How To', hows_path, :class => "media-heading" %>
-                                            <%= link_to 'Locatios', new_location_path, :class => "media-heading" %>
-                                        </h6>
-                                        <div class="text-muted f-s-11">25 minutes ago</div>
-
-
-                                    </div>
-                             
-        </li>
+                   
+                 
 
 
 
 
 
-                            <li class="dropdown-footer text-center">
-                                <a href="javascript:;">View more</a>
-                            </li>
-            </ul>
-
-
-
-
-
-
-          </li>
-
-
-
-
-<!--Browse ends-->
-
-
-
-<!--Add starts-->
-        <li class="dropdown">
-            <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14">
-              
-
-              <i class="fa fa-plus"></i><!--em class="ion-plus"></em--><strong>Add</strong>
-
-              
-              
-            </a>
-            <ul class="dropdown-menu media-list pull-right animated fadeInDown">
-                           
-                            
-
-                            <li class="media">
-                               
-                                    <div class="media-left"><i class="fa fa-bug media-object bg-red"></i></div>
-                                    <div class="media-body">    
-
-
-                                        <h6><%#link_to 'Urban Term', new_urban_term_path, :class => "media-heading" %>
-                                            <%= link_to 'Events', new_event_path, :class => "media-heading" %>
-                                        </h6>
-                                        <div class="text-muted f-s-11">25 minutes ago</div>
-
-
-                                    </div>
-                             
-                            </li>
-
-
-
-
-    <li class="media">
-                               
-                                    <div class="media-left"><i class="fa fa-plus media-object bg-green"></i></div>
-                                    <div class="media-body">    
-
-
-                                        <h6><%# link_to 'How To', new_how_path, :class => "media-heading" %>
-                                            <%= link_to 'Locatios', new_location_path, :class => "media-heading" %>
-                                        </h6>
-                                        <div class="text-muted f-s-11">25 minutes ago</div>
-
-
-                                    </div>
-                             
-        </li>
-
-
-
-
-
-                            <li class="dropdown-footer text-center">
-                                <a href="javascript:;">View more</a>
-                            </li>
-            </ul>
-
-
-
-
-
-
-          </li>
-
-
-
-
-<!--Add ends-->
-
-
-          <li class="dropdown">
+                  <li class="dropdown">
             <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14">
               <i class="fa fa-bell-o"></i>
               <span class="label">5</span>
@@ -374,13 +200,33 @@
 
           
         </ul>
-        <!-- end header navigation right -->
+
+
+
+
+
+
             </div>
-            <!-- end #header-navbar -->
         </div>
-        <!-- end container -->
-    </div>
-    <!-- end #header -->
+        <div class="[ bootsnipp-search animate ]">
+            <div class="[ container ]">
+               <%= form_with url: search_path, local: true, method: :get, :class => "smallsearch col-sm-8 col-xs-11" do |form| %>
+                    <div class="[ input-group ]">
+
+                        <!--input type="text" class="[ form-control ]" name="q" placeholder="Search for snippets and hit enter"-->
+
+                        <%= form.text_field :q, placeholder: "Search and select or hit enter", data: { behavior: "autocomplete" }, class: "form-control input-lg" %>
+                        
+
+                        <span class="[ input-group-btn ]">
+                            <button class="[ btn btn-danger ]" type="reset"><span class="[ glyphicon glyphicon-remove ]"></span></button>
+                        </span>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </nav>
+<!--END-->
 
 
 
@@ -390,22 +236,28 @@
 
 
 <!-- Second Nav -->
-<nav class="[ navbar ][ navbar-bootsnipp animate ] topdouble " role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <!-- Brand -->
-      <a class="navbar-brand" href="#">PAGAMENTO FORNECEDOR</a>
-    </div>
-    <div class="collapse navbar-collapse animated fadeIn" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav animated fadeIn">
-        <li class="active"><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
+
+
+  <nav class="[ navbar navbar-defaulf ][ navbar-bootsnipp animate ] topclose-20" role="navigation">
+        <div class="[ container ]">
+
+    <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <!--a class="navbar-brand" href="#">Brand</a-->
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse animated fadeIn" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav animated fadeIn navbar-left">
+        <!--li class="active"><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li-->
+        
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"> DROPDOWN <span class="caret"></span></a>
           <ul class="dropdown-menu animated flipInX" role="menu">
@@ -415,43 +267,55 @@
           </ul>
         </li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><p class="navbar-text"></p></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-flash"></span> <span class="caret"></span></a>
-      <ul id="login-dp" class="dropdown-menu">
-        <li>
-           <div class="row">
-              <div class="col-md-12">
-                <!-- Login second -->
-                <div class="social-buttons">
-                    <div class="iconSpecial"><i class="glyphicon glyphicon-user"></i>Login</div>
-                </div>                             
-                 <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
-                    <div class="form-group">
-                       <label class="sr-only" for="exampleInputEmail2">login</label>
-                       <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Entrar Usuário" required>
+
+
+
+
+
+    <div class="col-sm-3 col-md-8">
+
+
+
+
+
+                <%= form_with url: search_path, local: true, method: :get, :class => "m-t-1" do |form| %>
+
+  
+                        <div class="input-group">
+                        
+                        <%= form.text_field :q, placeholder: "Search and select or hit enter", data: { behavior: "autocomplete" }, class: "form-control input-lg" %>
+                            
+
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-inverse btn-lg"><i class="fa fa-search"></i></button>
+                            </span>
+
+
+
                     </div>
-                    <div class="form-group">
-                       <label class="sr-only" for="exampleInputPassword2">Senha</label>
-                       <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
-                                             <div class="help-block text-right"><a href="">Esquecí minha senha ?</a></div>
-                    </div>
-                    <div class="form-group">
-                       <button type="submit" class="btn btn-primary btn-block">Entrar</button>
-                    </div>
-                    <div class="checkbox text-dark">
-                       <label>
-                       <input type="checkbox"> Manter-me Logado
-                       </label>
-                    </div>
-                 </form>
-              </div>
-           </div>
-        </li>
-      </ul>
-        </li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
+
+     <% end %> 
+
+    </div>
+
+
+
+
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#">Link</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Action</a></li>
+          <li><a href="#">Another action</a></li>
+          <li><a href="#">Something else here</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Separated link</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div><!-- /.navbar-collapse -->
+    
+
   </div><!-- /.container-fluid -->
 </nav>

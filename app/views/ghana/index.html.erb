@@ -64,6 +64,8 @@
       
     </div-->
     <!-- end search-banner -->
+
+    <main>
     
  <!-- begin page-title -->
     <div class="page-title has-bg">
@@ -185,6 +187,8 @@
                         </ul!-->
                         
                         <br>
+
+<ul class="result-list">
 
                         <ul class="result-list">
   <% @hows.reverse.each do |how| %>                           
@@ -336,23 +340,10 @@
 
 
                         </ul>
+<!--#######END########-->
 
-                        <%# will_paginate @hows %>
-
-
-                        <div class="clearfix">
-                            <ul class="pagination pagination-without-border pull-right">
-                                <li class="disabled"><a href="javascript:;">«</a></li>
-                                <li class="active"><a href="javascript:;">1</a></li>
-                                <li><a href="javascript:;">2</a></li>
-                                <li><a href="javascript:;">3</a></li>
-                                <li><a href="javascript:;">4</a></li>
-                                <li><a href="javascript:;">5</a></li>
-                                <li><a href="javascript:;">6</a></li>
-                                <li><a href="javascript:;">7</a></li>
-                                <li><a href="javascript:;">»</a></li>
-                            </ul>
-                        </div>
+</ul>
+                       
                     </div>
           </div>
           <!-- end col-12 -->
@@ -379,43 +370,34 @@
               
 
               <div class="col-md-3 fh-md oa text-center">
+
+
                 <div class="p-lg">
                   <h5>Right Column</h5>
                   <p class="text-center">Nullam pretium fermentum sapien ut convallis.</p>
                 </div>
+
                 <div class="p-lg">
                   <p>Pellentesque sed purus libero. Nam eleifend, ipsum at suscipit pellentesque, diam enim dignissim nunc, eu egestas sem velit vel nunc. Phasellus vel nisl orci.</p>
+                </div>
 
-              </div>
+            
+
+              
               </div>
 
 
             
 
-            </div>
-          </div>
-        </section>
-
-
-
-
-
-
-
-
-
-
+         
 
    <!-- Right Ends -->
     
+</div>
+</div>
 
 
-
-
-
-
-
-
+</section>
 
 
 
@@ -521,6 +503,9 @@
   <!-- ================== BEGIN BASE JS ================== -->
  
   <!-- ================== END BASE JS ================== -->
+
+</main>
+
   
   <script>    
       $(document).ready(function() {
