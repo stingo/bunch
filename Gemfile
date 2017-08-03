@@ -41,7 +41,6 @@ gem 'best_in_place', github: 'bernat/best_in_place'
 gem 'impressionist'
 
 gem 'acts_as_votable', '~> 0.10.0'
-gem 'ransack', '~> 1.7'
 gem "binding_of_caller" 
 gem 'fog-aws'
 
