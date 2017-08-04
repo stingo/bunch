@@ -70,7 +70,7 @@
                         <ul class="[ dropdown-menu ]" role="menu">
                             
 
-                            <li><a href="#" class="[ animate ]">Blog <span class="[ pull-right glyphicon glyphicon-pencil ]"></span></a></li>
+                            <li class="[ hidden-xs ]"><a href="#toggle-search" class="[ animate ]"><span class=""><em class="ion-search" style="font-size:20px; color: #ff0000;"></em>&nbspSearch Inside GH</span></a></li>
 
 
                             <li><a href="#" class="[ animate ]">List of resources <span class="[ pull-right glyphicon glyphicon-align-justify ]"></span></a></li>
@@ -279,12 +279,16 @@
         <!--li class="active"><a href="#">Link</a></li>
         <li><a href="#">Link</a></li-->
         
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"> DROPDOWN <span class="caret"></span></a>
+ <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"> BROWSE <span class="caret"></span></a>
           <ul class="dropdown-menu animated flipInX" role="menu">
-            <li><a href="#"> SubItem 01</a></li>
-            <li><a href="#"> SubItem 02</a></li>
-            <li><a href="#"> SubItem 03</a></li>
+            
+            
+            <li><a href="/urbanterms"> Ghana Urban Terms</a></li>
+            <li><a href="/hows"> Hows</a></li>
+            <li><a href="/events"> Events</a></li>
+            <li><a href="/songs"> Music</a></li>
+            <li><a href="/profiles"> People</a></li>
           </ul>
         </li>
       </ul>
@@ -293,18 +297,18 @@
 
 
 
-    <div class="col-sm-3 col-md-8">
+    <!--div class="col-sm-3 col-md-8">
 
 
 
 
 
-                <%= form_with url: search_path, local: true, method: :get, :class => "m-t-1" do |form| %>
+                <%# form_with url: search_path, local: true, method: :get, :class => "m-t-1" do |form| %>
 
   
                         <div class="input-group">
                         
-                        <%= form.text_field :q, placeholder: "Search and select or hit enter", data: { behavior: "autocomplete" }, class: "form-control input-lg" %>
+                        <%# form.text_field :q, placeholder: "Search and select or hit enter", data: { behavior: "autocomplete" }, class: "form-control input-lg" %>
                             
 
                             <span class="input-group-btn">
@@ -315,9 +319,9 @@
 
                     </div>
 
-     <% end %> 
+     <%# end %> 
 
-    </div>
+    </div-->
 
 
 

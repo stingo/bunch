@@ -15,7 +15,8 @@ class HowsController < ApplicationController
   # GET /hows/1.json
   def show
     impressionist(@how)
-     @how = How.find(params[:id])
+     #@how = How.find(params[:id])
+     @how = How.friendly.find(params[:id])
   end
 
   # GET /hows/new
@@ -25,6 +26,7 @@ class HowsController < ApplicationController
 
   # GET /hows/1/edit
   def edit
+    @how = How.friendly.find(params[:id])
   end
 
   # POST /hows
@@ -47,6 +49,7 @@ class HowsController < ApplicationController
   # PATCH/PUT /hows/1
   # PATCH/PUT /hows/1.json
   def update
+    @how = How.friendly.find(params[:id])
     respond_to do |format|
       if @how.update(how_params)
         format.html { redirect_to @how, notice: 'How was successfully updated.' }
@@ -71,7 +74,8 @@ class HowsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_how
-      @how = How.find(params[:id])
+      #@how = How.find(params[:id])
+      @how = How.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

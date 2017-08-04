@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_profile!, :except => [:index, :show]
   before_action :set_profile, only: [:show, :edit, :update]
-  #impressionist actions: [:show,:index], unique: [:session_hash]
+  impressionist actions: [:show,:index], unique: [:session_hash]
 
   # GET /profiles
   # GET /profiles.json
@@ -12,8 +12,9 @@ class ProfilesController < ApplicationController
   # GET /profiles/1
   # GET /profiles/1.json
   def show
-    #impressionist(@profile)
-
+    impressionist(@profile)
+    @profile = Profile.friendly.find(params[:id])
+    
   end
 
   # GET /profiles/new
@@ -24,12 +25,7 @@ class ProfilesController < ApplicationController
   # GET /profiles/1/edit
   def edit
 
-
-
-
-
-
-
+  @profile = Profile.friendly.find(params[:id])
 
   end
 
@@ -52,6 +48,7 @@ class ProfilesController < ApplicationController
   # PATCH/PUT /profiles/1
   # PATCH/PUT /profiles/1.json
   def update
+    @profile = Profile.friendly.find(params[:id])
     respond_to do |format|
       if @profile.update(profile_params)
         format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }
@@ -76,7 +73,8 @@ class ProfilesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_profile
-      @profile = Profile.find(params[:id])
+      #@profile = Profile.find(params[:id])
+      @profile = Profile.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

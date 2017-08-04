@@ -16,11 +16,21 @@
         <%= render '/layouts/nav' %>
 
 
-       <span class="notice"><%= notice %></span>
+     
+
+       <% if notice.present? %>
+       <div class="alert alert-success fade in text-center">
+                            <span class="close" data-dismiss="alert"><em class="ion-close" style="font-size:24px; color: #ff0000;"></em></span>
+                            <i class="fa fa-check fa-2x pull-left"></i>
+                            <p class="text-center" style="font-size: 20px; color: #ffffff;"><%= notice %></p>
+                        </div>
+            <% else %>
+
+            <% end %>
 
     <%= yield %>
 
-    <span class="alert"><%= alert %></span>
+    <span class="card"><%= alert %></span>
          <%# content_for :script do %>
              
               <%# new app.Urban_terms;%>
