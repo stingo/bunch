@@ -1654,6 +1654,7 @@ sparkline {
 .bg-blue-500 {
   background-color: #2196F3;
   color: #fff !important;
+  height: 400px;
 }
 .bg-blue-grey-900 {
   background-color: #263238;

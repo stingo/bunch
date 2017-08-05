@@ -6,6 +6,15 @@
 	background: rgba(0, 0, 0, 0) linear-gradient(40deg, #d1edf0 10%, #ecc8c6 100%) !important; 
 }
 
+.stnd-f {
+
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333333;
+
+}
+
 .bldtitle {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -19,10 +28,34 @@
 
 }
 
+ .innerscroll {
+
+  
+  height: 450px;
+
+  }
+
 .topgap {
 
   margin-top: 53px !important;
 
+}
+
+.btsnipcolor {
+  color: rgb(95, 176, 228);
+}
+
+.thumb-prof {
+    width: 190px !important;
+    height: 190px !important;
+    border: solid 5px #ffffff !important;
+  }
+
+.name-prof {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  font-family: 'Yesteryear';
 }
 
 .topdouble{
@@ -68,6 +101,11 @@ margin-bottom: 0px !important;
 .thumb60 {
   width: 60px;
   height: 60px;
+}
+
+.black-f {
+   font-size: 20px;
+  color: #000000;
 }
 
 .img-h {

@@ -4,6 +4,7 @@
   -o-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+
 }
 
 
@@ -33,15 +34,21 @@
 }
 
 .navbar-bootsnipp .navbar-brand {
-  color: rgb(95, 176, 228);
+  /*color: rgb(95, 176, 228);*/
+  color: rgba(0, 0, 0, 0) linear-gradient(40deg, #d1edf0 50%, #ecc8c6 100%) !important;
   font-weight: 900;
   letter-spacing: 2px;
 }
 
 .navbar-bootsnipp .navbar-nav > li > a {
   border: 0px solid rgb(95, 176, 228);
-  color: rgb(120, 120, 120);
+  color: #000000;
   padding: 15px 14px;
+  font-size: 14px;
+
+font-weight: 400;
+
+font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
 }
 
 .navbar-bootsnipp .navbar-nav > li > form > .input-group > input,
@@ -146,15 +153,22 @@
 }
 
 @media screen and (min-width: 768px) {
-    .navbar-bootsnipp .navbar-brand {
-      font-size: 20px;
+  .navbar-bootsnipp .navbar-brand {
+    font-size: 20px;
     height: auto;
     padding: 15px 5px;
+    font-family: 'Nunito', cursive;
+    color: rgba(0, 0, 0, 0) linear-gradient(40deg, #d1edf0 10%, #ecc8c6 100%) !important; 
   }
   .navbar-bootsnipp .navbar-nav > li > a {
     font-size: 16px;
     letter-spacing: 1px;
   }
+
+
+
+
+
   .navbar-bootsnipp .navbar-nav > li:not(.disabled).open > a,
   .navbar-bootsnipp .navbar-nav > li:not(.disabled).active > a,
   .navbar-bootsnipp .navbar-nav > li:not(.disabled) > a:hover, 

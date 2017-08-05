@@ -57,19 +57,96 @@
                     
 
 
-                     <li class="[ hidden-xs ]"><a href="#toggle-search" class="[ animate ]"><span class=""><em class="ion-search" style="font-size:20px; color: #ff0000;"></em>&nbspSearch Inside GH</span></a></li>
+                     <li class="[ hidden-xs ]"><a href="#toggle-search" class="[ animate ]"><span class=""><em class="ion-search" style="font-size:20px; color: rgb(95, 176, 228);"></em>&nbspSearch Inside GH</span></a></li>
+
+
+                                  <!--Add starts-->
+        <li class="dropdown">
+            <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14">
+              
+
+              <i class="fa fa-plus"></i><!--em class="ion-plus"></em--><strong>Add</strong>
+
+              
+              
+            </a>
+            <ul class="dropdown-menu media-list pull-right animated fadeInDown">
+                           
+                            
+
+                            <li class="media">
+                               
+                                    <div class="media-left"><i class="fa fa-bug media-object bg-red"></i></div>
+                                    <div class="media-body">    
+
+
+                                        <h6><%= link_to 'Urban Term', new_urbanterm_path, :class => "media-heading" %></h6>
+                                        <div class="text-muted f-s-11">25 minutes ago</div>
+
+
+                                    </div>
+                             
+                            </li>
+
+
+
+
+    <li class="media">
+                               
+                                    <div class="media-left"><i class="fa fa-plus media-object bg-green"></i></div>
+                                    <div class="media-body">    
+
+
+                                        <h6><%= link_to 'How To', new_how_path, :class => "media-heading" %></h6>
+                                        <div class="text-muted f-s-11">25 minutes ago</div>
+
+
+                                    </div>
+                             
+        </li>
 
 
 
 
 
-                    <li><a href="#" class="[ animate ]">About</a></li>
-                    <li>
+                            <li class="dropdown-footer text-center">
+                                <a href="javascript:;">View more</a>
+                            </li>
+            </ul>
+
+
+
+
+
+
+          </li>
+
+
+
+
+<!--Add ends-->
+
+
+          <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Explore <span class="caret"></span></a>
+          <ul class="dropdown-menu animated flipInX" role="menu">
+            
+            
+            <li><a href="/urbanterms"> Ghana Urban Terms</a></li>
+            <li><a href="/hows"> Hows</a></li>
+            <li><a href="/events"> Events</a></li>
+            <li><a href="/songs"> Music</a></li>
+            <li><a href="/profiles"> People</a></li>
+          </ul>
+        </li>
+                    
+
+        <li>
                     
                     <%# link_to 'Urban Term', urbanterms_path, :class => "[ animate ]media-heading" %></li>
 
 
-                        <li><a href="#" class="[ dropdown-toggle ][ animate ]" data-toggle="dropdown">Resources <span class="[ caret ]"></span></a></li>
+
 
 
                         <ul class="[ dropdown-menu ]" role="menu">
@@ -240,94 +317,3 @@
 
 
 
-<!-- Second Nav -->
-
-
-  <nav class="[ navbar navbar-defaulf ][ navbar-bootsnipp animate ] topclose-20" role="navigation">
-        <div class="[ container ]">
-
-    <!-- Brand and toggle get grouped for better mobile display -->
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <!--a class="navbar-brand" href="#">Brand</a-->
-  </div>
-
-  <!-- Collect the nav links, forms, and other content for toggling -->
-  <div class="collapse navbar-collapse animated fadeIn" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav animated fadeIn navbar-left">
-        <!--li class="active"><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li-->
-        
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"> BROWSE <span class="caret"></span></a>
-          <ul class="dropdown-menu animated flipInX" role="menu">
-            
-            
-            <li><a href="/urbanterms"> Ghana Urban Terms</a></li>
-            <li><a href="/hows"> Hows</a></li>
-            <li><a href="/events"> Events</a></li>
-            <li><a href="/songs"> Music</a></li>
-            <li><a href="/profiles"> People</a></li>
-          </ul>
-        </li>
-      </ul>
-
-
-
-
-
-
-
-
-    <!--div class="col-sm-3 col-md-8">
-
-
-
-
-
-                <%# form_with url: search_path, local: true, method: :get, :class => "m-t-1" do |form| %>
-
-  
-                        <div class="input-group">
-                        
-                        <%# form.text_field :q, placeholder: "Search and select or hit enter", data: { behavior: "autocomplete" }, class: "form-control input-lg" %>
-                            
-
-                            <span class="input-group-btn">
-                                <button type="submit" class="btn btn-inverse btn-lg"><i class="fa fa-search"></i></button>
-                            </span>
-
-
-
-                    </div>
-
-     <% #end %> 
-
-    </div-->
-
-
-
-
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="#">Link</a></li>
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-        <ul class="dropdown-menu">
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
-          <li class="divider"></li>
-          <li><a href="#">Separated link</a></li>
-        </ul>
-      </li>
-    </ul>
-  </div><!-- /.navbar-collapse -->
-    
-
-  </div><!-- /.container-fluid -->
-</nav>

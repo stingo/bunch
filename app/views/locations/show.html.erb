@@ -24,6 +24,13 @@
 
 </div>
 
+
+<div class="btn btn-success mb-1x mr-1x zindez999">
+                  <%= "People".pluralize(@location.profiles.count) %><br / >
+                    <span class="headline"><strong><%= @location.profiles.count %></strong></span>
+
+</div>
+
 <div class="article-body">
 
 <%= truncate(@location.desc, length: 100) %>

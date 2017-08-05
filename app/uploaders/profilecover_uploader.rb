@@ -33,13 +33,10 @@ class ProfilecoverUploader < CarrierWave::Uploader::Base
 
    # Create different versions of your uploaded files:
    version :large do
-     process :resize_to_fill => [1040, 540]
+     process :resize_to_fill => [1500, 500]
    end
 
-  # Create different versions of your uploaded files:
-   version :thumb do
-     process :resize_to_fill => [350, 300]
-   end
+  
 
 
    #version :large do

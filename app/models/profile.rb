@@ -14,6 +14,8 @@ class Profile < ApplicationRecord
 	mount_uploader :pesnavatar, PesnavatarUploader
 	mount_uploader :profilecover, ProfilecoverUploader
 
+	accepts_nested_attributes_for :thing_locations #allow_destroy: true
+
 
 	#validations
 	validates :first_name, presence: true
