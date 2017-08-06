@@ -263,17 +263,22 @@
           </ul>
 
 
-         <li><a href="#">University of Capecoast</a></li>
+         <li class="text-center"> <a href="#"> <span class= "text-muted text-ellipsis">University of CapeCoast</span> <br>
+        <span class= "text-center">1999 - 2003</span> </a></li>
 
-         <li><a href="#">Views 3637</a></li>
-          <li><a href="#">Posts 353</a></li>
+        <li> <a href="#"> <span class= "text-muted text-ellipsis">Views</span> <br>
+        <span class= "text-center"><%= @profile.impressionist_count(:filter=>:session_hash) %></span> </a></li>
+          
+
+         <li class="text-center"> <a href="#"> <span class= "text-muted text-ellipsis">Posts</span> <br>
+        <span class= "text-center">345</span> </a></li>
 
 
       </ul>
 
     
 
-
+text-muted text-ellipsis
 
 
 
@@ -330,7 +335,7 @@
                   <h1 class="card-heading black-f text-center">
                     <!-- START dropdown-->
                     
-                    <!-- END dropdown-->Contacts
+                    <!-- END dropdown-->Summary
                   </h1>
                     
 
