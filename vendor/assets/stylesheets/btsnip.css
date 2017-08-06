@@ -38,6 +38,7 @@
   color: rgba(0, 0, 0, 0) linear-gradient(40deg, #d1edf0 50%, #ecc8c6 100%) !important;
   font-weight: 900;
   letter-spacing: 2px;
+  font-family: "Questrial" !important;
 }
 
 .navbar-bootsnipp .navbar-nav > li > a {

@@ -20,3 +20,11 @@
 
 <%= link_to 'Edit', edit_profile_path(@profile) %> |
 <%= link_to 'Back', profiles_path %>
+
+
+<!--profile name--> 
+  <span class="name-prof ml-lg">
+
+<%= @profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ @profile.last_name.split(" ").map(&:capitalize).join(" ") if @profile.first_name || @profile.last_name %></span> <span class="in-inner"><i class="fa fa-fw fa-map-marker fa-2x" style="color:#ffffff; font-size: 28px;"></i><%= render @profile.locations, :class => "text-black" if @profile.locations.present? %> </span>
+            
+<!--end profile name--> 

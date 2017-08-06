@@ -28,6 +28,37 @@
 
 }
 
+.topimg {
+  margin-top: 140px;
+}
+
+/*avatar overlap*/
+
+.figure {
+  margin-left:50px;/* half image width */
+  background:black;
+  box-shadow:0 0 1px;
+  border-radius:3px;
+  }
+.img-av {
+  border-radius:100%;
+  position:relative;/* brings it at front, can trigger z-index too */
+  box-shadow:-1px 0 1px, 1px 0 1px white ;/* whatever U like */
+  vertical-align:middle;
+  right:50px;/* move visually from real position */
+  margin-right:-40px;/* pull or push text aside */
+  }
+.figcaption {
+  display:inline-block;
+  vertical-align:middle;
+  color:white;
+  }
+.p {
+  margin:0;
+  }
+
+  /*avatar overlap ends*/
+
  .innerscroll {
 
   
@@ -52,10 +83,49 @@
   }
 
 .name-prof {
-  font-size: 32px;
+  font-size: 24px;
   font-weight: 800;
   letter-spacing: 1px;
-  font-family: 'Yesteryear';
+  font-family: 'Lato';
+  margin-top: -30px;
+}
+
+.profile-nav-txt{
+  font-size: 24px !important;
+  font-weight: 100 !important;
+  color: #000000 !important;
+  letter-spacing: 1px !important;
+  font-family: 'sans-serif';
+  
+}
+
+.profile-nav-txt-spec{
+  font-size: 20px !important;
+  font-weight: 100 !important;
+  color: #000000 !important;
+  letter-spacing: 1px !important;
+  font-family: 'Questrial';
+  
+}
+
+.profile-nav-txt-bold{
+  font-size: 18px !important;
+  font-weight: 300 !important;
+  color: #000000 !important;
+  letter-spacing: 1px !important;
+  font-family: 'Questrial';
+  
+}
+
+
+
+.location-link {
+
+  color: #0658B4 !important;
+  font-weight: 400 !important;
+  letter-spacing: 1px !important;
+   font-size: 18px !important;
+
 }
 
 .topdouble{
@@ -106,6 +176,22 @@ margin-bottom: 0px !important;
 .black-f {
    font-size: 20px;
   color: #000000;
+}
+
+.name-fcolor {
+
+
+  color: #0658B4 !important;
+  font-weight: 400 !important;
+  font-size: 20px !important;
+  letter-spacing: 1px !important;
+
+}
+
+.profile-nav{
+  max-width: 1000px !important;
+  margin: auto !important;
+  width: 90% !important;
 }
 
 .img-h {

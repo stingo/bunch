@@ -144,7 +144,7 @@
 
 
 
-          <div class="container-overlap bg-blue-500" style="background-image: url(<%= @profile.profilecover.url(:large) if @profile.profilecover %>); background-repeat: no-repeat; top: -30px;">
+ <div class="container-overlap img-responsive" style="background-image: url(<%= @profile.profilecover.url(:large) if @profile.profilecover %>); background-repeat: no-repeat; top: -30px; background-position: center;">
 
      
 
@@ -183,9 +183,7 @@
 
                        <div class="col-sm-3 bordered-right" style="font-size: 16px; color: #ffffff;"> 
 
-                       <p>
                       
-                       </p>
 
                        </div>
 
@@ -195,44 +193,257 @@
 
               </div>
 
-       <!--profile pic-->       
+    
+  
+    <div style="z-index: 999; top-margin: 180px;">                 
+   <!--profile pic-->       
       <% if @profile.pesnavatar? %>
-        <%= link_to (image_tag @profile.pesnavatar.url(:small), :class => "media-object img-circle thumb-prof btn-raised btn-circle mt-xl"), @profile %>
+        <%= link_to (image_tag @profile.pesnavatar.url(:small), :class => "img-circle thumb-prof btn-raised btn-circle topimg"), @profile %>
         <% else %> 
         <%= image_tag("noimage.jpg", :class => "media-object img-circle thumb64 btn-raised btn-circle") %>
 
-
        <% end %>
-<!--end profile pic--> 
-  
-<!--profile name--> 
-  <span class="name-prof ml-lg">
 
-<%= @profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ @profile.last_name.split(" ").map(&:capitalize).join(" ") if @profile.first_name || @profile.last_name %></span> <span class="in-inner"><i class="fa fa-fw fa-map-marker fa-2x" style="color:#ffffff; font-size: 28px;"></i><%= render @profile.locations, :class => "text-black" if @profile.locations.present? %> </span>
-            
-<!--end profile name--> 
+        
+<!--end profile pic-->
+       </div> 
+     
+
+
+
 
             </div>
 
 
+ 
 
           </div>
 
 
+   <!--div class="container stnd-f">
+  <img src="http://lorempixel.com/100/100/people/9" class="img-av" />
+  <div class="figcaption">
+    <p class="stnd-f">some text here  10px away from image</p>
+    <p class="stnd-f">and more</p>
+    </div>
+  </div-->
 
-                
-                       
-                    
-                    
 
+
+      <!--profile Nav-->          
+ 
+  <nav class="[ navbar navbar-defaulf ][ navbar-bootsnipp animate ] topclose-20" style="top: -30px; z-index: 999 !mportannt;">
+        <div class="[ container ]">
+
+        <div class="profile-nav">
+
+   
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  
+      <ul class="nav navbar-nav animated fadeIn navbar-left">
+        <!--li class="active"><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li-->
+        
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle name-fcolor" data-toggle="dropdown"> <%= @profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ @profile.last_name.split(" ").map(&:capitalize).join(" ") if @profile.first_name || @profile.last_name %>
+
+
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu animated flipInX" role="menu">
+            
+            
+            <li><a href="/urbanterms"> Ghana Urban Terms</a></li>
+            <li><a href="/hows"> Hows</a></li>
+            <li><a href="/events"> Events</a></li>
+            <li><a href="/songs"> Music</a></li>
+            <li><a href="/profiles"> People</a></li>
+
+
+          </ul>
+
+
+        <li class=""><%= render @profile.locations if @profile.locations.present? %>
+
+
+          
+
+        </li>
+         <li><a href="#">University of Capecoast</a></li>
+
+         <li><a href="#">Views 3637</a></li>
+          <li><a href="#">Posts 353</a></li>
+
+
+      </ul>
 
     
 
 
-          <div class=" container container-md">
+
+
+
+
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#">Follow</a></li>
+      
+    </ul>
+
+
+
+  </div><!-- /.navbar-collapse -->
+    
+
+
+
+ 
+
+
+  </div><!-- /.container-fluid -->
+</nav>
+
+<!--end profile nav-->           
+                    
+
+
+     <%# render 'bottomnav'%>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class=" container-fluid">
+
+
+
+
+
             <div class="row">
-              <!-- Left column-->
-              <div class="col-md-7 col-lg-8">
+          
+
+<!--right-->
+<div class="col-md-3 col-lg-3" style="padding-left: 100px;">
+
+ <div class="">
+                  <h1 class="card-heading black-f text-center">
+                    <!-- START dropdown-->
+                    
+                    <!-- END dropdown-->Contacts
+                  </h1>
+                    
+
+                    <div class="mda-list">
+                    
+                      <div class="mda-list-item-text mda-2-line">
+
+
+
+
+                      <div class="profile-nav-txt-spec">
+
+
+                      <%= @profile.summary if @profile.summary %>
+
+
+                        
+
+                      </div>
+
+
+
+
+                        <h3>
+<span class="profile-nav-txt-bold"><i class="fa fa-fw fa-map-marker"></i><%= render @profile.locations if @profile.locations.present? %><span class="text-muted text-ellipsis">Dansoman, GH</span></span></h3>
+
+
+                       
+                     
+                    </div>
+
+
+
+                    
+                      <div class="mda-list-item-text mda-2-line">
+                        <h3>
+
+                  <span class="profile-nav-txt-bold"><i class="fa fa-fw fa-link"></i>
+                  <a href="#">youtube/charlie.com</a>
+
+
+                  </span>
+
+                        
+
+                        </h3>
+                        <div class="text-muted text-ellipsis text-center">Sed lacus nisl luctus</div>
+                      </div>
+                   
+
+
+                      <div class="mda-list-item-text mda-2-line">
+                        <h3>
+
+                  <span class="profile-nav-txt-bold"><i class="fa fa-fw fa-calendar"></i>
+                  <a href="#" class="text-muted">Joined <%= @profile.created_at.strftime("%e %b %Y") %></a>
+
+
+                  </span>
+
+                  </h3>
+                        <div class="text-muted text-ellipsis text-center">Donec congue sagittis mi</div>
+                      </div>
+                 
+
+
+
+
+
+                         <div class="mda-list-item-text mda-2-line">
+                        <h3>
+
+                  <span class="profile-nav-txt-bold"><i class="fa fa-file-image-o"></i>
+                  <a href="#">Photos and videos </a>
+
+
+                  </span>
+
+                  </h3>
+                        <div class="text-muted text-ellipsis text-center">Donec congue sagittis mi</div>
+                      </div>
+
+
+
+
+
+                    </div>
+                
+
+</div>
+</div>
+
+<!-- right ends-->
+
+
+
+
+
+
+
+
+         
+
+
+
+          <!-- Left column col-md-7 col-lg-8-->
+        <div class="col-md-6 col-lg-6">
                 
                   
 <div class="card shadow-z3">
@@ -288,7 +499,17 @@
 
         <li class="ml-xl">
          
-       cccccc
+   
+
+
+<%# link_to "location", location_path(@profile.location_ids) %>
+
+<%= render @profile.locations if @profile.locations.present? %>
+
+
+
+
+     
 
        </li>
          
@@ -302,20 +523,27 @@
 
 
                   </div>
+
+                  <!--edit user's definitions-->
+                   
                   <div class="card-divider"></div>
                   <div class="card-offset">
                     <div class="card-offset-item text-right">
+
+                    <% if @profile == current_profile && profile_signed_in? %>
 
 
                      <%= link_to edit_profile_path(@profile) do %><span class="btn-raised btn btn-warning btn-circle btn-lg"><em class="ion-edit"></em> <% end %></span>
 
 
-                      
+                      <% else %> <% end %>
                     
 
                     </div>
                   </div>
+                   
 
+                  <!--edit end-->
 </div>
 
 <!-- summary-->
@@ -678,8 +906,8 @@
 
 
 
-              <!-- Right column-->
-              <div class="col-md-5 col-lg-4">
+              <!-- Right column col-md-5 col-lg-4-->
+              <div class="col-md-3 col-lg-3">
                 <div class="card">
                   <h5 class="card-heading">
                     <!-- START dropdown-->

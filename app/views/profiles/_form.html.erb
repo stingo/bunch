@@ -30,6 +30,7 @@
 
 
 
+
 <div class="form-group">
     <%= form.label :location_ids, "CLOSE LOCATION" %>
     <%= form.select :location_ids, Location.all.pluck(:name, :id), {}, { multiple: true, class: "selectize" } %>
