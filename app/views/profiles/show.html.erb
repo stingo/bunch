@@ -274,6 +274,17 @@
         <span class= "text-center">345</span> </a></li>
 
 
+        <li class="text-center"> <a href="#"> <span class= "text-muted text-ellipsis"><%= link_to connect_profile_path(@profile), method: :put do %>
+  
+  <%= "Connection".pluralize(@profile.get_upvotes.size) %></span> <br>
+        <span class= "text-center"><%= @profile.get_upvotes.size %></span> </a><% end %></li>
+
+
+
+
+
+
+
       </ul>
 
     
@@ -284,7 +295,15 @@ text-muted text-ellipsis
 
 
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#">Follow</a></li>
+      
+
+
+
+
+      <li><%= link_to connect_profile_path(@profile), method: :put do %>
+  
+  Connect
+<% end %></li>
       
     </ul>
 

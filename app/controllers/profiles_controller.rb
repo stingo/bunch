@@ -70,6 +70,23 @@ class ProfilesController < ApplicationController
     end
   end
 
+  
+   def upvote 
+  @link = Profile.friendly.find(params[:id])
+  @link.upvote_by current_profile
+  redirect_to request.referer || root_path
+end  
+
+def downvote
+  @link = Profile.friendly.find(params[:id])
+  @link.downvote_by current_profile
+  redirect_to request.referer || root_path
+end
+
+
+
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_profile

@@ -16,6 +16,8 @@ class Profile < ApplicationRecord
 
 	accepts_nested_attributes_for :thing_locations #allow_destroy: true
 
+	acts_as_votable
+
 
 	#validations
 	validates :first_name, presence: true
