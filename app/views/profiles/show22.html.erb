@@ -28,7 +28,6 @@
 
 
 
- 
 
 
 
@@ -42,19 +41,10 @@
 
         
 
-<% if  @profile.profilecover? %>
-
-<img align="left" class="fb-image-lg" src=" <%= @profile.profilecover.url(:large) %>" alt="Profile image"/>
-
-<% else %>
-
-<div class="container-overlap bg-blue-400 pushtop"><%# image_tag "cover2.jpg" %>
- </div>
-<% end %>
 
 
 
-        
+       
 
 
        
@@ -62,18 +52,21 @@
 
         
 
+ <div class="container-overlap card-item" style="background-image: url(<%= @profile.profilecover.url(:large) if @profile.profilecover %>); background-repeat: no-repeat; top: -30px; background-position: center;">
 
 
+<span class="position: absolute;
+    left: 0px;
+    width: 300px;
+    border: 3px solid #73AD21;
+    padding: 10px;">
 
-
-
-        <img align="left" class="fb-image-profile thumbnail" src=" <%= image_path "noimage.jpg" %>" alt="Profile image example" />
+        <img align="" class="fb-image-profile thumbnail" src="http://lorempixel.com/120/120/people/9/" alt="Profile image example"/>
 
        
-
-
+</span>
       
-
+</div>
 
        <div class="card-item-text ">
 <!--nav--><nav class="[ navbar navbar-defaulf ][ navbar-bootsnipp animate ] topimg2" style="max-height:70px !important; overflow: hidden !important;" >
