@@ -24,7 +24,8 @@
   <!--div id="page-loader" class="fade in"><span class="spinner"></span></div-->
   <!-- end #page-loader -->
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+  
+
 
   <!-- begin #page-container -->
   <div id="page-containe" class="fad"><!--******-->
@@ -53,6 +54,19 @@
                 </span>
                     <small>Create an account. It’s free and always will be.</small>
                 </h1>
+
+                 <%#ß devise_error_messages! %>
+
+                 <% if devise_error_messages! %>
+       <div class="alert alert-danger fade in text-center">
+                            <span class="close" data-dismiss="alert"><em class="ion-close" style="font-size:24px; color: #ff0000;"></em></span>
+                           
+                            <p class="text-center" style="font-size: 20px; color: #ffffff;"><%= devise_error_messages! %></p>
+                        </div>
+            <% else %>
+
+            <% end %>
+
                 <!-- end register-header -->
                 <!-- begin register-content -->
                 <div class="register-content">

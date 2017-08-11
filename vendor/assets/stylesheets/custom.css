@@ -1,5 +1,6 @@
  body {
     background-color: rgba(0, 0, 0, 0) linear-gradient(40deg, #d1edf0 10%, #ecc8c6 100%) !important; 
+    font-family: "Questrial" !important;
 }
 
 .custombgD9E0E7 {
@@ -29,8 +30,13 @@
 }
 
 .topimg {
-  margin-top: 140px;
+  margin-top: -55px;
 }
+
+.topimg2 {
+  margin-top: -47px;
+}
+
 
 /*avatar overlap*/
 
@@ -80,6 +86,8 @@
     width: 190px !important;
     height: 190px !important;
     border: solid 5px #ffffff !important;
+    margin-top: -3 !important;
+
   }
 
 .name-prof {
@@ -98,6 +106,35 @@
   font-family: 'sans-serif';
   
 }
+
+.zind {
+  z-index: 999 !important;
+}
+
+.zind {
+  z-index: -999 !important;
+}
+
+
+.ProfileCanopy-navBar {
+    background-color: #ffffff;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 60px;
+}
+.u-boxShadow {
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.25);
+}
+
+.AppContainer {
+    max-width: 1190px;
+    margin: auto;
+}
+
+
+
+
+
 
 .profile-nav-txt-spec{
   font-size: 20px !important;
@@ -378,4 +415,51 @@ padding-bottom: 15px;
 .clearfix:before, .clearfix:after { content: ""; display: table; }
 .clearfix:after { clear: both; }
 .clearfix { zoom: 1; }
+
+
+.center-img{
+  margin: 0px auto !important;
+
+}
+
+
+.wrap {
+
+  overflow: auto;
+  position: relative;
+}
+
+.pushtop{
+  margin-top: -120px !important;
+}
+
+
+.fb-profile img.fb-image-lg{
+    z-index: 0;
+    width: 100%;  
+    margin-bottom: 10px;
+}
+
+.fb-image-profile
+{
+    margin: -90px 10px 0px 50px;
+    z-index: 9;
+    width: 20%; 
+}
+
+@media (max-width:768px)
+{
+    
+.fb-profile-text>h1{
+    font-weight: 700;
+    font-size:16px;
+}
+
+.fb-image-profile
+{
+    margin: -45px 10px 0px 25px;
+    z-index: 9;
+    width: 20%; 
+}
+}
 
