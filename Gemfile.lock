@@ -424,7 +424,7 @@ DEPENDENCIES
   fog (~> 1.38)
   fog-aws
   font-awesome-rails
-  friendly_id (~> 5.1.0)
+  friendly_id (~> 5.1)
   impressionist
   ionicons-rails (~> 2.0)
   jbuilder (~> 2.5)

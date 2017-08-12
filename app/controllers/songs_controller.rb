@@ -1,5 +1,7 @@
 class SongsController < ApplicationController
+  before_action :authenticate_profile!, :except => [:index, :show]
   before_action :set_song, only: [:show, :edit, :update, :destroy]
+  impressionist actions: [:show,:index], unique: [:session_hash]
 
   # GET /songs
   # GET /songs.json
@@ -10,6 +12,8 @@ class SongsController < ApplicationController
   # GET /songs/1
   # GET /songs/1.json
   def show
+    impressionist(@song)
+    @song = Song.friendly.find(params[:id])
   end
 
   # GET /songs/new
@@ -19,12 +23,15 @@ class SongsController < ApplicationController
 
   # GET /songs/1/edit
   def edit
+    @song = Song.friendly.find(params[:id])
   end
 
   # POST /songs
   # POST /songs.json
   def create
-    @song = Song.new(song_params)
+   @song = current_profile.songs.build(song_params)
+   #@song = Song.friendly.find(params[:id])
+
 
     respond_to do |format|
       if @song.save
@@ -40,6 +47,7 @@ class SongsController < ApplicationController
   # PATCH/PUT /songs/1
   # PATCH/PUT /songs/1.json
   def update
+    @song = Song.friendly.find(params[:id])
     respond_to do |format|
       if @song.update(song_params)
         format.html { redirect_to @song, notice: 'Song was successfully updated.' }
@@ -64,11 +72,11 @@ class SongsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_song
-      @song = Song.find(params[:id])
+      @song = Song.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def song_params
-      params.require(:song).permit(:title, :description, :songcover, :audio, :lyricsbody1, :lyricschorus1, :lyricsbody2, :lyricschorus2, :lyricsbody3, :lyricschorus3, :youtubeurl, :slug)
+      params.require(:song).permit(:title, :description, :songcover, :audio, :lyricsbody1, :lyricschorus1, :lyricsbody2, :lyricschorus2, :lyricsbody3, :lyricschorus3, :youtubeurl)
     end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170807061457) do
+ActiveRecord::Schema.define(version: 20170812011912) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,6 +82,8 @@ ActiveRecord::Schema.define(version: 20170807061457) do
     t.string "desc"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
+    t.index ["slug"], name: "index_locations_on_slug"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -129,9 +131,12 @@ ActiveRecord::Schema.define(version: 20170807061457) do
     t.text "lyricsbody3"
     t.text "lyricschorus3"
     t.string "youtubeurl"
-    t.string "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "profile_id"
+    t.string "slug"
+    t.index ["profile_id", "created_at"], name: "index_songs_on_profile_id_and_created_at"
+    t.index ["slug"], name: "index_songs_on_slug"
   end
 
   create_table "thing_locations", force: :cascade do |t|

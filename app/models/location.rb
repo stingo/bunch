@@ -8,4 +8,8 @@ class Location < ApplicationRecord
     accepts_nested_attributes_for :thing_locations #allow_destroy: true
 
     validates_uniqueness_of :name
+
+
+    extend FriendlyId
+         friendly_id :name, use: :slugged
 end

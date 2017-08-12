@@ -4,7 +4,6 @@
   <div class="form-inputs">
     <%= f.input :title %>
     <%= f.input :description %>
-    <%= f.input :songcover %>
     <%= f.input :audio %>
     <%= f.input :lyricsbody1 %>
     <%= f.input :lyricschorus1 %>
@@ -13,7 +12,24 @@
     <%= f.input :lyricsbody3 %>
     <%= f.input :lyricschorus3 %>
     <%= f.input :youtubeurl %>
-    <%= f.input :slug %>
+  
+
+    <p>
+    <label>Song Image</label>
+    <%= image_tag(@song.songcover_url(:thumb)) if @song.songcover? %>
+    <%= f.file_field :songcover %>
+    <%= f.hidden_field :songcover_cache %>
+  </p>
+
+  <p>
+    <label>
+      <%= f.check_box :remove_songcover %>
+      Remove songcover
+    </label>
+  </p>
+
+
+    
   </div>
 
   <div class="form-actions">

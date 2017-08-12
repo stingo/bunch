@@ -300,6 +300,34 @@ margin-bottom: 0px !important;
 
 }
 
+.blue{
+  font-weight: 300;
+  font-size: 14px;
+  color: #167ac6;
+}
+
+.blu a:visited {
+
+  color:#167ac6;
+
+}
+.blu a:hover {
+
+  color:#167ac6;
+
+}
+.blu a:active {
+
+  color:#167ac6;
+
+}
+
+
+
+
+
+
+
 .blk a:visited {
 
     color:#000000;

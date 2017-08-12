@@ -1,4 +1,5 @@
 class LocationsController < ApplicationController
+  before_action :authenticate_profile!, :except => [:index, :show]
   before_action :set_location, only: [:show, :edit, :update, :destroy]
 
   # GET /locations
@@ -10,7 +11,8 @@ class LocationsController < ApplicationController
   # GET /locations/1
   # GET /locations/1.json
   def show
-    @location = Location.find(params[:id])
+   
+    @location = Location.friendly.find(params[:id])
 
     @location_events = @location.events #paginate(page: params[:page], per_page: 5)
   end
@@ -22,12 +24,13 @@ class LocationsController < ApplicationController
 
   # GET /locations/1/edit
   def edit
+    @location = Location.friendly.find(params[:id])
   end
 
   # POST /locations
   # POST /locations.json
   def create
-    @location = Location.new(location_params)
+    @location = Location.friendly.find(params[:id])
 
     respond_to do |format|
       if @location.save
@@ -43,6 +46,8 @@ class LocationsController < ApplicationController
   # PATCH/PUT /locations/1
   # PATCH/PUT /locations/1.json
   def update
+    @location = Location.friendly.find(params[:id])
+
     respond_to do |format|
       if @location.update(location_params)
         format.html { redirect_to @location, notice: 'Location was successfully updated.' }
@@ -67,7 +72,7 @@ class LocationsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_location
-      @location = Location.find(params[:id])
+      @location = Location.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
