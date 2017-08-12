@@ -1,4 +1,5 @@
 class UrbantermsController < ApplicationController
+  before_action :authenticate_profile!, :except => [:index, :show]
   before_action :set_urbanterm, only: [:show, :edit, :update, :destroy]
 
   # GET /urbanterms

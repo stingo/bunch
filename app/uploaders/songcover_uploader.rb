@@ -35,7 +35,7 @@ class SongcoverUploader < CarrierWave::Uploader::Base
 
    # Create different versions of your uploaded files:
    version :thumb do
-     process :resize_to_fill => [468, 357]
+     process :resize_to_fill => [468, 400]
    end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
