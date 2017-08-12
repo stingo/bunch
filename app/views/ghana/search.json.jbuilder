@@ -10,4 +10,11 @@ json.events do
     json.name event.name
     json.url event_path(event)
   end
+  end
+
+  json.songs do
+  json.array!(@songs) do |song|
+    json.name song.title
+    json.url song_path(song)
+  end
 end

@@ -16,10 +16,18 @@ document.addEventListener("turbolinks:load", function() {
         listLocation: "hows",
         header: "<strong>Hows</strong>",
       },
+
+    
+
       {
+        listLocation: "songs",
+        header: "<strong>SONGS</strong>",
+      },
+
+        {
         listLocation: "events",
         header: "<strong>EVENTS</strong>",
-      }
+      },
     ],
     list: {
       onChooseEvent: function() {

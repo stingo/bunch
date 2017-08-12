@@ -191,7 +191,9 @@
 
 
                             <li>
-                                 <div class="result-image">
+                                 
+
+                                 <div class="result-image"><!--image starts-->
 
                                      <% if song.songcover? %>
                                       <%= link_to (image_tag(song.songcover_url(:thumb), :class => "img-responsive", :alt =>"song image")), song_path(song) %>
@@ -208,7 +210,26 @@
                                      <% end %> 
 
 
-                                </div>
+                    <div class="card-offset playButton"><!--song button-->
+                        <div class="card-offset-item text-center">
+
+
+                          <button type="button" class="btn-raised btn btn-danger btn-circle btn-lg">
+
+
+                          <em class="ion-play"></em></button>
+                        </div>
+
+
+
+                      </div><!--song button ends-->
+
+
+                                </div><!--image ends-->
+
+
+
+
                                 <div class="result-info">
 
                                     <h4 class=" blu" ;"><%= link_to song.title, song %></h4>
