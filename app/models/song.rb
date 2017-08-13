@@ -3,7 +3,7 @@ class Song < ApplicationRecord
 
 	mount_uploader :songcover, SongcoverUploader
 
-	mount_uploader :audio, AudioUploader
+	mount_uploader :sound, SoundUploader
     
     is_impressionable
 

@@ -52,6 +52,8 @@ gem 'fog-aws'
 gem 'figaro'
 #gem 'inf', '~> 0.0.9'
 
+gem 'mp3_player'
+
 
 
 group :development, :test do
