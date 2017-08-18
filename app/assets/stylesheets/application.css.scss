@@ -19,6 +19,7 @@
  *= require easy-autocomplete
  *= require easy-autocomplete.themes
  *= require trix
+ *= require songs
  * require_tree .
  * require_self
  */
@@ -53,6 +54,12 @@
  @import "main_plugins/font-awesome/css/font-awesome.min";
  @import "main_plugins/jquery-ui/themes/base/minified/jquery-ui.min.css";
  @import "main_css/theme/default";
+  /*-- ================== LANDING PAGE ================== --*/
+ @import "land/styles";
+ @import "land/nivo-lightbox";
+ @import "land/owl.theme";
+ @import "land/responsive";
+ @import "land/colors/blue";
 
  
 
