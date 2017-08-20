@@ -7,6 +7,27 @@
 	background: rgba(0, 0, 0, 0) linear-gradient(40deg, #d1edf0 10%, #ecc8c6 100%) !important; 
 }
 
+.frontsize {
+  font-family: "Questrial";
+  font-size: 72px;
+  font-weight: 100;
+
+  line-height: 1;
+  margin-top: 0px;
+  font-style: thin;
+}
+
+.biglettersize {
+  font-family: "Questrial";
+  font-size: 92px;
+  font-weight: 300;
+
+  line-height: 1;
+  margin-top: inherit;
+  font-style: thin;
+}
+
+
 .stnd-f {
 
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -485,15 +506,13 @@ padding-bottom: 15px;
 
 
 /*song*/
-.playButton{
-  position: absolute;
-  top:50%;
-    left:50%;
-    margin-left:-30px;
-  z-index: 2;
-   
+.playButton {
+    position: absolute;
+    top: 30%;
+    left: 45%;
+    margin-left: -65px;
+    z-index: 2;
 }
-
 /*profile img*/
 
 .fb-profile img.fb-image-lg{

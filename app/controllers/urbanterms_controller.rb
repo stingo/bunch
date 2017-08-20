@@ -1,6 +1,7 @@
 class UrbantermsController < ApplicationController
   before_action :authenticate_profile!, :except => [:index, :show]
   before_action :set_urbanterm, only: [:show, :edit, :update, :destroy]
+  impressionist actions: [:show,:index], unique: [:session_hash]
 
   # GET /urbanterms
   # GET /urbanterms.json
@@ -11,6 +12,8 @@ class UrbantermsController < ApplicationController
   # GET /urbanterms/1
   # GET /urbanterms/1.json
   def show
+    impressionist(@urbanterm)
+    @urbanterm = Urbanterm.friendly.find(params[:id])
   end
 
   # GET /urbanterms/new
@@ -20,12 +23,14 @@ class UrbantermsController < ApplicationController
 
   # GET /urbanterms/1/edit
   def edit
+    @urbanterm = Urbanterm.friendly.find(params[:id])
   end
 
   # POST /urbanterms
   # POST /urbanterms.json
   def create
-    @urbanterm = Urbanterm.new(urbanterm_params)
+    @urbanterm = current_profile.urbanterms.build(urbanterm_params)
+
 
     respond_to do |format|
       if @urbanterm.save
@@ -41,6 +46,7 @@ class UrbantermsController < ApplicationController
   # PATCH/PUT /urbanterms/1
   # PATCH/PUT /urbanterms/1.json
   def update
+    @urbanterm = Urbanterm.friendly.find(params[:id])
     respond_to do |format|
       if @urbanterm.update(urbanterm_params)
         format.html { redirect_to @urbanterm, notice: 'Urbanterm was successfully updated.' }
@@ -65,11 +71,11 @@ class UrbantermsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_urbanterm
-      @urbanterm = Urbanterm.find(params[:id])
+      @urbanterm = Urbanterm.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def urbanterm_params
-      params.require(:urbanterm).permit(:title, :meaning1, :meaning2, :origin, :example1, :example2, :example3, :example4, :termcover, :termaudio)
+      params.require(:urbanterm).permit(:title, :slug, :meaning1, :meaning2, :origin, :example1, :example2, :example3, :example4, :termcover, :termaudio)
     end
 end

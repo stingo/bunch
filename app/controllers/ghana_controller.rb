@@ -2,6 +2,10 @@ class GhanaController < ApplicationController
 
   #before_action :force_json, only: :search 
 
+  before_action :disable_searchform
+
+
+
 
 
 def index
@@ -41,6 +45,11 @@ end
 
      #@urban_terms = UrbanTerm.all
   #end
+
+
+  def disable_searchform
+  @disable_searchform = true
+end
 
   def search
     @hows = How.ransack(title_cont: params[:q]).result(distinct: true)

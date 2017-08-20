@@ -1,6 +1,21 @@
 <%= simple_form_for(@urbanterm) do |f| %>
   <%= f.error_notification %>
 
+    <% if urbanterm.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(urbanterm.errors.count, "error") %> prohibited this urban term from being saved:</h2>
+
+      <ul>
+      <% urbanterm.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+
+      </ul>
+    </div>
+  <% end %>
+
+
+
   <div class="form-inputs">
     <%= f.input :title %>
     <%= f.input :meaning1 %>

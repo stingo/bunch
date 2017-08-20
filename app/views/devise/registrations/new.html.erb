@@ -77,16 +77,14 @@
                             <div class="col-md-6 m-b-15">
 
 
-                                <%= f.text_field :first_name, :autofocus => true, :placeholder => 'First name', :class => "form-control input-box " %>
-
-
+                                <%= f.text_field :first_name, required: true, :autofocus => true, :placeholder => 'First name', :class => "form-control input-box " %>
 
 
                              
                             </div>
                             <div class="col-md-6 m-b-15">
                                 
-                                <%= f.text_field :last_name, :autofocus => true, :placeholder => 'Last name', :class => "form-control input-box " %>
+                                <%= f.text_field :last_name, required: true, :autofocus => true, :placeholder => 'Last name', :class => "form-control input-box " %>
 
                             </div>
                         </div>
@@ -95,37 +93,44 @@
                         <label class="control-label">Email <span class="text-danger">*</span></label>
                         <div class="row m-b-15">
                             <div class="col-md-12">
-                            <%= f.email_field :email, :autofocus => true, :class => "form-control", :placeholder => "Email address" %>
+                            <%= f.email_field :email, required: true, :autofocus => true, :class => "form-control", :placeholder => "Email address" %>
                             
                             </div>
                         
                         </div>
+
+
+
+                        <!--password-->
+
+                         <label class="control-label">Password<% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %> <span class="text-danger">*</span></label>
+                        
+                        <div class="row row-space-10">
+                            <div class="col-md-6 m-b-15">
+
+
+                                <%= f.password_field :password, required: true, autocomplete: "off", :class => "form-control", :placeholder => "Password"  %>
+
+
+                             
+                            </div>
+                            <div class="col-md-6 m-b-15">
+                                
+                                <%= f.password_field :password_confirmation,required: true, autocomplete: "off", :class => "form-control", :placeholder => "Confirm password"  %>
+
+                            </div>
+                        </div>
+
+
+                        <!--password ends-->
                         
 
                       
 
 
 
-                        <label class="control-label">Password<% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %> <span class="text-danger">*</span></label>
-                        <div class="row m-b-15">
-                            <div class="col-md-12">
-
-                            <%= f.password_field :password, autocomplete: "off", :class => "form-control", :placeholder => "Password"  %>
-                                
-                            </div>
-                        </div>
-
-
-                        <label class="control-label">Confirm Password <span class="text-danger">*</span></label>
-                        <div class="row m-b-15">
-                            <div class="col-md-12">
-
-                            <%= f.password_field :password_confirmation,required: true, autocomplete: "off", :class => "form-control", :placeholder => "Password"  %>
-                                
-                            </div>
-                        </div>
 
 
                           <!--div class="text-inverse m-b-10">Password<%# if @minimum_password_length %>
@@ -140,11 +145,26 @@
 
 
 
-    <div><%# f.label :birthday %><br />
-        <%# f.date_select :date_of_birth, :start_year => 1945 %></div>
+    <div><%= f.label :birthday %><br />
+        <%= f.date_select :date_of_birth, :start_year => 1945, required: true %>&nbsp<span><!-- START dropdown-->
+                        
+                             
+                        <div class="pull-right dropdown">
+                          <button type="button" data-toggle="dropdown" class="btn btn-flat btn-flat-icon"><em class="ion-android-more-vertical"></em></button>
+                          <ul role="menu" class="dropdown-menu md-dropdown-menu dropdown-menu-right" style="padding-left: 4px !important;">
+                            <span class="card-body small Ttransparent-text" >Providing your date <br> of birth helps make <br>sure that you get the right insideGH <br>experience for your age.<br> This will not visible to the public, <br>For more details, <br>please visit our <a href="#">Data Policy.</a></span>
+                            
+                          </ul>
+                        </div>
+                        <!-- END dropdown--></span>
 
 
-        <br />
+        </div>
+
+
+
+
+      <br>
 
            <div class="col-md-12 m-b-10">
                                         <label class="radio-inline">
@@ -152,7 +172,7 @@
                                         </label>
 
                                         <label class="radio-inline">
-                                         <%= radio_button :is_female, {}, false%> <%= f.label :is_female, "Male" %>
+                                         <%= radio_button :is_female, {}, false %> <%= f.label :is_female, "Male" %>
                                         </label>
                                     </div>
 
@@ -161,11 +181,20 @@
 
 
 
-                        <div class="checkbox m-b-30">
-                            <label>
-                                <input type="checkbox" required /> By clicking Sign Up, you agree to our <a href="#">Terms</a> and that you have read our <a href="#">Data Policy</a>, including our <a href="#">Cookie Use</a>.
-                            </label>
-                        </div>
+
+
+
+
+                         <p class=" small Ttransparent-text">
+                                By clicking Sign up, you agree to insideGH's User Agreement, Privacy Policy, and Cookie Policy.
+                                </p>
+                                
+                             
+                                
+                        
+
+
+
                         <div class="register-buttons">
 
                     
@@ -175,6 +204,9 @@
 
 
                         </div>
+
+
+
                         <div class="m-t-20 m-b-40 p-b-40 text-inverse">
                             Already a member? Click <%= link_to('Here', new_profile_session_path) %> to login.
                         </div>

@@ -36,7 +36,7 @@ document.addEventListener("turbolinks:load", function() {
         Turbolinks.visit(url)
       }
     },
-    theme: "plate-dark"
+    theme: ""
   }
 
   $input.easyAutocomplete(options)

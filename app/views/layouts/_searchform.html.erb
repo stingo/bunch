@@ -1,0 +1,38 @@
+       <li class="[ visible-xs ]">
+
+                        <!--form action="http://bootsnipp.com/search" method="GET" role="search">
+                            <div class="[ input-group ]">
+                                <input type="text" class="[ form-control ]" name="q" placeholder="Search for snippets">
+                                <span class="[ input-group-btn ]">
+                                    <button class="[ btn btn-primary ]" type="submit"><span class="[ glyphicon glyphicon-search ]"></span></button>
+                                    <button class="[ btn btn-danger ]" type="reset"><span class="[ glyphicon glyphicon-remove ]"></span></button>
+                                </span>
+                            </div>
+                        </form-->
+
+
+
+                                  <%= form_with url: search_path, local: true, method: :get, :class => "input-group" do |form| %>
+               <div class="[ input-group ]">
+                <!--input type="text" name="q" id="q" class="form-control" placeholder="Search insideGH" data-behavior= "autocomplete"  /-->
+                <%= form.text_field :q, placeholder: "Autocomplete Search", class: "form-control" %>
+
+                <span class="[ input-group-btn ]">
+                                    <button class="[ btn btn-primary ]" type="submit"><span class="[ glyphicon glyphicon-search ]"></span></button>
+
+                <button class="[ btn btn-danger ]" type="reset"><span class="[ glyphicon glyphicon-remove ]"></span></button>
+                                </span>
+              </div >
+        
+            <% end %>
+
+
+
+                    </li>
+
+
+
+
+
+
+                    <li class="[ hidden-xs ]"><a href="#toggle-search" class="[ animate ]">Search&nbsp<span class="[ glyphicon glyphicon-search ]"></span></a></li>

@@ -11,6 +11,7 @@ class Profile < ApplicationRecord
 	has_many :events, dependent: :destroy
 	has_many :hows, dependent: :destroy
 	has_many :songs, dependent: :destroy
+	has_many :urbanterms, dependent: :destroy
 
 	mount_uploader :pesnavatar, PesnavatarUploader
 	mount_uploader :profilecover, ProfilecoverUploader
@@ -23,6 +24,12 @@ class Profile < ApplicationRecord
 	#validations
 	validates :first_name, presence: true
 	validates :last_name, presence: true
+	validates :date_of_birth, presence: true
+	validates :is_female, presence: { message: "? Gender can't be blank" }
+
+	
+
+	
 
 
 

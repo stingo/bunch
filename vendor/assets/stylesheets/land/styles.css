@@ -68,7 +68,7 @@ TO CHANGE PRE_DEFINED COLORS. PLEASE CHECK css/colors/your_selected_color.css
 /*---------------------------------------
    1.1 GENERAL STYLES                
 -----------------------------------------*/
-html {
+/*html {
 	font-size: 100%;
 }
 
@@ -81,7 +81,7 @@ body {
 	text-align: center;
 	overflow-x: hidden !important;
 	margin: auto !important;
-}
+}*/
 
 /*---------------------------------------
    1.2 PRE-LOADER              
