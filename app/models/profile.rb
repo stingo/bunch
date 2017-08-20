@@ -25,7 +25,7 @@ class Profile < ApplicationRecord
 	validates :first_name, presence: true
 	validates :last_name, presence: true
 	validates :date_of_birth, presence: true
-	validates :is_female, presence: { message: "? Gender can't be blank" }
+	#validates :is_female, presence: { message: "? Gender can't be blank" }
 
 	
 
@@ -45,6 +45,10 @@ class Profile < ApplicationRecord
     def full_name
     "#{first_name} #{last_name}"
     end
+
+     def should_generate_new_friendly_id?
+    last_name_changed?
+  end
 
 
 

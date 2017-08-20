@@ -20,6 +20,16 @@ Rails.application.routes.draw do
   end
 
 
+      resources :urbanterms do
+    #get :search, :on => :collection
+    #get :autocomplete, :on => :collection
+        member do
+      put "like", to:    "urbanterms#upvote"
+      put "unlike", to: "urbanterms#downvote"
+  end
+  end
+
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'ghana#index'
 end

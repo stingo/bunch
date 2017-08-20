@@ -204,7 +204,7 @@
 
         
 
-                                      <%# link_to (image_tag("http://via.placeholder.com/468x400", :class => "img-responsive", :alt =>"Term image")), urbanterm_path(urbanterm) %>
+                                      <%= link_to (image_tag("ghanaurbanterms.jpg", :class => "img-responsive", :alt =>"Term image")), urbanterm_path(urbanterm) %>
 
 
                                    
@@ -238,14 +238,49 @@
 
                                 <div class="result-info">
 
-                                    <h4 class=" blu" style="font-size: 24px;" ;"><%= link_to urbanterm.title, urbanterm %></h4>
+                                    <h4 class=" uw" style="font: 700 32px;" ><%= link_to urbanterm.title.downcase, urbanterm %></h4>
 
                                    
 
 
-                                    <p class="location">United State, BY <%= link_to urbanterm.profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ urbanterm.profile.last_name.split(" ").map(&:capitalize).join(" "), profile_path(urbanterm.profile_id) if urbanterm.profile.first_name || urbanterm.profile.last_name %></p>
-                                    <p class="desc">
-                                        Nunc et ornare ligula. Aenean commodo lectus turpis, eu laoreet risus lobortis quis. Suspendisse vehicula mollis magna vel aliquet. Donec ac tempor neque, convallis euismod mauris. Integer dictum dictum ipsum quis viverra.
+                                    <p class="location">BY <%= link_to urbanterm.profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ urbanterm.profile.last_name.split(" ").map(&:capitalize).join(" "), profile_path(urbanterm.profile_id) if urbanterm.profile.first_name || urbanterm.profile.last_name %>  <small> <% if urbanterm.created_at > Time.now.beginning_of_day %>
+    <%="#{time_ago_in_words(urbanterm.created_at)} ago"%> 
+<% else %>
+    <%= urbanterm.created_at.strftime("%b %d, %Y %I:%M %p") %> 
+<% end %></small></p>
+
+                                    
+                                   
+
+                                    <% if urbanterm.meaning1.present? %>
+
+                                     <span class="ustandard">
+        
+
+
+
+        <%# truncate(sanitize(how.body, tags: %w(strong em p u br div ul ol li #ff0000 font-size)), length: 160) %>
+<%# link_to 'read more', how %> 
+
+
+<%#sanitize how.body.truncate(160) {link_to 'read more', how } %>
+
+<%=truncate(sanitize(urbanterm.meaning1, tags: %w(strong em p u br #ff0000 font-size)).capitalize, length: 60) {link_to 'continue', urbanterm } %>
+
+
+
+      <% else %>
+
+      <% end %> 
+
+      <% if urbanterm.meaning1.length<70 %>
+
+    &nbsp&nbsp &nbsp&nbsp    &nbsp&nbsp &nbsp
+
+      <% else %>
+
+      <% end %>       
+
                                     </p>
                                     <div class="btn-row">
                                         <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Analytics"><i class="fa fa-fw fa-bar-chart-o"></i></a>
@@ -256,13 +291,59 @@
                                     </div>
                                 </div>
                                 <div class="result-price">
-                                    $92,101 <small>PER MONTH</small>
-                                    <a href="javascript:;" class="btn btn-inverse btn-block">View Details</a>
+                                   
+    <h5 class="text-center"> <a href="#">
+                       <i class="fa fa-eye fa-2x" style="color:#337ab7; font-size: 20px;"></i></a>
+                       <br><strong><%= urbanterm.impressionist_count(:filter=>:session_hash) %></strong></h5>
+
+
+
+                                   
+
+                                    <span class="wht"><%#  "Urbanterm".pluralize(@urbanterm.impressionist_count) %>
+                                   <%= link_to "View Details", urbanterm,  :class=> "blu btn btn-primary btn-block" %></span>
+
+
+
+
+<span class="text-center mt-sm">
+                      <%= link_to like_urbanterm_path(urbanterm), method: :put do %>
+
+  <i class="fa fa-fw fa-thumbs-up" style="color: #696A6A;"></i><%= urbanterm.get_upvotes.size %>
+
+  
+<% end %>
+
+<%= link_to unlike_urbanterm_path(urbanterm), method: :put do %>
+ <i class="fa fa-fw fa-thumbs-down" style="color: #696A6A;"></i>
+  <%= urbanterm.get_downvotes.size %>
+<% end %>
+
+</span>
+
+
                                 </div>
+
+                            
+
+
+
+
 
                             </li>
 
+
+
+
+
+
+
+
+
+
 <% end %>
+
+
 
 
   <!--ends--></ul>

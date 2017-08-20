@@ -22,11 +22,26 @@
     <%= form.text_field :last_name %>
   </div>
 
+
+
+           <div class="col-md-12 m-b-10">
+                                        <label class="radio-inline">
+                                <%= radio_button :is_female, {}, true %> <%= form.label :is_female, "Female" %>
+                                        </label>
+
+                                        <label class="radio-inline">
+                                         <%= radio_button :is_female, {}, false %> <%= form.label :is_female, "Male" %>
+                                        </label>
+                                    </div>
+
   <div class="field">
     <%= form.label :Summary %>
     <%= form.text_field :summary %>
     
   </div>
+
+  <div><%= form.label :birthday %><br />
+        <%= form.date_select :date_of_birth, :start_year => 1945, required: true %>&nbsp<span>
 
 
 

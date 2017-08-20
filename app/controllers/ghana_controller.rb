@@ -13,6 +13,8 @@ def index
   
 @events = Event.all
 @hows = How.all
+@urbanterms = Urbanterm.all
+@profiles = Profile.all
 
   #if params[:tag]
 
@@ -55,7 +57,8 @@ end
     @hows = How.ransack(title_cont: params[:q]).result(distinct: true)
     @events = Event.ransack(title_cont: params[:q]).result(distinct: true)
     @songs = Song.ransack(title_cont: params[:q]).result(distinct: true)
-    #@urban_terms = UrbanTerm.ransack(title_cont: params[:q]).result(distinct: true)
+    @urbanterms = Urbanterm.ransack(title_cont: params[:q]).result(distinct: true)
+    @profiles = Profile.ransack(title_cont: params[:q]).result(distinct: true)
 
     respond_to do |format|
       format.html {}
@@ -63,7 +66,8 @@ end
         @hows = @hows.limit(5)
         @events = @events.limit(5)
         @songs = @songs.limit(5)
-        #@urban_terms = @urban_terms.limit(5)
+        @urbanterms = @urbanterms.limit(5)
+        @profiles = @profiles.limit(5)
       }
     end
   end

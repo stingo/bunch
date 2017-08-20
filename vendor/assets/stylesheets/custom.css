@@ -28,6 +28,22 @@
 }
 
 
+.uw {
+    font: 700 32px "Merriweather", Georgia, "Times New Roman", sans-serif;
+    font-family: "Merriweather", Georgia, "Times New Roman", sans-serif;
+    color: #2a2a2a;
+    margin-right: 6px;
+    -ms-word-break: break-all;
+    word-break: break-word;
+}
+
+.ustandard {
+  font-size: 16px;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+
+}
+
+
 .stnd-f {
 
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -342,7 +358,7 @@ margin-bottom: 0px !important;
 
 }
 
-.blue{
+.blu{
   font-weight: 300;
   font-size: 14px;
   color: #167ac6;

@@ -43,6 +43,26 @@ class UrbantermsController < ApplicationController
     end
   end
 
+
+
+   def upvote 
+  @link = Urbanterm.friendly.find(params[:id])
+  @link.upvote_by current_profile
+  redirect_to request.referer || root_path
+end  
+
+def downvote
+  @link = Urbanterm.friendly.find(params[:id])
+  @link.downvote_by current_profile
+  redirect_to request.referer || root_path
+end
+
+
+
+
+
+
+
   # PATCH/PUT /urbanterms/1
   # PATCH/PUT /urbanterms/1.json
   def update

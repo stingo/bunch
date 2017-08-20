@@ -8,26 +8,39 @@ document.addEventListener("turbolinks:load", function() {
     },
 
     categories: [
+      
+
+
+
+
       {
-
-        
-
-
         listLocation: "hows",
         header: "<strong>Hows</strong>",
+      },
+
+       {
+        listLocation: "urbanterms",
+        header: "<strong>Ghana Urban Terms</strong>",
       },
 
     
 
       {
         listLocation: "songs",
-        header: "<strong>SONGS</strong>",
+        header: "<strong>Songs</strong>",
       },
 
         {
         listLocation: "events",
-        header: "<strong>EVENTS</strong>",
+        header: "<strong>Events</strong>",
       },
+
+      
+       {
+        listLocation: "profiles",
+        header: "<strong>People</strong>",
+      },
+
     ],
     list: {
       onChooseEvent: function() {
@@ -36,7 +49,7 @@ document.addEventListener("turbolinks:load", function() {
         Turbolinks.visit(url)
       }
     },
-    theme: ""
+    theme: "plate-dark"
   }
 
   $input.easyAutocomplete(options)

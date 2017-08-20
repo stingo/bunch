@@ -18,3 +18,17 @@ json.events do
     json.url song_path(song)
   end
 end
+
+  json.urbanterms do
+  json.array!(@urbanterms) do |urbanterm|
+    json.name urbanterm.title
+    json.url urbanterm_path(urbanterm)
+  end
+end
+
+  json.profiles do
+  json.array!(@profiles) do |profile|
+    json.name profile.full_name
+    json.url profile_path(profile)
+  end
+end
