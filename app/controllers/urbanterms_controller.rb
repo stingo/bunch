@@ -96,6 +96,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def urbanterm_params
-      params.require(:urbanterm).permit(:title, :slug, :meaning1, :meaning2, :origin, :example1, :example2, :example3, :example4, :termcover, :termaudio)
+      params.require(:urbanterm).permit(:title, :tag_list, :tag, { tag_ids: [] }, :tag_ids, :slug, :meaning1, :meaning2, :origin, :example1, :example2, :example3, :example4, :termcover, :termaudio)
     end
 end

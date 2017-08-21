@@ -8,6 +8,11 @@ Rails.application.routes.draw do
   resources :profiles
   resources :ghana, :only => [:index, :search]
 
+  resources :tags, except: :show
+  get 'tags/:tag', to: 'ghana#search'
+
+  get 'tags/:tag', to: 'urbanterms#index'
+
   get :search, controller: :ghana
   
     resources :profiles do

@@ -1,5 +1,7 @@
 class Urbanterm < ApplicationRecord
 	is_impressionable
+
+	acts_as_taggable
 	
 	belongs_to :profile, foreign_key:"profile_id"
 
