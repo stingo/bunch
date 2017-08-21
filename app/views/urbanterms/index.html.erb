@@ -282,8 +282,32 @@
       <% end %>       
 
                                     </p>
-                                    <div class="btn-row">
-                                        <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Analytics"><i class="fa fa-fw fa-bar-chart-o"></i></a>
+
+                                    <div class="">
+
+
+                                      
+
+
+
+
+<span class="text-center mt-sm">
+                      <%= link_to like_urbanterm_path(urbanterm), method: :put do %>
+
+  <i class="fa fa-fw fa-thumbs-up fa-lg" style="color: #696A6A;"></i><%= urbanterm.get_upvotes.size %>
+
+  
+<% end %>
+
+<%= link_to unlike_urbanterm_path(urbanterm), method: :put do %>
+ <i class="fa fa-fw fa-thumbs-down fa-lg" style="color: #696A6A;"></i>
+  <%= urbanterm.get_downvotes.size %>
+<% end %>
+
+</span>
+
+
+
                                         <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Tasks"><i class="fa fa-fw fa-tasks"></i></a>
                                         <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Configuration"><i class="fa fa-fw fa-cog"></i></a>
                                         <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Performance"><i class="fa fa-fw fa-tachometer"></i></a>
@@ -293,8 +317,8 @@
                                 <div class="result-price">
                                    
     <h5 class="text-center"> <a href="#">
-                       <i class="fa fa-eye fa-2x" style="color:#337ab7; font-size: 20px;"></i></a>
-                       <br><strong><%= urbanterm.impressionist_count(:filter=>:session_hash) %></strong></h5>
+                       <i class="fa fa-eye fa-2x" style="color:#337ab7; font-size: 22px;"></i></a>
+                       <br><strong style="font-size: 22px;"><%= urbanterm.impressionist_count(:filter=>:session_hash) %></strong></h5>
 
 
 
@@ -306,20 +330,7 @@
 
 
 
-<span class="text-center mt-sm">
-                      <%= link_to like_urbanterm_path(urbanterm), method: :put do %>
 
-  <i class="fa fa-fw fa-thumbs-up" style="color: #696A6A;"></i><%= urbanterm.get_upvotes.size %>
-
-  
-<% end %>
-
-<%= link_to unlike_urbanterm_path(urbanterm), method: :put do %>
- <i class="fa fa-fw fa-thumbs-down" style="color: #696A6A;"></i>
-  <%= urbanterm.get_downvotes.size %>
-<% end %>
-
-</span>
 
 
                                 </div>

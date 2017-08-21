@@ -37,6 +37,15 @@
     word-break: break-word;
 }
 
+.us {
+    font: 700 18px "Merriweather", Georgia, "Times New Roman", sans-serif;
+    font-family: "Merriweather", Georgia, "Times New Roman", sans-serif;
+    color: #2a2a2a;
+    margin-right: 6px;
+    -ms-word-break: break-all;
+    word-break: break-word;
+}
+
 .ustandard {
   font-size: 16px;
   font-family: "Open Sans", Helvetica, Arial, sans-serif;

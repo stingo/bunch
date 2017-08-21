@@ -226,7 +226,6 @@
 
                       
 
-                      <%= mp3_player song.sound.url %>
 
 
                                 </div><!--image ends-->
@@ -236,14 +235,48 @@
 
                                 <div class="result-info">
 
-                                    <h4 class=" blu" ;"><%= link_to song.title, song %></h4>
+                                    <h4 class=" us" ;"><%= link_to song.title, song %></h4>
 
                                    
 
 
-                                    <p class="location">United State, BY <%= link_to song.profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ song.profile.last_name.split(" ").map(&:capitalize).join(" "), profile_path(song.profile_id) if song.profile.first_name || song.profile.last_name %></p>
-                                    <p class="desc">
-                                        Nunc et ornare ligula. Aenean commodo lectus turpis, eu laoreet risus lobortis quis. Suspendisse vehicula mollis magna vel aliquet. Donec ac tempor neque, convallis euismod mauris. Integer dictum dictum ipsum quis viverra.
+                                    <p class="location">United State, BY <%= link_to song.profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ song.profile.last_name.split(" ").map(&:capitalize).join(" "), profile_path(song.profile_id) if song.profile.first_name || song.profile.last_name %><small class="blk"> <% if song.created_at > Time.now.beginning_of_day %>
+    <%="#{time_ago_in_words(song.created_at)} ago"%> 
+<% else %>
+    <%= song.created_at.strftime("%b %d, %Y %I:%M %p") %>   
+<% end %></small></p>
+
+                                      
+
+                                    <% if song.description.present? %>
+
+                                     <span class="ustandard">
+        
+
+
+
+        <%# truncate(sanitize(how.body, tags: %w(strong em p u br div ul ol li #ff0000 font-size)), length: 160) %>
+<%# link_to 'read more', how %> 
+
+
+<%#sanitize how.body.truncate(160) {link_to 'read more', how } %>
+
+<%=truncate(sanitize(song.description, tags: %w(strong em p u br #ff0000 font-size)).capitalize, length: 60) {link_to 'continue', song } %>
+
+
+
+      <% else %>
+
+      <% end %> 
+
+      <% if song.description.length<70 %>
+
+    &nbsp&nbsp &nbsp&nbsp    &nbsp&nbsp &nbsp
+
+      <% else %>
+
+      <% end %>       
+
                                     </p>
                                     <div class="btn-row">
                                         <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Analytics"><i class="fa fa-fw fa-bar-chart-o"></i></a>
@@ -253,9 +286,30 @@
                                         <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Users"><i class="fa fa-fw fa-user"></i></a>
                                     </div>
                                 </div>
-                                <div class="result-price">
-                                    $92,101 <small>PER MONTH</small>
-                                    <a href="javascript:;" class="btn btn-inverse btn-block">View Details</a>
+                                
+
+
+
+
+                                    <div class="result-price">
+                                   
+    <h5 class="text-center"> <a href="#">
+                       <i class="fa fa-eye fa-2x" style="color:#337ab7; font-size: 22px;"></i></a>
+                       <br><strong style="font-size: 22px;"><%= song.impressionist_count(:filter=>:session_hash) %></strong></h5>
+
+
+
+                                   
+
+                                    <span class="wht"><%#  "Urbanterm".pluralize(@urbanterm.impressionist_count) %>
+                                   <%= link_to "View Details", song,  :class=> "blu btn btn-primary btn-block" %></span>
+
+
+
+
+
+
+
                                 </div>
 
                             </li>
