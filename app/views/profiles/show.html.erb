@@ -57,19 +57,19 @@
         
 
 
-       
+       <% if @profile.pesnavatar? %> 
 
 
-        
-
-
-
+        <img align="left" class="fb-image-profile thumbnail" src=" <%= @profile.pesnavatar.url(:large) %>  " alt="Profile image example" />
 
 
 
-        <img align="left" class="fb-image-profile thumbnail" src=" <%= image_path "noimage.jpg" %>" alt="Profile image example" />
+       <% else %>
 
-       
+
+        <img align="left" class="fb-image-profile thumbnail" src=" <%= image_path "noimage.jpg" %>  " alt="Profile image example" />
+
+       <% end %>
 
 
       

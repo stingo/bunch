@@ -95,8 +95,8 @@
    
       <!-- Main section-->
   
-        <section class="custombgD9E0E7">
-          <div class="container custombgD9E0E7">
+        <section class="graybg">
+          <div class="container graybg">
             <div class="row fh">
      <!-- Left starts -->           
 
@@ -243,7 +243,24 @@
                                    
 
 
-                                    <p class="location">BY <%= link_to urbanterm.profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ urbanterm.profile.last_name.split(" ").map(&:capitalize).join(" "), profile_path(urbanterm.profile_id) if urbanterm.profile.first_name || urbanterm.profile.last_name %>  <small> <% if urbanterm.created_at > Time.now.beginning_of_day %>
+                                    <p class="location">BY 
+
+
+                                    <% if urbanterm.profile.pesnavatar? %>
+        <%= link_to (image_tag(urbanterm.profile.pesnavatar.url(:small), :class => "img-circle thumb32", :alt =>"profile")), profile_path(urbanterm.profile_id) %>
+
+
+         
+
+        <% else %> 
+        <%= link_to (image_tag("noimage.jpg", :class => "img-circle thumb32", :alt =>"profile")), profile_path(urbanterm.profile_id) %>
+
+
+       <% end %>
+
+
+
+                                    <%= link_to urbanterm.profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ urbanterm.profile.last_name.split(" ").map(&:capitalize).join(" "), profile_path(urbanterm.profile_id) if urbanterm.profile.first_name || urbanterm.profile.last_name %>  <small> <% if urbanterm.created_at > Time.now.beginning_of_day %>
     <%="#{time_ago_in_words(urbanterm.created_at)} ago"%> 
 <% else %>
     <%= urbanterm.created_at.strftime("%b %d, %Y %I:%M %p") %> 
@@ -279,7 +296,27 @@
 
       <% else %>
 
-      <% end %>       
+      <% end %> 
+
+      <br>
+
+      <!--example1-->
+
+      <% if urbanterm.example1.present? %>
+
+      <small class="text-muted">
+
+   
+
+
+   "<%=truncate(sanitize(urbanterm.example1, tags: %w(strong em p u br #ff0000 font-size)).downcase, length: 60) {link_to 'continue', urbanterm } %>"
+
+
+     </small>
+
+      <% else %> 
+
+      <% end %>   
 
                                     </p>
 
@@ -314,6 +351,8 @@
                                         <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Users"><i class="fa fa-fw fa-user"></i></a>
                                     </div>
                                 </div>
+
+
                                 <div class="result-price">
                                    
     <h5 class="text-center"> <a href="#">

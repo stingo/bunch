@@ -7,6 +7,10 @@
 	background: rgba(0, 0, 0, 0) linear-gradient(40deg, #d1edf0 10%, #ecc8c6 100%) !important; 
 }
 
+.graybg {
+  background: #ECECEC !important;
+}
+
 .frontsize {
   font-family: "Questrial";
   font-size: 72px;
