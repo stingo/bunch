@@ -19,17 +19,20 @@ class UrbantermsController < ApplicationController
   # GET /urbanterms/new
   def new
     @urbanterm = Urbanterm.new
+    @tag = Tag.new
   end
 
   # GET /urbanterms/1/edit
   def edit
     @urbanterm = Urbanterm.friendly.find(params[:id])
+    @tag = Tag.new
   end
 
   # POST /urbanterms
   # POST /urbanterms.json
   def create
     @urbanterm = current_profile.urbanterms.build(urbanterm_params)
+
 
 
     respond_to do |format|

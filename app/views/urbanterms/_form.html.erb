@@ -18,13 +18,45 @@
 
   <div class="form-inputs">
     <%= f.input :title %>
+
+
+
+    <br>
+
+
+<%= f.label :tag_list, 'Tags (separated with comas)' %>
+<%# f.text_field :tag_list, class: 'form-control' %>
+
+<%# f.select :tag_ids, Tag.all.pluck(:name, :id), {}, {multiple: true, class: "selectize"} %>
+
+<%= f.collection_select :tag_ids, Tag.order(:name), :id, :name, {}, {multiple: true, class: "selectize"} %>
+
+
+<%# f.select :tag_ids,
+  Tag.all.map { |u| [u.name, u.id] },
+               { include_blank: true },
+          
+               { multiple: true, class: 'chosen-select' }
+
+               %>
+
+<br>
+
+
+
+<%= f.input :origin %>
+
     <%= f.input :meaning1 %>
-    <%= f.input :meaning2 %>
-    <%= f.input :origin %>
     <%= f.input :example1 %>
     <%= f.input :example2 %>
-    <%= f.input :example3 %>
+    <%= f.input :meaning2 %>
+     <%= f.input :example3 %>
     <%= f.input :example4 %>
+
+    
+    
+    
+   
     <%= f.input :termcover %>
     <%= f.input :termaudio %>
   </div>

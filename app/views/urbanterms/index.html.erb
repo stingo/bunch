@@ -309,14 +309,21 @@
    
 
 
-   "<%=truncate(sanitize(urbanterm.example1, tags: %w(strong em p u br #ff0000 font-size)).downcase, length: 60) {link_to 'continue', urbanterm } %>"
+   "<%=truncate(sanitize(urbanterm.example1, tags: %w(strong em p u br #ff0000 font-size)).downcase, length: 60) {link_to 'read more', urbanterm } %>"
 
 
      </small>
 
       <% else %> 
 
-      <% end %>   
+      <% end %>
+
+      <br>
+
+     
+<% if urbanterm.tag_ids.present? %> <small style="font-style: italic;">Tagged:</small><% else %> <% end %>
+
+ <small class=" text-center"><%= raw urbanterm.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') if urbanterm.tag_ids.present? %></small>   
 
                                     </p>
 
@@ -324,7 +331,6 @@
 
 
                                       
-
 
 
 
