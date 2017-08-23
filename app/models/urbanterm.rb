@@ -7,6 +7,8 @@ class Urbanterm < ApplicationRecord
 
 	acts_as_votable
 
+	mount_uploader :termcover, TermcoverUploader
+
 extend FriendlyId
   friendly_id :title, use: :slugged
 

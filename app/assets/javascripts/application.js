@@ -14,6 +14,7 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require turbolinks
+//= require post
 //= require jquery.easy-autocomplete
 //= require rails-ujs
 //= require selectize
@@ -26,3 +27,4 @@
 //= require bootstrap-sprockets
 //= require navdouble
 //= require slimscroll
+
