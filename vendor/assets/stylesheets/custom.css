@@ -11,6 +11,12 @@
   background: #ECECEC !important;
 }
 
+
+#someDiv {
+    position: fixed;
+    z-index: 1041;
+}
+
 .frontsize {
   font-family: "Questrial";
   font-size: 72px;

@@ -92,26 +92,7 @@
 
 
 
-  <br>
-
-
-<%= f.label :tag_list, 'Tags (separated with comas)' %>
-<%# f.text_field :tag_list, class: 'form-control' %>
-
-<%# f.select :tag_ids, Tag.all.pluck(:name, :id), {}, {multiple: true, class: "selectize"} %>
-
-<%= f.collection_select :tag_ids, Tag.order(:name), :id, :name, {}, {multiple: true, class: "selectize"} %>
-
-
-<%# f.select :tag_ids,
-  Tag.all.map { |u| [u.name, u.id] },
-               { include_blank: true },
-          
-               { multiple: true, class: 'chosen-select' }
-
-               %>
-
-<br>
+  
 
 
 
@@ -127,6 +108,15 @@
 
 
 
+<!-- Button to trigger modal -->
+<a href="#myModal" role="button" class="btn" data-toggle="modal">Launch demo modal</a>
+ 
+<div id="someDiv">
+    <div style='width:400px;height:400px;background-color:red'>        </div>
+<!-- Modal -->
+
+
+
 
 <div class="modal fade tag-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
   <div class="modal-dialog modal-sm" role="document">
@@ -135,6 +125,8 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
         <h4 class="modal-title" id="mySmallModalLabel">Add Tag</h4>
       </div>
+      
+
       <div class="modal-body">
 
         <%= form_for Tag.new do |f| %>
@@ -150,7 +142,11 @@
 
         
       </div>
-    </div>
+
+
+<div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button class="btn btn-primary">Save changes</button>
   </div>
 </div>
 
