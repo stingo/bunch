@@ -21,6 +21,8 @@
     <% else %>
       <%= image_tag('http://via.placeholder.com/468x400', class: 'img-responsive', style: 'width: 100%; height: 250px', alt: 'song image') %>
     <%- end %>
+
+    <p class="text-left">Played <strong><%= @song.impressionist_count %></strong> times.</p>
     <p class="text-left">
       <%= link_to 'Edit', edit_song_path(@song) %> |
       <%= link_to 'Back', songs_path %> |

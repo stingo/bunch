@@ -63,6 +63,7 @@
 
                       <div class="result-info">
                         <h4 class="blu"><%= link_to song.title, song %></h4>
+                        <p>Played <strong><%= song.impressionist_count %></strong> times.</p>
                         <p class="location">United State, BY <%= link_to song.profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ song.profile.last_name.split(" ").map(&:capitalize).join(" "), profile_path(song.profile_id) if song.profile.first_name || song.profile.last_name %></p>
                         <p class="desc">
                           Nunc et ornare ligula. Aenean commodo lectus turpis, eu laoreet risus lobortis quis. Suspendisse vehicula mollis magna vel aliquet. Donec ac tempor neque, convallis euismod mauris. Integer dictum dictum ipsum quis viverra.
