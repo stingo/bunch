@@ -1,530 +1,253 @@
- <!DOCTYPE html>
-<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
-<!--[if !IE]><!-->
-<html lang="en">
-<!--<![endif]-->
-<head>
-  <meta charset="utf-8" />
-  <title>Color Admin | Support Forum Front End Theme</title>
-  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
-  <meta content="" name="description" />
-  <meta content="" name="author" />
- 
-</head>
-<body>
-    <!-- begin #header -->
-    
-
-
-    <!-- end #header -->
-    
-    
-
-
-
-    <!-- begin search-banner -->
-    <!--div class="search-banner has-bg">
-      
-        <div class="bg-cover">
-        <%# image_tag("cover.jpg") %>
-
-        </div>
-
-        <div class="container">
-            <h1>1,293 Post for discussion</h1>
-            
-
-             <%# form_tag @urban_terms_path, method: :get do %>
-
-            <div class="input-group m-b-20">
-
-             <input type="text" name="q" id="q" placeholder="Search insideGH" data-localize="header.SEARCH" class="form-control input-lg">
-
-             <div class="mda-form-control-line" id="urban_terms-search-results"></div>
-                
-                <span class="input-group-btn">
-                    <button type="submit" class="btn btn-lg"><i class="fa fa-search"></i></button>
-                </span>
-            </div>
-
-            < end %>
-
-
-            <h5>Browse by Popular Categories</h5>
-            <ul class="popular-tags">
-                <li><a href="#"><i class="fa fa-circle text-danger"></i> CSS</a></li>
-                <li><a href="#"><i class="fa fa-circle text-primary"></i> Bootstrap</a></li>
-                <li><a href="#"><i class="fa fa-circle text-warning"></i> Javascript</a></li>
-                <li><a href="#"><i class="fa fa-circle"></i> jQuery</a></li>
-                <li><a href="#"><i class="fa fa-circle text-success"></i> Android</a></li>
-                <li><a href="#"><i class="fa fa-circle text-muted"></i> iOS</a></li>
-                <li><a href="#"><i class="fa fa-circle text-purple"></i> Template</a></li>
-            </ul>
-        </div>
-      
-    </div-->
-    <!-- end search-banner -->
-       <main>
+<main>
  <!-- begin page-title -->
-    <div class="page-title has-bg">
-        <!-- begin bg-cover -->
-        <div class="bg-cover">
-            <%= image_tag("cover3.jpg") %>
-        </div>
-        <!-- end bg-cover -->
-        <!-- begin container -->
-        <div class="container">
-
-
-        
-            <!-- begin breadcrumb -->
-            <ul class="breadcrumb">
-                <li><a href="index.html">Forum</a></li>
-                <li><a href="category_list.html">Twitter Bootstrap</a></li>
-                <li class="active">&nbsp;</li>
-            </ul>
-            <!-- end breadcrumb -->
-            <h1>How to create an arrow by using css?</h1>
-        </div>
-        <!-- end container -->
+  <div class="page-title has-bg">
+    <!-- begin bg-cover -->
+    <div class="bg-cover">
+        <%= image_tag("cover3.jpg") %>
     </div>
-    <!-- end page-title -->
-
-
-
-   
-      <!-- Main section-->
-  
-        <section class="custombgD9E0E7">
-          <div class="container custombgD9E0E7">
-            <div class="row fh">
-     <!-- Left starts -->           
-
-              <!--div class="col-md-3 fh-md oa text-center">
-                <div class="p-lg">
-                  <h5>Left Column</h5>
-                  <p class="">Nullam pretium fermentum sapien ut convallis.</p>
-                </div>
-                <div class="p-lg">
-                  <p>Pellentesque sed purus libero. Nam eleifend, ipsum at suscipit pellentesque, diam enim dignissim nunc, eu egestas sem velit vel nunc. Phasellus vel nisl orci.</p>
-                </div>
-              </div-->
-        <!-- Left Ends -->  
-
-    
-            
-<!-- Mid starts --> <div class="col-md-9 fh-md oa">
-
-
-
-
-
-
-<!-- begin #content -->
-    <div id="content" class="conten">
+    <!-- end bg-cover -->
+    <!-- begin container -->
+    <div class="container">
       <!-- begin breadcrumb -->
-      <!--ol class="breadcrumb pull-right">
-        <li><a href="javascript:;">Home</a></li>
-        <li><a href="javascript:;">Extra</a></li>
-        <li class="active">Search Results</li>
-      </ol-->
+      <ul class="breadcrumb">
+        <li><a href="index.html">Forum</a></li>
+        <li><a href="category_list.html">Twitter Bootstrap</a></li>
+        <li class="active">&nbsp;</li>
+      </ul>
       <!-- end breadcrumb -->
-      <!-- begin page-header -->
-      <!--h1 class="page-header">Search Results <small>3 results found</small></h1-->
-      <!-- end page-header -->
-      
+      <h1>How to create an arrow by using css?</h1>
+    </div>
+    <!-- end container -->
+  </div>
+  <!-- end page-title -->
+
+  <!-- Main section-->
+  <section class="custombgD9E0E7">
+    <div class="container custombgD9E0E7">
+      <div class="row fh">
+        <!-- Mid starts -->
+        <div class="col-md-9">
+        <!-- begin #content -->
+          <div id="content" class="content1">
+            <!-- begin row -->
+            <div class="row">
+              <!-- begin col-12 -->
+              <div class="col-md-12">
+                <div class="result-container">
+                <!--starts-->
+                  <ul class="result-list">
+                  <% @songs.reverse.each do |song| %>
+                    <li>
+                      <div class="result-image"><!--image starts-->
+                        <% if song.songcover? %>
+                          <%= link_to (image_tag(song.songcover_url(:thumb), :class => "img-responsive", :alt =>"song image")), song_path(song) %>
+                        <% else %>
+                          <%= link_to (image_tag("http://via.placeholder.com/468x400", :class => "img-responsive", :alt =>"song image")), song_path(song) %>
+                        <% end %>
+                        <div class="card-offset playButton"><!--song button-->
+                          <div class="card-offset-item text-center">
+                            <button type="button" id="btn-play-<%= song.id %>" data-song-id="<%= song.id %>" class="btn-raised btn btn-danger btn-circle btn-lg btn-play">
+                              <em class="ion-play"></em>
+                            </button>
+
+                            <button type="button" id="btn-pause-<%= song.id %>" data-song-id="<%= song.id %>" class="btn-raised btn btn-danger btn-circle btn-lg btn-pause" style="display: none;">
+                              <em class="ion-pause"></em>
+                            </button>
+                          </div>
+                        </div><!--song button ends-->
+                        <audio id="song-<%= song.id %>" controls controlsList="nodownload">
+                          <source src="<%= song.sound.url %>" type="audio/mp3">
+                          Your browser does not support the audio element.
+                        </audio>
+                      </div><!--image ends-->
+
+                      <div class="result-info">
+                        <h4 class="blu"><%= link_to song.title, song %></h4>
+                        <p class="location">United State, BY <%= link_to song.profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ song.profile.last_name.split(" ").map(&:capitalize).join(" "), profile_path(song.profile_id) if song.profile.first_name || song.profile.last_name %></p>
+                        <p class="desc">
+                          Nunc et ornare ligula. Aenean commodo lectus turpis, eu laoreet risus lobortis quis. Suspendisse vehicula mollis magna vel aliquet. Donec ac tempor neque, convallis euismod mauris. Integer dictum dictum ipsum quis viverra.
+                        </p>
+                        <div class="btn-row">
+                          <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Analytics"><i class="fa fa-fw fa-bar-chart-o"></i></a>
+                          <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Tasks"><i class="fa fa-fw fa-tasks"></i></a>
+                          <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Configuration"><i class="fa fa-fw fa-cog"></i></a>
+                          <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Performance"><i class="fa fa-fw fa-tachometer"></i></a>
+                          <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Users"><i class="fa fa-fw fa-user"></i></a>
+                        </div>
+                      </div>
+                      <div class="result-price">
+                          $92,101 <small>PER MONTH</small>
+                          <a href="javascript:;" class="btn btn-inverse btn-block">View Details</a>
+                      </div>
+                    </li>
+                  <% end %>
+                  </ul>
+                </div>
+              </div>
+
+              <%# will_paginate @hows %>
+              <div class="clearfix">
+                <ul class="pagination pagination-without-border">
+                  <li class="disabled"><a href="javascript:;">«</a></li>
+                  <li class="active"><a href="javascript:;">1</a></li>
+                  <li><a href="javascript:;">2</a></li>
+                  <li><a href="javascript:;">3</a></li>
+                  <li><a href="javascript:;">4</a></li>
+                  <li><a href="javascript:;">5</a></li>
+                  <li><a href="javascript:;">6</a></li>
+                  <li><a href="javascript:;">7</a></li>
+                  <li><a href="javascript:;">»</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div><!-- end col-9 -->
+        <!-- Right starts -->
+        <div class="col-md-3 fh-md oa text-center">
+          <div class="p-lg">
+            <h5>Right Column</h5>
+            <p class="text-center">Nullam pretium fermentum sapien ut convallis.</p>
+          </div>
+          <div class="p-lg">
+            <p>Pellentesque sed purus libero. Nam eleifend, ipsum at suscipit pellentesque, diam enim dignissim nunc, eu egestas sem velit vel nunc. Phasellus vel nisl orci.</p>
+          </div>
+        </div>
+      </div><!-- end row -->
+    </div><!-- end #content -->
+  </section>
+
+  <!-- begin #footer -->
+  <div id="footer" class="footer">
+    <!-- begin container -->
+    <div class="container">
       <!-- begin row -->
       <div class="row">
-          <!-- begin col-12 -->
-          <div class="col-md-12">
-              <div class="result-container">
-                  <!--div class="input-group m-b-20">
-                            <input type="text" class="form-control input-white" placeholder="Enter keywords here..." />
-                            <div class="input-group-btn">
-                                <button type="button" class="btn btn-inverse"><i class="fa fa-search"></i> Search</button>
-                                <button type="button" class="btn btn-inverse dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-cog"></i>
-                                </button>
-                                <ul class="dropdown-menu pull-right">
-                                    <li><a href="javascript:;">Action</a></li>
-                                    <li><a href="javascript:;">Another action</a></li>
-                                    <li><a href="javascript:;">Something else here</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="javascript:;">Separated link</a></li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="dropdown pull-left">
-                            <a href="javascript:;" class="btn btn-white btn-white-without-border dropdown-toggle" data-toggle="dropdown">
-                                Filters by <span class="caret m-l-5"></span>
-                            </a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="javascript:;">Posted Date</a></li>
-                                <li><a href="javascript:;">View Count</a></li>
-                                <li><a href="javascript:;">Total View</a></li>
-                                <li class="divider"></li>
-                                <li><a href="javascript:;">Location</a></li>
-                            </ul>
-                        </div>
-                        <div class="btn-group m-l-10 m-b-20">
-                            <a href="javascript:;" class="btn btn-white btn-white-without-border"><i class="fa fa-list"></i></a>
-                            <a href="javascript:;" class="btn btn-white btn-white-without-border"><i class="fa fa-th"></i></a>
-                            <a href="javascript:;" class="btn btn-white btn-white-without-border"><i class="fa fa-th-large"></i></a>
-                        </div-->
-                        <!--ul class="pagination pagination-without-border pull-right m-t-0">
-                            <li class="disabled"><a href="javascript:;">«</a></li>
-                            <li class="active"><a href="javascript:;">1</a></li>
-                            <li><a href="javascript:;">2</a></li>
-                            <li><a href="javascript:;">3</a></li>
-                            <li><a href="javascript:;">4</a></li>
-                            <li><a href="javascript:;">5</a></li>
-                            <li><a href="javascript:;">6</a></li>
-                            <li><a href="javascript:;">7</a></li>
-                            <li><a href="javascript:;">»</a></li>
-                        </ul!-->
-                        
-                        <br>
-
-                        <!--starts--><ul class="result-list">
-  <% @songs.reverse.each do |song| %>                           
-
-
-                            <li>
-                                 
-
-                                 <div class="result-image"><!--image starts-->
-
-                                     <% if song.songcover? %>
-                                      <%= link_to (image_tag(song.songcover_url(:thumb), :class => "img-responsive", :alt =>"song image")), song_path(song) %>
-
-
-                                      <% else %> 
-                                      <%# link_to (image_tag("login-bg/bg-3.jpg", :class => "img-responsive img-h", :alt =>"event image")), event_path(event) %>
-
-        
-
-                                      <%= link_to (image_tag("http://via.placeholder.com/468x400", :class => "img-responsive", :alt =>"song image")), song_path(song) %>
-
-
-                                     <% end %> 
-
-
-                    <div class="card-offset playButton"><!--song button-->
-                        <div class="card-offset-item text-center">
-
-
-                          <button type="button" class="btn-raised btn btn-danger btn-circle btn-lg">
-
-
-                          <em class="ion-play"></em></button>
-                        </div>
-
-
-
-                      </div><!--song button ends-->
-
-                      
-
-
-
-                                </div><!--image ends-->
-
-
-
-
-                                <div class="result-info">
-
-                                    <h4 class=" us" ;"><%= link_to song.title, song %></h4>
-
-                                   
-
-
-                                    <p class="location">United State, BY <%= link_to song.profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ song.profile.last_name.split(" ").map(&:capitalize).join(" "), profile_path(song.profile_id) if song.profile.first_name || song.profile.last_name %><small class="blk"> <% if song.created_at > Time.now.beginning_of_day %>
-    <%="#{time_ago_in_words(song.created_at)} ago"%> 
-<% else %>
-    <%= song.created_at.strftime("%b %d, %Y %I:%M %p") %>   
-<% end %></small></p>
-
-                                      
-
-                                    <% if song.description.present? %>
-
-                                     <span class="ustandard">
-        
-
-
-
-        <%# truncate(sanitize(how.body, tags: %w(strong em p u br div ul ol li #ff0000 font-size)), length: 160) %>
-<%# link_to 'read more', how %> 
-
-
-<%#sanitize how.body.truncate(160) {link_to 'read more', how } %>
-
-<%=truncate(sanitize(song.description, tags: %w(strong em p u br #ff0000 font-size)).capitalize, length: 60) {link_to 'continue', song } %>
-
-
-
-      <% else %>
-
-      <% end %> 
-
-      <% if song.description.length<70 %>
-
-    &nbsp&nbsp &nbsp&nbsp    &nbsp&nbsp &nbsp
-
-      <% else %>
-
-      <% end %>       
-
-                                    </p>
-                                    <div class="btn-row">
-                                        <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Analytics"><i class="fa fa-fw fa-bar-chart-o"></i></a>
-                                        <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Tasks"><i class="fa fa-fw fa-tasks"></i></a>
-                                        <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Configuration"><i class="fa fa-fw fa-cog"></i></a>
-                                        <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Performance"><i class="fa fa-fw fa-tachometer"></i></a>
-                                        <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Users"><i class="fa fa-fw fa-user"></i></a>
-                                    </div>
-                                </div>
-                                
-
-
-
-
-                                    <div class="result-price">
-                                   
-    <h5 class="text-center"> <a href="#">
-                       <i class="fa fa-eye fa-2x" style="color:#337ab7; font-size: 22px;"></i></a>
-                       <br><strong style="font-size: 22px;"><%= song.impressionist_count(:filter=>:session_hash) %></strong></h5>
-
-
-
-                                   
-
-                                    <span class="wht"><%#  "Urbanterm".pluralize(@urbanterm.impressionist_count) %>
-                                   <%= link_to "View Details", song,  :class=> "blu btn btn-primary btn-block" %></span>
-
-
-
-
-
-
-
-                                </div>
-
-                            </li>
-
-<% end %>
-
-
-  <!--ends--></ul>
-
-                        
-
-                            
-
-
-
-
-
-
-
-
-
-
-
-                        <%# will_paginate @hows %>
-
-
-                        <div class="clearfix">
-                            <ul class="pagination pagination-without-border pull-right">
-                                <li class="disabled"><a href="javascript:;">«</a></li>
-                                <li class="active"><a href="javascript:;">1</a></li>
-                                <li><a href="javascript:;">2</a></li>
-                                <li><a href="javascript:;">3</a></li>
-                                <li><a href="javascript:;">4</a></li>
-                                <li><a href="javascript:;">5</a></li>
-                                <li><a href="javascript:;">6</a></li>
-                                <li><a href="javascript:;">7</a></li>
-                                <li><a href="javascript:;">»</a></li>
-                            </ul>
-                        </div>
-                    </div>
+        <!-- begin col-4 -->
+        <div class="col-md-4">
+          <!-- begin section-container -->
+          <div class="section-container">
+            <h4>About Color Admin</h4>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultrices ipsum in elementum porttitor.
+              Cras porttitor fermentum nisl non elementum. Nulla in placerat libero. Nulla pharetra purus eget diam dictum
+              ullamcorper nec et eros. Suspendisse consectetur nulla ut volutpat aliquam.
+            </p>
           </div>
-          <!-- end col-12 -->
+          <!-- end section-container -->
+        </div>
+        <!-- end col-4 -->
+
+        <!-- begin col-4 -->
+        <div class="col-md-4">
+          <!-- begin section-container -->
+          <div class="section-container">
+            <h4>Latest Post</h4>
+            <ul class="latest-post">
+              <li>
+                <h4 class="title"><a href="#">Consectetur adipiscing elit ultrices</a></h4>
+                <p class="time">yesterday 10:42am</p>
+              </li>
+              <li>
+                <h4 class="title"><a href="#">Fusce ultrices ipsum porttitor</a></h4>
+                <p class="time">10/04/2015</p>
+              </li>
+              <li>
+                <h4 class="title"><a href="#">Cras porttitor fermentum adipiscing</a></h4>
+                <p class="time">02/04/2015</p>
+              </li>
+            </ul>
+          </div>
+          <!-- end section-container -->
+        </div>
+        <!-- end col-4 -->
+
+        <!-- begin col-4 -->
+        <div class="col-md-4">
+          <!-- begin section-container -->
+          <div class="section-container">
+            <h4>New Users</h4>
+            <!--ul class="new-user">
+              <li><a href="#"><img src="assets/img/user-1.jpg" alt="" /></a></li>
+              <li><a href="#"><img src="assets/img/user-2.jpg" alt="" /></a></li>
+              <li><a href="#"><img src="assets/img/user-3.jpg" alt="" /></a></li>
+              <li><a href="#"><img src="assets/img/user-4.jpg" alt="" /></a></li>
+              <li><a href="#"><img src="assets/img/user-5.jpg" alt="" /></a></li>
+              <li><a href="#"><img src="assets/img/user-6.jpg" alt="" /></a></li>
+              <li><a href="#"><img src="assets/img/user-7.jpg" alt="" /></a></li>
+              <li><a href="#"><img src="assets/img/user-8.jpg" alt="" /></a></li>
+              <li><a href="#"><img src="assets/img/user-9.jpg" alt="" /></a></li>
+            </ul-->
+          </div>
+          <!-- end section-container -->
+        </div>
+        <!-- end col-4 -->
       </div>
       <!-- end row -->
     </div>
-    <!-- end #content -->
+    <!-- end container -->
+  </div>
+  <!-- end #footer -->
 
-
-
-
-
-
-
-
-<!-- Mid Ends --> </div>      
-
-               
-
-     
-
-
-              <!-- Right starts -->
-              
-
-              <div class="col-md-3 fh-md oa text-center">
-                <div class="p-lg">
-                  <h5>Right Column</h5>
-                  <p class="text-center">Nullam pretium fermentum sapien ut convallis.</p>
-                </div>
-                <div class="p-lg">
-                  <p>Pellentesque sed purus libero. Nam eleifend, ipsum at suscipit pellentesque, diam enim dignissim nunc, eu egestas sem velit vel nunc. Phasellus vel nisl orci.</p>
-
-              </div>
-              </div>
-
-
-            
-
-            </div>
-          </div>
-        </section>
-
-
-
-
-
-
-
-
-
-
-
-   <!-- Right Ends -->
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    <!-- begin #footer -->
-    <div id="footer" class="footer">
-        <!-- begin container -->
-        <div class="container">
-            <!-- begin row -->
-            <div class="row">
-                <!-- begin col-4 -->
-                <div class="col-md-4">
-                    <!-- begin section-container -->
-                    <div class="section-container">
-                        <h4>About Color Admin</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultrices ipsum in elementum porttitor. 
-                            Cras porttitor fermentum nisl non elementum. Nulla in placerat libero. Nulla pharetra purus eget diam dictum 
-                            ullamcorper nec et eros. Suspendisse consectetur nulla ut volutpat aliquam.
-                        </p>
-                    </div>
-                    <!-- end section-container -->
-                </div>
-                <!-- end col-4 -->
-                <!-- begin col-4 -->
-                <div class="col-md-4">
-                    <!-- begin section-container -->
-                    <div class="section-container">
-                        <h4>Latest Post</h4>
-                        <ul class="latest-post">
-                            <li>
-                                <h4 class="title"><a href="#">Consectetur adipiscing elit ultrices</a></h4>
-                                <p class="time">yesterday 10:42am</p>
-                            </li>
-                            <li>
-                                <h4 class="title"><a href="#">Fusce ultrices ipsum porttitor</a></h4>
-                                <p class="time">10/04/2015</p>
-                            </li>
-                            <li>
-                                <h4 class="title"><a href="#">Cras porttitor fermentum adipiscing</a></h4>
-                                <p class="time">02/04/2015</p>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- end section-container -->
-                </div>
-                <!-- end col-4 -->
-                <!-- begin col-4 -->
-                <div class="col-md-4">
-                    <!-- begin section-container -->
-                    <div class="section-container">
-                        <h4>New Users</h4>
-                        <!--ul class="new-user">
-                            <li><a href="#"><img src="assets/img/user-1.jpg" alt="" /></a></li>
-                            <li><a href="#"><img src="assets/img/user-2.jpg" alt="" /></a></li>
-                            <li><a href="#"><img src="assets/img/user-3.jpg" alt="" /></a></li>
-                            <li><a href="#"><img src="assets/img/user-4.jpg" alt="" /></a></li>
-                            <li><a href="#"><img src="assets/img/user-5.jpg" alt="" /></a></li>
-                            <li><a href="#"><img src="assets/img/user-6.jpg" alt="" /></a></li>
-                            <li><a href="#"><img src="assets/img/user-7.jpg" alt="" /></a></li>
-                            <li><a href="#"><img src="assets/img/user-8.jpg" alt="" /></a></li>
-                            <li><a href="#"><img src="assets/img/user-9.jpg" alt="" /></a></li>
-                        </ul-->
-                    </div>
-                    <!-- end section-container -->
-                </div>
-                <!-- end col-4 -->
-            </div>
-            <!-- end row -->
-        </div>
-        <!-- end container -->
+  <!-- begin #footer-copyright -->
+  <div id="footer-copyright" class="footer-copyright">
+    <div class="container">
+      &copy; 2014 - 2015 SeanTheme All Right Reserved
+      <a href="#">Contact Us</a>
+      <a href="#">Knowledge Base</a>
     </div>
-    <!-- end #footer -->
-    <!-- begin #footer-copyright -->
-    <div id="footer-copyright" class="footer-copyright">
-        <div class="container">
-            &copy; 2014 - 2015 SeanTheme All Right Reserved
-            <a href="#">Contact Us</a> 
-            <a href="#">Knowledge Base</a>
-        </div>
-    </div>
-    <!-- end #footer-copyright -->
-    <!-- begin theme-panel -->
-    <div class="theme-panel">
-        <a href="javascript:;" data-click="theme-panel-expand" class="theme-collapse-btn"><i class="fa fa-cog"></i></a>
-        <div class="theme-panel-content">
-            <ul class="theme-list clearfix">
-                <li><a href="javascript:;" class="bg-purple" data-theme="purple" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Purple">&nbsp;</a></li>
-                <li><a href="javascript:;" class="bg-blue" data-theme="blue" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Blue">&nbsp;</a></li>
-                <li class="active"><a href="javascript:;" class="bg-green" data-theme="default" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Default">&nbsp;</a></li>
-                <li><a href="javascript:;" class="bg-orange" data-theme="orange" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Orange">&nbsp;</a></li>
-                <li><a href="javascript:;" class="bg-red" data-theme="red" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Red">&nbsp;</a></li>
-            </ul>
-        </div>
-    </div>
+  </div>
+  <!-- end #footer-copyright -->
 
-    </main>
-    <!-- end theme-panel -->
-  
-  <!-- ================== BEGIN BASE JS ================== -->
- 
-  <!-- ================== END BASE JS ================== -->
-  
-  <script>    
-      $(document).ready(function() {
-          App.init();
-      });
-  </script>
-</body>
-</html>
+  <!-- begin theme-panel -->
+  <div class="theme-panel">
+    <a href="javascript:;" data-click="theme-panel-expand" class="theme-collapse-btn"><i class="fa fa-cog"></i></a>
+    <div class="theme-panel-content">
+      <ul class="theme-list clearfix">
+        <li><a href="javascript:;" class="bg-purple" data-theme="purple" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Purple">&nbsp;</a></li>
+        <li><a href="javascript:;" class="bg-blue" data-theme="blue" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Blue">&nbsp;</a></li>
+        <li class="active"><a href="javascript:;" class="bg-green" data-theme="default" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Default">&nbsp;</a></li>
+        <li><a href="javascript:;" class="bg-orange" data-theme="orange" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Orange">&nbsp;</a></li>
+        <li><a href="javascript:;" class="bg-red" data-theme="red" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Red">&nbsp;</a></li>
+      </ul>
+    </div>
+  </div>
+</main>
+<!-- end theme-panel -->
 
+<script>
+    $(document).ready(function() {
+
+        console.log("initialized!");
+
+        var songId;
+        var audioSong = "";
+
+        $(document).on('click', '.btn-play', function(e) {
+            songId = $(this).data('song-id');
+            audioSong = $("audio#song-"+songId)[0];
+            audioSong.play();
+            $("button#btn-play-"+songId).hide();
+            $("button#btn-pause-"+songId).show();
+        });
+
+        $(document).on('click', '.btn-pause', function(e) {
+            songId = $(this).data('song-id');
+            audioSong = $("audio#song-"+songId)[0];
+            audioSong.pause();
+            $("button#btn-pause-"+songId).hide();
+            $("button#btn-play-"+songId).show();
+        });
+
+        audioSong.onplay = function () {
+            console.log('plying....');
+            $("button#btn-play-"+songId).hide();
+            $("button#btn-pause-"+songId).show();
+        };
+
+        audioSong.onpause = function () {
+            console.log('paused!')
+            $("button#btn-pause-"+songId).hide();
+            $("button#btn-play-"+songId).show();
+        };
+    });
+</script>

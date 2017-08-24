@@ -539,7 +539,7 @@ padding-bottom: 15px;
     position: absolute;
     top: 30%;
     left: 45%;
-    margin-left: -65px;
+    margin: 0 auto;
     z-index: 2;
 }
 /*profile img*/

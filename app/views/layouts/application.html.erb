@@ -2,67 +2,48 @@
 <html>
   <head>
     <title>Ingh</title>
-    <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= render 'layouts/fonts' %>
-    <%= javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js' %>
-<%= mp3_player_headers without_swfobject: true %>
+    <%#= javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js' %>
+    <%#= mp3_player_headers without_swfobject: true %>
+    <%= csrf_meta_tags %>
 
   </head>
 
   <body>
+    <div class="layout-container navgap">
+      <%= render '/layouts/nav' %>
+      <% if notice.present? %>
+        <div class="alert alert-success fade in text-center">
+          <span class="close" data-dismiss="alert"><em class="ion-close" style="font-size:24px; color: #ff0000;"></em></span>
+          <i class="fa fa-check fa-2x pull-left"></i>
+          <p class="text-center" style="font-size: 20px; color: #ffffff;"><%= notice %></p>
+        </div>
+      <% end %>
 
-   <div class="layout-container navgap">
-
-        <%= render '/layouts/nav' %>
-
-
-     
-
-       <% if notice.present? %>
-       <div class="alert alert-success fade in text-center">
-                            <span class="close" data-dismiss="alert"><em class="ion-close" style="font-size:24px; color: #ff0000;"></em></span>
-                            <i class="fa fa-check fa-2x pull-left"></i>
-                            <p class="text-center" style="font-size: 20px; color: #ffffff;"><%= notice %></p>
-                        </div>
-            <% else %>
-
-            <% end %>
-
-    <%= yield %>
+      <%= yield %>
 
     <span class="card"><%= alert %></span>
-         <%# content_for :script do %>
-             
-              <%# new app.Urban_terms;%>
+    <%# content_for :script do %>
+      <%# new app.Urban_terms;%>
+    <%# end %>
+  </div>
 
-          <%# end %>
+  <script>
+    $(function() {
+      <%= yield :script %>
+    });
+  </script>
 
-<script>
-  $(function() {
-    <%= yield :script %>
-  });
-</script>
-
-
-    </div>
-
-
-    <!--script>
-      $(document).on('ready page:load', function () {
-        $('#how_tag_ids').chosen({
-          allow_single_deselect: true,
-          width: '100%'
-        })
-      });
-    </script-->
-
-
-
-
-
+  <!--script>
+    $(document).on('ready page:load', function () {
+      $('#how_tag_ids').chosen({
+        allow_single_deselect: true,
+        width: '100%'
+      })
+    });
+  </script-->
   </body>
-
 </html>
