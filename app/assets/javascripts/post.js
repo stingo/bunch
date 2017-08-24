@@ -1,17 +1,17 @@
 $(document).on("turbolinks:load", function() {
   var selectizeCallback = null;
 
-  $(".location-modal").on("hide.bs.modal", function(e) {
+  $(".tag-modal").on("hide.bs.modal", function(e) {
     if (selectizeCallback != null) {
       selectizeCallback();
       selecitzeCallback = null;
     }
 
-    $("#new_location").trigger("reset");
-    $.rails.enableFormElements($("#new_location"));
+    $("#new_tag").trigger("reset");
+    $.rails.enableFormElements($("#new_tag"));
   });
 
-  $("#new_location").on("submit", function(e) {
+  $("#new_tag").on("submit", function(e) {
     e.preventDefault();
     $.ajax({
       method: "POST",
@@ -21,8 +21,7 @@ $(document).on("turbolinks:load", function() {
         selectizeCallback({value: response.id, text: response.name});
         selectizeCallback = null;
 
-        $(".location-modal").modal('toggle');
-        
+        $(".tag-modal").modal('toggle');
       }
     });
   });
@@ -31,8 +30,9 @@ $(document).on("turbolinks:load", function() {
     create: function(input, callback) {
       selectizeCallback = callback;
 
-      $(".location-modal").modal();
-      $("#location_name").val(input);
+      $(".tag-modal").modal();
+      $("#tag_name").val(input);
     }
   });
 });
+
