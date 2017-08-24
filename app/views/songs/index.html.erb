@@ -215,39 +215,33 @@
 <!-- end theme-panel -->
 
 <script>
-    $(document).ready(function() {
+  $(document).ready(function() {
 
-        console.log("initialized!");
+    console.log("initialized!");
 
-        var songId;
-        var audioSong = "";
+    var songId = null;
+    var audioSong = {};
 
-        $(document).on('click', '.btn-play', function(e) {
-            songId = $(this).data('song-id');
-            audioSong = $("audio#song-"+songId)[0];
-            audioSong.play();
-            $("button#btn-play-"+songId).hide();
-            $("button#btn-pause-"+songId).show();
-        });
-
-        $(document).on('click', '.btn-pause', function(e) {
-            songId = $(this).data('song-id');
-            audioSong = $("audio#song-"+songId)[0];
-            audioSong.pause();
-            $("button#btn-pause-"+songId).hide();
-            $("button#btn-play-"+songId).show();
-        });
-
-        audioSong.onplay = function () {
-            console.log('plying....');
-            $("button#btn-play-"+songId).hide();
-            $("button#btn-pause-"+songId).show();
-        };
-
-        audioSong.onpause = function () {
-            console.log('paused!')
-            $("button#btn-pause-"+songId).hide();
-            $("button#btn-play-"+songId).show();
-        };
+    $(document).on('click', '.btn-play', function(e) {
+      if(songId != null && songId != $(this).data('song-id')) {
+        console.log('plying....');
+        $("button#btn-play-"+songId).show();
+        $("button#btn-pause-"+songId).hide();
+        audioSong.pause();
+      }
+      songId = $(this).data('song-id');
+      audioSong = $("audio#song-"+songId)[0];
+      audioSong.play();
+      $("button#btn-play-"+songId).hide();
+      $("button#btn-pause-"+songId).show();
     });
+
+    $(document).on('click', '.btn-pause', function(e) {
+      songId = $(this).data('song-id');
+      audioSong = $("audio#song-"+songId)[0];
+      audioSong.pause();
+      $("button#btn-pause-"+songId).hide();
+      $("button#btn-play-"+songId).show();
+    });
+  });
 </script>
