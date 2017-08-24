@@ -16,7 +16,11 @@
   <div class="col-sm-12 text-left"><strong>Title: </strong><%= @song.title %></div>
 
   <div class="col-sm-3">
-    <%= image_tag(@song.songcover_url(:thumb), style: 'width: 100%; height: 250px', alt: 'Song cover') %>
+    <% if @song.songcover? %>
+      <%= image_tag(@song.songcover_url(:thumb), style: 'width: 100%; height: 250px', alt: 'Song cover') %>
+    <% else %>
+      <%= image_tag('http://via.placeholder.com/468x400', class: 'img-responsive', style: 'width: 100%; height: 250px', alt: 'song image') %>
+    <%- end %>
     <p class="text-left">
       <%= link_to 'Edit', edit_song_path(@song) %> |
       <%= link_to 'Back', songs_path %> |
@@ -34,67 +38,67 @@
 <!--script for player-->
 <script>
   $(document).ready(function(){
-      window.onload = function() {
+    window.onload = function() {
 
-          var file = document.getElementById("audio-file").value;
-          var audio = document.getElementById("audio");
+      var file = document.getElementById("audio-file").value;
+      var audio = document.getElementById("audio");
+      audio.crossOrigin = "anonymous";
+      audio.src = file;
+      audio.load();
+      audio.play();
+      var context = new AudioContext();
+      var src = context.createMediaElementSource(audio);
+      var analyser = context.createAnalyser();
 
-          audio.src = file;
-          audio.load();
-          audio.play();
-          var context = new AudioContext();
-          var src = context.createMediaElementSource(audio);
-          var analyser = context.createAnalyser();
+      var canvas = document.getElementById("canvas");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      var ctx = canvas.getContext("2d");
 
-          var canvas = document.getElementById("canvas");
-          canvas.width = window.innerWidth;
-          canvas.height = window.innerHeight;
-          var ctx = canvas.getContext("2d");
+      src.connect(analyser);
+      analyser.connect(context.destination);
 
-          src.connect(analyser);
-          analyser.connect(context.destination);
+      analyser.fftSize = 256;
 
-          analyser.fftSize = 256;
+      var bufferLength = analyser.frequencyBinCount;
+      console.log(bufferLength);
 
-          var bufferLength = analyser.frequencyBinCount;
-          console.log(bufferLength);
+      var dataArray = new Uint8Array(bufferLength);
 
-          var dataArray = new Uint8Array(bufferLength);
+      var WIDTH = canvas.width;
+      var HEIGHT = canvas.height;
 
-          var WIDTH = canvas.width;
-          var HEIGHT = canvas.height;
+      var barWidth = (WIDTH / bufferLength) * 2.5;
+      var barHeight;
+      var x = 0;
 
-          var barWidth = (WIDTH / bufferLength) * 2.5;
-          var barHeight;
-          var x = 0;
+      function renderFrame() {
+        requestAnimationFrame(renderFrame);
 
-          function renderFrame() {
-              requestAnimationFrame(renderFrame);
+        x = 0;
 
-              x = 0;
+        analyser.getByteFrequencyData(dataArray);
 
-              analyser.getByteFrequencyData(dataArray);
+        ctx.fillStyle = "#000";
+        ctx.fillRect(0, 0, WIDTH, HEIGHT);
 
-              ctx.fillStyle = "#000";
-              ctx.fillRect(0, 0, WIDTH, HEIGHT);
+        for (var i = 0; i < bufferLength; i++) {
+          barHeight = dataArray[i];
 
-              for (var i = 0; i < bufferLength; i++) {
-                  barHeight = dataArray[i];
+          var r = barHeight + (25 * (i/bufferLength));
+          var g = 250 * (i/bufferLength);
+          var b = 50;
 
-                  var r = barHeight + (25 * (i/bufferLength));
-                  var g = 250 * (i/bufferLength);
-                  var b = 50;
+          ctx.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
+          ctx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
 
-                  ctx.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
-                  ctx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
+          x += barWidth + 1;
+        }
+      };
 
-                  x += barWidth + 1;
-              }
-          }
-
-          audio.play();
-          renderFrame();
-      }();
+      audio.play();
+      renderFrame();
+    }();
   });
 </script>
 
