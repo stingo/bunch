@@ -27,4 +27,5 @@
 //= require bootstrap-sprockets
 //= require navdouble
 //= require slimscroll
+//= require urbanterms
 

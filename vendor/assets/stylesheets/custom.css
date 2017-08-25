@@ -485,6 +485,35 @@ width: auto !important;
 
 }
 
+
+
+.player {
+  height: 0;
+  width: 0
+}
+
+/* Apologies for the large base64 image file */
+
+.speaker {
+  
+  background-image: url(image-path('speakerbg2.png'));
+  background-repeat: no-repeat;
+  background-size: 200%;
+  background-position: 100% 0;
+  height: 64px;
+  width: 60px;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  top: -10px;
+  left: 200px;
+  display: block;
+}
+
+.speakerplay {
+  background-position: 0 0;
+}
+
 .article-title {
 
 font-weight: bold;
@@ -502,6 +531,9 @@ padding-top: 15px;
 padding-bottom: 15px;
 
 }
+
+
+
 
 
 /*masory*/

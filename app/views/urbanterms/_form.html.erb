@@ -85,8 +85,25 @@
     <%# f.input :example3 %>
     <%# f.input :example4 %>
 
-    <%= f.input :termcover %>
-    <%# f.input :termaudio %>
+
+      <p>
+    <label>Audio</label>
+    
+    <%= f.file_field :termaudio %>
+    <%= f.hidden_field :termaudio_cache %>
+  </p>
+  
+
+    <p>
+    <label>Term Image</label>
+    <%= image_tag(@urbanterm.termcover_url(:thumb)) if @urbanterm.termcover? %>
+    <%= f.file_field :termcover %>
+    <%= f.hidden_field :termcover_cache %>
+  </p>
+
+  <p>
+
+   
   </div>
 
 

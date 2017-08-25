@@ -195,6 +195,9 @@
 
                                  <div class="result-image bg-red-500"><!--image starts-->
 
+                                  
+
+
                                      <%# if song.songcover? %>
                                       <%# link_to (image_tag(song.songcover_url(:thumb), :class => "img-responsive", :alt =>"song image")), song_path(song) %>
 
@@ -236,9 +239,21 @@
 
 
 
+
                                 <div class="result-info">
 
-                                    <h4 class=" uw" style="font: 700 32px;" ><%= link_to urbanterm.title.downcase, urbanterm %></h4>
+                                    <h4 class=" uw" style="font: 700 32px;" ><%= link_to urbanterm.title.downcase, urbanterm %> 
+
+
+                        <div class="speaker"></div>
+
+                          <audio id="player">
+                        <source src="<%= urbanterm.termaudio_url %>" type="audio/mp3" />
+                        <source src="<%= urbanterm.termaudio_url %>" type="audio/ogg" />
+                           </audio>
+
+
+                                    </h4>
 
                                    
 
@@ -360,17 +375,46 @@
 
 
                                 <div class="result-price">
+
+
+
+
+                                <% if urbanterm.termcover? %>
+                          <%= link_to (image_tag(urbanterm.termcover_url(:thumb), :class => "img-responsive", :alt =>"urbanterm image")), urbanterm_path(urbanterm) %>
+                        <% else %>
+                          <%= link_to (image_tag("http://via.placeholder.com/468x400", :class => "img-responsive", :alt =>"urbanterm image")), urbanterms_path(urbanterm) %>
+                        <% end %>
+
+
+
+                    <div class="card-offset playButton"><!--song button-->
+                        <div class=" " style="margin-right: 40% ">
+
+
+                          <%= urbanterm.title.titleize %>
+
+
+
+
+                          
+                        </div>
+
+
+
+                      </div><!--song button ends-->
+
+
                                    
-    <h5 class="text-center"> <a href="#">
+    <!--h5 class="text-center"> <a href="#">
                        <i class="fa fa-eye fa-2x" style="color:#337ab7; font-size: 22px;"></i></a>
-                       <br><strong style="font-size: 22px;"><%= urbanterm.impressionist_count(:filter=>:session_hash) %></strong></h5>
+                       <br><strong style="font-size: 22px;"><%# urbanterm.impressionist_count(:filter=>:session_hash) %></strong></h5>
 
 
 
                                    
 
                                     <span class="wht"><%#  "Urbanterm".pluralize(@urbanterm.impressionist_count) %>
-                                   <%= link_to "View Details", urbanterm,  :class=> "blu btn btn-primary btn-block" %></span>
+                                   <%# link_to "View Details", urbanterm,  :class=> "blu btn btn-primary btn-block" %></span>
 
 
 
@@ -378,7 +422,7 @@
 
 
 
-                                </div>
+                                </div-->
 
                             
 
@@ -610,6 +654,119 @@
           App.init();
       });
   </script>
+
+
+  <script>
+
+
+
+
+   var getaudio = $('#player')[0];
+   /* Get the audio from the player (using the player's ID), the [0] is necessary */
+   var mouseovertimer;
+   /* Global variable for a timer. When the mouse is hovered over the speaker it will start playing after hovering for 1 second, if less than 1 second it won't play (incase you accidentally hover over the speaker) */
+   var audiostatus = 'off';
+   /* Global variable for the audio's status (off or on). It's a bit crude but it works for determining the status. */
+
+   $(document).on('mouseenter', '.speaker', function() {
+     /* Bonus feature, if the mouse hovers over the speaker image for more than 1 second the audio will start playing */
+     if (!mouseovertimer) {
+       mouseovertimer = window.setTimeout(function() {
+         mouseovertimer = null;
+         if (!$('.speaker').hasClass("speakerplay")) {
+           getaudio.load();
+           /* Loads the audio */
+           getaudio.play();
+           /* Play the audio (starting at the beginning of the track) */
+           $('.speaker').addClass('speakerplay');
+           return false;
+         }
+       }, 1000);
+     }
+   });
+
+   $(document).on('mouseleave', '.speaker', function() {
+     /* If the mouse stops hovering on the image (leaves the image) clear the timer, reset back to 0 */
+     if (mouseovertimer) {
+       window.clearTimeout(mouseovertimer);
+       mouseovertimer = null;
+     }
+   });
+
+   $(document).on('click touchend', '.speaker', function() {
+     /* Touchend is necessary for mobile devices, click alone won't work */
+     if (!$('.speaker').hasClass("speakerplay")) {
+       if (audiostatus == 'off') {
+         $('.speaker').addClass('speakerplay');
+         getaudio.load();
+         getaudio.play();
+         window.clearTimeout(mouseovertimer);
+         audiostatus = 'on';
+         return false;
+       } else if (audiostatus == 'on') {
+         $('.speaker').addClass('speakerplay');
+         getaudio.play()
+       }
+     } else if ($('.speaker').hasClass("speakerplay")) {
+       getaudio.pause();
+       $('.speaker').removeClass('speakerplay');
+       window.clearTimeout(mouseovertimer);
+       audiostatus = 'on';
+     }
+   });
+
+   $('#player').on('ended', function() {
+     $('.speaker').removeClass('speakerplay');
+     /*When the audio has finished playing, remove the class speakerplay*/
+     audiostatus = 'off';
+     /*Set the status back to off*/
+   });
+    
+
+  </script>
+
+
+
+
+
+  <script>
+  $(document).ready(function() {
+
+    console.log("initialized!");
+
+    var urbantermId = null;
+    var audioUrbanterm = {};
+
+    $(document).on('click', '.btn-play', function(e) {
+      if(urbantermId != null && urbantermId != $(this).data('urbanterm-id')) {
+        console.log('plying....');
+        $("button#btn-play-"+urbantermId).show();
+        $("button#btn-pause-"+urbantermId).hide();
+        urbantermUrbanterm.pause();
+      }
+      urbantermId = $(this).data('urbanterm-id');
+      audioUrbanterm = $("audio#urbanterm-"+urbantermId)[0];
+      audioUrbanterm.play();
+      $("button#btn-play-"+urbantermId).hide();
+      $("button#btn-pause-"+urbantermId).show();
+    });
+
+    $(document).on('click', '.btn-pause', function(e) {
+      urbantermId = $(this).data('urbanterm-id');
+      audioUrbanterm = $("audio#urbanterm-"+urbantermId)[0];
+      audioUrbanterm.pause();
+      $("button#btn-pause-"+urbantermId).hide();
+      $("button#btn-play-"+urbantermId).show();
+    });
+  });
+</script>
+
+
+
+
+
+
+
 </body>
 </html>
 
