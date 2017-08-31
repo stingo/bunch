@@ -1,0 +1,138 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listings</h1>
+
+<table>
+  <thead>
+    <tr>
+    <th>Image</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @listings.each do |listing| %>
+      <tr>
+
+      <td>
+
+      <% if listing.listingimages? %>
+        <%= link_to (image_tag(listing.listingimages[0].url(:thumb), :class => "img-responsive", :alt =>"listing image")), listing_path(listing) %>
+
+        <%= link_to (image_tag(listing.listingimages[1].url(:thumb), :class => "img-responsive", :alt =>"listing image")), listing_path(listing) %>
+
+
+
+
+
+
+        <% else %> 
+        <%# link_to (image_tag("login-bg/bg-3.jpg", :class => "img-responsive img-h", :alt =>"event image")), event_path(event) %>
+
+        
+
+        <%= link_to (image_tag("http://via.placeholder.com/405x285", :class => "img-responsive", :alt =>"listing image")), listing_path(listing) %>
+
+
+       <% end %> 
+        
+
+
+      </td>
+        <td><%= listing.name %></td>
+        <td><%= listing.description %></td>
+        <td><%= number_to_currency(listing.price) %></td>
+        <td><%= link_to 'Show', listing %></td>
+        <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
+        <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Listing', new_listing_path %>
+
+
+
+
+
+   </div>
+
+
+
+
+                            <!-- END item-row -->
+                            <!-- BEGIN item-row -->
+                            <div class="item-row">
+                                <!-- BEGIN item -->
+                                <div class="item item-thumbnail">
+                                    <a href="product_detail.html" class="item-image">
+                                        <img src="assets/img/zenfone2.png" alt="" />
+                                        <div class="discount">15% OFF</div>
+                                    </a>
+                                    <div class="item-info">
+                                        <h4 class="item-title">
+                                            <a href="product_detail.html">Assus ZenFone 2<br />‏(ZE550ML)</a>
+                                        </h4>
+                                        <p class="item-desc">See What Others Can’t See</p>
+                                        <div class="item-price">$399.00</div>
+                                        <div class="item-discount-price">$453.00</div>
+                                    </div>
+                                </div>
+                                <!-- END item -->
+                                <!-- BEGIN item -->
+                                <div class="item item-thumbnail">
+                                    <a href="product_detail.html" class="item-image">
+                                        <img src="assets/img/xperia-z.png" alt="" />
+                                        <div class="discount">32% OFF</div>
+                                    </a>
+                                    <div class="item-info">
+                                        <h4 class="item-title">
+                                            <a href="product.html">Sony Xperia Z<br />Black Color</a>
+                                        </h4>
+                                        <p class="item-desc">For unexpectedly beautiful moments</p>
+                                        <div class="item-price">$599.00</div>
+                                        <div class="item-discount-price">$799.00</div>
+                                    </div>
+                                </div>
+                                <!-- END item -->
+                                <!-- BEGIN item -->
+                                
+
+                                <div class="item item-thumbnail">
+                                    <a href="product_detail.html" class="item-image">
+                                        <img src="assets/img/lumia-532.png" alt="" />
+                                        <div class="discount">20% OFF</div>
+                                    </a>
+                                    <div class="item-info">
+                                        <h4 class="item-title">
+                                            <a href="product.html">Microsoft Lumia 531<br />Smartphone Orange</a>
+                                        </h4>
+                                        <p class="item-desc">1 Year Local Manufacturer Warranty</p>
+                                        <div class="item-price">$99.00</div>
+                                        <div class="item-discount-price">$199.00</div>
+                                    </div>
+                                </div>
+                                <!-- END item -->
+
+
+
+
+                            </div>
+                            <!-- END item-row -->
+
+
+                                                           <% if listing.listingimages? %>
+        <%= link_to (image_tag(listing.listingimages[0].url(:thumb), :class => "item-image", :alt =>"listing image")), listing_path(listing) %>
+        <% else %> 
+        <%# link_to (image_tag("login-bg/bg-3.jpg", :class => "img-responsive img-h", :alt =>"event image")), event_path(event) %>
+
+        <%= link_to (image_tag("http://via.placeholder.com/190x300", :class => "item-image", :alt =>"listing image")), listing_path(listing) %>
+
+
+       <% end %> 

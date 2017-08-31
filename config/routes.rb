@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :listings
   resources :songs
   resources :urbanterms
   resources :hows
@@ -12,6 +13,14 @@ Rails.application.routes.draw do
   get 'tags/:tag', to: 'ghana#search'
 
   get 'tags/:tag', to: 'urbanterms#index'
+
+  get 'ghana/market' => 'ghana#search' # override default routes.
+  #get '/user/:id' => 'pages#profile'
+
+
+
+
+
 
   get :search, controller: :ghana
   
@@ -36,5 +45,7 @@ Rails.application.routes.draw do
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'ghana#index'
+  root 'urbanterms#index'
+
+  #root 'ghana#index'
 end

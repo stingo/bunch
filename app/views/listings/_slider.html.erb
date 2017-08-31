@@ -1,0 +1,282 @@
+    
+        <!-- BEGIN #slider -->
+        <div id="slider" class="section-container p-0 bg-black-darker">
+            <!-- BEGIN carousel -->
+            <div id="main-carousel" class="carousel slide" data-ride="carousel">
+                <!-- BEGIN carousel-inner -->
+                <div class="carousel-inner"> 
+                    <!-- BEGIN item -->
+                    <div class="item active">
+
+                    <%= link_to (image_tag("store/slider-1-cover.jpg", :class => "img-responsive bg-cover-img", :alt =>"listing image")), listing_path(@listings) %>
+
+
+                        
+                        <div class="container">
+
+                        <%= link_to (image_tag("store/slider-1-product.png", :class => "product-img right bottom fadeInRight animated", :alt =>"listing image")), listing_path(@listings) %>
+
+
+                        </div>
+                        <div class="carousel-caption carousel-caption-left">
+                            <div class="container">
+                                <h3 class="title m-b-5 fadeInLeftBig animated">iMac</h3> 
+                                <p class="m-b-15 fadeInLeftBig animated">Retina. Now in colossal and ginormous.</p>
+                                <div class="price m-b-30 fadeInLeftBig animated"><small>from</small> <span>$649.00</span></div>
+                                <a href="#" class="btn btn-outline btn-lg fadeInLeftBig animated">Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END item -->
+                    <!-- BEGIN item -->
+                    <div class="item">
+                         <%= link_to (image_tag("store/slider-2-cover.jpg", :class => "img-responsive bg-cover-img", :alt =>"listing image")), listing_path(@listings) %>
+                        <div class="container">
+
+
+
+
+                            <%= link_to (image_tag("store/slider-2-product.png", :class => "product-img left bottom fadeInLeft animated", :alt =>"listing image")), listing_path(@listings) %>
+
+
+
+                        </div>
+                        <div class="carousel-caption carousel-caption-right">
+                            <div class="container">
+                                <h3 class="title m-b-5 fadeInRightBig animated">iPhone 6s</h3> 
+                                <p class="m-b-15 fadeInRightBig animated">The only thing that’s changed is everything</p>
+                                <div class="price m-b-30 fadeInRightBig animated"><small>from</small> <span>$1,299.00</span></div>
+                                <a href="#" class="btn btn-outline btn-lg fadeInRightBig animated">Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END item -->
+                    <!-- BEGIN item -->
+                    <div class="item">
+                        <%= link_to (image_tag("store/slider-3-cover.jpg", :class => "img-responsive bg-cover-img", :alt =>"listing image")), listing_path(@listings) %>
+                        <div class="carousel-caption">
+                            <div class="container">
+                                <h3 class="title m-b-5 fadeInDownBig animated">Macbook Air</h3> 
+                                <p class="m-b-15 fadeInDownBig animated">Thin.Light.Powerful.<br />And ready for anything</p>
+                                <div class="price fadeInDownBig animated"><small>from</small> <span>$999.00</span></div>
+                                <a href="#" class="btn btn-outline btn-lg fadeInUpBig animated">Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END item -->
+
+
+                </div>
+                <!-- END carousel-inner -->
+                <a class="left carousel-control" href="#main-carousel" data-slide="prev"> 
+                    <i class="fa fa-angle-left"></i> 
+                </a>
+                <a class="right carousel-control" href="#main-carousel" data-slide="next"> 
+                    <i class="fa fa-angle-right"></i> 
+                </a>
+            </div>
+            <!-- END carousel -->
+
+
+
+        <!-- =========================
+         USER REGISTRATION
+        ============================== -->
+
+                        <div class="col-md-5 pull-right">
+                            
+                            <!-- VERTICAL REGISTRATION FORM -->
+                            <div class="vertical-registration-form">
+                                
+                                <h4 class="whitee-text text-center">Get started - it's free.</h4>
+
+                               <%# form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+                               <%= form_for(:profile, :url => registration_path(:profile)) do |f| %>
+                                
+                                <form class="registration-form" id="contact-form">
+
+
+
+
+     <label class="control-label">Name <span class="text-danger">*</span></label>
+                            
+                            <div class="row row-space-10">
+                                <div class="col-md-6 m-b-15">
+
+
+                                    <%= f.text_field :first_name, required: true, :autofocus => true, :placeholder => 'First name', :class => "form-control input-box " %>
+
+
+
+
+                                 
+                                </div>
+                                <div class="col-md-6 m-b-15">
+                                    
+                                    <%= f.text_field :last_name, required: true, :autofocus => true, :placeholder => 'Last name', :class => "form-control input-box " %>
+
+                                </div>
+                            </div>
+
+
+
+
+     
+
+
+
+                                    
+                                    <%# f.text_field :dispalyname, :autofocus => true, :placeholder => 'Pick a username', :class => "form-control input-box" %>
+
+                                    
+
+                                    <label class="control-label">Email <span class="text-danger">*</span></label>
+                            <div class="row m-b-15">
+                                <div class="col-md-12">
+                                <%= f.email_field :email, required: true, :autofocus => true, :class => "form-control", :placeholder => "Email address" %>
+                                
+                                </div>
+                            
+                            </div>
+                            
+
+                          
+
+
+
+                             <!--password-->
+
+                             <label class="control-label">Password<% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %> <span class="text-danger">*</span></label>
+                            
+                            <div class="row row-space-10">
+                                <div class="col-md-6 m-b-15">
+
+
+                                    <%= f.password_field :password, autocomplete: "off", :class => "form-control", :placeholder => "Password"  %>
+
+
+                                 
+                                </div>
+                                <div class="col-md-6 m-b-15">
+                                    
+                                    <%= f.password_field :password_confirmation,required: true, autocomplete: "off", :class => "form-control", :placeholder => "Confirm password"  %>
+
+                                </div>
+                            </div>
+
+
+                            <!--password ends-->
+                            
+
+                          
+
+
+
+
+
+                              <!--div class="text-inverse m-b-10">Password<%# if @minimum_password_length %>
+        <em>(<%# @minimum_password_length %> characters minimum)</em>
+        <%# end %><br /> </div-->
+
+
+     
+                                       
+                                     
+                           
+
+
+
+        <div><%= f.label :birthday %><br />
+            <%= f.date_select :date_of_birth, required: true, :start_year => 1945 %>&nbsp<span><!-- START dropdown-->
+                            
+                                 
+                            <div class="pull-right dropdown">
+                              <button type="button" data-toggle="dropdown" class="btn btn-flat btn-flat-icon"><em class="ion-android-more-vertical"></em></button>
+                              <ul role="menu" class="dropdown-menu md-dropdown-menu dropdown-menu-right" style="padding-left: 4px !important;">
+                                <span class="card-body small Ttransparent-text" >Providing your date <br> of birth helps make <br>sure that you get the right insideGH <br>experience for your age.<br> This will not visible to the public, <br>For more details, <br>please visit our <a href="#">Data Policy.</a></span>
+                                
+                              </ul>
+                            </div>
+                            <!-- END dropdown--></span>
+
+
+            </div>
+
+
+          <br>
+
+               <div class="col-md-12 m-b-10">
+                                            <label class="radio-inline">
+                                    <%= radio_button :is_female, {}, true %> <%= f.label :is_female, "Female" %>
+                                            </label>
+
+                                            <label class="radio-inline">
+                                             <%= radio_button :is_female, {}, false%> <%= f.label :is_female, "Male" %>
+                                            </label>
+                                        </div>
+
+                            
+                            
+
+
+
+
+                                    
+                                    
+
+
+                                   <p class=" small Ttransparent-text">
+                                    By clicking Sign up, you agree to insideGH's User Agreement, Privacy Policy, and Cookie Policy.
+                                    </p>
+                                    
+                                 
+                                    
+                            
+
+
+
+                            <div class="register-buttons">
+
+                        
+
+
+                        <%= f.submit "Sign up",  :class => "btn btn-primary btn-block btn-lg" %>
+
+
+                            </div>
+
+
+
+                            <div class="m-t-20 text-inverse">
+                                Already a member? Click <%= link_to('Here', new_profile_session_path) %> to login.
+                            </div>
+                                    
+                                </form>
+
+                                <% end %>
+
+                                
+
+      
+
+
+                                
+                                <!-- FORM SUBMIT SUCCESS / ERROR MESSAGES -->
+                                <p class="email-success dark-text small-text"><span class="icon-check-alt2 colored-text"></span>Email sent seuccessfully</p>
+                                <p class="email-error dark-text small-text"><span class="icon-close-alt2"></span>Error! Please check all fields filled correctly</p>
+                                <!-- MAILCHIMP ALERTS 
+                        <p class="mailchimp-success dark-text"><span class="icon-check-alt2 colored-text"></span>We sent the confirmation to your email</p>
+                        <p class="mailchimp-error dark-text"><span class="icon-close-alt2"></span>Error! Please check all fields filled correctly</p>
+                        -->
+                            </div>
+                        </div>
+                        </div>  
+
+
+
+
+        </div>
+        <!-- END #slider -->

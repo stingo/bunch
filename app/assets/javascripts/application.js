@@ -28,4 +28,5 @@
 //= require navdouble
 //= require slimscroll
 //= require urbanterms
+//= require listings
 

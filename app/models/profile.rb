@@ -6,6 +6,8 @@ class Profile < ApplicationRecord
 
     has_many :thing_locations
 
+     has_many :listings
+
 	has_many :locations, through: :thing_locations
 	
 	has_many :events, dependent: :destroy

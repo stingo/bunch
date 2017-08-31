@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170821230741) do
+ActiveRecord::Schema.define(version: 20170827084324) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,6 +75,19 @@ ActiveRecord::Schema.define(version: 20170821230741) do
     t.index ["impressionable_type", "message", "impressionable_id"], name: "impressionable_type_message_index"
     t.index ["profile_id"], name: "index_impressions_on_profile_id"
     t.index ["user_id"], name: "index_impressions_on_user_id"
+  end
+
+  create_table "listings", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.decimal "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.json "listingimages"
+    t.string "slug"
+    t.integer "profile_id"
+    t.index ["profile_id", "created_at"], name: "index_listings_on_profile_id_and_created_at"
+    t.index ["slug"], name: "index_listings_on_slug"
   end
 
   create_table "locations", force: :cascade do |t|
