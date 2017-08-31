@@ -33,7 +33,9 @@
   <div class="col-sm-9">
     <input type="hidden" name="audio_file" id="audio-file" value="<%= @song.sound.url %>">
     <canvas id="canvas"></canvas>
-    <audio id="audio" controls></audio>
+    <audio id="audio" controls>
+      <source src="<%= @song.sound.url %>" type="audio/mpeg">
+    </audio>
   </div>
 </div>
 
@@ -47,8 +49,8 @@
 
       var file = document.getElementById("audio-file").value;
       var audio = document.getElementById("audio");
-      audio.crossOrigin = "anonymous";
-      audio.src = file;
+//      audio.crossOrigin = "anonymous";
+//      audio.src = file;
       audio.load();
       audio.play();
       var context = new AudioContext();
