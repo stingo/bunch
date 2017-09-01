@@ -46,10 +46,9 @@
   $(document).ready(function(){
     window.onload = function() {
 
-
       var file = document.getElementById("audio-file").value;
       var audio = document.getElementById("audio");
-//      audio.crossOrigin = "anonymous";
+      audio.crossOrigin = "anonymous";
 //      audio.src = file;
       audio.load();
       audio.play();
