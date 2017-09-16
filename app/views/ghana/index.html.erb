@@ -1,86 +1,33 @@
-
-    <% if !profile_signed_in? # if the user is not signed in, render this %>
-
-
-
-
-    <!doctype html>
-    <html lang="en">
-
-    <head>
-        <meta charset="UTF-8">
-        <meta name="description" content="Responsive Bootstrap 3 Startup and Multipurpose Template">
-        <meta name="keywords" content="Stamp, Startup, Multipurpose, Bootstrap, Landing page, Template, Registration, Landing">
-        <meta name="author" content="Mizanur Rahman">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-        <!-- SITE TITLE -->
-        <title>Stamp - Responsive Landing Page Template</title>
-
-        <!-- =========================
-         FAV AND TOUCH ICONS AND FONT  
-        ============================== -->
-       
-        
-
-        <!-- =========================
-         STYLESHEETS   
-        ============================== -->
-        <!-- BOOTSTRAP AND ANIMATION -->
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
 
 
-        <!-- FONT ICONS -->
-     
-        <!-- CAROUSEL AND LIGHTBOX -->
-     
+<!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+  <title>E-Commerce Front End Theme</title>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+  <meta content="" name="description" />
+  <meta content="" name="author" />
+  
+  <!-- ================== BEGIN BASE CSS STYLE ================== -->
 
-        <!-- CUSTOM STYLESHEETS -->
-
-        
-        <!-- RESPONSIVE FIXES -->
-
-
-        <!-- COLORS -->
-
-        <!-- DEFAULT COLOR/ CURRENTLY USING -->
-        <!-- <link rel="stylesheet" href="css/colors/red.css"> -->
-        <!-- <link rel="stylesheet" href="css/colors/green.css"> -->
-        <!-- <link rel="stylesheet" href="css/colors/green2.css"> -->
-        <!-- <link rel="stylesheet" href="css/colors/purple.css"> -->
-        <!-- <link rel="stylesheet" href="css/colors/orange.css"> -->
-
-        <!--[if lt IE 9]>
-                <script src="js/html5shiv.min.js"></script>
-        <![endif]-->
-        <!--[if gte IE 9]>
-          <style type="text/css">
-            .standard-button,
-            .navbar-register-button {
-           filter: none;
-            }
-          </style>
-        <![endif]-->
-        <!-- ****************
-          After neccessary customization/modification, Please minify HTML/CSS according to http://browserdiet.com/en/ for better performance
-         **************** -->
-    </head>
+ 
+  <!-- ================== END BASE CSS STYLE ================== -->
+  
+  <!-- ================== BEGIN BASE JS ================== -->
+ 
+  <!-- ================== END BASE JS ================== -->
+</head>
 
 
 
 
 
-    <body>
 
-        <!-- =========================
-         PRE LOADER       
-        ============================== -->
-        <!--div class="preloader">
-            <div class="status">
-                &nbsp;
-            </div>
-        </div-->
-
-        <!-- =========================
+                <!-- =========================
          SECTION: HOME / HEADER  
         ============================== -->
          <header class="header" style="background: url(/assets/el2bg.jpg) no-repeat center top fixed;
@@ -378,6 +325,14 @@
             </div>
         </header>
 
+
+
+
+
+
+
+                   
+
      
 
 
@@ -388,1148 +343,802 @@
 
 
 
-        <!-- =========================
-         SECTION: CLIENTS LOGOs
-        ============================== -->
-        <div class="clients white-bg">
-            <ul class="client-logos">
-                <li>
-                    <img src="images/companies/1.png" alt="">
-                </li>
-                <li>
-                    <img src="images/companies/2.png" alt="">
-                </li>
-                <li>
-                    <img src="images/companies/3.png" alt="">
-                </li>
-                <li>
-                    <img src="images/companies/4.png" alt="">
-                </li>
-                <li>
-                    <img src="images/companies/5.png" alt="">
-                </li>
-                <li>
-                    <img src="images/companies/6.png" alt="">
-                </li>
-            </ul>
+
+
+    
+        <!-- BEGIN #promotions -->
+        <div id="promotions" class="section-container bg-white">
+            <!-- BEGIN container -->
+            <div class="container">
+                <!-- BEGIN section-title -->
+                <h4 class="section-title clearfix">
+                    <a href="#" class="pull-right">SHOW ALL</a>
+                    Exclusive promotions
+                    <small>from 25 September 2016 - 1 January 2017</small>
+                </h4>
+                <!-- END section-title -->
+                <!-- BEGIN row -->
+                <div class="row row-space-10">
+                    <!-- BEGIN col-6 -->
+                    <div class="col-md-6">
+                        <!-- BEGIN promotion -->
+                        <div class="promotion promotion-lg bg-black-darker">
+                            <div class="promotion-image text-right promotion-image-overflow-bottom">
+
+
+                                <%= link_to (image_tag("store/iphone-se.png", :class => "", :alt =>"listing image")), listing_path(@listings) %>
+
+
+                            </div>
+                            <div class="promotion-caption promotion-caption-inverse">
+                                <h4 class="promotion-title">iPhone SE</h4>
+                                <div class="promotion-price"><small>from</small> $299.00</div>
+                                <p class="promotion-desc">A big step for small.<br />A beloved design. Now with more to love.</p>
+                                <a href="#" class="promotion-btn">View More</a>
+                            </div>
+                        </div>
+                        <!-- END promotion -->
+                    </div>
+                    <!-- END col-6 -->
+                    <!-- BEGIN col-3 -->
+                    <div class="col-md-3 col-sm-6">
+                        <!-- BEGIN promotion -->
+                        <div class="promotion bg-blue">
+                            <div class="promotion-image promotion-image-overflow-bottom promotion-image-overflow-top">
+
+
+                                <%= link_to (image_tag("store/apple-watch-sm.png", :class => "", :alt =>"listing image")), listing_path(@listings) %>
+
+
+                            </div>
+                            <div class="promotion-caption promotion-caption-inverse text-right">
+                                <h4 class="promotion-title">Apple Watch</h4>
+                                <div class="promotion-price"><small>from</small> $299.00</div>
+                                <p class="promotion-desc">You. At a glance.</p>
+                                <a href="#" class="promotion-btn">View More</a>
+                            </div>
+                        </div>
+                        <!-- END promotion -->
+                        <!-- BEGIN promotion -->
+                        <div class="promotion bg-silver">
+
+                            <div class="promotion-image text-center promotion-image-overflow-bottom">
+
+
+                                 <%= link_to (image_tag("store/mac-mini.png", :class => "", :alt =>"listing image")), listing_path(@listings) %>
+
+
+                            </div>
+                            <div class="promotion-caption text-center">
+                                <h4 class="promotion-title">Mac Mini</h4>
+                                <div class="promotion-price"><small>from</small> $199.00</div>
+                                <p class="promotion-desc">It’s mini in a massive way.</p>
+                                <a href="#" class="promotion-btn">View More</a>
+                            </div>
+                        </div>
+                        <!-- END promotion -->
+                    </div>
+                    <!-- END col-3 -->
+                    <!-- BEGIN col-3 -->
+                    <div class="col-md-3 col-sm-6">
+                        <!-- BEGIN promotion -->
+                        <div class="promotion bg-silver">
+                            <div class="promotion-image promotion-image-overflow-right promotion-image-overflow-bottom text-right">
+                                
+
+                               <%= link_to (image_tag("store/mac-accessories.png", :class => "", :alt =>"listing image")), listing_path(@listings) %>
+
+
+
+
+                            </div>
+                            <div class="promotion-caption text-center">
+                                <h4 class="promotion-title">Apple Accessories</h4>
+                                <div class="promotion-price"><small>from</small> $99.00</div>
+                                <p class="promotion-desc">Redesigned. Rechargeable. Remarkable.</p>
+                                <a href="#" class="promotion-btn">View More</a>
+                            </div>
+                        </div>
+                        <!-- END promotion -->
+                        <!-- BEGIN promotion -->
+                        <div class="promotion bg-black">
+                            <div class="promotion-image text-right">
+
+
+                              <%= link_to (image_tag("store/mac-pro.png", :class => "", :alt =>"listing image")), listing_path(@listings) %>
+
+
+                            </div>
+                            <div class="promotion-caption promotion-caption-inverse">
+                                <h4 class="promotion-title">Mac Pro</h4>
+                                <div class="promotion-price"><small>from</small> $1,299.00</div>
+                                <p class="promotion-desc">Built for creativity on an epic scale.</p>
+                                <a href="#" class="promotion-btn">View More</a>
+                            </div>
+                        </div>
+                        <!-- END promotion -->
+                    </div>
+                    <!-- END col-3 -->
+                </div>
+                <!-- END row -->
+            </div>
+            <!-- END container -->
         </div>
+        <!-- END #promotions -->
 
-        <!-- =========================
-         SECTION: SERVICES
-        ============================== -->
-        <section class="services grey-bg" id="section1">
+
+
+
+
+
+
+
+
+
+    
+        <!-- BEGIN #trending-items. Shop and get your favourite items at amazing prices! -->
+        <div id="trending-items" class="section-container bg-silver">
+            <!-- BEGIN container -->
             <div class="container">
+                <!-- BEGIN section-title -->
+                <h4 class="section-title clearfix">
+                    <a href="<%= events_path %>" class="pull-right m-l-5"><i class="fa fa-angle-right f-s-18"></i></a>
+                    <a href="<%= events_path %>" class="pull-right"><i class="fa fa-angle-left f-s-18"></i></a>
+                    Trending Events
+                    <small>Browse upcoming Ghana events by location</small>
+                </h4>
+                <!-- END section-title -->
+            
 
-                <!-- SECTION HEADER -->
-                <div class="section-header">
 
-                    <div class="small-text-medium uppercase colored-text">
-                        SERVICES
-                    </div>
-                    <h2 class="dark-text"><strong>We Startup</strong> Ipsum Product</h2>
-                    <div class="colored-line">
-                    </div>
-                    <div class="sub-heading">
-                        Cloud computing subscription model out of the box proactive solution.
-                    </div>
-                </div>
 
-                <div class="row">
 
-                    <!-- SINGLE SERVICE -->
-                    <div class="col-md-4 wow fadeInLeft" data-wow-offset="10" data-wow-duration="1.75s">
-                        <div class="single-service border-bottom-hover">
-                            <div class="service-icon colored-text">
-                                <span class="icon-basic-webpage-multiple"></span>
-                            </div>
-                            <h3 class="colored-text">Simple Layout</h3>
-                            <p>
-                                Accelerator photo sharing business school drop out ramen hustle crush it revenue traction platforms.
-                            </p>
-                        </div>
-                    </div>
+                <!-- BEGIN row -->
+                
+                <div class="row row-space-10">
 
-                    <!-- SINGLE SERVICE -->
-                    <div class="col-md-4 wow flipInY" data-wow-offset="10" data-wow-duration="1s">
-                        <div class="single-service border-bottom-hover">
-                            <div class="service-icon colored-text">
-                                <span class="icon-ecommerce-graph3"></span>
-                            </div>
-                            <h3 class="colored-text">Smart Graphs</h3>
-                            <p>
-                                Coworking viral landing page user base minimum viable product hackathon API mashup FB Connect.
-                            </p>
-                        </div>
-                    </div>
+                     
+                    <!-- BEGIN col-2 -->
 
-                    <!-- SINGLE SERVICE -->
-                    <div class="col-md-4 wow fadeInRight" data-wow-offset="10" data-wow-duration="1.75s">
-                        <div class="single-service border-bottom-hover">
-                            <div class="service-icon colored-text">
-                                <span class="icon-basic-geolocalize-05"></span>
-                            </div>
-                            <h3 class="colored-text">Track Location</h3>
-                            <p>
-                                Social bookmarking group buying crowded market pivot onboarding freemium prototype ping.
-                            </p>
-                        </div>
-                    </div>
+                   
+                    <% @events.sort_by{|t| - t.created_at.to_i}.first(6).each do |event| %>
+                    <div class="col-md-2 col-sm-4">
 
-                </div>
-            </div>
-        </section>
 
-        <!-- =========================
-         SECTION: BRIEF LEFT
-        ============================== -->
-        <section class="brief white-bg-border text-left" id="section2">
-            <div class="container">
-                <div class="row">
+                        <!-- BEGIN item -->
+                        <div class="item item-thumbnail">
+                            <a href="<%= event_path(event) %>" class="item-image">
 
-                    <!-- BRIEF IMAGE -->
-                    <div class="col-md-6 pull-right wow fadeInLeft" data-wow-offset="20" data-wow-duration="1.75s">
-                        <div class="brief-image-right">
-                            <img src="images/about-us.jpg" alt="">
-                        </div>
-                    </div>
 
-                    <!-- BRIEF HEADING -->
-                    <div class="col-md-6 content-section pull-left wow fadeInRight" data-wow-offset="20" data-wow-duration="1.75s">
-                        <div class="small-text-medium uppercase colored-text">
-                            About
-                        </div>
-                        <h2 class="text-left dark-text"><strong>Our</strong> Short Story </h2>
-                        <div class="colored-line-left">
-                        </div>
-                        <p class="text-left">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </p>
+                                <% if event.eventpic? %>
 
-                        <!-- FEATURE LIST -->
-                        <div class="row">
-                            <div class="col-md-6 col-sm-6">
-                                <ul class="feature-list text-left">
-                                    <li><span class="icon-lock-alt colored-text"></span> We care your businnes</li>
-                                    <li><span class="icon-check-alt2 colored-text"></span> Skilled professionals</li>
-                                    <li><span class="icon-paperclip colored-text"></span> Lorem ipsum dolor</li>
-                                </ul>
-                            </div>
-                            <div class="col-md-6 col-sm-6">
-                                <ul class="feature-list text-left">
-                                    <li><span class="icon-paperclip colored-text"></span> Startup ipsum does</li>
-                                    <li><span class="icon-adjust-vert colored-text"></span> Flexible schedule</li>
-                                    <li><span class="icon-ribbon-alt colored-text"></span> Certified company</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                                
 
-                </div>
-            </div>
-        </section>
 
-        <!-- =========================
-         SECTION: BRIEF RIGHT
-        ============================== -->
-        <section class="brief grey-bg text-left" id="section3">
-            <div class="container">
-                <div class="row">
 
-                    <!-- BRIEF IMAGE -->
-                    <div class="col-md-6 wow fadeInLeft" data-wow-offset="20" data-wow-duration="1.75s">
-                        <div class="brief-image-left">
-                            <img src="images/imac-ipad.png" alt="">
-                        </div>
-                    </div>
+                                <img src="<%= event.eventpic.url(:thumb) %>" alt="" />
 
-                    <!-- BRIEF HEADING -->
-                    <div class="col-md-6 content-section wow fadeInRight" data-wow-offset="20" data-wow-duration="1.75s">
-                        <div class="small-text-medium uppercase colored-text">
-                            LOREMIPSUM
-                        </div>
-                        <h2 class="text-left dark-text"><strong>Beautiful</strong> Accordion</h2>
-                        <div class="colored-line-left">
-                        </div>
-                        <p class="text-left">
-                            Lorem lean startup ipsum product market fit customer development.
-                        </p>
+                                <% else %>
 
-                        <!-- FEATUR ACCORDION WITH ICON -->
-                        <div class="panel-group" id="accordion">
+                                <img src="http://via.placeholder.com/405x285" alt="" />
 
-                            <!-- SINGLE ACORDIION -->
-                            <div class="panel panel-default">
+                                <% end %>
 
-                                <!-- ACORDIION HEADING / TITLE -->
-                                <div class="panel-heading" id="headingOne">
-                                    <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                            <span class="icon-container color-bg"><span class="icon-map-alt white-text"></span></span><span class="title-text">Responsive Design</span>
+
+                                <div class="discount">15% OFF</div>
                             </a>
-                            </h4>
-                                </div>
+                            <div class="item-info">
+                                <h4 class="item-title">
+                                    <a href="product_detail.html">iPhone 6s Plus<br />16GB</a>
+                                </h4>
+                                <p class="item-desc">3D Touch. 12MP photos. 4K video.</p>
+                                <div class="item-price">$649.00</div>
+                                <div class="item-discount-price">$739.00</div>
+                            </div>
+                        </div>
+                        <!-- END item -->
+                       
+                    </div>
+                    <!-- END col-2 -->
 
-                                <!-- ACORDIION DESCRIPTION / TEXT -->
-                                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                                    <div class="panel-body">
-                                        Tablet publishing HTML5 mobile first really simple syndication meetups white board walls. User experience iterate algorithm gamification semantic web value add market research stealth.
+                    <% end %>
+
+
+
+
+
+
+                    
+
+
+
+                    <!-- END col-2 -->
+                </div>
+                <!-- END row -->
+            </div>
+            <!-- END container -->
+        </div>
+        <!-- END #trending-items -->
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <!-- BEGIN #mobile-list -->
+
+
+
+        <div id="mobile-list" class="section-container bg-silver p-t-0">
+            <!-- BEGIN container -->
+            <div class="container">
+                <!-- BEGIN section-title -->
+                <h4 class="section-title clearfix">
+                    <a href="#" class="pull-right">SHOW ALL</a>
+                    Mobile Phones
+                    <small>Shop and get your favourite phone at amazing prices!</small>
+                </h4>
+                <!-- END section-title -->
+                <!-- BEGIN category-container -->
+                <div class="category-container">
+                    <!-- BEGIN category-sidebar -->
+                    <div class="category-sidebar">
+                        <ul class="category-list">
+                            <li class="list-header">Top Categories</li>
+                            <li><a href="#">Microsoft</a></li>
+                            <li><a href="#">Samsung</a></li>
+                            <li><a href="#">Apple</a></li>
+                            <li><a href="#">Micromax</a></li>
+                            <li><a href="#">Karbonn</a></li>
+                            <li><a href="#">Intex</a></li>
+                            <li><a href="#">Sony</a></li>
+                            <li><a href="#">HTC</a></li>
+                            <li><a href="#">Asus</a></li>
+                            <li><a href="#">Nokia</a></li>
+                            <li><a href="#">Blackberry</a></li>
+                            <li><a href="#">All Brands</a></li>
+                        </ul>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+                    <!-- END category-sidebar -->
+
+
+                    <!-- BEGIN category-detail -->
+                    <div class="category-detail">
+                        <!-- BEGIN category-item -->
+                        <a href="#" class="category-item full">
+                            <div class="item">
+                                <div class="item-cover">
+                                    <%= image_tag("store/samsung-s7-edge.jpg")  %>
+
+                                   
+                                </div>
+                                <div class="item-info bottom">
+                                    <h4 class="item-title">Samsung Galaxy s7 Edge + Geat 360 + Gear VR</h4>
+                                    <p class="item-desc">Redefine what a phone can do</p>
+                                    <div class="item-price">$799.00</div>
+                                </div>
+                            </div>
+                        </a>
+
+
+                        <!-- END category-item -->
+
+
+
+
+
+
+                        <!-- BEGIN category-item -->
+                        <div class="category-item list">
+                            <!-- BEGIN item-row -->
+                          
+                               
+
+       
+
+
+
+
+                               <% @listings.limit(6).each_slice(3) do |listings| %>
+
+                                <div class="item-row ">
+                                
+                                  <% listings.each do |listing| %>
+                                   <div class="item item-thumbnail ">
+
+
+
+
+
+          <% if listing.listingimages? %>
+
+        <%= link_to (image_tag(listing.listingimages[0].url(:thumb), :class => "item-image imagecenter", :alt =>"listing image")), listing %>
+        <% else %> 
+        <%# link_to (image_tag("login-bg/bg-3.jpg", :class => "img-responsive img-h", :alt =>"event image")), event_path(event) %>
+
+        <%= link_to (image_tag("http://via.placeholder.com/190x300", :class => "item-image imagecenter", :alt =>"listing image")), listing_path(listing)  %>
+
+
+       <% end %> 
+ 
+
+
+                                        <div class="discount text-center">15% OFF</div>
+
+
+
+
+                                    
+                                    <div class="item-info">
+                                        <h4 class="item-title">
+                                            <a href="product_detail.html">Assus ZenFone 2<br />‏(ZE550ML)</a>
+                                        </h4>
+                                        <p class="item-desc">See What Others Can’t See</p>
+                                        <div class="item-price"><%= number_to_currency(listing.price) %></div>
+                                        <div class="item-discount-price"><%= number_to_currency(listing.price+((0.15)*listing.price) )%></div>
+                                    </div>
+
+                                   </div>
+                                   <% end %>
+                                    </div>
+
+                                   <% end %>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+                        </div>
+                        <!-- END category-item -->
+
+
+
+
+
+                    </div>
+                    <!-- END category-detail -->
+                </div>
+                <!-- END category-container -->
+            </div>
+            <!-- END container -->
+        </div>
+        <!-- END #mobile-list -->
+
+
+
+
+
+
+
+
+    
+        <!-- BEGIN #tablet-list -->
+        <div id="tablet-list" class="section-container bg-silver p-t-0">
+            <!-- BEGIN container -->
+            <div class="container">
+                <!-- BEGIN section-title -->
+                <h4 class="section-title clearfix">
+                    <a href="#" class="pull-right">SHOW ALL</a>
+                    Tablet
+                    <small>Shop and get your favourite tablet at amazing prices!</small>
+                </h4>
+                <!-- END section-title -->
+                <!-- BEGIN category-container -->
+                <div class="category-container">
+                    <!-- BEGIN category-sidebar -->
+                    <div class="category-sidebar">
+                        <ul class="category-list">
+                            <li class="list-header">Top Categories</li>
+                            <li><a href="#">Apple</a></li>
+                            <li><a href="#">HP</a></li>
+                            <li><a href="#">Huawei</a></li>
+                            <li><a href="#">Samsung</a></li>
+                            <li><a href="#">Sony</a></li>
+                            <li><a href="#">All Brands</a></li>
+                        </ul>
+                    </div>
+                    <!-- END category-sidebar -->
+                    <!-- BEGIN category-detail -->
+                    <div class="category-detail">
+                        <!-- BEGIN category-item -->
+                        <a href="#" class="category-item full">
+                            <div class="item">
+                                <div class="item-cover">
+                                    <img src="assets/img/huawei-mediapad.jpg" alt="" />
+                                </div>
+                                <div class="item-info bottom">
+                                    <h4 class="item-title">Huawei MediaPad T1 7.0</h4>
+                                    <p class="item-desc">Vibrant colors. Beautifully displayed</p>
+                                    <div class="item-price">$299.00</div>
+                                </div>
+                            </div>
+                        </a>
+                        <!-- END category-item -->
+                        <!-- BEGIN category-item -->
+                        <div class="category-item list">
+                            <!-- BEGIN item-row -->
+                            <div class="item-row">
+                                <!-- BEGIN item -->
+                                <div class="item item-thumbnail">
+                                    <a href="product_detail.html" class="item-image">
+                                        <img src="assets/img/ipad-pro.png" alt="" />
+                                        <div class="discount">15% OFF</div>
+                                    </a>
+                                    <div class="item-info">
+                                        <h4 class="item-title">
+                                            <a href="product_detail.html">9.7-inch iPad Pro<br />32GB</a>
+                                        </h4>
+                                        <p class="item-desc">3D Touch. 12MP photos. 4K video.</p>
+                                        <div class="item-price">$649.00</div>
+                                        <div class="item-discount-price">$739.00</div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <!-- SINGLE ACORDIION -->
-                            <div class="panel panel-default">
-
-                                <!-- ACORDIION HEADING / TITLE -->
-                                <div class="panel-heading" id="headingTwo">
-                                    <h4 class="panel-title">
-                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            <span class="icon-container color-bg"><span class="icon-compass-alt white-text"></span></span><span class="title-text">Fast Customer Support</span>
-                            </a>
-                            </h4>
-                                </div>
-
-                                <!-- ACORDIION DESCRIPTION / TEXT -->
-                                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                                    <div class="panel-body">
-                                        Rockstar developer internet of things bleeding edge browser extension social capital. Sandboxing UDID content manag system ruby on rails continuous deployment big data infographic.
+                                <!-- END item -->
+                                <!-- BEGIN item -->
+                                <div class="item item-thumbnail">
+                                    <a href="product_detail.html" class="item-image">
+                                        <img src="assets/img/galaxy-tab2.png" alt="" />
+                                        <div class="discount">32% OFF</div>
+                                    </a>
+                                    <div class="item-info">
+                                        <h4 class="item-title">
+                                            <a href="product.html">Samsung Galaxy Tab S2<br />Black</a>
+                                        </h4>
+                                        <p class="item-desc">A Brilliant Screen That Adjusts to You</p>
+                                        <div class="item-price">$399.99</div>
+                                        <div class="item-discount-price">$499.00</div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <!-- SINGLE ACORDIION -->
-                            <div class="panel panel-default">
-
-                                <!-- ACORDIION HEADING / TITLE -->
-                                <div class="panel-heading" id="headingThree">
-                                    <h4 class="panel-title">
-                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            <span class="icon-container color-bg"><span class="icon-lightbulb-alt white-text"></span></span><span class="title-text">Creative Concept</span>
-                            </a>
-                            </h4>
-                                </div>
-
-                                <!-- ACORDIION DESCRIPTION / TEXT -->
-                                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                                    <div class="panel-body">
-                                        Tablet publishing HTML5 mobile first really simple syndication meetups white board walls. User experience iterate algorithm gamification semantic web value add market research stealth.
+                                <!-- END item -->
+                                <!-- BEGIN item -->
+                                <div class="item item-thumbnail">
+                                    <a href="product_detail.html" class="item-image">
+                                        <img src="assets/img/galaxy-taba.png" alt="" />
+                                        <div class="discount">20% OFF</div>
+                                    </a>
+                                    <div class="item-info">
+                                        <h4 class="item-title">
+                                            <a href="product.html">Samsung Galaxy Tab A<br />9.7" 16Gb(Wi-Fi)</a>
+                                        </h4>
+                                        <p class="item-desc">Keep All Your Samsung Devices In Sync</p>
+                                        <div class="item-price">$349.99</div>
+                                        <div class="item-discount-price">$399.99</div>
                                     </div>
                                 </div>
+                                <!-- END item -->
                             </div>
+                            <!-- END item-row -->
+                            <!-- BEGIN item-row -->
+                            <div class="item-row">
+                                <!-- BEGIN item -->
+                                <div class="item item-thumbnail">
+                                    <a href="product_detail.html" class="item-image">
+                                        <img src="assets/img/hp-spectrex2.png" alt="" />
+                                        <div class="discount">15% OFF</div>
+                                    </a>
+                                    <div class="item-info">
+                                        <h4 class="item-title">
+                                            <a href="product_detail.html">HP Spectre x2<br />‏12-a011nr</a>
+                                        </h4>
+                                        <p class="item-desc">Our thinnest detachable separates from all others.</p>
+                                        <div class="item-price">$799.99</div>
+                                        <div class="item-discount-price">$850.00</div>
+                                    </div>
+                                </div>
+                                <!-- END item -->
+                                <!-- BEGIN item -->
+                                <div class="item item-thumbnail">
+                                    <a href="product_detail.html" class="item-image">
+                                        <img src="assets/img/xperia-z2.png" alt="" />
+                                        <div class="discount">32% OFF</div>
+                                    </a>
+                                    <div class="item-info">
+                                        <h4 class="item-title">
+                                            <a href="product.html">Sony Xperia Z2 Tablet<br />Black Color</a>
+                                        </h4>
+                                        <p class="item-desc">For unexpectedly beautiful moments</p>
+                                        <div class="item-price">$199.00</div>
+                                        <div class="item-discount-price">$259.00</div>
+                                    </div>
+                                </div>
+                                <!-- END item -->
+                                <!-- BEGIN item -->
+                                <div class="item item-thumbnail">
+                                    <a href="product_detail.html" class="item-image">
+                                        <img src="assets/img/ipad-air.png" alt="" />
+                                        <div class="discount">20% OFF</div>
+                                    </a>
+                                    <div class="item-info">
+                                        <h4 class="item-title">
+                                            <a href="product.html">iPad Air 2<br />32/64Gb</a>
+                                        </h4>
+                                        <p class="item-desc">Light. Heavyweight.</p>
+                                        <div class="item-price">$399.00</div>
+                                        <div class="item-discount-price">$459.00</div>
+                                    </div>
+                                </div>
+                                <!-- END item -->
+                            </div>
+                            <!-- END item-row -->
                         </div>
-
+                        <!-- END category-item -->
                     </div>
+                    <!-- END category-detail -->
                 </div>
+                <!-- END category-container -->
             </div>
-        </section>
-
-        <!-- =========================
-         SECTION: SOME STATS   
-        ============================== -->
-        <section class="stats" id="section4" data-stellar-background-ratio="0.5">
-            <div class="overlay-layer-2">
-                <div class="container">
-                    <div class="row no-gutters">
-
-                        <!-- SINGLE COLUMN WITH ICON -->
-                        <div class="col-md-4 col-sm-4 col-xs-4 single-stats wow fadeInLeft" data-wow-offset="10" data-wow-duration="1.75s">
-                            <div class="icon-container">
-                                <span class="colored-text icon-basic-elaboration-calendar-check"></span>
-                            </div>
-                            <h4 class="white-text">780+</h4>
-                            <p class="uppercase transparent-text small-text">
-                                Successfull campaigns
-                            </p>
-                        </div>
-
-                        <!-- SINGLE COLUMN WITH ICON -->
-                        <div class="col-md-4 col-sm-4 col-xs-4 single-stats border-left-colored border-right-colored wow fadeIn" data-wow-offset="10" data-wow-duration="1.75s">
-                            <div class="icon-container">
-                                <span class="colored-text icon-basic-message-multiple"></span>
-                            </div>
-                            <h4 class="white-text">1250+</h4>
-                            <p class="uppercase transparent-text small-text">
-                                Social interaction
-                            </p>
-                        </div>
-
-                        <!-- SINGLE COLUMN WITH ICON -->
-                        <div class="col-md-4 col-sm-4 col-xs-4 single-stats wow fadeInRight" data-wow-offset="10" data-wow-duration="1.75s">
-                            <div class="icon-container">
-                                <span class="colored-text icon-ecommerce-graph-increase"></span>
-                            </div>
-                            <h4 class="white-text">235%</h4>
-                            <p class="uppercase transparent-text small-text">
-                                Yearly Sales Growth
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- CALL TO ACTION -->
-                    <div class="stats-footer">
-                        <div class="long-transparent-line">
-                        </div>
-                        <p class="white-text">
-                            We are ready to help you - <a href="#home" class="strong inpage-scroll">Get Started Now »</a>
-                        </p>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- =========================
-         SECTION: BENEFITS   
-        ============================== -->
-        <section class="unique-features white-bg" id="section5">
+            <!-- END container -->
+        </div>
+        <!-- END #tablet-list -->
+    
+        <!-- BEGIN #policy -->
+        <div id="policy" class="section-container p-t-30 p-b-30">
+            <!-- BEGIN container -->
             <div class="container">
-
-                <!-- SECTION HEADER -->
-                <div class="section-header">
-                    <div class="small-text-medium uppercase colored-text">
-                        FEATURES
-                    </div>
-                    <h2 class="dark-text"><strong>Useful</strong> Benifits</h2>
-                    <div class="colored-line">
-                    </div>
-                    <div class="sub-heading">
-                        Cloud computing subscription model out of the box proactive solution.
-                    </div>
-                </div>
-
-                <!-- FIRST ROW OF FEATURES -->
+                <!-- BEGIN row -->
                 <div class="row">
-                    <div class="col-md-4 wow fadeInRight" data-wow-duration="1.75s" data-wow-offset="20">
-
-                        <!-- SINGLE FEATURE -->
-                        <div class="feature">
-                            <div class="icon-container">
-                                <span class="icon-laptop colored-text"></span>
-                            </div>
-                            <div class="description text-left">
-                                <h4 class="dark-text">Reliable Company</h4>
-                                <div class="grey-line-short pull-left">
-                                </div>
-                                <p class="text-left">
-                                    User engagement A/B testing shrink a market venture capital pitch deck.
-                                </p>
+                    <!-- BEGIN col-4 -->
+                    <div class="col-md-4 col-sm-4">
+                        <!-- BEGIN policy -->
+                        <div class="policy">
+                            <div class="policy-icon"><i class="fa fa-truck"></i></div>
+                            <div class="policy-info">
+                                <h4>Free Delivery Over $100</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                             </div>
                         </div>
-
-                        <!-- SINGLE FEATURE -->
-                        <div class="feature">
-                            <div class="icon-container">
-                                <span class="icon-map-alt colored-text"></span>
-                            </div>
-                            <div class="description text-left">
-                                <h4 class="dark-text">Responsive Design</h4>
-                                <div class="grey-line-short pull-left">
-                                </div>
-                                <p class="text-left">
-                                    User engagement A/B testing shrink a market venture capital pitch deck.
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- SINGLE FEATURE -->
-                        <div class="feature">
-                            <div class="icon-container">
-                                <span class="icon-cloud-alt colored-text"></span>
-                            </div>
-                            <div class="description text-left">
-                                <h4 class="dark-text">Cloud Platform</h4>
-                                <div class="grey-line-short pull-left">
-                                </div>
-                                <p class="text-left">
-                                    User engagement A/B testing shrink a market venture capital pitch deck.
-                                </p>
-                            </div>
-                        </div>
+                        <!-- END policy -->
                     </div>
-
-                    <!-- IPAD IMAGE -->
-                    <div class="col-md-4">
-                        <div class="ipad-image wow bounceIn" data-wow-duration="1.75s" data-wow-offset="20">
-                            <img src="images/ipad-air.png" alt="">
+                    <!-- END col-4 -->
+                    <!-- BEGIN col-4 -->
+                    <div class="col-md-4 col-sm-4">
+                        <!-- BEGIN policy -->
+                        <div class="policy">
+                            <div class="policy-icon"><i class="fa fa-shield"></i></div>
+                            <div class="policy-info">
+                                <h4>1 Year Warranty For Phones</h4>
+                                <p>Cras laoreet urna id dui malesuada gravida. <br />Duis a lobortis dui.</p>
+                            </div>
                         </div>
+                        <!-- END policy -->
                     </div>
-
-                    <div class="col-md-4 wow fadeInLeft" data-wow-duration="1.75s" data-wow-offset="20">
-
-                        <!-- SINGLE FEATURE -->
-                        <div class="feature">
-                            <div class="icon-container">
-                                <span class="icon-gift-alt colored-text"></span>
-                            </div>
-                            <div class="description text-left">
-                                <h4 class="dark-text">Bootstrap 3.3.1</h4>
-                                <div class="grey-line-short pull-left">
-                                </div>
-                                <p class="text-left">
-                                    User engagement A/B testing shrink a market venture capital pitch deck.
-                                </p>
+                    <!-- END col-4 -->
+                    <!-- BEGIN col-4 -->
+                    <div class="col-md-4 col-sm-4">
+                        <!-- BEGIN policy -->
+                        <div class="policy">
+                            <div class="policy-icon"><i class="fa fa-user-md"></i></div>
+                            <div class="policy-info">
+                                <h4>6 Month Warranty For Accessories</h4>
+                                <p>Fusce ut euismod orci. Morbi auctor, sapien non eleifend iaculis.</p>
                             </div>
                         </div>
-
-                        <!-- SINGLE FEATURE -->
-                        <div class="feature">
-                            <div class="icon-container">
-                                <span class="icon-star-alt colored-text"></span>
-                            </div>
-                            <div class="description text-left">
-                                <h4 class="dark-text">400+ Icons Font</h4>
-                                <div class="grey-line-short pull-left">
-                                </div>
-                                <p class="text-left">
-                                    User engagement A/B testing shrink a market venture capital pitch deck.
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- SINGLE FEATURE -->
-                        <div class="feature">
-                            <div class="icon-container">
-                                <span class="icon-chat-alt colored-text"></span>
-                            </div>
-                            <div class="description text-left">
-                                <h4 class="dark-text">Top Support</h4>
-                                <div class="grey-line-short pull-left">
-                                </div>
-                                <p class="text-left">
-                                    User engagement A/B testing shrink a market venture capital pitch deck.
-                                </p>
-                            </div>
-                        </div>
-
+                        <!-- END policy -->
                     </div>
+                    <!-- END col-4 -->
                 </div>
+                <!-- END row -->
             </div>
-        </section>
-
-        <!-- =========================
-         SECTION: PRICING   
-        ============================== -->
-        <section class="pricing grey-bg" id="section6">
+            <!-- END container -->
+        </div>
+        <!-- END #policy -->
+    
+        <!-- BEGIN #subscribe -->
+        <div id="subscribe" class="section-container bg-silver p-t-30 p-b-30">
+            <!-- BEGIN container -->
             <div class="container">
-
-                <!-- SECTION HEADER -->
-                <div class="section-header">
-                    <div class="small-text-medium uppercase colored-text">
-                        Pricing
-                    </div>
-                    <h2 class="dark-text"><strong>Affordable</strong> Packages</h2>
-                    <div class="colored-line">
-                    </div>
-                    <div class="sub-heading">
-                        Cloud computing subscription model out of the box proactive solution.
-                    </div>
-                </div>
-
-                <!-- PRICING TABLE -->
-                <div class="row pricing-table">
-
-                    <!-- SINGLE PACKAGE -->
-                    <div class="col-md-4 wow fadeInLeft" data-wow-offset="20" data-wow-duration="1.75s">
-                        <div class="single-pricing border-bottom-hover">
-
-                            <div class="package-title">
-                                <h3 class="colored-text">Basic Plan</h3>
-                                <div class="colored-line">
-                                </div>
-                            </div>
-
-                            <h2 class="price"><span class="superscript">$</span>150<span class="month small-text">Per Month</span></h2>
-
-                            <ul class="package-list">
-                                <li><span class="dark-text strong">50GB</span>File Storage</li>
-                                <li><span class="dark-text strong">Secure</span>Online Transfer</li>
-                                <li><span class="dark-text strong">5</span>User Access</li>
-                                <li><span class="dark-text strong">30</span>Projects Per Month</li>
-                                <li><span class="dark-text strong">24/7</span>Customer Service</li>
-                            </ul>
-
-                            <div class="button">
-                                <a href="#home" class="btn standard-button inpage-scroll">Get Started</a>
-                            </div>
-
-                            <div class="small-text uppercase">
-                                30 Days free Trial
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!-- SINGLE PACKAGE -->
-                    <div class="col-md-4 wow flipInY" data-wow-offset="10" data-wow-duration="1.5s">
-                        <div class="single-pricing border-bottom-hover">
-
-                            <div class="package-title color-bg">
-                                <h3 class="white-text">Standard Plan</h3>
-                            </div>
-
-                            <h2 class="price"><span class="superscript">$</span>199<span class="month small-text">Per Month</span></h2>
-
-                            <ul class="package-list">
-                                <li><span class="colored-text strong">150GB</span>File Storage</li>
-                                <li><span class="colored-text strong">Secure</span>Online Transfer</li>
-                                <li><span class="colored-text strong">20</span>User Access</li>
-                                <li><span class="colored-text strong">65</span>Projects Per Month</li>
-                                <li><span class="colored-text strong">24/7</span>Customer Service</li>
-                            </ul>
-
-                            <div class="button">
-                                <a href="#home" class="btn standard-button inpage-scroll">Get Started</a>
-                            </div>
-
-                            <div class="small-text uppercase">
-                                <span class="colored-text">40%</span> Discount on first year
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!-- SINGLE PACKAGE -->
-                    <div class="col-md-4 wow fadeInRight" data-wow-offset="20" data-wow-duration="1.75s">
-                        <div class="single-pricing border-bottom-hover">
-
-                            <div class="package-title">
-                                <h3 class="colored-text">Medium Plan</h3>
-                                <div class="colored-line">
-                                </div>
-                            </div>
-                            <h2 class="price"><span class="superscript">$</span>175<span class="month small-text">Per Month</span></h2>
-
-                            <ul class="package-list">
-                                <li><span class="dark-text strong">80GB</span>File Storage</li>
-                                <li><span class="dark-text strong">Secure</span>Online Transfer</li>
-                                <li><span class="dark-text strong">10</span>User Access</li>
-                                <li><span class="dark-text strong">45</span>Projects Per Month</li>
-                                <li><span class="dark-text strong">24/7</span>Customer Service</li>
-                            </ul>
-
-                            <div class="button">
-                                <a href="#home" class="btn standard-button inpage-scroll">Get Started</a>
-                            </div>
-
-                            <div class="small-text uppercase">
-                                30 Days free Trial
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- =========================
-         SECTION: SCREENSHOTS
-        ============================== -->
-        <section class="features" id="section7" data-stellar-background-ratio="0.5">
-            <div class="overlay-layer-2">
-                <div class="container">
-
-                    <!-- SECTION HEADER -->
-                    <div class="section-header">
-                        <div class="small-text-medium uppercase colored-text">
-                            Screenshots
-                        </div>
-                        <h2 class="white-text"><span class="strong white-text">Explore</span> Screenshots</h2>
-                        <div class="colored-line">
-                        </div>
-                        <div class="sub-heading white-text">
-                            Cloud computing subscription model out of the box proactive solution.
-                        </div>
-                    </div>
-
-                    <div class="row">
-
-                        <!-- LEFT SIDE ELEMENTS -->
-                        <div class="col-md-3 text-right left-side wow fadeInRight" data-wow-offset="10" data-wow-duration="1.75s">
-
-                            <!-- SINGLE ELEMENT -->
-                            <div class="single-feature border-right-colored">
-                                <h4 class="colored-text">Creative Design</h4>
-                                <p class="transparent-text">
-                                    Coworking viral landing page user base minimum viable
-                                </p>
-                            </div>
-
-                            <!-- SINGLE ELEMENT -->
-                            <div class="single-feature border-right-colored">
-                                <h4 class="colored-text">Easy to Customize</h4>
-                                <p class="transparent-text">
-                                    Coworking viral landing page user base minimum viable
-                                </p>
-                            </div>
-
-                            <!-- SINGLE ELEMENT -->
-                            <div class="single-feature border-right-colored">
-                                <h4 class="colored-text">Bootstrap 3.3.1</h4>
-                                <p class="transparent-text">
-                                    Coworking viral landing page user base minimum viable
-                                </p>
-                            </div>
-
-                        </div>
-
-                        <!-- SCREENSHOTS -->
-                        <div class="col-md-6">
-                            <div id="screenshots" class="owl-carousel owl-theme">
-
-                                <!-- SINGLE SCREENSHOT -->
-                                <div class="screenshot">
-                                    <a href="images/screenshots/1@2x.png" data-lightbox-gallery="gallery1">
-                                        <img src="images/screenshots/1.png" alt="" />
-                                    </a>
-                                </div>
-
-                                <!-- SINGLE SCREENSHOT -->
-                                <div class="screenshot">
-                                    <a href="images/screenshots/1@2x.png" data-lightbox-gallery="gallery1">
-                                        <img src="images/screenshots/1.png" alt="" />
-                                    </a>
-                                </div>
-
-                                <!-- SINGLE SCREENSHOT -->
-                                <div class="screenshot">
-                                    <a href="images/screenshots/1@2x.png" data-lightbox-gallery="gallery1">
-                                        <img src="images/screenshots/1.png" alt="" />
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <!-- RIGHT SIDE FEATURES -->
-                        <div class="col-md-3 text-left right-side wow fadeInLeft" data-wow-offset="10" data-wow-duration="1.75s">
-
-                            <!-- SINGLE ELEMENT -->
-                            <div class="single-feature border-left-colored">
-                                <h4 class="colored-text">Online Support</h4>
-                                <p class="transparent-text">
-                                    Coworking viral landing page user base minimum viable
-                                </p>
-                            </div>
-
-                            <!-- SINGLE ELEMENT -->
-                            <div class="single-feature border-left-colored">
-                                <h4 class="colored-text">Easy Shipping</h4>
-                                <p class="transparent-text">
-                                    Coworking viral landing page user base minimum viable
-                                </p>
-                            </div>
-
-                            <!-- SINGLE ELEMENT -->
-                            <div class="single-feature border-left-colored">
-                                <h4 class="colored-text">Secure Payment</h4>
-                                <p class="transparent-text">
-                                    Coworking viral landing page user base minimum viable
-                                </p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- =========================
-         SECTION: TIMELINE   
-        ============================== -->
-        <section class="brief timeline white-bg" id="section8">
-            <div class="container">
-
+                <!-- BEGIN row -->
                 <div class="row">
-
-                    <!-- TIMELINE HEADING / TEXT  -->
-                    <div class="col-md-6 timeline-text text-left wow fadeInLeft" data-wow-offset="20" data-wow-duration="1.75s">
-                        <div class="small-text-medium uppercase colored-text text-left">
-                            Timeline
+                    <!-- BEGIN col-6 -->
+                    <div class="col-md-6 col-sm-6">
+                        <!-- BEGIN subscription -->
+                        <div class="subscription">
+                            <div class="subscription-intro">
+                                <h4> LET'S STAY IN TOUCH</h4>
+                                <p>Get updates on sales specials and more</p>
+                            </div>
+                            <div class="subscription-form">
+                                <form name="subscription_form" action="index.html" method="POST">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="email" placeholder="Enter Email Address" />
+                                        <div class="input-group-btn">
+                                            <button type="submit" class="btn btn-inverse"><i class="fa fa-angle-right"></i></button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
-                        <h2 class="text-left dark-text"><strong>Amazing</strong> Journey</h2>
-                        <div class="colored-line-left">
+                        <!-- END subscription -->
+                    </div>
+                    <!-- END col-6 -->
+                    <!-- BEGIN col-6 -->
+                    <div class="col-md-6 col-sm-6">
+                        <!-- BEGIN social -->
+                        <div class="social">
+                            <div class="social-intro">
+                                <h4>FOLLOW US</h4>
+                                <p>We want to hear from you!</p>
+                            </div>
+                            <div class="social-list">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                                <a href="#"><i class="fa fa-dribbble"></i></a>
+                                <a href="#"><i class="fa fa-google-plus"></i></a>
+                            </div>
                         </div>
+                        <!-- END social -->
+                    </div>
+                    <!-- END col-6 -->
+                </div>
+                <!-- END row -->
+            </div>
+            <!-- END container -->
+        </div>
+        <!-- END #subscribe -->
+    
+        <!-- BEGIN #footer -->
+        <div id="footer" class="footer">
+            <!-- BEGIN container -->
+            <div class="container">
+                <!-- BEGIN row -->
+                <div class="row">
+                    <!-- BEGIN col-3 -->
+                    <div class="col-md-3">
+                        <h4 class="footer-header">ABOUT US</h4>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.
-                            <br/>
-                            <br/>Main differentiators business model micro economics marketplace equity augmented reality human computer interaction. Board members super angel preferred stock.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec tristique dolor, ac efficitur velit. Nulla lobortis tempus convallis. Nulla aliquam lectus eu porta pulvinar. Mauris semper justo erat. 
+                        </p>
+                        <p>
+                            Vestibulum porttitor lorem et vestibulum pharetra. Phasellus sit amet mi congue, hendrerit mi ut, dignissim eros.
                         </p>
                     </div>
-
-                    <!-- TIMLEINE SCROLLER -->
-                    <div class="col-md-6 timeline-section wow fadeInRight" data-wow-offset="20" data-wow-duration="1.75s">
-                        <ul class="vertical-timeline" id="timeline-scroll">
-
-                            <!-- SINGLE TIMELINE -->
+                    <!-- END col-3 -->
+                    <!-- BEGIN col-3 -->
+                    <div class="col-md-3">
+                        <h4 class="footer-header">RELATED LINKS</h4>
+                        <ul class="fa-ul">
+                            <li><i class="fa fa-li fa-angle-right"></i> <a href="#">Shopping Help</a></li>
+                            <li><i class="fa fa-li fa-angle-right"></i> <a href="#">Terms of Use</a></li>
+                            <li><i class="fa fa-li fa-angle-right"></i> <a href="#">Contact Us</a></li>
+                            <li><i class="fa fa-li fa-angle-right"></i> <a href="#">Careers</a></li>
+                            <li><i class="fa fa-li fa-angle-right"></i> <a href="#">Payment Method</a></li>
+                            <li><i class="fa fa-li fa-angle-right"></i> <a href="#">Sales & Refund</a></li>
+                            <li><i class="fa fa-li fa-angle-right"></i> <a href="#">Sitemap</a></li>
+                            <li><i class="fa fa-li fa-angle-right"></i> <a href="#">Privacy & Policy</a></li>
+                        </ul>
+                    </div>
+                    <!-- END col-3 -->
+                    <!-- BEGIN col-3 -->
+                    <div class="col-md-3">
+                        <h4 class="footer-header">LATEST PRODUCT</h4>
+                        <ul class="list-unstyled list-product">
                             <li>
-                                <div class="date small-text colored-text strong">
-                                    Jan, 12
-                                </div>
-                                <div class="icon-container color-bg white-text">
-                                    <span class="icon-ribbon-alt"></span>
+                                <div class="image">
+                                    <img src="assets/img/iphone-6s.jpg" alt="" />
                                 </div>
                                 <div class="info">
-                                    Drinking vinegar Echo Park selfies heirloom aesthetic, taxidermy keytar next level craft beer.
+                                    <h4 class="info-title">Iphone 6s</h4>
+                                    <div class="price">$1200.00</div>
                                 </div>
                             </li>
-
-                            <!-- SINGLE TIMELINE -->
                             <li>
-                                <div class="date small-text dark-text strong">
-                                    Apr, 14
-                                </div>
-                                <div class="icon-container color-bg white-text">
-                                    <span class="icon-piechart"></span>
+                                <div class="image">
+                                    <img src="assets/img/galaxy-s6.jpg" alt="" />
                                 </div>
                                 <div class="info">
-                                    American Apparel meggings asymmetrical organic Marfa typewriter shabby chic Brooklyn, farm-to-table butcher.
+                                    <h4 class="info-title">Samsung Galaxy s7</h4>
+                                    <div class="price">$850.00</div>
                                 </div>
                             </li>
-
-                            <!-- SINGLE TIMELINE -->
+                        
                             <li>
-                                <div class="date small-text dark-text strong">
-                                    Feb, 13
-                                </div>
-                                <div class="icon-container color-bg white-text">
-                                    <span class="icon-cart-alt"></span>
+                                <div class="image">
+                                    <img src="assets/img/ipad-pro.jpg" alt="" />
                                 </div>
                                 <div class="info">
-                                    Keytar stumptown hoodie, crucifix meggings messenger bag brunch deep v. High Life taxidermy mumblecore.
+                                    <h4 class="info-title">Ipad Pro</h4>
+                                    <div class="price">$800.00</div>
                                 </div>
                             </li>
-
-                            <!-- SINGLE TIMELINE -->
                             <li>
-                                <div class="date small-text dark-text strong">
-                                    Dec, 13
-                                </div>
-                                <div class="icon-container color-bg white-text">
-                                    <span class="icon-paperclip"></span>
+                                <div class="image">
+                                    <img src="assets/img/galaxy-note5.jpg" alt="" />
                                 </div>
                                 <div class="info">
-                                    Wayfarers Carles seitan, VHS bicycle rights normcore butcher skateboard bitters Portland cred.
-                                </div>
-                            </li>
-
-                            <!-- SINGLE TIMELINE -->
-                            <li>
-                                <div class="date small-text dark-text strong">
-                                    May, 14
-                                </div>
-                                <div class="icon-container color-bg white-text">
-                                    <span class="icon-check"></span>
-                                </div>
-                                <div class="info">
-                                    Four loko Pitchfork cred irony selfies meggings lo-fi iPhone hashtag, craft beer Helvetica crucifix keytar.
-                                </div>
-                            </li>
-
-                            <!-- SINGLE TIMELINE -->
-                            <li>
-                                <div class="date small-text dark-text strong">
-                                    Oct, 14
-                                </div>
-                                <div class="icon-container color-bg white-text">
-                                    <span class="icon-lightbulb-alt"></span>
-                                </div>
-                                <div class="info">
-                                    Cosby sweater viral Etsy lo-fi Carles. Paleo kogi kale chips McSweeney's bicycle rights behind the scene.
+                                    <h4 class="info-title">Samsung Galaxy Note 5</h4>
+                                    <div class="price">$1200.00</div>
                                 </div>
                             </li>
                         </ul>
                     </div>
-
+                    <!-- END col-3 -->
+                    <!-- BEGIN col-3 -->
+                    <div class="col-md-3">
+                        <h4 class="footer-header">OUR CONTACT</h4>
+                        <address>
+                            <strong>Twitter, Inc.</strong><br />
+                            1355 Market Street, Suite 900<br />
+                            San Francisco, CA 94103<br /><br />
+                            <abbr title="Phone">Phone:</abbr> (123) 456-7890<br />
+                            <abbr title="Fax">Fax:</abbr> (123) 456-7891<br />
+                            <abbr title="Email">Email:</abbr> <a href="mailto:sales@myshop.com">sales@myshop.com</a><br />
+                            <abbr title="Skype">Skype:</abbr> <a href="skype:myshop">myshop</a>
+                        </address>
+                    </div>
+                    <!-- END col-3 -->
                 </div>
+                <!-- END row -->
             </div>
-        </section>
-
-        <!-- =========================
-         SECTION: TEAM   
-        ============================== -->
-        <section class="team grey-bg" id="section9">
-            <div class="container">
-
-                <!-- SECTION HEADER -->
-                <div class="section-header">
-                    <div class="small-text-medium uppercase colored-text">
-                        Team
-                    </div>
-                    <h2 class="dark-text"><strong>Project</strong> Team</h2>
-                    <div class="colored-line">
-                    </div>
-                    <div class="sub-heading">
-                        Cloud computing subscription model out of the box proactive solution.
-                    </div>
-                </div>
-
-                <!-- MEMBERS -->
-                <div class="row wow fadeIn" data-wow-offset="10" data-wow-duration="1.75s">
-
-                    <!-- MEMBER -->
-                    <div class="col-md-3 col-sm-6">
-                        <div class="team-member wow flipInY" data-wow-offset="10" data-wow-duration="1s">
-                            <div class="member-pic">
-                                <img src="images/team/1.jpg" alt="">
-                            </div>
-                            <div class="member-details">
-                                <h5 class="colored-text">Albert Jacobs</h5>
-                                <div class="small-text">
-                                    Founder &amp; CEO
-                                </div>
-                            </div>
-                            <ul class="social-icons">
-                                <li>
-                                    <a href="">
-                                        <span class="icon-social-facebook dark-text"></span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <span class="icon-social-twitter dark-text"></span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <span class="icon-social-pinterest dark-text"></span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- MEMBER -->
-                    <div class="col-md-3 col-sm-6">
-                        <div class="team-member wow flipInY" data-wow-offset="10" data-wow-duration="1s">
-                            <div class="member-pic">
-                                <img src="images/team/2.jpg" alt="">
-                            </div>
-                            <div class="member-details">
-                                <h5 class="colored-text">George Walker</h5>
-                                <div class="small-text">
-                                    Web Developer
-                                </div>
-                            </div>
-                            <ul class="social-icons">
-                                <li>
-                                    <a href="">
-                                        <span class="icon-social-facebook dark-text"></span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <span class="icon-social-twitter dark-text"></span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <span class="icon-social-pinterest dark-text"></span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- MEMBER -->
-                    <div class="col-md-3 col-sm-6">
-                        <div class="team-member wow flipInY" data-wow-offset="10" data-wow-duration="1s">
-                            <div class="member-pic">
-                                <img src="images/team/3.jpg" alt="">
-                            </div>
-                            <div class="member-details">
-                                <h5 class="colored-text">Frank Hanson</h5>
-                                <div class="small-text">
-                                    UI Designer
-                                </div>
-                            </div>
-                            <ul class="social-icons">
-                                <li>
-                                    <a href="">
-                                        <span class="icon-social-facebook dark-text"></span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <span class="icon-social-twitter dark-text"></span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <span class="icon-social-pinterest dark-text"></span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- MEMBER -->
-                    <div class="col-md-3 col-sm-6 team-member">
-                        <div class="wow flipInY" data-wow-offset="10" data-wow-duration="1s">
-                            <div class="member-pic">
-                                <img src="images/team/4.jpg" alt="">
-                            </div>
-                            <div class="member-details">
-                                <h5 class="colored-text">Emily Smith</h5>
-                                <div class="small-text">
-                                    App Developer
-                                </div>
-                            </div>
-                            <ul class="social-icons">
-                                <li>
-                                    <a href="">
-                                        <span class="icon-social-facebook dark-text"></span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <span class="icon-social-twitter dark-text"></span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <span class="icon-social-pinterest dark-text"></span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- =========================
-         SECTION: TESTIMONIALS   
-        ============================== -->
-        <section class="testimonials white-bg" id="section10">
-            <div class="container">
-
-                <!-- SECTION HEADER -->
-                <div class="section-header">
-                    <div class="small-text-medium uppercase colored-text">
-                        Testimonials
-                    </div>
-                    <h2 class="dark-text"><strong>Happy</strong> Customers</h2>
-                    <div class="colored-line">
-                    </div>
-                    <div class="sub-heading">
-                        Cloud computing subscription model out of the box proactive solution.
-                    </div>
-                </div>
-
-                <div class="row no-gutters">
-
-                    <!-- SINGLE FEEDBACK -->
-                    <div class="col-md-4 wow fadeInLeft" data-wow-offset="10" data-wow-duration="1.75s">
-                        <div class="feedback">
-                            <div class="pic-container">
-                                <img src="images/clients/1.jpg" alt="">
-                            </div>
-                            <p>
-                                “Tablet publishing HTML5 mobile first really simple syndication meetups white board walls. User experience iterate algorithm gamification semantic web value add market research stealth.”
-                            </p>
-                            <h5 class="colored-text">-Eusebia Bărlâdeanu</h5>
-                            <div class="small-text">
-                                XYZ Interactive
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- SINGLE FEEDBACK -->
-                    <div class="col-md-4 wow fadeIn" data-wow-offset="10" data-wow-duration="1.75s">
-                        <div class="feedback border-left border-right">
-                            <div class="pic-container">
-                                <img src="images/clients/2.jpg" alt="">
-                            </div>
-                            <p>
-                                “Rockstar developer internet of things bleeding edge browser extension social capital. Sandboxing UDID content manag system ruby on rails continuous deployment big data infographic.”
-                            </p>
-                            <h5 class="colored-text">- Eusebia Bărlâdeanu</h5>
-                            <div class="small-text">
-                                AbZ Network
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- SINGLE FEEDBACK -->
-                    <div class="col-md-4 wow fadeInRight" data-wow-offset="10" data-wow-duration="1.75s">
-                        <div id="feedback">
-                            <div class="feedback">
-                                <div class="pic-container">
-                                    <img src="images/clients/3.jpg" alt="">
-                                </div>
-                                <p>
-                                    “Rockstar developer internet of things bleeding edge browser extension social capital. Sandboxing UDID content manag system ruby on rails continuous deployment big data infographic.”
-                                </p>
-                                <h5 class="colored-text">- Georgian Hrușcă</h5>
-                                <div class="small-text">
-                                    ZyX LLC
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- =========================
-         SECTION: CALL TO ACTION   
-        ============================== -->
-        <section class="call-to-action" id="section11" data-stellar-background-ratio="0.1">
-            <div class="overlay-layer-2">
-                <div class="container">
-                    <div class="row">
-
-                        <div class="col-md-8 col-md-offset-2">
-
-                            <div class="uppercase colored-text strong">
-                                30 Days free trial
-                            </div>
-
-                            <h2 class="white-text strong wow fadeInLeft" data-wow-duration="2s" data-wow-offset="40">Start your FREE Trial Now!</h2>
-
-                            <a href="#home" class="btn btn-primary standard-button inpage-scroll wow fadeInRight" data-wow-duration="2s" data-wow-offset="40" type="button">Get Started</a>
-
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- REGISTRATION FORM FOR POPUP BOX -->
-        <div class="modal fade bs-example-modal-sm" id="stamp-modal" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-md">
-                <div class="modal-content">
-                    <div class="vertical-registration-form">
-                        <h4 class="dark-text form-heading">Get 1 Month FREE Trial Now</h4>
-                        <form class="registration-form" id="contact-form">
-                            <input type="text" id="cf-name" name="name" class="form-control input-box" placeholder="Name">
-                            <input type="email" id="cf-email" name="email" class="form-control input-box" placeholder="Email">
-                            <input type="text" id="cf-subject" name="subject" class="form-control input-box" placeholder="Subject">
-                            <textarea name="message" id="cf-message" class="form-control textarea-box" rows="4" placeholder="Message"></textarea>
-                            <button class="btn btn-primary standard-button">Get Started</button>
-                        </form>
-                        <p class="email-success dark-text">
-                            <span class="icon-check-alt2 colored-text"></span>Email sent seuccessfully
-                        </p>
-                        <p class="email-error dark-text">
-                            <span class="icon-close-alt2"></span>Error! Please check all fields filled correctly
-                        </p>
-                        <!-- MAILCHIMP ALERTS 
-                        <p class="mailchimp-success dark-text"><span class="icon-check-alt2 colored-text"></span>We sent the confirmation to your email</p>
-                        <p class="mailchimp-error dark-text"><span class="icon-close-alt2"></span>Error! Please check all fields filled correctly</p>
-                        -->
-                    </div>
-                </div>
-            </div>
+            <!-- END container -->
         </div>
-
-        <!-- =========================
-         SECTION: CONTACT INFO  
-        ============================== -->
-        <div class="contact-info white-bg">
+        <!-- END #footer -->
+    
+        <!-- BEGIN #footer-copyright -->
+        <div id="footer-copyright" class="footer-copyright">
+            <!-- BEGIN container -->
             <div class="container">
-
-                <!-- CONTACT INFO -->
-                <div class="row contact-links">
-
-                    <div class="col-sm-4">
-                        <div class="icon-container">
-                            <span class="icon-basic-mail colored-text"></span>
-                        </div>
-                        <a href="mailto:hey@designlab.co" class="strong">hey@designlab.co</a>
-                    </div>
-
-                    <div class="col-sm-4">
-                        <div class="icon-container">
-                            <span class="icon-basic-geolocalize-01 colored-text"></span>
-                        </div>
-                        <a href="" class="strong">Glen Road, E13 8 London, UK</a>
-                    </div>
-
-                    <div class="col-sm-4">
-                        <div class="icon-container">
-                            <span class="icon-basic-tablet colored-text"></span>
-                        </div>
-                        <a href="tel:44-12-3456-7890" class="strong">+44-12-3456-7890</a>
-                    </div>
+                <div class="payment-method">
+                    <img src="assets/img/payment_method.png" alt="" />
                 </div>
-
-            </div>
-        </div>
-        <!-- =========================
-         GOOGEL MAP 
-        ============================== -->
-        <div id="container-fluid">
-            <div id="cd-google-map">
-                <div id="google-container">
+                <div class="copyright">
+                    Copyright &copy; 2016 SeanTheme. All rights reserved.
                 </div>
-                <address class="color-bg">Glen Road, E13 8 London, UK</address>
             </div>
+            <!-- END container -->
         </div>
-
-        <!-- FOOTER -->
-        <footer class="footer grey-bg">
-            ©2014 Stamp LLC. All Rights Reserved
-
-            <!-- OPTIONAL FOOTER LINKS -->
-            <ul class="footer-links small-text">
-                <li><a href="" class="dark-text">About</a>
-                </li>
-                <li><a href="" class="dark-text">Terms</a>
-                </li>
-                <li><a href="" class="dark-text">Privacy</a>
-                </li>
+        <!-- END #footer-copyright -->
+    </div>
+    <!-- END #page-container -->
+    
+    <!-- begin theme-panel -->
+    <div class="theme-panel">
+        <a href="javascript:;" data-click="theme-panel-expand" class="theme-collapse-btn"><i class="fa fa-cog"></i></a>
+        <div class="theme-panel-content">
+            <ul class="theme-list clearfix">
+                <li><a href="javascript:;" class="bg-purple" data-theme="purple" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Purple">&nbsp;</a></li>
+                <li><a href="javascript:;" class="bg-blue" data-theme="blue" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Blue">&nbsp;</a></li>
+                <li class="active"><a href="javascript:;" class="bg-green" data-theme="default" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Default">&nbsp;</a></li>
+                <li><a href="javascript:;" class="bg-orange" data-theme="orange" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Orange">&nbsp;</a></li>
+                <li><a href="javascript:;" class="bg-red" data-theme="red" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Red">&nbsp;</a></li>
             </ul>
+        </div>
+    </div>
+    <!-- end theme-panel -->
+  
+  <!-- ================== BEGIN BASE JS ================== -->
 
-            <!-- SOCIAL ICONS -->
-            <ul class="social-icons">
-                <li><a href=""><span class="icon-social-facebook transparent-text-dark"></span></a>
-                </li>
-                <li><a href=""><span class="icon-social-twitter transparent-text-dark"></span></a>
-                </li>
-                <li><a href=""><span class="icon-social-pinterest transparent-text-dark"></span></a>
-                </li>
-                <li><a href=""><span class="icon-social-googleplus transparent-text-dark"></span></a>
-                </li>
-                <li><a href=""><span class="icon-social-dribbble transparent-text-dark"></span></a>
-                </li>
-            </ul>
-
-        </footer>
-
-
-        <!-- =========================
-         SCRIPTS   
-        ============================== -->
-
-        <script>
-            /* PRE LOADER */
-            jQuery(window).load(function () {
-                "use strict";
-                jQuery(".status").fadeOut();
-                jQuery(".preloader").delay(1000).fadeOut("slow");
-            })
-        </script>
-
-
-        <!-- GOGLE MAP -->
-        <script src="https://maps.googleapis.com/maps/api/js"></script>
-
-        <!-- CUSTOM JS  -->
-      
-
-    </body>
-
-    </html>
-
-
-
-    <% else # if the user IS signed in, render the following %>
-
-        <script>document.location = "/songs"</script>
-
-    <% end %>
+  <!-- ================== END BASE JS ================== -->
+  
+  <script>
+      $(document).ready(function() {
+          App.init();
+      });
+  </script>
+</body>
+</html>

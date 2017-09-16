@@ -360,7 +360,7 @@
                         <a href="#" class="category-item full">
                             <div class="item">
                                 <div class="item-cover">
-                                    <img src="assets/img/samsung-s7-edge.jpg" alt="" />
+                                    <%= image_tag("store/samsung-s7-edge.jpg")  %>
                                 </div>
                                 <div class="item-info bottom">
                                     <h4 class="item-title">Samsung Galaxy s7 Edge + Geat 360 + Gear VR</h4>
@@ -385,17 +385,21 @@
                                 
                                   <% products.each do |product| %>
                                    <div class="item item-thumbnail">
+
+
+
+                                   
                                    
 
 
 
                                                                   <% if product.listingimages? %>
 
-        <%= link_to (image_tag(product.listingimages[0].url(:thumb), :class => "item-image", :alt =>"product image")), product %>
+        <%= link_to (image_tag(product.listingimages[0].url(:thumb), :class => "item-image imagecenter", :alt =>"product image")), product %>
         <% else %> 
         <%# link_to (image_tag("login-bg/bg-3.jpg", :class => "img-responsive img-h", :alt =>"event image")), event_path(event) %>
 
-        <%= link_to (image_tag("http://via.placeholder.com/190x300", :class => "item-image", :alt =>"product image")), product_path(product) %>
+        <%= link_to (image_tag("http://via.placeholder.com/190x300", :class => "item-image imagecenter", :alt =>"product image")), product_path(product) %>
 
 
        <% end %> 
@@ -406,7 +410,7 @@
 
 
 
-                                        <div class="discount">15% OFF</div>
+                                        <div class="discount text-center">15% OFF</div>
                                 
                                     <div class="item-info">
                                         <h4 class="item-title">
@@ -437,6 +441,13 @@
 
                         </div>
                         <!-- END category-item -->
+
+
+
+
+
+
+
                     </div>
                     <!-- END category-detail -->
                 </div>

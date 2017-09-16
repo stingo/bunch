@@ -13,17 +13,12 @@
 	<meta content="" name="author" />
 	
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
-	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-	<link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-	<link href="assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-	<link href="assets/css/style.min.css" rel="stylesheet" />
-	<link href="assets/css/style-responsive.min.css" rel="stylesheet" />
-	<link href="assets/css/theme/default.css" id="theme" rel="stylesheet" />
-	<link href="assets/css/animate.min.css" rel="stylesheet" />
+	
+	
 	<!-- ================== END BASE CSS STYLE ================== -->
 	
 	<!-- ================== BEGIN BASE JS ================== -->
-	<script src="assets/plugins/pace/pace.min.js"></script>
+	
 	<!-- ================== END BASE JS ================== -->
 </head>
 <body class="bg-silver">
@@ -54,18 +49,44 @@
                             <!-- BEGIN product-thumbnail -->
                             <div class="product-thumbnail">
                                 <ul class="product-thumbnail-list">
-                                    <li class="active"><a href="#" data-click="show-main-image" data-url="assets/img/iphone-6s-plus-2.jpg"><img src="assets/img/iphone-6s-plus-2.jpg" alt="" /></a></li>
-                                    <li><a href="#" data-click="show-main-image" data-url="assets/img/iphone-6s-plus-3.jpg"><img src="assets/img/iphone-6s-plus-3.jpg" alt="" /></a></li>
-                                    <li><a href="#" data-click="show-main-image" data-url="assets/img/iphone-6s-plus-4.jpg"><img src="assets/img/iphone-6s-plus-4.jpg" alt="" /></a></li>
-                                    <li><a href="#" data-click="show-main-image" data-url="assets/img/iphone-6s-plus-5.jpg"><img src="assets/img/iphone-6s-plus-5.jpg" alt="" /></a></li>
-                                    <li><a href="#" data-click="show-main-image" data-url="assets/img/iphone-6s-plus-6.jpg"><img src="assets/img/iphone-6s-plus-6.jpg" alt="" /></a></li>
-                                    <li><a href="#" data-click="show-main-image" data-url="assets/img/iphone-6s-plus-7.jpg"><img src="assets/img/iphone-6s-plus-7.jpg" alt="" /></a></li>
+                                    <li class="active"><a href="#" data-click="show-main-image" data-url="http://via.placeholder.com/190x600">
+
+                                    <% if @product.listingimages? %>
+
+         <%= image_tag(@product.listingimages[0].url(:large), :class => " ", :alt =>"product image") %>
+         <% else %> 
+         <%= image_tag("http://via.placeholder.com/190x300", :class => " ", :alt =>"product image") %>
+         <% end %> 
+
+                                    </a>
+
+                                    </li>
+
+
+                                    <li><a href="#" data-click="show-main-image" data-url="http://via.placeholder.com/190x300"><img src="http://via.placeholder.com/190x300" alt="" /></a></li>
+                                    <li><a href="#" data-click="show-main-image" data-url="http://via.placeholder.com/190x300"><img src="http://via.placeholder.com/190x300" alt="" /></a></li>
+                                    <li><a href="#" data-click="show-main-image" data-url="http://via.placeholder.com/190x300"><img src="http://via.placeholder.com/190x300" alt="" /></a></li>
+                                    <li><a href="#" data-click="show-main-image" data-url="http://via.placeholder.com/190x300"><img src="http://via.placeholder.com/190x300" alt="" /></a></li>
+                                    <li><a href="#" data-click="show-main-image" data-url="http://via.placeholder.com/190x300"><img src="http://via.placeholder.com/190x300" alt="" /></a></li>
                                 </ul>
                             </div>
                             <!-- END product-thumbnail -->
                             <!-- BEGIN product-main-image -->
                             <div class="product-main-image" data-id="main-image">
-                                <img src="assets/img/iphone-6s-plus.png" alt="" />
+
+
+
+         <% if @product.listingimages? %>
+
+         <%= image_tag(@product.listingimages[0].url(:large), :class => "product-main-image imagecenter ", :alt =>"product image") %>
+         <% else %> 
+         <%= image_tag("http://via.placeholder.com/550x615", :class => "product-main-image imagecenter ", :alt =>"product image") %>
+         <% end %> 
+
+
+
+                                
+                                <%# image_tag("store/iphone-6s-plus.png") %>
                             </div>
                             <!-- END product-main-image -->
                         </div>
@@ -123,6 +144,10 @@
                                     <div class="price">$749.00</div>
                                 </div>
                                 <button class="btn btn-inverse btn-lg" type="submit">ADD TO CART</button>
+
+                                <%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>
+
                             </div>
                             <!-- END product-purchase-container -->
                         </div>
@@ -765,20 +790,14 @@
     <!-- end theme-panel -->
 	
 	<!-- ================== BEGIN BASE JS ================== -->
-	<script src="assets/plugins/jquery/jquery-1.9.1.min.js"></script>
-	<script src="assets/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
-	<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-	<!--[if lt IE 9]>
-		<script src="assets/crossbrowserjs/html5shiv.js"></script>
-		<script src="assets/crossbrowserjs/respond.min.js"></script>
-		<script src="assets/crossbrowserjs/excanvas.min.js"></script>
-	<![endif]-->
-	<script src="assets/plugins/jquery-cookie/jquery.cookie.js"></script>
-	<script src="assets/js/apps.min.js"></script>
+	
 	<!-- ================== END BASE JS ================== -->
 	
+
+
+
 	<script>
-	    $(document).ready(function() {
+	    $(document).on('turbolinks:load', function() {
 	        App.init();
 	    });
 	</script>

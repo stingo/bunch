@@ -240,6 +240,13 @@
 
                          <%# link_to image_tag(("login-bg/bg-3.jpg"), data: { lightbox: "gallery-group-1" }, :class => "img-responsive"), image_tag(("login-bg/bg-3.jpg"), :class => "img-responsive") %>
 
+                        
+
+
+                         <%# link_to(image_tag("login-bg/bg-3.jpg"), image_tag("login-bg/bg-3.jpg"), :class => "img-responsive",  data: { lightbox: "example-set", title: event.name }, :class => "img-responsive") %> 
+
+                      
+
 
         <% if event.eventpic? %>
         <%= link_to (image_tag(event.eventpic.url(:thumb), :class => "img-responsive", :alt =>"event image")), event_path(event) %>

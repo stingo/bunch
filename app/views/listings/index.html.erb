@@ -720,6 +720,9 @@
                           
                                
 
+       
+
+
 
 
                                <% @listings.limit(6).each_slice(3) do |listings| %>
@@ -728,24 +731,30 @@
                                 
                                   <% listings.each do |listing| %>
                                    <div class="item item-thumbnail">
-                                      <a href="product_detail.html" class="item-image">
 
 
 
-                                                                  <% if listing.listingimages? %>
-        <%= image_tag(listing.listingimages[0].url(:thumb), :class => "", :alt =>"listing image") %>
+
+
+          <% if listing.listingimages? %>
+
+        <%= link_to (image_tag(listing.listingimages[0].url(:thumb), :class => "item-image imagecenter", :alt =>"listing image")), listing %>
         <% else %> 
         <%# link_to (image_tag("login-bg/bg-3.jpg", :class => "img-responsive img-h", :alt =>"event image")), event_path(event) %>
 
-        <%= image_tag("http://via.placeholder.com/190x300", :class => "", :alt =>"listing image") %>
+        <%= link_to (image_tag("http://via.placeholder.com/190x300", :class => "item-image imagecenter", :alt =>"listing image")), listing_path(listing)  %>
 
 
        <% end %> 
+ 
+
+
+                                        <div class="discount text-center">15% OFF</div>
 
 
 
-                                        <div class="discount">15% OFF</div>
-                                    </a>
+
+                                    
                                     <div class="item-info">
                                         <h4 class="item-title">
                                             <a href="product_detail.html">Assus ZenFone 2<br />‏(ZE550ML)</a>
@@ -775,6 +784,11 @@
 
                         </div>
                         <!-- END category-item -->
+
+
+
+
+
                     </div>
                     <!-- END category-detail -->
                 </div>

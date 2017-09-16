@@ -6,7 +6,7 @@ class Profile < ApplicationRecord
 
     has_many :thing_locations
 
-     has_many :products
+    has_many :products
 
 	has_many :locations, through: :thing_locations
 	

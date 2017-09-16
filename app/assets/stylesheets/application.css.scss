@@ -13,6 +13,7 @@
  *= require selectize
  *= require selectize.default
  *= require font-awesome
+ 	
  *= require 'masonry/transitions'
  *= require 'masonry/infinitescroll'
  *= require bootstrap-datepicker3
@@ -25,6 +26,7 @@
  * require_self
  */
  
+ @import 'lightbox';
  @import 'custom';
  @import 'doublenav';
  @import 'btsnip';

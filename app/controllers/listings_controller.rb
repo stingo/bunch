@@ -5,7 +5,7 @@ class ListingsController < ApplicationController
   impressionist actions: [:show,:index], unique: [:session_hash]
   #before_action :disable_nav_guest
 
-  layout "listing"
+  #layout "listing"
 
   # GET /listings
   # GET /listings.json

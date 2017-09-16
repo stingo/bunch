@@ -37,6 +37,12 @@
   font-style: thin;
 }
 
+.imagecenter{
+  margin: auto;
+ 
+  padding: 10px;
+}
+
 
 .uw {
     font: 700 32px "Merriweather", Georgia, "Times New Roman", sans-serif;
