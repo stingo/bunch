@@ -99,6 +99,11 @@
   margin-top: -47px;
 }
 
+.pull20 {
+  margin-top: -20px; 
+  z-index: 999 !important;
+}
+
 
 /*avatar overlap*/
 

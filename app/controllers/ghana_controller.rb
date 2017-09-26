@@ -16,6 +16,7 @@ def index
 @urbanterms = Urbanterm.all
 @profiles = Profile.all
 @listings = Listing.all
+@songs = Song.all
 
   #if params[:tag]
 

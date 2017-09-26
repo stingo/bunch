@@ -1,0 +1,23 @@
+
+
+<h1>Crop Event Image</h1>
+<%= image_tag @event.eventpic_url(:large), id: "cropbox" %>
+
+
+
+<h4>Preview</h4>
+<div style="width:100px; height:100px; overflow:hidden;">
+  <%= image_tag @event.eventpic.url(:large), :id => "preview" %>
+</div>
+
+<%= form_for @event do |f| %>
+  <div class="actions">
+    <% %w[x y w h].each do |attribute| %>
+      <%= f.hidden_field "crop_#{attribute}"%>
+    <% end %>
+    <%= f.submit "Crop" %>
+  </div>
+
+
+<% end %>
+

@@ -25,11 +25,11 @@ class EventpicUploader < CarrierWave::Uploader::Base
    end
 
   # Process files as they are uploaded:
-    process :resize_to_fill => [633, 550]
+    #process :resize_to_fill => [633, 550]
   #
-   def scale(width, height)
+   #def scale(width, height)
   #   # do something
-   end
+   #end
 
    # Create different versions of your uploaded files:
    #version :large do
@@ -43,8 +43,22 @@ class EventpicUploader < CarrierWave::Uploader::Base
 
 
    version :large do
-     process :resize_to_fill => [800, 400]
+     process :resize_to_limit => [800, 563]
    end
+
+  def crop
+  if model.crop_x.present?
+    resize_to_limit(800, 563)
+    manipulate! do |img|
+      x = model.crop_x.to_i
+      y = model.crop_y.to_i
+      w = model.crop_w.to_i
+      h = model.crop_h.to_i
+      img.crop!(x, y, w, h)
+    end
+  end
+
+  end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
