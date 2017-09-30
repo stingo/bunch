@@ -1,36 +1,350 @@
-<p id="notice"><%= notice %></p>
+ <!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+  <title>Color Admin | Support Forum Front End Theme</title>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+  <meta content="" name="description" />
+  <meta content="" name="author" />
+ 
+</head>
+<body>
+    <!-- begin #header -->
+    
 
-<h1>Profiles</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>First name</th>
-      <th>Last name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <!-- end #header -->
+    
+    
 
-  <tbody>
-    <% @profiles.each do |profile| %>
-      <tr>
-        <td><%= profile.first_name %></td>
-        <td><%= profile.last_name %></td>
-        <td><%= link_to 'Show', profile %></td>
+
+
+    <!-- begin search-banner -->
+    <!--div class="search-banner has-bg">
+      
+        <div class="bg-cover">
+        <%# image_tag("cover.jpg") %>
+
+        </div>
+
+        <div class="container">
+            <h1>1,293 Post for discussion</h1>
+            
+
+             <%# form_tag @urban_terms_path, method: :get do %>
+
+            <div class="input-group m-b-20">
+
+             <input type="text" name="q" id="q" placeholder="Search insideGH" data-localize="header.SEARCH" class="form-control input-lg">
+
+             <div class="mda-form-control-line" id="urban_terms-search-results"></div>
+                
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-lg"><i class="fa fa-search"></i></button>
+                </span>
+            </div>
+
+            < end %>
+
+
+            <h5>Browse by Popular Categories</h5>
+            <ul class="popular-tags">
+                <li><a href="#"><i class="fa fa-circle text-danger"></i> CSS</a></li>
+                <li><a href="#"><i class="fa fa-circle text-primary"></i> Bootstrap</a></li>
+                <li><a href="#"><i class="fa fa-circle text-warning"></i> Javascript</a></li>
+                <li><a href="#"><i class="fa fa-circle"></i> jQuery</a></li>
+                <li><a href="#"><i class="fa fa-circle text-success"></i> Android</a></li>
+                <li><a href="#"><i class="fa fa-circle text-muted"></i> iOS</a></li>
+                <li><a href="#"><i class="fa fa-circle text-purple"></i> Template</a></li>
+            </ul>
+        </div>
+      
+    </div-->
+    <!-- end search-banner -->
+       <main>
+ <!-- begin page-title -->
+    <div class="page-title has-bg">
+        <!-- begin bg-cover -->
+        <div class="bg-cover">
+            <%= image_tag("cover3.jpg") %>
+        </div>
+        <!-- end bg-cover -->
+        <!-- begin container -->
+        <div class="container">
+
 
         
-        <% if profile_signed_in? && current_profile == profile %>
+            <!-- begin breadcrumb -->
+            <ul class="breadcrumb">
+                <li><a href="index.html">Forum</a></li>
+                <li><a href="category_list.html">Twitter Bootstrap</a></li>
+                <li class="active">&nbsp;</li>
+            </ul>
+            <!-- end breadcrumb -->
+            <h1>How to create an arrow by using css?</h1>
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- end page-title -->
 
 
-        <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
-        <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+   
+      <!-- Main section-->
+  
+        <section class="graybg">
+          <div class="container graybg">
+            <div class="row fh">
+     <!-- Left starts -->           
+
+              <!--div class="col-md-3 fh-md oa text-center">
+                <div class="p-lg">
+                  <h5>Left Column</h5>
+                  <p class="">Nullam pretium fermentum sapien ut convallis.</p>
+                </div>
+                <div class="p-lg">
+                  <p>Pellentesque sed purus libero. Nam eleifend, ipsum at suscipit pellentesque, diam enim dignissim nunc, eu egestas sem velit vel nunc. Phasellus vel nisl orci.</p>
+                </div>
+              </div-->
+        <!-- Left Ends -->  
+
+    
+            
+<!-- Mid starts --> <div class="col-md-9 fh-md oa">
+
+
+
+  <!--CONTENT STARTS-->
+
+
+  <div id="gallery">
+  <h2>All Profiles</h2>
+<% if @profiles.exists? %>
+  <% @profiles.each_slice(3) do |profile| %>
+    <div class="row">
+      <% profile.each do |profile| %>
+        <div class="col-md-4">
+          <div class="photo photo-type-line">
+
+            <!--a href="<%# profile.pesnavatar_url() %>" class="photo-hover" data-lightbox="my-images" data-title="<%# profile.first_name %>"-->
+
+
+
+            <a href="<%= profile_path(profile) %>" class="photo-hover" >
+              <div class="photo-info">
+                <div class="headline">
+
+                  <%= profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ profile.last_name.split(" ").map(&:capitalize).join(" ") if profile.first_name || profile.last_name %>
+
+                  </div>
+
+                <div class="line"></div>
+                <div class="desc">More..<%# profile.locations if profile.locations.present? %></div>
+              </div>
+              <div class="mask"></div>
+            </a>
+
+            <div class="photo-img">
+
+
+
+              <% if profile.pesnavatar? %>
+              
+              <%= image_tag profile.pesnavatar_url(:larger) %>
+
+              <% else %>
+
+              <%= image_tag("noprofileimgage.jpg") %>
+
+
+
+              <% end %>
+                
+            </div>
+          </div>
+        </div>     
+      <% end %>
+    </div>
+  <% end %>
+  <% else %>
+  <p>There are no images</p>
 <% end %>
+</div>
 
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
+  <!--CONTENT ENDS-->
 
-<%= link_to 'New Profile', new_profile_path %>
+
+  <!-- Mid Ends --> </div>      
+
+               
+
+     
+
+
+              <!-- Right starts -->
+              
+
+              <div class="col-md-3 fh-md oa text-center">
+                <div class="p-lg">
+                  <h5>Right Column</h5>
+                  <p class="text-center">Nullam pretium fermentum sapien ut convallis.</p>
+                </div>
+                <div class="p-lg">
+                  <p>Pellentesque sed purus libero. Nam eleifend, ipsum at suscipit pellentesque, diam enim dignissim nunc, eu egestas sem velit vel nunc. Phasellus vel nisl orci.</p>
+
+              </div>
+              </div>
+
+
+            
+
+            </div>
+          </div>
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+   <!-- Right Ends -->
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    <!-- begin #footer -->
+    <div id="footer" class="footer">
+        <!-- begin container -->
+        <div class="container">
+            <!-- begin row -->
+            <div class="row">
+                <!-- begin col-4 -->
+                <div class="col-md-4">
+                    <!-- begin section-container -->
+                    <div class="section-container">
+                        <h4>About Color Admin</h4>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultrices ipsum in elementum porttitor. 
+                            Cras porttitor fermentum nisl non elementum. Nulla in placerat libero. Nulla pharetra purus eget diam dictum 
+                            ullamcorper nec et eros. Suspendisse consectetur nulla ut volutpat aliquam.
+                        </p>
+                    </div>
+                    <!-- end section-container -->
+                </div>
+                <!-- end col-4 -->
+                <!-- begin col-4 -->
+                <div class="col-md-4">
+                    <!-- begin section-container -->
+                    <div class="section-container">
+                        <h4>Latest Post</h4>
+                        <ul class="latest-post">
+                            <li>
+                                <h4 class="title"><a href="#">Consectetur adipiscing elit ultrices</a></h4>
+                                <p class="time">yesterday 10:42am</p>
+                            </li>
+                            <li>
+                                <h4 class="title"><a href="#">Fusce ultrices ipsum porttitor</a></h4>
+                                <p class="time">10/04/2015</p>
+                            </li>
+                            <li>
+                                <h4 class="title"><a href="#">Cras porttitor fermentum adipiscing</a></h4>
+                                <p class="time">02/04/2015</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- end section-container -->
+                </div>
+                <!-- end col-4 -->
+                <!-- begin col-4 -->
+                <div class="col-md-4">
+                    <!-- begin section-container -->
+                    <div class="section-container">
+                        <h4>New Users</h4>
+                        <!--ul class="new-user">
+                            <li><a href="#"><img src="assets/img/user-1.jpg" alt="" /></a></li>
+                            <li><a href="#"><img src="assets/img/user-2.jpg" alt="" /></a></li>
+                            <li><a href="#"><img src="assets/img/user-3.jpg" alt="" /></a></li>
+                            <li><a href="#"><img src="assets/img/user-4.jpg" alt="" /></a></li>
+                            <li><a href="#"><img src="assets/img/user-5.jpg" alt="" /></a></li>
+                            <li><a href="#"><img src="assets/img/user-6.jpg" alt="" /></a></li>
+                            <li><a href="#"><img src="assets/img/user-7.jpg" alt="" /></a></li>
+                            <li><a href="#"><img src="assets/img/user-8.jpg" alt="" /></a></li>
+                            <li><a href="#"><img src="assets/img/user-9.jpg" alt="" /></a></li>
+                        </ul-->
+                    </div>
+                    <!-- end section-container -->
+                </div>
+                <!-- end col-4 -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- end #footer -->
+    <!-- begin #footer-copyright -->
+    <div id="footer-copyright" class="footer-copyright">
+        <div class="container">
+            &copy; 2014 - 2015 SeanTheme All Right Reserved
+            <a href="#">Contact Us</a> 
+            <a href="#">Knowledge Base</a>
+        </div>
+    </div>
+    <!-- end #footer-copyright -->
+    <!-- begin theme-panel -->
+    <div class="theme-panel">
+        <a href="javascript:;" data-click="theme-panel-expand" class="theme-collapse-btn"><i class="fa fa-cog"></i></a>
+        <div class="theme-panel-content">
+            <ul class="theme-list clearfix">
+                <li><a href="javascript:;" class="bg-purple" data-theme="purple" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Purple">&nbsp;</a></li>
+                <li><a href="javascript:;" class="bg-blue" data-theme="blue" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Blue">&nbsp;</a></li>
+                <li class="active"><a href="javascript:;" class="bg-green" data-theme="default" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Default">&nbsp;</a></li>
+                <li><a href="javascript:;" class="bg-orange" data-theme="orange" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Orange">&nbsp;</a></li>
+                <li><a href="javascript:;" class="bg-red" data-theme="red" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Red">&nbsp;</a></li>
+            </ul>
+        </div>
+    </div>
+
+    </main>
+    <!-- end theme-panel -->
+  
+  <!-- ================== BEGIN BASE JS ================== -->
+ 
+  <!-- ================== END BASE JS ================== -->
+  
+  
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+

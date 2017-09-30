@@ -7,6 +7,7 @@ class ProfilesController < ApplicationController
   # GET /profiles.json
   def index
     @profiles = Profile.all
+    @locations = Location.all
   end
 
   # GET /profiles/1

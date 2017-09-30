@@ -32,6 +32,7 @@ class UrbantermsController < ApplicationController
   # POST /urbanterms.json
   def create
     @urbanterm = current_profile.urbanterms.build(urbanterm_params)
+    @tag = Tag.new
 
 
 

@@ -24,10 +24,14 @@ class PesnavatarUploader < CarrierWave::Uploader::Base
    end
 
   # Process files as they are uploaded:
-   process :resize_to_fill => [128, 128]
+   #process :resize_to_fill => [128, 128]
   #
    def scale(width, height)
   #   # do something
+   end
+
+     version :larger do
+     process :resize_to_fill => [300, 225]
    end
 
   # Create different versions of your uploaded files:

@@ -3,6 +3,19 @@
     font-family: "Questrial" !important;
 }
 
+a[data]:hover:after {
+  content: attr(data);
+  padding: 4px 8px;
+  color: rgba(0,0,0,0.5);
+  position: absolute;
+  left: 0;
+  top: 100%;
+  white-space: nowrap;
+  z-index: 2;
+  border-radius: 5px ;
+  background: rgba(0,0,0,0.5);
+}
+
 .custombgD9E0E7 {
 	background: rgba(0, 0, 0, 0) linear-gradient(40deg, #d1edf0 10%, #ecc8c6 100%) !important; 
 }
@@ -431,6 +444,32 @@ margin-bottom: 0px !important;
     color:#000000;
 
 }
+
+
+
+
+.pnk a:visited {
+
+    color:#E91E63;
+
+}
+.pnk a:hover {
+
+    color:#AD1457;
+
+}
+.pnk a:active {
+
+    color:#E91E63;
+
+}
+
+
+
+
+
+
+
 
 .text-db {
 	color: #125ACD;

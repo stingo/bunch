@@ -16,6 +16,9 @@
 //= require turbolinks
 //= require jquery.turbolinks
 //= require post
+//= require profiles
+//= require superbox
+//= require superbox.min
 //= require jquery.easy-autocomplete
 //= require rails-ujs
 //= require selectize
