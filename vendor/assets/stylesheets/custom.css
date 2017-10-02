@@ -3,6 +3,13 @@
     font-family: "Questrial" !important;
 }
 
+.h1-border{
+  border-left:5px #666 solid !important;
+  border-bottom: 1px #666 solid !important;
+  padding: 0 0 5px 10px !important;
+  margin-bottom:30px !important;
+}
+
 a[data]:hover:after {
   content: attr(data);
   padding: 4px 8px;

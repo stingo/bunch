@@ -16,9 +16,8 @@
 //= require turbolinks
 //= require jquery.turbolinks
 //= require post
-//= require profiles
-//= require superbox
-//= require superbox.min
+// require superbox
+// require superbox.min
 //= require jquery.easy-autocomplete
 //= require rails-ujs
 //= require selectize
@@ -27,12 +26,13 @@
 //= require bootstrap-datepicker
 //= require trix
 //= require btsnip
-//= require_tree .
 //= require bootstrap-sprockets
+//= require bootstrap
 //= require navdouble
 //= require slimscroll
 //= require urbanterms
 //= require listings
+//= require_tree .
 
 	    
 
