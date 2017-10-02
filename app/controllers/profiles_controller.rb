@@ -15,6 +15,8 @@ class ProfilesController < ApplicationController
   def show
     impressionist(@profile)
     @profile = Profile.friendly.find(params[:id])
+
+    @profile_urbanterms = @profile.urbanterms.order("created_at DESC") #important! to enable profiles urbanterms on profile
     
   end
 
