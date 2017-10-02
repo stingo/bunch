@@ -128,7 +128,7 @@
                 <h1><%= @profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ @profile.last_name.split(" ").map(&:capitalize).join(" ") if @profile.first_name || @profile.last_name %></h1>
                 <h4>Web Developer</h4>
 
-                <span class="card-title"> <i class="fa fa-eye" style="color:#337ab7"></i><%= @profile.impressionist_count(:filter=>:session_hash) %> &nbsp | <i class="fa fa-fw fa-map-marker"></i><%= render @profile.locations if @profile.locations.present? %></span>
+                <span class="card-title" style="background: #ffffff;"> <i class="fa fa-eye" style="color:#337ab7;"></i><%= @profile.impressionist_count(:filter=>:session_hash) %> &nbsp | <i class="fa fa-fw fa-map-marker"></i><%= render @profile.locations if @profile.locations.present? %></span>
                 <!--span class="card-title">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
 "There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."</span-->
 
