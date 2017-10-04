@@ -6,11 +6,16 @@ class Profile < ApplicationRecord
 
     has_many :thing_locations
 
+    has_many :thing_skills
+
     has_many :products
 
 	has_many :locations, through: :thing_locations
+
+	has_many :skills, through: :thing_skills
 	
 	has_many :events, dependent: :destroy
+	has_many :jobs, dependent: :destroy
 	has_many :hows, dependent: :destroy
 	has_many :songs, dependent: :destroy
 	has_many :urbanterms, dependent: :destroy
@@ -19,6 +24,7 @@ class Profile < ApplicationRecord
 	mount_uploader :profilecover, ProfilecoverUploader
 
 	accepts_nested_attributes_for :thing_locations #allow_destroy: true
+	accepts_nested_attributes_for :thing_skills #allow_destroy: true
 
 	acts_as_votable
 

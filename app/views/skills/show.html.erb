@@ -1,0 +1,107 @@
+
+
+<p>Skills: <%# render 'events/event', obj: @location_events	 %></p>
+
+
+
+<h1 align="center">Listing all skills</h1>
+
+
+
+<div class="row">
+
+<div class="col-xs-8 col-xs-offset-2">
+
+<div class="well well-lg">
+
+<div class="article-title">
+
+<%= link_to @skill.title, job_path(@skill) %>
+
+ <div class="btn btn-default mb-1x mr-1x zindez999">
+                  <%= "Job".pluralize(@skill.jobs.count) %><br / >
+                    <span class="headline"><strong><%= @skill.jobs.count %></strong></span>
+
+</div>
+
+
+<div class="btn btn-success mb-1x mr-1x zindez999">
+                  <%= "People".pluralize(@skill.profiles.count) %><br / >
+                    <span class="headline"><strong><%= @skill.profiles.count %></strong></span>
+
+</div>
+
+<div class="article-body">
+
+<%= truncate(@skill.description, length: 100) %>
+
+</div>
+
+
+
+
+<%# if @location.events.any? %>
+
+<p>Jobs: <%# render @location.events %></p>
+
+<%# end %>
+
+
+
+
+<!--list location events -->
+
+
+
+       <% @skill_jobs.each do |job| %>
+          
+
+              <%= link_to (job.title), job %>
+
+        
+
+        <% end %>
+
+
+  <!--end list skill events -->  
+
+
+
+
+   
+
+
+
+
+
+
+
+<div class="article-actions">
+
+<%= link_to "Edit this skill", edit_skill_path(@skill), class: "btn btn-xs btn-primary" %>
+
+<%= link_to "Delete this skill", skill_path(@skill), method: :delete,
+
+data: { confirm: "Are you sure you want to delete the skill?"},
+
+class: "btn btn-xs btn-danger" %>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -106,7 +106,7 @@ end
          :recentqualificationtitle, :recentqualificationname, :recentschoolname, 
         pesn_contacts_attributes: [:address1, :address2,
           :city, {typ_countries: :id}, {typ_regions: :id}, {typ_towns: :id}, {page: :id}, :postal_code, :email, 
-          :business_number, :cell_number, :profile_id], location_ids: [])
+          :business_number, :cell_number, :profile_id], location_ids: [], skill_ids: [])
 
 
     end

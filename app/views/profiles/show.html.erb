@@ -76,7 +76,7 @@
    
 
 
-<div class="card hovercard">
+<div class="ccard hovercard">
 
 
           
@@ -93,17 +93,17 @@
         <div class="col-md-8  col-xs-12">
 
 
-     <div class="card-background">
+     <div class="ccard-background">
 
         <% if @profile.pesnavatar? %> 
 
             
-           <img class="card-bkimg" alt="" src="<%= @profile.pesnavatar.url(:large) %>">
+           <img class="ccard-bkimg" alt="" src="<%= @profile.pesnavatar.url(:large) %>">
             <!-- http://lorempixel.com/850/280/people/9/ -->
 
         <% else %>
 
-          <img class="card-bkimg" alt="" src="<%= image_path "noimage.jpg" %>">
+          <img class="ccard-bkimg" alt="" src="<%= image_path "noimage.jpg" %>">
 
         <% end %>
 
@@ -131,14 +131,14 @@
 
         
 
-        <div class="card-info"> 
+        <div class="ccard-info"> 
 
             
 
                 <h1><%= @profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ @profile.last_name.split(" ").map(&:capitalize).join(" ") if @profile.first_name || @profile.last_name %></h1>
-                <h4>Web Developer</h4>
+                <h4><%= render @profile.skills if @profile.skills.present? %></h4>
 
-                <span class="card-title" style="background: #ffffff;"> <i class="fa fa-eye" style="color:#337ab7;"></i><%= @profile.impressionist_count(:filter=>:session_hash) %> &nbsp | <i class="fa fa-fw fa-map-marker"></i><%= render @profile.locations if @profile.locations.present? %></span>
+                <span class="ccard-title" style="background: #ffffff;"> <i class="fa fa-eye" style="color:#337ab7;"></i><%= @profile.impressionist_count(:filter=>:session_hash) %> &nbsp | <i class="fa fa-fw fa-map-marker"></i><%= render @profile.locations if @profile.locations.present? %></span>
                 <!--span class="card-title">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
 "There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."</span-->
 
@@ -158,7 +158,10 @@
 
 
            
-         
+     <% if profile_signed_in? %>
+                <%= link_to edit_profile_path(current_profile) do %><span class="btn btn-sm mr-2x btn-default"> <i class="fa fa-pencil fa-2x" style="color:#17AA1C"></i>Update profile <% end %></span>
+
+                <% else %> <% end %>    
 
         
 
@@ -352,7 +355,7 @@
                                   <h4 class=" uw" style="font: 700 32px;" ><%= link_to urbanterm.title.downcase, urbanterm %> 
                                   </h4>
                                     <!--h4 class="title"><a href="javascript:;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></h4-->
-                                    <p class="ustandard text-muted"><small> <% if urbanterm.created_at > Time.now.beginning_of_day %>
+                                    <p class="ustandard text-muted"><small> created <% if urbanterm.created_at > Time.now.beginning_of_day %>
     <%="#{time_ago_in_words(urbanterm.created_at)} ago"%> 
 <% else %>
     <%= urbanterm.created_at.strftime("%b %d, %Y ") %> 
@@ -428,7 +431,7 @@
                                         <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Users"><i class="fa fa-fw fa-user"></i></a>
                                     </div>
                                 </div>
-                                <div class="result-price">
+                                <div class=" result-price">
                                     $92,101 <small>PER MONTH</small>
                                     <a href="javascript:;" class="btn btn-inverse btn-block">View Details</a>
                                 </div>

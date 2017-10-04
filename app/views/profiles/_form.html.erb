@@ -52,6 +52,12 @@
   </div>
 <br>
 
+<div class="form-group">
+    <%= form.label :skill_ids, "CLOSE SKIL" %>
+    <%= form.select :skill_ids, Skill.all.pluck(:title, :id), {}, { multiple: true, class: "selectize" } %>
+  </div>
+<br>
+
 
 
 

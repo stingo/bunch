@@ -15,6 +15,11 @@ class LocationsController < ApplicationController
     @location = Location.friendly.find(params[:id])
 
     @location_events = @location.events #paginate(page: params[:page], per_page: 5)
+
+    @location_jobs = @location.jobs #paginate(page: params[:page], per_page: 5)
+
+
+
   end
 
   # GET /locations/new
