@@ -18,6 +18,8 @@ class LocationsController < ApplicationController
 
     @location_jobs = @location.jobs #paginate(page: params[:page], per_page: 5)
 
+    @location_companies = @location.companies #paginate(page: params[:page], per_page: 5)
+
 
 
   end

@@ -31,6 +31,18 @@
 
 </div>
 
+<div class="btn btn-warning mb-1x mr-1x zindez999">
+                  <%= "Company".pluralize(@location.companies.count) %><br / >
+                    <span class="headline"><strong><%= @location.companies.count %></strong></span>
+
+</div>
+
+<div class="btn btn-success mb-1x mr-1x zindez999">
+                  <%= "Job".pluralize(@location.jobs.count) %><br / >
+                    <span class="headline"><strong><%= @location.jobs.count %></strong></span>
+
+</div>
+
 <div class="article-body">
 
 <%= truncate(@location.desc, length: 100) %>
@@ -63,7 +75,26 @@
         <% end %>
 
 
-  <!--end list location events -->  
+  <!--end list location events --> 
+
+
+        <% @location_companies.each do |company| %>
+          
+
+              <%= link_to (company.name), company %>
+
+        
+
+        <% end %> 
+
+                <% @location_jobs.each do |job| %>
+          
+
+              <%= link_to (job.title), job %>
+
+        
+
+        <% end %>
 
 
 

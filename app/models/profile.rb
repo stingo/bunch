@@ -19,6 +19,7 @@ class Profile < ApplicationRecord
 	has_many :hows, dependent: :destroy
 	has_many :songs, dependent: :destroy
 	has_many :urbanterms, dependent: :destroy
+	has_many :companies, dependent: :destroy
 
 	mount_uploader :pesnavatar, PesnavatarUploader
 	mount_uploader :profilecover, ProfilecoverUploader

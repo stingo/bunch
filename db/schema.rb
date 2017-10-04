@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171004062216) do
+ActiveRecord::Schema.define(version: 20171004193748) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,12 @@ ActiveRecord::Schema.define(version: 20171004062216) do
     t.text "about"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "companylogo"
+    t.string "companycover"
+    t.string "slug"
+    t.string "websiteurl"
+    t.integer "profile_id"
+    t.index ["profile_id", "created_at"], name: "index_companies_on_profile_id_and_created_at"
   end
 
   create_table "events", force: :cascade do |t|
@@ -221,6 +227,8 @@ ActiveRecord::Schema.define(version: 20171004062216) do
     t.integer "event_id"
     t.integer "location_id"
     t.integer "profile_id"
+    t.integer "job_id"
+    t.integer "company_id"
   end
 
   create_table "thing_skills", force: :cascade do |t|

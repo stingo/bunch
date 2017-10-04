@@ -1,4 +1,6 @@
 class CompaniesController < ApplicationController
+
+  before_action :authenticate_profile!, :except => [:index, :show]
   before_action :set_company, only: [:show, :edit, :update, :destroy]
 
   # GET /companies
@@ -24,7 +26,9 @@ class CompaniesController < ApplicationController
   # POST /companies
   # POST /companies.json
   def create
-    @company = Company.new(company_params)
+   
+    @company = current_profile.companies.build(company_params)
+
 
     respond_to do |format|
       if @company.save
@@ -69,6 +73,6 @@ class CompaniesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_params
-      params.require(:company).permit(:name, :about)
+      params.require(:company).permit(:name, :about, :companylogo, :slug, :companycover, :websiteurl, thing_locations_attributes: [:id, :thing_location_id, :_destroy, location_ids: []], location_ids: [] )
     end
 end
