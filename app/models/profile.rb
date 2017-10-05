@@ -5,14 +5,25 @@ class Profile < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
     has_many :thing_locations
+    has_many :locations, through: :thing_locations
 
     has_many :thing_skills
+    has_many :skills, through: :thing_skills
+
 
     has_many :products
 
-	has_many :locations, through: :thing_locations
 
-	has_many :skills, through: :thing_skills
+
+	
+
+	has_many :thing_companies
+    has_many :companies, through: :thing_companies
+    has_many :listings, through: :thing_companies
+
+
+
+
 	
 	has_many :events, dependent: :destroy
 	has_many :jobs, dependent: :destroy
@@ -20,6 +31,7 @@ class Profile < ApplicationRecord
 	has_many :songs, dependent: :destroy
 	has_many :urbanterms, dependent: :destroy
 	has_many :companies, dependent: :destroy
+	has_many :listings, dependent: :destroy
 
 	mount_uploader :pesnavatar, PesnavatarUploader
 	mount_uploader :profilecover, ProfilecoverUploader

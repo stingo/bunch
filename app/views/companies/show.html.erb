@@ -1,14 +1,108 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @company.name %>
-</p>
 
-<p>
-  <strong>About:</strong>
-  <%= @company.about %>
-</p>
+<p>Skills: <%# render 'events/event', obj: @location_events	 %></p>
 
-<%= link_to 'Edit', edit_company_path(@company) %> |
-<%= link_to 'Back', companies_path %>
+
+
+<h1 align="center">Listing all Companies</h1>
+
+
+
+<div class="row">
+
+<div class="col-xs-8 col-xs-offset-2">
+
+<div class="well well-lg">
+
+<div class="article-title">
+
+<%= link_to @company.name, company_path(@company) %>
+
+ <div class="btn btn-default mb-1x mr-1x zindez999">
+                  <%= "Job".pluralize(@company.jobs.count) %><br / >
+                    <span class="headline"><strong><%= @company.jobs.count %></strong></span>
+
+</div>
+
+
+<div class="btn btn-success mb-1x mr-1x zindez999">
+                  <%= "People".pluralize(@company.profiles.count) %><br / >
+                    <span class="headline"><strong><%= @company.profiles.count %></strong></span>
+
+</div>
+
+<div class="article-body">
+
+<%= truncate(@company.about, length: 100) %>
+
+</div>
+
+
+
+
+<%# if @location.events.any? %>
+
+<p>Jobs: <%# render @location.events %></p>
+
+<%# end %>
+
+
+
+
+<!--list location events -->
+
+
+
+       <% @company_jobs.each do |job| %>
+          
+
+              <%= link_to (job.title), job %>
+
+        
+
+        <% end %>
+
+
+  <!--end list skill events -->  
+
+
+
+
+   
+
+
+
+
+
+
+
+<div class="article-actions">
+
+<%= link_to "Edit this company", edit_company_path(@company), class: "btn btn-xs btn-primary" %>
+
+<%= link_to "Delete this company", company_path(@company), method: :delete,
+
+data: { confirm: "Are you sure you want to delete the company?"},
+
+class: "btn btn-xs btn-danger" %>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

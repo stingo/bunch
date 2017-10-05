@@ -7,8 +7,14 @@
 
 
     <div class="form-group">
-    <%= f.label :location_ids, "CLOSE JOB" %>
+    <%= f.label :location_ids, "CLOSE LOCATION" %>
     <%= f.select :location_ids, Location.all.pluck(:name, :id), {}, { multiple: true, class: "selectize" } %>
+  </div>
+<br>
+
+<div class="form-group">
+    <%= f.label :company_ids, "CLOSE COMPANY" %>
+    <%= f.select :company_ids, Company.all.pluck(:name, :id), {}, { multiple: true, class: "selectize" } %>
   </div>
 <br>
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171004193748) do
+ActiveRecord::Schema.define(version: 20171005071457) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -221,6 +221,17 @@ ActiveRecord::Schema.define(version: 20171004193748) do
     t.string "name"
     t.integer "taggings_count", default: 0
     t.index ["name"], name: "index_tags_on_name", unique: true
+  end
+
+  create_table "thing_companies", force: :cascade do |t|
+    t.integer "job_id"
+    t.integer "profile_id"
+    t.integer "listing_id"
+    t.integer "company_id"
+    t.integer "event_id"
+    t.index ["company_id"], name: "index_thing_companies_on_company_id"
+    t.index ["event_id"], name: "index_thing_companies_on_event_id"
+    t.index ["listing_id"], name: "index_thing_companies_on_listing_id"
   end
 
   create_table "thing_locations", force: :cascade do |t|
