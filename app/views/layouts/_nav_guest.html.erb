@@ -30,7 +30,7 @@
 
 
 
-                    <!--Add starts-->
+                                  <!--Add starts-->
         <li class="dropdown">
             <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14">
               
@@ -45,14 +45,15 @@
 
 
 
-             <li class="media">
+
+                    <li class="media ml-sm">
                                
-                                    <div class="media-left"><i class="fa fa-music media-object bg-blue"></i></div>
+                                    <div class="media-left"><a href="new_listing_path"><i class="fa fa-shopping-cart media-object bg-green"></i></a></div>
                                     <div class="media-body">    
 
 
                                         <h6><%= link_to 'Market Place', new_listing_path, :class => "media-heading" %></h6>
-                                        <div class="text-muted f-s-11">25 minutes ago</div>
+                                        <!--div class="text-muted f-s-11">25 minutes ago</div-->
 
 
                                     </div>
@@ -64,18 +65,39 @@
 
 
 
+
+
+
+
+
+
+
+
+                                        <li class="media ml-sm">
+                               
+                                    <div class="media-left"><a href="new_song_path"><i class="fa fa-music media-object bg-black"></i></a></div>
+                                    <div class="media-body">     
+
+
+                                        <h6><%= link_to 'Upload Songs', new_song_path, :class => "media-heading" %></h6>
+                                        <!--div class="text-muted f-s-11">25 minutes ago</div-->
+
+
+                                    </div>
+                             
+                            </li>
 
                            
                             
 
-                            <li class="media">
+                            <li class="media ml-sm">
                                
-                                    <div class="media-left"><i class="fa fa-bug media-object bg-red"></i></div>
+                                    <div class="media-left"><a href="new_urbanterm_path"><i class="fa fa-text-width media-object bg-red"></i></a></div>
                                     <div class="media-body">    
 
 
                                         <h6><%= link_to 'Urban Term', new_urbanterm_path, :class => "media-heading" %></h6>
-                                        <div class="text-muted f-s-11">25 minutes ago</div>
+                                        
 
 
                                     </div>
@@ -85,14 +107,42 @@
 
 
 
-    <li class="media">
+    <li class="media ml-sm">
                                
-                                    <div class="media-left"><i class="fa fa-plus media-object bg-green"></i></div>
-                                    <div class="media-body">    
+                                    <div class="media-left"><a href="new_how_path"><i class="fa fa-wrench media-object bg-purple"></i></a></div>
+                                    <div class="media-body">     
 
 
                                         <h6><%= link_to 'How To', new_how_path, :class => "media-heading" %></h6>
-                                        <div class="text-muted f-s-11">25 minutes ago</div>
+                                        
+
+
+                                    </div>
+                             
+        </li>
+
+            <li class="media ml-sm">
+                               
+                                    <div class="media-left"><a href="new_company_path"><i class="fa fa-briefcase media-object bg-purple"></i></a></div>
+                                    <div class="media-body">     
+
+
+                                        <h6><%= link_to 'Company', new_company_path, :class => "media-heading" %></h6>
+                                        
+
+
+                                    </div>
+                             
+        </li>
+
+            <li class="media ml-sm">
+                               
+                                    <div class="media-left"><a href="new_job_path"><i class="fa fa-black-tie media-object bg-purple"></i></a></div>
+                                    <div class="media-body">     
+
+
+                                        <h6><%= link_to 'Job', new_job_path, :class => "media-heading" %></h6>
+                                        
 
 
                                     </div>

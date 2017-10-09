@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jquery.Jcrop
 //= require turbolinks
+//= require bootstrap-sprockets
 //= require jquery.turbolinks
 //= require post
 // require superbox
@@ -26,7 +27,6 @@
 //= require bootstrap-datepicker
 //= require trix
 //= require btsnip
-// require bootstrap-sprockets
 //= require bootstrap
 //= require navdouble
 //= require slimscroll
