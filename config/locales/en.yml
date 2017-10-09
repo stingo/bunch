@@ -35,9 +35,9 @@ en:
   number:
     currency:
       format:
-        delimiter: ' '
+        delimiter: ','
         format: '%n %u'
-        precision: 2
+        precision: 0
         separator: '.'
         strip_insignificant_zeros: false
         unit: 'GH₵'

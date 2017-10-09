@@ -18,6 +18,19 @@
         <td><%= company.name %></td>
         <td><%= company.about %></td>
         <td><%= company.websiteurl %></td>
+        <td><% if company.companylogo %>
+        <%= link_to (image_tag(company.companylogo.url(:medium), :class => "img-responsive", :alt =>"company image")), company_path(company) %>
+
+
+        <% else %> 
+        <%# link_to (image_tag("login-bg/bg-3.jpg", :class => "img-responsive img-h", :alt =>"event image")), event_path(event) %>
+
+        
+
+        <%= link_to (image_tag("http://via.placeholder.com/405x285", :class => "img-responsive", :alt =>"company image")), company_path(company) %>
+
+
+       <% end %> </td>
         <td><%= link_to 'Show', company %></td>
         <td><%= link_to 'Edit', edit_company_path(company) %></td>
         <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>

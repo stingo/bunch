@@ -15,4 +15,7 @@ class Company < ApplicationRecord
 	belongs_to :profile
 
 	validates :name, presence: true
+
+	mount_uploader :companylogo, CompanylogoUploader
+	mount_uploader :companycover, CompanycoverUploader
 end

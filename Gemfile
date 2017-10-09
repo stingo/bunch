@@ -31,6 +31,7 @@ gem 'simple_form', '~> 3.5'
 gem 'will_paginate', '~> 3.1', '>= 3.1.6'
 gem 'bootstrap-will_paginate', '~> 1.0'
 gem 'masonry-rails'
+gem 'rails-timeago', '~> 2.0'
 
 gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
                               :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'

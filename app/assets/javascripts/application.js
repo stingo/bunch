@@ -26,12 +26,14 @@
 //= require bootstrap-datepicker
 //= require trix
 //= require btsnip
-//= require bootstrap-sprockets
+// require bootstrap-sprockets
 //= require bootstrap
 //= require navdouble
 //= require slimscroll
 //= require urbanterms
 //= require listings
+
+//= require rails-timeago-all
 //= require_tree .
 
 	    

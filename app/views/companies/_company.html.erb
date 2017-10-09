@@ -1,1 +1,23 @@
-<span class=""><%= link_to company.name, company_path(company), :class => "" %> &nbsp;  </span>
+<span class="">
+
+	<% if company.companylogo %>
+        <%= link_to (image_tag(company.companylogo.url(:medium), :class => "fw img-responsive", :alt =>"company logo")), company_path(company) %>
+
+
+        <% else %> 
+        <%# link_to (image_tag("login-bg/bg-3.jpg", :class => "img-responsive img-h", :alt =>"event image")), event_path(event) %>
+
+        
+
+        <%= link_to (image_tag("http://via.placeholder.com/405x285", :class => "fw img-responsive", :alt =>"company logo")), company_path(company) %>
+
+
+       <% end %>
+       <br>
+
+       <p class="mt"><em class="ion-briefcase mr-sm"></em><span><%= link_to company.name, company_path(company), :class => "" %> &nbsp; </span></p>
+
+
+	  
+
+</span>

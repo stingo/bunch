@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171005071457) do
+ActiveRecord::Schema.define(version: 20171008233354) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -97,6 +97,10 @@ ActiveRecord::Schema.define(version: 20171005071457) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "profile_id"
+    t.integer "min_salary"
+    t.integer "max_salary"
+    t.index ["max_salary"], name: "index_jobs_on_max_salary"
+    t.index ["min_salary"], name: "index_jobs_on_min_salary"
   end
 
   create_table "listings", force: :cascade do |t|
