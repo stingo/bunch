@@ -111,6 +111,15 @@ a[data]:hover:after {
 
 }
 
+.item.item-thumbnail .item-image img {
+    min-width: 100% !important;
+    max-height: 100%;
+    border-bottom: #000000 1px solid;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+        border-bottom-color: rgb(0, 0, 0);
+}
+
 .topimg {
   margin-top: -55px;
 }
