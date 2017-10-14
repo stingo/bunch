@@ -13,6 +13,36 @@
 <br>
   </div>
 
+  <br>
+
+  <div class="form-inputs">
+
+  <%= f.label :tag_list, 'Tags (separated with comas)' %>
+<%# f.text_field :tag_list, class: 'form-control' %>
+
+<%# f.select :tag_ids, Tag.all.pluck(:name, :id), {}, {multiple: true, class: "selectize"} %>
+
+<%# f.collection_select :tag_ids, Tag.order(:name), :id, :name, {}, {multiple: true, class: "selectize"} %>
+
+<%= f.input :skill_list, value: f.object.skill_list.to_s %>
+
+
+<%# f.select :tag_ids,
+  Tag.all.map { |u| [u.name, u.id] },
+               { include_blank: true },
+          
+               { multiple: true, class: 'chosen-select' }
+
+               %>
+
+             </div>
+
+             <br>
+
+             <%= f.input :skill_list, value: f.object.skill_list.to_s %>
+
+<br>
+
   <div class="field">
 
    <%= f.label :add_company_logo %><br>
@@ -20,12 +50,27 @@
 
     </div>
 
-    <div class="field">
+    <div class="form-group">
+    <legend>Company Profile Cover</legend>
+    <%= f.file_field :companycover, class: "btn btn-primary" %>
+    <%= f.hidden_field :companycover_cache %>
+    <br>
 
-   <%= f.label :add_company_profile_cover %><br>
-    <%= f.file_field :companycover %><br>
+    
+    
 
-    </div>
+    <% if f.object.companycover? %>
+      <%= image_tag f.object.companycover.large.url, :class => "img-responsive" %>
+      <br>
+      <%= f.label :remove_image, :class => "lead"  %>
+      <%= f.check_box :remove_companycover %> 
+    <% end %>
+  </div>
+  <br>
+
+
+
+
 
   <div class="form-actions">
     <%= f.button :submit %>

@@ -12,10 +12,19 @@ class Company < ApplicationRecord
 
 
 
-	belongs_to :profile
+	belongs_to :profile, foreign_key:"profile_id"
 
 	validates :name, presence: true
 
 	mount_uploader :companylogo, CompanylogoUploader
 	mount_uploader :companycover, CompanycoverUploader
+
+    acts_as_ordered_taggable
+      acts_as_taggable_on :tags, :skills
+
+      after_commit :remove_companycover!, on: :destroy
+  #after_commit :delete_empty_dirs!, on: :destroy
+     
+
+
 end
