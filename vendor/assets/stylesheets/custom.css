@@ -1,6 +1,25 @@
  body {
     background-color: rgba(0, 0, 0, 0) linear-gradient(40deg, #d1edf0 10%, #ecc8c6 100%) !important; 
     font-family: "Questrial" !important;
+
+}
+
+.font-17px-black {
+    line-height: 24px;
+    color: rgba(0,0,0,.7);
+    font-size: 17px;
+}
+
+.font-17px-white {
+    line-height: 24px;
+    color: #FFFFFF;
+    font-size: 17px;
+}
+
+.title-20px-black {
+    line-height: 28px;
+    color: rgba(0,0,0,.85);
+    font-size: 20px;
 }
 
 .h1-border{
@@ -35,6 +54,10 @@ a[data]:hover:after {
 #someDiv {
     position: fixed;
     z-index: 1041;
+}
+
+.txt-white {
+  color: #FFFFFF !important;
 }
 
 .frontsize {

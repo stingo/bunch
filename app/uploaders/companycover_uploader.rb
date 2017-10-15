@@ -32,7 +32,7 @@ class CompanycoverUploader < CarrierWave::Uploader::Base
 
    # Create different versions of your uploaded files:
   version :large do
-     process :resize_to_fill => [1500, 450]
+     process :resize_to_fill => [1500, 470]
    end
 
    def extension_whitelist

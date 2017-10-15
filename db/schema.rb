@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171008233354) do
+ActiveRecord::Schema.define(version: 20171015064300) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,18 @@ ActiveRecord::Schema.define(version: 20171008233354) do
     t.string "slug"
     t.string "websiteurl"
     t.integer "profile_id"
+    t.text "services"
+    t.datetime "yearfounded"
+    t.string "companyemail"
+    t.integer "contactphone"
+    t.string "video1"
+    t.string "video2"
+    t.string "facebookurl"
+    t.string "twitterurl"
+    t.string "linkedinurl"
+    t.string "googleplusurl"
+    t.string "pinteresturl"
+    t.string "instagramurl"
     t.index ["profile_id", "created_at"], name: "index_companies_on_profile_id_and_created_at"
   end
 

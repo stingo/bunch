@@ -107,7 +107,7 @@
               <!-- Left column-->
               <div class="col-md-7 col-lg-8">
                 <form editable-form="" name="user.profileForm" class="card">
-                  <h5 class="card-heading pb0">
+                  <h3 class="card-heading title-20px-black pb0">
                    
                     <!-- START dropdown-->
                     <!--div class="pull-right dropdown">
@@ -119,7 +119,7 @@
                     </div-->
 
                     <!-- END dropdown-->About
-                  </h5>
+                  </h3>
 
                   
 
@@ -159,34 +159,95 @@
 
 
                   <div class="card-body">
-                    <p data-type="textarea" class="is-editable text-inherit">Pellentesque porta tincidunt justo, non fringilla erat iaculis in. Sed nisi erat, ornare eu pellentesque quis, pellentesque non nulla. Proin rutrum, est pellentesque commodo mattis, sem justo porttitor odio, id aliquet lacus augue nec nisl.</p>
+                    <p data-type="textarea" class="is-editable font-17px-black"><%= @company.about if @company.about? %></p>
                   </div>
                   <div class="card-divider"></div>
                   
-                  <h5 class="card-heading pb0">Contact Information</h5>
-                  <div class="card-body">
-                    <table class="table table-striped">
+                  <!-- begin col-6 -->
+			    <div class="card-body">
+			        <div class="panel-group" id="accordion">
+
+
+			        <!--Services-->
+			        	<div class="overflow-hidden card-divider btn-raised">
+							<div class="panel-heading">
+								<h3 class="panel-title">
+									<a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#services">
+									    <i class="fa fa-plus-circle pull-right title-20px-black blk"></i> 
+										<span class="title-20px-black blk">What We Do</span>
+									</a>
+								</h3>
+							</div>
+							<div id="services" class="panel-collapse collapse">
+								<div class="panel-body">
+									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+								</div>
+							</div>
+						</div>
+						<!--Services ends-->
+
+                      <!--Media-->
+			        	<div class="overflow-hidden card-divider btn-raised ">
+							<div class="panel-heading">
+								<h3 class="panel-title">
+									<a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#media">
+									    <i class="fa fa-plus-circle pull-right title-20px-black blk"></i> 
+										<span class="title-20px-black blk">Media</span>
+									</a>
+								</h3>
+							</div>
+							<div id="media" class="panel-collapse collapse">
+								<div class="panel-body">
+									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+								</div>
+							</div>
+						</div>
+						<!--media ends-->
+
+						<!--company details-->
+
+
+						<div class="overflow-hidden card-divider btn-raised overflow-hidden">
+							<div class="panel-heading">
+								<h3 class="panel-title">
+									<a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+									    <i class="fa fa-plus-circle pull-right title-20px-black blk"></i> 
+										<span class="title-20px-black blk">Company Details</span>
+									</a>
+								</h3>
+							</div>
+							<div id="collapseOne" class="panel-collapse collapse">
+								<table class="table table-striped">
                       <tbody>
+
+                      	<% if @company.websiteurl? %>
+
+                      	 <tr>
+                          <td><em class="ion-document-text icon-fw mr"></em>Website</td>
+                          <td><%= link_to @company.websiteurl, "http://#{@company.websiteurl}"  %></td>
+                        </tr>
+
+                        <% else %>
+                        <% end %>
+
+                        <%# link_to 'facebook', 'https://www.facebook.com' %> 
+
+
                         <tr>
-                          <td><em class="ion-document-text icon-fw mr"></em>Area</td>
+                          <td><em class="ion-document-text icon-fw mr"></em>Industry</td>
                           <td>Research &amp; development</td>
                         </tr>
                         <tr>
-                          <td><em class="ion-egg icon-fw mr"></em>Birthday</td>
-                          <td><span data-type="date" data-mode="popup" class="is-editable text-inherit">10/11/2000</span></td>
+                          <td><em class="ion-egg icon-fw mr"></em>Year founded</td>
+                          <td><span data-type="date" data-mode="popup" class="is-editable text-inherit">1982</span></td>
                         </tr>
                         <tr>
                           <td><em class="ion-ios-body icon-fw mr"></em>Member since</td>
                           <td><span data-type="date" data-mode="popup" class="is-editable text-inherit">05/11/2015</span></td>
                         </tr>
-                        <tr>
-                          <td><em class="ion-man icon-fw mr"></em>Gender</td>
-                          <td><a id="gender" href="#" data-type="select" data-pk="1" data-value="2" data-title="Select sex" class="text-inherit"></a></td>
-                        </tr>
-                        <tr>
-                          <td><em class="ion-android-home icon-fw mr"></em>Address</td>
-                          <td><span class="is-editable text-inherit">Some street, 123</span></td>
-                        </tr>
+
+                       
+
                         <tr>
                           <td><em class="ion-email icon-fw mr"></em>Email</td>
                           <td><span class="is-editable text-inherit"><a href="#">user@mail.com</a></span></td>
@@ -195,9 +256,141 @@
                           <td><em class="ion-ios-telephone icon-fw mr"></em>Contact phone</td>
                           <td><span class="is-editable text-inherit">13-123-46578</span></td>
                         </tr>
+
+                         <tr>
+                          <td><em class="ion-man icon-fw mr"></em>Company type</td>
+                          <td><a id="gender" href="#" data-type="select" data-pk="1" data-value="2" data-title="Select sex" class="text-inherit"></a>Public Company</td>
+                        </tr>
+
+                        <tr>
+                          <td><em class="ion-android-home icon-fw mr"></em>Company size</td>
+                          <td><span class="is-editable text-inherit">1,001-5,000 employees</span></td>
+                        </tr>
+
+
                       </tbody>
                     </table>
-                  </div>
+							</div>
+						</div>
+					<!--company details ends-->
+
+					<!--Social media-->
+			        	<div class="overflow-hidden card-divider btn-raised">
+							<div class="panel-heading">
+								<h3 class="panel-title">
+									<a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#socialMedia">
+									    <i class="fa fa-plus-circle pull-right title-20px-black blk"></i> 
+										<span class="title-20px-black blk">Social Media</span>
+									</a>
+								</h3>
+							</div>
+							<div id="socialMedia" class="panel-collapse collapse">
+								<div class="panel-body">
+									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+								</div>
+							</div>
+						</div>
+						<!--Social ends-->
+
+						<div class="panel panel-inverse overflow-hidden">
+							<div class="panel-heading">
+								<h3 class="panel-title">
+									<a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+									    <i class="fa fa-plus-circle pull-right"></i> 
+										Collapsible Group Item #2
+									</a>
+								</h3>
+							</div>
+							<div id="collapseTwo" class="panel-collapse collapse">
+								<div class="panel-body">
+									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+								</div>
+							</div>
+						</div>
+
+
+						<div class="panel panel-inverse overflow-hidden">
+							<div class="panel-heading">
+								<h3 class="panel-title">
+									<a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+									    <i class="fa fa-plus-circle pull-right"></i> 
+										Collapsible Group Item #3
+									</a>
+								</h3>
+							</div>
+							<div id="collapseThree" class="panel-collapse collapse">
+								<div class="panel-body">
+									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-inverse overflow-hidden">
+							<div class="panel-heading">
+								<h3 class="panel-title">
+									<a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+									    <i class="fa fa-plus-circle pull-right"></i> 
+										Collapsible Group Item #4
+									</a>
+								</h3>
+							</div>
+							<div id="collapseFour" class="panel-collapse collapse">
+								<div class="panel-body">
+									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-inverse overflow-hidden">
+							<div class="panel-heading">
+								<h3 class="panel-title">
+									<a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
+									    <i class="fa fa-plus-circle pull-right"></i> 
+										Collapsible Group Item #5
+									</a>
+								</h3>
+							</div>
+							<div id="collapseFive" class="panel-collapse collapse">
+								<div class="panel-body">
+									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-inverse overflow-hidden">
+							<div class="panel-heading">
+								<h3 class="panel-title">
+									<a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix">
+									    <i class="fa fa-plus-circle pull-right"></i> 
+										Collapsible Group Item #6
+									</a>
+								</h3>
+							</div>
+							<div id="collapseSix" class="panel-collapse collapse">
+								<div class="panel-body">
+									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-inverse overflow-hidden">
+							<div class="panel-heading">
+								<h3 class="panel-title">
+									<a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven">
+									    <i class="fa fa-plus-circle pull-right"></i> 
+										Collapsible Group Item #7
+									</a>
+								</h3>
+							</div>
+							<div id="collapseSeven" class="panel-collapse collapse">
+								<div class="panel-body">
+									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+								</div>
+							</div>
+						</div>
+					</div>
+			    </div>
+			    <!-- end col-6 -->
+
+
+              
+
                   <div class="card-divider"></div>
                   <h5 class="card-heading pb0">Recent articles</h5>
                   <div class="card-body">
@@ -232,7 +425,19 @@
                     </ul>
                   </div>
                 </form>
+
+                			    
               </div>
+
+
+
+
+
+
+
+
+
+
               <!-- Right column-->
               <div class="col-md-5 col-lg-4">
                 <div class="card">
@@ -356,6 +561,9 @@
         </div>
       </div>
     </div>
+
+
+
     <!-- End Search template-->
     <!-- Settings template-->
     <div tabindex="-1" role="dialog" class="modal-settings modal modal-right fade">
@@ -546,6 +754,8 @@
     </div>
     <!-- End Settings template-->
     <!-- Google Maps API-->
+
+
     
   </body>
 </html>
