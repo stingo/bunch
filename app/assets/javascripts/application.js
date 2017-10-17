@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
+//= require formwiz1
 //= require jquery.Jcrop
 //= require turbolinks
 //= require bootstrap-sprockets
@@ -32,7 +34,6 @@
 //= require slimscroll
 //= require urbanterms
 //= require listings
-
 //= require rails-timeago-all
 //= require_tree .
 

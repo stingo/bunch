@@ -2,6 +2,7 @@ class CompaniesController < ApplicationController
 
   before_action :authenticate_profile!, :except => [:index, :show]
   before_action :set_company, only: [:show, :edit, :update, :destroy]
+  impressionist actions: [:show,:index], unique: [:session_hash]
 
   # GET /companies
   # GET /companies.json
@@ -17,9 +18,14 @@ class CompaniesController < ApplicationController
   # GET /companies/1
   # GET /companies/1.json
   def show
+    @company = Company.friendly.find(params[:id])
     @company_jobs = @company.jobs #paginate(page: params[:page], per_page: 5)
     @company_listings = @company.listings #paginate(page: params[:page], per_page: 5)
     @company_profiles = @company.profiles #paginate(page: params[:page], per_page: 5)
+
+    impressionist(@company)
+     #@how = How.find(params[:id])
+     
   end
 
   # GET /companies/new
@@ -29,6 +35,7 @@ class CompaniesController < ApplicationController
 
   # GET /companies/1/edit
   def edit
+    @company = Company.friendly.find(params[:id])
   end
 
   # POST /companies
@@ -52,6 +59,7 @@ class CompaniesController < ApplicationController
   # PATCH/PUT /companies/1
   # PATCH/PUT /companies/1.json
   def update
+    @company = Company.friendly.find(params[:id])
     respond_to do |format|
 
       if @company.update(company_params)
@@ -77,7 +85,7 @@ class CompaniesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_company
-      @company = Company.find(params[:id])
+      @company = Company.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

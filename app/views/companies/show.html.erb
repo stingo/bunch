@@ -86,7 +86,7 @@
                 <span class="ccard-title" style="background: #ffffff; color:#337ab7; padding:5px; opacity: 0.9; border-radius: 2px;"> 
 
 <%= raw @company.skill_list.map { |t| link_to t, tag_path(t) }.join(', ') if @company.skill_list.present? %> <span style="font-size: 30px; color: #000000">.</span> <%= render @company.locations if @company.locations.present? %> <span style="font-size: 30px; color: #000000">.</span> 81,324 followers
-</span> 
+  <span style="font-size: 30px; color: #000000">.</span> <i class="fa fa-eye" style="color:#337ab7;"></i> <%= @company.impressionist_count(:filter=>:session_hash) %></span> 
 
 
 

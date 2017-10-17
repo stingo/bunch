@@ -1,4 +1,7 @@
 class Company < ApplicationRecord
+
+	is_impressionable
+	
 	has_many :thing_locations
 	has_many :locations, through: :thing_locations
 
@@ -25,6 +28,16 @@ class Company < ApplicationRecord
       after_commit :remove_companycover!, on: :destroy
   #after_commit :delete_empty_dirs!, on: :destroy
      
+     
+
+     extend FriendlyId
+         friendly_id :name, use: :slugged
+
+ 
+
+  def should_generate_new_friendly_id?
+    name_changed?
+  end
 
 
 end

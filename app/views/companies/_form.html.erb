@@ -1,10 +1,167 @@
 <%= simple_form_for(@company) do |f| %>
   <%= f.error_notification %>
 
+
+
+
+  <div class="container">
+  <div class="row">
+    <section>
+        <div class="wizard">
+            <div class="wizard-inner">
+                <div class="connecting-line"></div>
+                <ul class="nav nav-tabs" role="tablist">
+
+                    <li role="presentation" class="active">
+                        <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Step 1">
+                            <span class="round-tab">
+                                <i class="glyphicon glyphicon-folder-open"></i>
+                            </span>
+                        </a>
+                    </li>
+
+                    <li role="presentation" class="disabled">
+                        <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2">
+                            <span class="round-tab">
+                                <i class="glyphicon glyphicon-pencil"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li role="presentation" class="disabled">
+                        <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Step 3">
+                            <span class="round-tab">
+                                <i class="glyphicon glyphicon-picture"></i>
+                            </span>
+                        </a>
+                    </li>
+
+                    <li role="presentation" class="disabled">
+                        <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Complete">
+                            <span class="round-tab">
+                                <i class="glyphicon glyphicon-ok"></i>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <form role="form">
+                <div class="tab-content">
+                    <div class="tab-pane active" role="tabpanel" id="step1">
+                        
+
+
+                        <!-- begin wizard step-1 -->
+                  <div class="card-body">
+                                        <fieldset>
+                                            <legend class="pull-left width-full">Company overview (required)</legend>
+                                            <!-- begin row -->
+                                            <div class="row">
+                                                <!-- begin col-4 -->
+                                                <div class="col-md-4">
+                          <div class="form-group">
+                            <label>Company Name</label>
+
+                            <%= f.text_field :name, placeholder: "Company name", class: "form-control" %>
+
+                           
+
+
+                          </div>
+                                                </div>
+                                                <!-- end col-4 -->
+                                                <!-- begin col-4 -->
+                                                <div class="col-md-4">
+                          <div class="form-group">
+                            <label>Company size</label>
+                            <input type="text" name="middle" placeholder="Company size" class="form-control" />
+                          </div>
+                                                </div>
+                                                <!-- end col-4 -->
+                                                <!-- begin col-4 -->
+                                                <div class="col-md-4">
+                          <div class="form-group">
+                            <label>Sector</label>
+                            <input type="text" name="lastname" placeholder="Sector" class="form-control" />
+                          </div>
+                                                </div>
+                                                <!-- end col-4 -->
+
+                                               
+
+                                                                                            <!-- begin col-4 -->
+                                                <div class="col-md-8 ml0">
+
+                                                  <br>
+                          <div class="form-group">
+                            <label>What we do </label>
+                            <%= f.text_area :services, placeholder: "Describe what your company does", class: "form-control", rows: "5" %>
+                          </div>
+                                                </div>
+                                                <!-- end col-4 -->
+
+
+
+
+
+
+                                            </div>
+                                            <!-- end row -->
+
+                                           
+
+
+
+                    </fieldset>
+                  </div>
+
+
+                  <br>
+                  <!-- end wizard step-1 -->
+                        
+
+                        <ul class="list-inline pull-right">
+                            <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane" role="tabpanel" id="step2">
+                        <h3>Step 2</h3>
+                        <p>This is step 2</p>
+                        <ul class="list-inline pull-right">
+                            <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
+                            <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane" role="tabpanel" id="step3">
+                        <h3>Step 3</h3>
+                        <p>This is step 3</p>
+                        <ul class="list-inline pull-right">
+                            <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
+                            <li><button type="button" class="btn btn-default next-step">Skip</button></li>
+                            <li><button type="button" class="btn btn-primary btn-info-full next-step">Save and continue</button></li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane" role="tabpanel" id="complete">
+                        <h3>Complete</h3>
+                        <p>You have successfully completed all steps.</p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </form>
+        </div>
+    </section>
+   </div>
+</div>
+
+
+
+
+
+
   <div class="form-inputs">
     <%= f.input :name %>
     <%= f.input :about %>
-    <%= f.input :websiteurl %>
+    
 
     <div class="form-group">
     <%= f.label :location_ids, "CLOSE LOCATION" %>
@@ -43,9 +200,20 @@
 
 <br>
 
+
+<div class="field">
+  
+  <%= f.label :websiteurl %><br>
+  <%= f.file_field :websiteurl %><br>
+
+
+</div>
+
+
+
   <div class="field">
 
-   <%= f.label :add_company_logo %><br>
+   <%= f.label :add_company_logo %>
     <%= f.file_field :companylogo %><br>
 
     </div>
@@ -55,9 +223,6 @@
     <%= f.file_field :companycover, class: "btn btn-primary" %>
     <%= f.hidden_field :companycover_cache %>
     <br>
-
-    
-    
 
     <% if f.object.companycover? %>
       <%= image_tag f.object.companycover.large.url, :class => "img-responsive" %>
@@ -70,9 +235,32 @@
 
 
 
+<!--Company overview (required)-->
+<!--Media-->
+<!--company details-->
+<!--Social media-->
+
+
+
 
 
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
 <% end %>
+
+
+t.string "websiteurl"
+    t.integer "profile_id"
+    t.text "services"
+    t.datetime "yearfounded"
+    t.string "companyemail"
+    t.integer "contactphone"
+    t.string "video1"
+    t.string "video2"
+    t.string "facebookurl"
+    t.string "twitterurl"
+    t.string "linkedinurl"
+    t.string "googleplusurl"
+    t.string "pinteresturl"
+    t.string "instagramurl"

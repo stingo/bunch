@@ -10,6 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require jquery-ui
  *= require selectize
  *= require selectize.default
  *= require font-awesome
@@ -42,6 +43,9 @@
  @import "main_css/style_m";
  @import "main_css/css2";
  @import "main_css/stylemmin";
+ @import "main_css/bwizard.min";
+ @import "main_css/bwizard";
+ @import "main_css/formwiz1";
   /*main css */
  @import "main_css/animatemmin";
  @import "main_css/animate_m";
