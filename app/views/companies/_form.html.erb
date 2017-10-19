@@ -73,15 +73,15 @@
                                                 <!-- begin col-4 -->
                                                 <div class="col-md-4">
                           <div class="form-group">
-                            <label>Company size</label>
-                            <input type="text" name="middle" placeholder="Company size" class="form-control" />
+                            <label>Company Location (Headquaters)</label>
+                            <%= f.select :location_ids, Location.all.pluck(:name, :id), {}, { multiple: true, class: "selectize" } %>
                           </div>
                                                 </div>
                                                 <!-- end col-4 -->
                                                 <!-- begin col-4 -->
                                                 <div class="col-md-4">
                           <div class="form-group">
-                            <label>Sector</label>
+                            <label>Company size</label>
                             <input type="text" name="lastname" placeholder="Sector" class="form-control" />
                           </div>
                                                 </div>
@@ -90,6 +90,21 @@
                                                
 
                                                                                             <!-- begin col-4 -->
+
+
+                                                                                            <!-- begin col-4 -->
+                                                <div class="col-md-8 ml0">
+
+                                                  <br>
+                          <div class="form-group">
+                            <label>About The Comapany (Summary) </label>
+                            <%= f.text_area :about, placeholder: "Describe what your company does", class: "form-control", rows: "5" %>
+                          </div>
+                                                </div>
+                                                <!-- end col-4 -->
+
+
+
                                                 <div class="col-md-8 ml0">
 
                                                   <br>
@@ -103,76 +118,13 @@
 
 
 
+                         
 
 
-                                            </div>
-                                            <!-- end row -->
+                                                                        <div class="col-md-8 ml0">
 
-                                           
-
-
-
-                    </fieldset>
-                  </div>
-
-
-                  <br>
-                  <!-- end wizard step-1 -->
-                        
-
-                        <ul class="list-inline pull-right">
-                            <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
-                        </ul>
-                    </div>
-                    <div class="tab-pane" role="tabpanel" id="step2">
-                        <h3>Step 2</h3>
-                        <p>This is step 2</p>
-                        <ul class="list-inline pull-right">
-                            <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
-                            <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
-                        </ul>
-                    </div>
-                    <div class="tab-pane" role="tabpanel" id="step3">
-                        <h3>Step 3</h3>
-                        <p>This is step 3</p>
-                        <ul class="list-inline pull-right">
-                            <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
-                            <li><button type="button" class="btn btn-default next-step">Skip</button></li>
-                            <li><button type="button" class="btn btn-primary btn-info-full next-step">Save and continue</button></li>
-                        </ul>
-                    </div>
-                    <div class="tab-pane" role="tabpanel" id="complete">
-                        <h3>Complete</h3>
-                        <p>You have successfully completed all steps.</p>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-            </form>
-        </div>
-    </section>
-   </div>
-</div>
-
-
-
-
-
-
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :about %>
-    
-
-    <div class="form-group">
-    <%= f.label :location_ids, "CLOSE LOCATION" %>
-    <%= f.select :location_ids, Location.all.pluck(:name, :id), {}, { multiple: true, class: "selectize" } %>
-  </div>
-<br>
-  </div>
-
-  <br>
-
-  <div class="form-inputs">
+                                                  <br>
+                                                  <div class="form-group">
 
   <%= f.label :tag_list, 'Tags (separated with comas)' %>
 <%# f.text_field :tag_list, class: 'form-control' %>
@@ -193,74 +145,452 @@
                %>
 
              </div>
-
-             <br>
-
-             <%= f.input :skill_list, value: f.object.skill_list.to_s %>
-
-<br>
+           </div>
 
 
-<div class="field">
+
+
+
+
+
+
+
+
+                                                
+
+
+
+
+
+                         
+
+
+
+
+
+
+
+
+                                               
+
+
+
+                                            </div>
+                                            <!-- end row -->
+
+
+
+
+
+
+                                           
+
+
+
+                    </fieldset>
+                  </div>
+
+
+                  <br>
+
+
+
+
+
+                  <!-- end wizard step-3 -->
+                        
+
+                        <ul class="list-inline pull-right">
+                            <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane" role="tabpanel" id="step2">
+                        
+
+                        <!-- begin wizard step-2 -->
+                  <div class="card-body">
+                   
+
+                    <fieldset>
+                                            <legend class="pull-left width-full">Images & Videos</legend>
+                                            <!-- begin row -->
+                                            <div class="row">
+                                                <!-- begin col-4 -->
+                                                
+
+
+
+
+                          <div class="row">
   
-  <%= f.label :websiteurl %><br>
-  <%= f.file_field :websiteurl %><br>
+                         <div class="col-sm-6"><!--div text-->
 
 
-</div>
+                          <div class="col-md-6 ml0">
+
+                                                  <br>
+                          <div class="form-group">
+                            <label>Add Company Logo </label>
+                            <%= f.file_field :companylogo, class: "btn btn-primary" %>
+                            <%= f.hidden_field :companycover_cache %>
+                          </div>
+                                                </div>
+                                                <!-- end col-4 -->
 
 
 
-  <div class="field">
+                           
 
-   <%= f.label :add_company_logo %>
-    <%= f.file_field :companylogo %><br>
+                         </div><!--div text ends-->
 
-    </div>
 
-    <div class="form-group">
-    <legend>Company Profile Cover</legend>
-    <%= f.file_field :companycover, class: "btn btn-primary" %>
-    <%= f.hidden_field :companycover_cache %>
-    <br>
+                         <!--pic-->
+                         <div class="col-sm-6">
 
+                          <div class="form-group">
+
+                         
+    <% if f.object.companylogo? %>
+      <%= image_tag f.object.companylogo.small.url, :class => "img-responsive" %>
+      <br>
+      <%= f.label :remove_image, :class => "lead"  %>
+      <%= f.check_box :remove_companylogo %> 
+    <% end %>
+
+
+                         </div>
+                         </div>
+                           </div> 
+
+
+
+
+
+
+                            <div class="row">
+  
+                         <div class="col-sm-6"><!--div text-->
+
+
+                          <div class="col-md-6 ml0">
+
+                                                  <br>
+                          <div class="form-group">
+                            <label>Add Company Profile Cover </label>
+                            <%= f.file_field :companycover, class: "btn btn-primary" %>
+                          </div>
+                                                </div>
+                                                <!-- end col-4 -->
+
+
+
+                           
+
+                         </div><!--div text ends-->
+
+
+                         <!--pic-->
+                         <div class="col-sm-6">
+
+                          <div class="form-group">
+
+                         
     <% if f.object.companycover? %>
       <%= image_tag f.object.companycover.large.url, :class => "img-responsive" %>
       <br>
       <%= f.label :remove_image, :class => "lead"  %>
       <%= f.check_box :remove_companycover %> 
     <% end %>
-  </div>
-  <br>
+
+
+                         </div>
+
+
+                         </div>
+                           </div> 
 
 
 
-<!--Company overview (required)-->
-<!--Media-->
-<!--company details-->
-<!--Social media-->
+
+                                                
+
+
+
+
+
+                         
+
+
+
+
+
+
+
+
+                                               
+
+
+
+                                            </div>
+                                            <!-- end row -->
+
+
+
+
+
+
+                                           
+
+
+
+                    </fieldset>
+                  </div>
+
+
+                  <br>
+
+
+                 
+                  <!-- end wizard step-2 -->
+                        <ul class="list-inline pull-right">
+                            <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
+                            <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane" role="tabpanel" id="step3">
+                                                <!-- begin wizard step-1 -->
+                  <div class="card-body">
+                                        <fieldset>
+                                            <legend class="pull-left width-full">Company details</legend>
+                                            <!-- begin row -->
+                                            <div class="row">
+                                                <!-- begin col-4 -->
+                                                <div class="col-md-4">
+                          <div class="form-group">
+                            <label>Website</label>
+
+                            <%= f.text_field :websiteurl, placeholder: "Company website address", class: "form-control" %>
+
+                           
+
+
+                          </div>
+                                                </div>
+                                                <!-- end col-4 -->
+                                                <!-- begin col-4 -->
+                                                <div class="col-md-4">
+                          <div class="form-group">
+                            <label>Year founded</label>
+                            <%= f.text_field :yearfounded, placeholder: "Year founded", class: "form-control" %>
+                          </div>
+                                                </div>
+                                                <!-- end col-4 -->
+                                                <!-- begin col-4 -->
+                                                <div class="col-md-4">
+                          <div class="form-group">
+                            <label>Company size</label>
+                            <%= f.text_field :contactphone, placeholder: "Company contact phone", class: "form-control" %>
+                          </div>
+                                                </div>
+                                                <!-- end col-4 -->
+
+
+                                                <!-- begin col-4 -->
+                                                <div class="col-md-4">
+                          <div class="form-group">
+                            <label>Sector or industry</label>
+
+                            <%= f.text_field :websiteurl, placeholder: "Company website address", class: "form-control" %>
+
+                           
+
+
+                          </div>
+                                                </div>
+                                                <!-- end col-4 -->
+                                                <!-- begin col-4 -->
+                                                <div class="col-md-4">
+                          <div class="form-group">
+                            <label>Email</label>
+                            <%= f.text_field :companyemail, placeholder: "Company email address", class: "form-control" %>
+                          </div>
+                                                </div>
+                                                <!-- end col-4 -->
+                                                <!-- begin col-4 -->
+                                                <div class="col-md-4">
+                          <div class="form-group">
+                            <label>Contact phone</label>
+                            <%= f.text_field :contactphone, placeholder: "Company contact phone", class: "form-control" %>
+                          </div>
+                                                </div>
+                                                <!-- end col-4 -->
+
+
+                                               
+
+          <div class="col-md-6">
+              <!-- begin panel -->
+                    
+                        <div class="">
+                            <div class="">
+                                
+                            </div>
+
+                            <br>
+                            <legend class="pull-left width-full">Social Media</legend>
+                        </div>
+                        
+
+                        <div class="panel-body">
+                            <form class="form-horizontal">
+                                
+                                <div class="form-group">
+
+
+
+
+                                    <span class="col-md-3 control-label fa-2x text-primary"><i class="fa fa-facebook-square fa-stack-2x"></i></span>
+
+
+
+
+                                    <span class="col-md-9">
+                                       <%= f.text_field :facebookurl, placeholder: "Enter your Facebook profile URL", class: "form-control" %>
+                                      <br>
+                                </span>
+
+
+
+                                <div class="form-group">
+                                    <span class="col-md-3 control-label fa-2x text-primary"><i class="fa fa-twitter-square fa-stack-2x"></i></span>
+                                    <span class="col-md-9">
+                                        <%= f.text_field :twitterurl, placeholder: "Enter your twitter profile URL", class: "form-control" %><br>
+                                    </span>
+                                </div>
+
+
+                                      <div class="form-group">
+                                    <span class="col-md-3 control-label fa-2x text-primary"><i class="fa fa-linkedin-square fa-stack-2x"></i></span>
+                                    <span class="col-md-9">
+                                        <%= f.text_field :linkedinurl, placeholder: "Enter your  Linkedin profile URL", class: "form-control" %>
+                                        <br>
+                                    </span>
+                                </div> 
+
+
+                                <div class="form-group">
+                                    <span class="col-md-3 control-label fa-2x text-primary"><i class="fa fa-instagram fa-stack-2x"></i></span>
+                                    <span class="col-md-9">
+                                        <%= f.text_field :instagramurl, placeholder: "Enter your  Instagram profile URL", class: "form-control" %>
+                                        <br>
+                                    </span>
+                                </div>   
+
+                                    <div class="form-group">
+
+                                                             
+
+
+                                    <span class="col-md-3 control-label fa-2x text-primary"><i class="fa fa-google-plus-square fa-stack-2x"></i></span >
+
+                                 
+                                    <span class="col-md-9">
+                                        <%= f.text_field :googleplusurl, placeholder: "Enter your Google+ profile URL", class: "form-control" %>
+
+                                        <br>
+                                    </span >
+
+                                   
+                                </div>  
+                              
+
+
+                                                             <div class="form-group">
+                                   <span class="col-md-3 control-label fa-2x text-danger"><i class="fa fa-pinterest-square fa-stack-2x"></i></span>
+                                    <span class="col-md-9">
+                                        <%= f.text_field :pinteresturl, placeholder: "Enter your Pinterest profile URL", class: "form-control" %>
+                                    </span>
+                                </div> 
+
+
+
+
+
+
+                                
+
+
+
+
+
+
+                            </form>
+
+
+
+
+
+
+
+
+
+
+
+                        </div>
+                    </div>
+                    <!-- end panel -->
+           
+
+
+
+
+
+
+
+                                           
+                                            <!-- end row -->
+
+                                           
+
+
+
+                    </fieldset>
+                  </div>
+
+
+                  <br>
+                  <!-- end wizard step-3 -->
+                        <ul class="list-inline pull-right">
+                            <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
+                            <li><button type="button" class="btn btn-default next-step">Skip</button></li>
+                            <li><button type="button" class="btn btn-primary btn-info-full next-step">Save and continue</button></li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane" role="tabpanel" id="complete">
+                        <h3>Complete</h3>
+                        <p>You have successfully completed all steps.</p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            
+
+
+
+
+
 
 
 
 
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, class: "btn btn-danger" %>
   </div>
+
+  </form>
+        </div>
+    </section>
+   </div>
+</div>
 <% end %>
 
-
-t.string "websiteurl"
-    t.integer "profile_id"
-    t.text "services"
-    t.datetime "yearfounded"
-    t.string "companyemail"
-    t.integer "contactphone"
-    t.string "video1"
-    t.string "video2"
-    t.string "facebookurl"
-    t.string "twitterurl"
-    t.string "linkedinurl"
-    t.string "googleplusurl"
-    t.string "pinteresturl"
-    t.string "instagramurl"

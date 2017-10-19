@@ -92,7 +92,7 @@ class CompaniesController < ApplicationController
     def company_params
       params.require(:company).permit(:name, :about, :skill_list, :services, :yearfounded, :companyemail,
        :contactphone, :video1, :video2, :facebookurl, :twitterurl, :linkedinurl, :googleplusurl, :pinteresturl,
-        :instagramurl, :companylogo, :remove_companycover, :slug, :companycover, :websiteurl, 
+        :instagramurl, :companylogo, :remove_companycover, :remove_companylogo, :slug, :companycover, :websiteurl, 
         thing_locations_attributes: [:id, :thing_location_id, :_destroy, location_ids: []], location_ids: [] )
     end
 end
