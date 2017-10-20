@@ -274,8 +274,10 @@
 						</div>
 					<!--company details ends-->
 
+
+
 					<!--Social media-->
-			        	<div class="panel overflow-hidden card-divider btn-raised">
+			        		<div class="panel overflow-hidden card-divider btn-raised">
 							<div class="panel-heading">
 								<h3 class="panel-title">
 									<a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#socialMedia">
@@ -285,12 +287,94 @@
 								</h3>
 							</div>
 							<div id="socialMedia" class="panel-collapse collapse">
-								<div class="panel-body">
-									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-								</div>
+								<table class="table table-striped">
+                      <tbody>
+
+                      	<% if @company.websiteurl? %>
+
+                      	 <tr>
+
+                          <td><span class="col-md-2 control-label fa text-primary"><i class="fa fa-facebook-square fa-stack-2x"></i></span></td>
+                          <td><%= link_to @company.websiteurl, "http://#{@company.websiteurl}"  %></td>
+                        </tr>
+
+                        <% else %>
+                        <% end %>
+
+                        <%# link_to 'facebook', 'https://www.facebook.com' %> 
+
+
+                        	<% if @company.websiteurl? %>
+
+                      	 <tr>
+
+                          <td><span class="col-md-2 control-label fa text-primary"><i class="fa fa-twitter-square fa-stack-2x"></i></span></td>
+                          <td><%= link_to @company.websiteurl, "http://#{@company.websiteurl}"  %></td>
+                        </tr>
+
+                        <% else %>
+                        <% end %>
+
+                       	<% if @company.websiteurl? %>
+
+                      	 <tr>
+
+                          <td><span class="col-md-2 control-label fa text-primary"><i class="fa fa-linkedin-square fa-stack-2x"></i></span></td>
+                          <td><%= link_to @company.websiteurl, "http://#{@company.websiteurl}"  %></td>
+                        </tr>
+
+                        <% else %>
+                        <% end %>
+
+                       	<% if @company.websiteurl? %>
+
+                      	 <tr>
+
+                          <td><span class="col-md-2 control-label fa text-primary"><i class="fa fa-instagram fa-stack-2x"></i></span></td>
+                          <td><%= link_to @company.websiteurl, "http://#{@company.websiteurl}"  %></td>
+                        </tr>
+
+                        <% else %>
+                        <% end %>
+
+                       
+
+                    	<% if @company.websiteurl? %>
+
+                      	 <tr>
+
+                          <td><span class="col-md-2 control-label fa text-primary"><i class="fa fa-google-plus-square fa-stack-2x"></i></span></td>
+                          <td><%= link_to @company.websiteurl, "http://#{@company.websiteurl}"  %></td>
+                        </tr>
+
+                        <% else %>
+                        <% end %>
+
+
+                        	<% if @company.websiteurl? %>
+
+                      	 <tr>
+
+                          <td><span class="col-md-2 control-label fa text-primary"><i class="fa fa-pinterest-square fa-stack-2x"></i></span></td>
+                          <td><%= link_to @company.websiteurl, "http://#{@company.websiteurl}"  %></td>
+                        </tr>
+
+                        <% else %>
+                        <% end %>
+
+
+
+
+
+
+                      </tbody>
+                    </table>
 							</div>
 						</div>
 						<!--Social ends-->
+
+
+
 
 						<div class="panel panel-inverse overflow-hidden">
 							<div class="panel-heading">
