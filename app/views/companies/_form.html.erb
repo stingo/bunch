@@ -253,7 +253,7 @@
     <% if f.object.companylogo? %>
       <%= image_tag f.object.companylogo.small.url, :class => "img-responsive" %>
       <br>
-      <%= f.label :remove_image, :class => "lead"  %>
+      <%= f.label :remove_company_logo, :class => "lead ml-l"  %>
       <%= f.check_box :remove_companylogo %> 
     <% end %>
 
@@ -262,7 +262,7 @@
                          </div>
                            </div> 
 
-
+<hr>
 
 
 
@@ -298,7 +298,7 @@
     <% if f.object.companycover? %>
       <%= image_tag f.object.companycover.large.url, :class => "img-responsive" %>
       <br>
-      <%= f.label :remove_image, :class => "lead"  %>
+      <%= f.label :remove_company_profile_cover, :class => "lead ml-l"  %>
       <%= f.check_box :remove_companycover %> 
     <% end %>
 
@@ -312,7 +312,29 @@
 
 
 
-                                                
+  
+
+
+    <div class="card-body">
+                                        <fieldset>
+                                            <legend class="pull-left width-full">Video</legend>
+                                            <!-- begin row -->
+                                            <div class="row">
+                                                <!-- begin col-4 -->
+                                                <div class="col-md-4">
+                          <div class="form-group">
+                            <label>Website</label>
+
+                            <%= f.text_field :video1, placeholder: "Company website address", class: "form-control" %>
+                          </div>
+                        </div>
+                      </fieldset>
+                    </div>
+
+                           
+
+
+                                                                 
 
 
 
@@ -381,11 +403,22 @@
                                                 <div class="col-md-4">
                           <div class="form-group">
                             <label>Year founded</label>
-                            <%= f.text_field :yearfounded, placeholder: "Year founded", class: "form-control" %>
+                           
+                            <%= f.date_select :yearfounded, :start_year => 1945, class: "form-control" %>&nbsp<span>
+
+                          
                           </div>
                                                 </div>
                                                 <!-- end col-4 -->
                                                 <!-- begin col-4 -->
+
+
+
+                              
+
+
+
+
                                                 <div class="col-md-4">
                           <div class="form-group">
                             <label>Company size</label>
@@ -511,6 +544,8 @@
                                         <%= f.text_field :pinteresturl, placeholder: "Enter your Pinterest profile URL", class: "form-control" %>
                                     </span>
                                 </div> 
+
+
 
 
 

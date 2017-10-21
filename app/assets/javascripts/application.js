@@ -16,7 +16,7 @@
 //= require formwiz1
 //= require jquery.Jcrop
 //= require turbolinks
-//= require bootstrap-sprockets
+//= require bootstrap
 //= require jquery.turbolinks
 //= require post
 // require superbox
