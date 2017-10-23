@@ -269,14 +269,13 @@
                         <% else %>
                         <% end %>
 
-                        <% if @company.companytype.name? %>
-
+                        <% if @company.companytype_id? %>
                          <tr>
                           <td><em class="ion-man icon-fw mr"></em>Company type</td>
                           <td><span class="is-editable text-inherit">
 
 
-                          	<%= link_to @company.companytype.name, companies_path(companytype: @company.companytype.name) %>
+                          	<%= link_to @company.companytype.name, companies_path(companytype: @company.companytype.name)  %>
 
                           	
                           	
