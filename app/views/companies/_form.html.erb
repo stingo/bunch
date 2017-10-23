@@ -73,7 +73,7 @@
                                                 <!-- begin col-4 -->
                                                 <div class="col-md-4">
                           <div class="form-group">
-                            <label>Company Name</label>
+                            <label>Company Name <span class="required">*</span></label>
 
                             <%= f.text_field :name, placeholder: "Company name", class: "form-control" %>
 
@@ -86,8 +86,8 @@
                                                 <!-- begin col-4 -->
                                                 <div class="col-md-4">
                           <div class="form-group">
-                            <label>Company Location (Headquaters)</label>
-                            <%= f.select :location_ids, Location.all.pluck(:name, :id), {}, { multiple: true, class: "selectize" } %>
+                            <label>Company Location (Headquaters) <span class="required">*</span></label>
+                            <%= f.select :location_ids, Location.all.pluck(:name, :id), {}, { multiple: true, class: "selectize"} %>
                           </div>
                                                 </div>
                                                 <!-- end col-4 -->
@@ -95,14 +95,7 @@
                                                 <div class="col-md-4">
                           <div class="form-group">
                             <label>Company size</label>
-                            <select class="form-control input-sm">
-                                <option>1.input-sm</option>
-                                <option>2.input-sm</option>
-                                <option>3.input-sm</option>
-                                <option>4.input-sm</option>
-                                <option>5.input-sm</option>
-                                <option>6.input-sm</option>
-                            </select>
+                            <%= f.collection_select :companysize_id, Companysize.all, :id, :name, {promt: "Select copany size" }, input_html: { class: "dropdown-toggle"} %>
                             
                           </div>
                                                 </div>
@@ -119,7 +112,9 @@
                                                   <br>
                           <div class="form-group">
                             <label>About The Comapany (Summary) </label>
-                            <%= f.text_area :about, placeholder: "Describe what your company does", class: "form-control", rows: "5" %>
+                            <%= f.trix_editor :about, placeholder: "Short summary of your company", class: "form-control", rows: "5" %>
+
+
                           </div>
                                                 </div>
                                                 <!-- end col-4 -->
@@ -131,7 +126,7 @@
                                                   <br>
                           <div class="form-group">
                             <label>What we do </label>
-                            <%= f.text_area :services, placeholder: "Describe what your company does", class: "form-control", rows: "5" %>
+                            <%= f.trix_editor :services, placeholder: "Describe what your company does", class: "form-control", rows: "5" %>
                           </div>
                                                 </div>
                                                 <!-- end col-4 -->
@@ -165,7 +160,12 @@
 <br>
 
 
-<%= f.collection_select :companytype_id, Companytype.all, :id, :name, {prompt: "Select a company type" }, input_html: { class: "dropdown-toggle" } %>
+<div class="form-control input-md">
+
+
+<%= f.collection_select :companytype_id, Companytype.all, :id, :name, {prompt: "Select a company type" }, input_html: { class: "dropdown-toggle form-control input-sm" } %>
+
+</div>
 
 
 

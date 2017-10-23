@@ -289,10 +289,20 @@
                           <% else %>
                         <% end %>
 
+                         <% if @company.companysize_id? %>
+
                         <tr>
                           <td><em class="ion-android-home icon-fw mr"></em>Company size</td>
-                          <td><span class="is-editable text-inherit"><%= @company.companysize if @company.companysize  %></span></td>
+                          <td><span class="is-editable text-inherit">
+
+                          	<%= @company.companysize.name  %>
+                          	
+
+                          </span></td>
                         </tr>
+
+                        <% else %>
+                        <% end %>
 
 
                       </tbody>

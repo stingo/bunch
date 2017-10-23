@@ -8,7 +8,7 @@ class CompaniesController < ApplicationController
   # GET /companies.json
   def index
 
-    if params[:companytype].blank?
+    if params[:companytype].blank? 
       #@posts = Post.all.order("created_at DESC")
     @companies = Company.all
 
@@ -16,6 +16,11 @@ class CompaniesController < ApplicationController
 
     @companytype_id = Companytype.find_by(name: params[:companytype]).id
     @companies = Company.where(companytype_id: @companytype_id).order("created_at DESC")
+
+    #@companysize_id = Companysize.find_by(name: params[:companysize]).id
+    #@companies = Company.where(companysize_id: @companysize_id).order("created_at DESC")
+
+
 
 respond_to do |format|
       format.html
@@ -118,7 +123,7 @@ respond_to do |format|
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_params
       params.require(:company).permit(:name, :about, :companytype_id, :companytype_name, :skill_list, :skill, { skill_ids: [] }, :skill_ids, :tag_list, :tag, { tag_ids: [] }, :tag_ids, :services, :yearfounded, :companyemail,
-       :contactphone, :video1, :video2, :companysize, :facebookurl, :twitterurl, :linkedinurl, :googleplusurl, :pinteresturl,
+       :contactphone, :video1, :video2, :companysize_id, :facebookurl, :twitterurl, :linkedinurl, :googleplusurl, :pinteresturl,
         :instagramurl, :companylogo, :remove_companycover, :remove_companylogo, :slug, :companycover, :websiteurl, 
         thing_locations_attributes: [:id, :thing_location_id, :_destroy, location_ids: []], location_ids: [] )
     end

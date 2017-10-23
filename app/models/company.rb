@@ -17,6 +17,7 @@ class Company < ApplicationRecord
 
 	belongs_to :profile, foreign_key:"profile_id"
 	belongs_to :companytype, :optional => true
+	belongs_to :companysize, :optional => true
 
 	validates :name, presence: true
 
@@ -39,6 +40,12 @@ class Company < ApplicationRecord
   def should_generate_new_friendly_id?
     name_changed?
   end
+
+  #validations
+	validates :name, presence: true
+	validates :location_ids, presence: { message: "? Company location can't be blank" }
+	
+	#validates :is_female, presence: { message: "? Gender can't be blank" }
 
 
 end
