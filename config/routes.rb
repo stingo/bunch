@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :companytypes
   resources :skills
   resources :products
   resources :companies
@@ -29,6 +30,7 @@ Rails.application.routes.draw do
   get :search, controller: :ghana
   
     resources :profiles do
+      
     #get :search, :on => :collection
     #get :autocomplete, :on => :collection
         member do

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171015064300) do
+ActiveRecord::Schema.define(version: 20171023065010) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,7 +37,20 @@ ActiveRecord::Schema.define(version: 20171015064300) do
     t.string "googleplusurl"
     t.string "pinteresturl"
     t.string "instagramurl"
+    t.integer "companytype_id"
+    t.string "companysize"
+    t.index ["companysize"], name: "index_companies_on_companysize"
+    t.index ["companytype_id"], name: "index_companies_on_companytype_id"
     t.index ["profile_id", "created_at"], name: "index_companies_on_profile_id_and_created_at"
+  end
+
+  create_table "companytypes", force: :cascade do |t|
+    t.string "name"
+    t.text "desc"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "profile_id"
+    t.index ["profile_id", "created_at"], name: "index_companytypes_on_profile_id_and_created_at"
   end
 
   create_table "events", force: :cascade do |t|

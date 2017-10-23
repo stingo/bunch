@@ -1,7 +1,7 @@
 class Company < ApplicationRecord
 
 	is_impressionable
-	
+
 	has_many :thing_locations
 	has_many :locations, through: :thing_locations
 
@@ -16,6 +16,7 @@ class Company < ApplicationRecord
 
 
 	belongs_to :profile, foreign_key:"profile_id"
+	belongs_to :companytype, :optional => true
 
 	validates :name, presence: true
 

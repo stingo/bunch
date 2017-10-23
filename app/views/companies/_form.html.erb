@@ -1,6 +1,19 @@
 <%= simple_form_for(@company) do |f| %>
   <%= f.error_notification %>
 
+  <% if company.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
+
+      <ul>
+      <% company.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+
+      </ul>
+    </div>
+  <% end %>
+
 
 
 
@@ -82,7 +95,15 @@
                                                 <div class="col-md-4">
                           <div class="form-group">
                             <label>Company size</label>
-                            <input type="text" name="lastname" placeholder="Sector" class="form-control" />
+                            <select class="form-control input-sm">
+                                <option>1.input-sm</option>
+                                <option>2.input-sm</option>
+                                <option>3.input-sm</option>
+                                <option>4.input-sm</option>
+                                <option>5.input-sm</option>
+                                <option>6.input-sm</option>
+                            </select>
+                            
                           </div>
                                                 </div>
                                                 <!-- end col-4 -->
@@ -126,7 +147,7 @@
                                                   <br>
                                                   <div class="form-group">
 
-  <%= f.label :tag_list, 'Tags (separated with comas)' %>
+  <%= f.label :tag_list, 'Skills (separated with comas)' %>
 <%# f.text_field :tag_list, class: 'form-control' %>
 
 <%# f.select :tag_ids, Tag.all.pluck(:name, :id), {}, {multiple: true, class: "selectize"} %>
@@ -134,6 +155,19 @@
 <%# f.collection_select :tag_ids, Tag.order(:name), :id, :name, {}, {multiple: true, class: "selectize"} %>
 
 <%= f.input :skill_list, value: f.object.skill_list.to_s %>
+
+<%= f.text_field :skill_list, value: @company.skill_list.join(', ') %>
+
+<br>
+
+<%= f.collection_select :tag_ids, Tag.order(:name), :id, :name, {}, {multiple: true, class: "selectize"} %>
+
+<br>
+
+
+<%= f.collection_select :companytype_id, Companytype.all, :id, :name, {prompt: "Select a company type" }, input_html: { class: "dropdown-toggle" } %>
+
+
 
 
 <%# f.select :tag_ids,

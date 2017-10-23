@@ -177,7 +177,7 @@
 									</a>
 								</h3>
 							</div>
-							<br>
+						
 							<div id="media" class="panel-collapse collapse text-center">
 								<div class="panel-body text-center">
 									<%= embed(@company.video1) %>
@@ -269,14 +269,30 @@
                         <% else %>
                         <% end %>
 
+                        <% if @company.companytype.name? %>
+
                          <tr>
                           <td><em class="ion-man icon-fw mr"></em>Company type</td>
-                          <td><a id="gender" href="#" data-type="select" data-pk="1" data-value="2" data-title="Select sex" class="text-inherit"></a>Public Company</td>
+                          <td><span class="is-editable text-inherit">
+
+
+                          	<%= link_to @company.companytype.name, companies_path(companytype: @company.companytype.name) %>
+
+                          	
+                          	
+
+
+                          </span></td>
+
+
                         </tr>
+
+                          <% else %>
+                        <% end %>
 
                         <tr>
                           <td><em class="ion-android-home icon-fw mr"></em>Company size</td>
-                          <td><span class="is-editable text-inherit">1,001-5,000 employees</span></td>
+                          <td><span class="is-editable text-inherit"><%= @company.companysize if @company.companysize  %></span></td>
                         </tr>
 
 
@@ -289,6 +305,9 @@
 
 
 					<!--Social media-->
+
+					<% if @company.facebookurl? || @company.facebookurl? || @company.twitterurl? || @company.linkedinurl? || @company.instagramurl? || @company.googleplusurl? || @company.pinteresturl?   %>
+
 			        		<div class="panel overflow-hidden card-divider btn-raised">
 							<div class="panel-heading">
 								<h3 class="panel-title">
@@ -394,6 +413,9 @@
                     </table>
 							</div>
 						</div>
+
+						<% else %>
+                        <% end %>
 						<!--Social ends-->
 
 

@@ -1,0 +1,25 @@
+<%= simple_form_for(@companytype) do |f| %>
+  <%= f.error_notification %>
+
+  <% if companytype.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(companytype.errors.count, "error") %> prohibited this company type from being saved:</h2>
+
+      <ul>
+      <% companytype.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :desc %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

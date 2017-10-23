@@ -7,7 +7,23 @@ class CompaniesController < ApplicationController
   # GET /companies
   # GET /companies.json
   def index
+
+    if params[:companytype].blank?
+      #@posts = Post.all.order("created_at DESC")
     @companies = Company.all
+
+     else
+
+    @companytype_id = Companytype.find_by(name: params[:companytype]).id
+    @companies = Company.where(companytype_id: @companytype_id).order("created_at DESC")
+
+respond_to do |format|
+      format.html
+      format.js # add this line for your js template
+    end
+    end
+
+ 
   end
 
   def logo
@@ -31,11 +47,15 @@ class CompaniesController < ApplicationController
   # GET /companies/new
   def new
     @company = Company.new
+
+    @companytypes = Companytype.all.map{ |c| [c.name, c.id] }
   end
 
   # GET /companies/1/edit
   def edit
     @company = Company.friendly.find(params[:id])
+
+    #@companytypes = Companytype.all.map{ |c| [c.name, c.id] }
   end
 
   # POST /companies
@@ -43,6 +63,8 @@ class CompaniesController < ApplicationController
   def create
    
     @company = current_profile.companies.build(company_params)
+
+    @company.companytype_id = params[:company_id]
 
 
     respond_to do |format|
@@ -60,6 +82,11 @@ class CompaniesController < ApplicationController
   # PATCH/PUT /companies/1.json
   def update
     @company = Company.friendly.find(params[:id])
+
+    @company.companytype_id = params[:companytype_id]
+
+
+
     respond_to do |format|
 
       if @company.update(company_params)
@@ -90,8 +117,8 @@ class CompaniesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_params
-      params.require(:company).permit(:name, :about, :skill_list, :services, :yearfounded, :companyemail,
-       :contactphone, :video1, :video2, :facebookurl, :twitterurl, :linkedinurl, :googleplusurl, :pinteresturl,
+      params.require(:company).permit(:name, :about, :companytype_id, :companytype_name, :skill_list, :skill, { skill_ids: [] }, :skill_ids, :tag_list, :tag, { tag_ids: [] }, :tag_ids, :services, :yearfounded, :companyemail,
+       :contactphone, :video1, :video2, :companysize, :facebookurl, :twitterurl, :linkedinurl, :googleplusurl, :pinteresturl,
         :instagramurl, :companylogo, :remove_companycover, :remove_companylogo, :slug, :companycover, :websiteurl, 
         thing_locations_attributes: [:id, :thing_location_id, :_destroy, location_ids: []], location_ids: [] )
     end
