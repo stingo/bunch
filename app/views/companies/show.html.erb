@@ -10,21 +10,14 @@
 
         	 <!--Comapy cover-->
 
-        	<% if @company.companycover? %>
-
-
-          <div class="container-overlap bg-blue-500" style="background:url( <%= @company.companycover.url(:large) %>) no-repeat center top fixed;
-    " data-stellar-background-ratio="0.5" id="home" ><!--baner content starts (/assets/el2bg.jpg-->
-
-      <% else %> 
+        	
 
 
           <div class="container-overlap bg-blue-500" ><!--baner content starts (/assets/el2bg.jpg-->
 
           	<!--style="background: url( /assets/el2bg.jpg ) no-repeat center top fixed;
     " data-stellar-background-ratio="0.5" id="home"-->
- <% end %>
-
+ 
    
 
     <!--Copany cover ends-->
@@ -139,7 +132,7 @@
 
 
                   <div class="card-body">
-                    <p data-type="textarea" class="is-editable font-17px-black"><%= @company.about if @company.about? %></p>
+                    <p data-type="textarea" class="is-editable font-17px-black"><%=raw @company.about if @company.about? %></p>
                   </div>
                   <div class="card-divider"></div>
                   
@@ -160,7 +153,7 @@
 							</div>
 							<div id="services" class="panel-collapse collapse">
 								<div class="panel-body">
-									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+									<%=raw @company.services if @company.services %>
 								</div>
 							</div>
 						</div>
@@ -207,7 +200,11 @@
                       	<% if @company.websiteurl? %>
 
                       	 <tr>
-                          <td><em class="ion-document-text icon-fw mr"></em>Website</td>
+                          <td><span class="col-md-2 control-label fa text-primary">
+
+
+                          	<a href="<%= "http://#{@company.websiteurl}" %>" target="_blank" ><i class="fa fa-globe"></i></a>
+                          </span>Website</td>
                           <td><%= link_to @company.websiteurl, "http://#{@company.websiteurl}"  %></td>
                         </tr>
 
@@ -217,17 +214,29 @@
                         <%# link_to 'facebook', 'https://www.facebook.com' %> 
 
 
+                       
+
+
                         <tr>
-                          <td><em class="ion-document-text icon-fw mr"></em>Industry</td>
-                          <td>Research &amp; development</td>
+                          <td><span class="col-md-2 control-label fa text-primary">
+
+
+                          	<a href="<%= "#" %>" target="_blank" ><i class="fa fa-building-o "></i></a>
+                          </span>Industry</td>
+                          <td><h4><%= render @company.industries if @company.industries.present? %></h4></td>
                         </tr>
+
+                       
 
 
                         <% if @company.yearfounded? %>
                         <tr>
                         	<small>
 
-                        <td><em class="ion-egg icon-fw mr"></em>Year founded</td>
+                        <td><span class="col-md-2 control-label fa text-primary">
+
+
+                          	<a href="<%= "#" %>" target="_blank" ><i class="fa fa-calendar fa-stack"></i></a></span>Year founded</td>
                           <td><span data-type="date" data-mode="popup" class="is-editable text-inherit">
 
                           	<%= @company.yearfounded.strftime(" %Y ") %> 
@@ -242,7 +251,11 @@
 
 
                         <tr>
-                          <td><em class="ion-ios-body icon-fw mr"></em>Member since</td>
+                          <td><span class="col-md-2 control-label fa text-primary">
+
+
+                          	<a href="<%= "#" %>" target="_blank" ><i class="fa fa-handshake-o"></i></a>
+                          </span></em>Member since</td>
                           <td><span data-type="date" data-mode="popup" class="is-editable text-inherit"><% if @company.created_at > Time.now.beginning_of_day %>
     <%="#{time_ago_in_words(@company.created_at)} ago"%> 
 <% else %>
@@ -253,7 +266,11 @@
                        <% if @company.companyemail? %>
 
                         <tr>
-                          <td><em class="ion-email icon-fw mr"></em>Email</td>
+                          <td><span class="col-md-2 control-label fa text-primary">
+
+
+                          	<a href="<%= "#" %>" target="_blank" ><i class="fa fa-envelope "></i></a>
+                          </span>Email</td>
                           <td><span class="is-editable text-inherit"><a href="#">user@mail.com</a></span></td>
                         </tr>
                           <% else %>
@@ -262,7 +279,11 @@
 
                         <% if @company.contactphone? %>
                         <tr>
-                          <td><em class="ion-ios-telephone icon-fw mr"></em>Contact phone</td>
+                          <td><span class="col-md-2 control-label fa text-primary">
+
+
+                          	<a href="<%= "#" %>" target="_blank" ><i class="fa fa-phone"></i></a>
+                          </span>Contact phone</td>
                           <td><span class="is-editable text-inherit"><%= @company.contactphone %></span></td>
                         </tr>
 
@@ -271,7 +292,11 @@
 
                         <% if @company.companytype_id? %>
                          <tr>
-                          <td><em class="ion-man icon-fw mr"></em>Company type</td>
+                          <td><span class="col-md-2 control-label fa text-primary">
+
+
+                          	<a href="<%= "#" %>" target="_blank" ><i class="fa fa-building"></i></a>
+                          </span></em>Company type</td>
                           <td><span class="is-editable text-inherit">
 
 
@@ -292,7 +317,11 @@
                          <% if @company.companysize_id? %>
 
                         <tr>
-                          <td><em class="ion-android-home icon-fw mr"></em>Company size</td>
+                          <td><span class="col-md-2 control-label fa text-primary">
+
+
+                          	<a href="<%= "#" %>" target="_blank" ><i class="fa fa-expand "></i></a>
+                          </span></em>Company size</td>
                           <td><span class="is-editable text-inherit">
 
                           	<%= @company.companysize.name  %>

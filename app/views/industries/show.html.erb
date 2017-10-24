@@ -1,9 +1,104 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @industry.name %>
-</p>
 
-<%= link_to 'Edit', edit_industry_path(@industry) %> |
-<%= link_to 'Back', industries_path %>
+<p>Industry: <%# render 'events/event', obj: @location_events	 %></p>
+
+
+
+<h1 align="center">Listing all industries</h1>
+
+
+
+<div class="row">
+
+<div class="col-xs-8 col-xs-offset-2">
+
+<div class="well well-lg">
+
+<div class="article-title">
+
+<%= link_to @industry.name, company_path(@industry) %>
+
+ <div class="btn btn-default mb-1x mr-1x zindez999">
+                  <%= "Job".pluralize(@industry.companies.count) %><br / >
+                    <span class="headline"><strong><%= @industry.companies.count %></strong></span>
+
+</div>
+
+
+<div class="btn btn-success mb-1x mr-1x zindez999">
+                  <%= "People".pluralize(@industry.profiles.count) %><br / >
+                    <span class="headline"><strong><%= @industry.profiles.count %></strong></span>
+
+</div>
+
+
+
+
+
+
+<%# if @location.events.any? %>
+
+<p>Companies: <%# render @location.events %></p>
+
+<%# end %>
+
+
+
+
+<!--list location events -->
+
+
+
+       <% @industry_companies.each do |company| %>
+          
+
+              <%= link_to (company.name), company %>
+
+        
+
+        <% end %>
+
+
+  <!--end list industryevents -->  
+
+
+
+
+   
+
+
+
+
+
+
+
+<div class="article-actions">
+
+<%= link_to "Edit this industry", edit_skill_path(@industry), class: "btn btn-xs btn-primary" %>
+
+<%= link_to "Delete this industry", skill_path(@industry), method: :delete,
+
+data: { confirm: "Are you sure you want to delete the industry?"},
+
+class: "btn btn-xs btn-danger" %>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

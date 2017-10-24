@@ -126,6 +126,7 @@ respond_to do |format|
        :tag_list, :tag, { tag_ids: [] }, :tag_ids, :services, :yearfounded, :companyemail,
        :contactphone, :video1, :video2, :companysize_id, :facebookurl, :twitterurl, :linkedinurl, :googleplusurl, :pinteresturl,
         :instagramurl, :companylogo, :remove_companycover, :remove_companylogo, :slug, :companycover, :websiteurl, 
-        thing_locations_attributes: [:id, :thing_location_id, :_destroy, location_ids: []], location_ids: [] )
+        thing_locations_attributes: [:id, :thing_location_id, :_destroy, location_ids: []], location_ids: [], 
+        thing_industries_attributes: [:id, :thing_cindustry_id, :_destroy, industry_ids: []], industry_ids: [] )
     end
 end

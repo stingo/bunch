@@ -11,6 +11,7 @@ class IndustriesController < ApplicationController
   # GET /industries/1.json
   def show
     @industry_companies = @industry.companies #paginate(page: params[:page], per_page: 5)
+    @industry_profiles = @industry.profiles #paginate(page: params[:page], per_page: 5)
     @industry_jobs = @industry.jobs #paginate(page: params[:page], per_page: 5)
   end
 
