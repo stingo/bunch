@@ -1,6 +1,19 @@
 <%= simple_form_for(@industry) do |f| %>
   <%= f.error_notification %>
 
+   <% if industry.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(industry.errors.count, "error") %> prohibited this industry from being saved:</h2>
+
+      <ul>
+      <% industry.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+
+      </ul>
+    </div>
+  <% end %>
+
   <div class="form-inputs">
     <%= f.input :name %>
   </div>
