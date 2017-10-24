@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171023192702) do
+ActiveRecord::Schema.define(version: 20171024064149) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -121,6 +121,12 @@ ActiveRecord::Schema.define(version: 20171023192702) do
     t.index ["impressionable_type", "message", "impressionable_id"], name: "impressionable_type_message_index"
     t.index ["profile_id"], name: "index_impressions_on_profile_id"
     t.index ["user_id"], name: "index_impressions_on_user_id"
+  end
+
+  create_table "industries", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "jobs", force: :cascade do |t|
@@ -269,6 +275,14 @@ ActiveRecord::Schema.define(version: 20171023192702) do
     t.index ["company_id"], name: "index_thing_companies_on_company_id"
     t.index ["event_id"], name: "index_thing_companies_on_event_id"
     t.index ["listing_id"], name: "index_thing_companies_on_listing_id"
+  end
+
+  create_table "thing_industries", force: :cascade do |t|
+    t.integer "company_id"
+    t.integer "job_id"
+    t.integer "profile_id"
+    t.integer "industry_id"
+    t.index ["industry_id"], name: "index_thing_industries_on_industry_id"
   end
 
   create_table "thing_locations", force: :cascade do |t|

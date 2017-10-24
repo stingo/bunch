@@ -122,7 +122,8 @@ respond_to do |format|
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_params
-      params.require(:company).permit(:name, :about, :companytype_id, :companytype_name, :skill_list, :skill, { skill_ids: [] }, :skill_ids, :tag_list, :tag, { tag_ids: [] }, :tag_ids, :services, :yearfounded, :companyemail,
+      params.require(:company).permit(:name, :about, :companytype_id, :companytype_name, :skill_list, :skill, { skill_ids: [] }, :skill_ids,
+       :tag_list, :tag, { tag_ids: [] }, :tag_ids, :services, :yearfounded, :companyemail,
        :contactphone, :video1, :video2, :companysize_id, :facebookurl, :twitterurl, :linkedinurl, :googleplusurl, :pinteresturl,
         :instagramurl, :companylogo, :remove_companycover, :remove_companylogo, :slug, :companycover, :websiteurl, 
         thing_locations_attributes: [:id, :thing_location_id, :_destroy, location_ids: []], location_ids: [] )

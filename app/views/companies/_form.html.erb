@@ -149,9 +149,9 @@
 
 <%# f.collection_select :tag_ids, Tag.order(:name), :id, :name, {}, {multiple: true, class: "selectize"} %>
 
-<%= f.input :skill_list, value: f.object.skill_list.to_s %>
+<%# f.input :skill_list, value: f.object.skill_list.to_s %>
 
-<%= f.text_field :skill_list, value: @company.skill_list.join(', ') %>
+<%# f.text_field :skill_list, value: @company.skill_list.join(', ') %>
 
 <br>
 
@@ -166,6 +166,13 @@
 <%= f.collection_select :companytype_id, Companytype.all, :id, :name, {prompt: "Select a company type" }, input_html: { class: "dropdown-toggle form-control input-sm" } %>
 
 </div>
+
+                                                <div class="col-md-4">
+                          <div class="form-group">
+                            <label>Industry <span class="required">*</span></label>
+                            <%= f.select :industry_ids, Industry.all.pluck(:name, :id), {}, { multiple: true, class: "selectize"} %>
+                          </div>
+                                                </div>
 
 
 

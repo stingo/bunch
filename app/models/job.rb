@@ -10,6 +10,10 @@ class Job < ApplicationRecord
     has_many :companies, through: :thing_companies
 
 
+    has_many :thing_industries
+    has_many :industries, through: :thing_industries
+
+
 
     #has_many :profiles, through: :thing_skills
 

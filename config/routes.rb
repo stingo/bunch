@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :industries
   resources :companytypes
   resources :skills
   resources :products

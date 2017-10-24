@@ -18,9 +18,9 @@ class Profile < ApplicationRecord
 
 	
 
-	has_many :thing_companies
-    has_many :companies, through: :thing_companies
-    has_many :listings, through: :thing_companies
+	has_many :thing_industries
+    has_many :industries, through: :thing_industries
+    
 
 
 
