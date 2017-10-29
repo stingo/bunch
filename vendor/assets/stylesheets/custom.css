@@ -10,6 +10,11 @@
 
 }
 
+.imgresp {
+    width: 100%;
+    height: auto;
+}
+
 .font-17px-black {
     line-height: 24px;
     color: rgba(0,0,0,.7);
