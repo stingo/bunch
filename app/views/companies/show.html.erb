@@ -162,80 +162,538 @@
       <% end %>
 
 
-            <div class="media m0 pv" >
-              <div class="media-left"><a href="#"><img src="img/user/03.jpg" alt="User" class="media-object img-circle thumb64"></a></div>
-              <div class="media-body media-middle">
-                <h4 class="media-heading">Christine Matthews</h4><span class="text-muted">Sed eget lacus quis diam molestie mollis.</span>
+            <div class="container container-md"><!--baner-->
+
+
+
+            <div class="media m0 pv">
+
+              <div class="media-left">
+
+                 <% if @company.companylogo? %>
+        <%= image_tag(@company.companylogo.url(:large), :class => "thumb96 btn-raised ", :alt =>"companylogo")  %>
+
+
+         
+
+        <% else %> 
+        <%= image_tag("noimage.jpg", :class => "thumb96 btn-raised", :alt =>"companylogo") %>
+
+
+       <% end %>
+
+       </div>
+
+
+
+
+              <!--div class="media-left"><a href="#"><img src="<%= @company.companylogo.url(:large) %>" alt="User" class="media-object img-circle thumb64"></a></div-->
+
+
+              <div class="media-body media-middle ccard-info">
+                <h4><span class="media-heading " style="background: #ffffff; color:#000000; font-size: 22px; padding:5px; opacity: 0.9; border-radius: 2px;"><%= @company.name if @company.name %></span> </h4>
+                <span class="ccard-title" style="background: #ffffff; color:#337ab7; padding:5px; opacity: 0.9; border-radius: 2px;"> 
+
+<%= raw @company.skill_list.map { |t| link_to t, tag_path(t) }.join(', ') if @company.skill_list.present? %> <span style="font-size: 30px; color: #000000">.</span> <%= render @company.locations if @company.locations.present? %> <span style="font-size: 30px; color: #000000">.</span> 81,324 followers
+  <span style="font-size: 30px; color: #000000">.</span> <i class="fa fa-eye" style="color:#337ab7;"></i> <%= @company.impressionist_count(:filter=>:session_hash) %></span> 
+
+
+
+
+
+<%# @company.skill_list %>
               </div>
             </div>
-          </div>
+
+        </div><!--baner ends-->
 
 
-      
+          </div><!--baner content ends-->
 
 
-
-          <div class="container-fluid">
+          <div class="container container-md">
             <div class="row">
               <!-- Left column-->
               <div class="col-md-7 col-lg-8">
                 <form editable-form="" name="user.profileForm" class="card">
-                  <h5 class="card-heading pb0">
+                  <h3 class="card-heading title-20px-black pb0">
+                   
                     <!-- START dropdown-->
-                    <div class="pull-right dropdown">
+                    <!--div class="pull-right dropdown">
                       <button type="button" data-toggle="dropdown" class="btn btn-default btn-flat btn-flat-icon"><em class="ion-android-more-vertical"></em></button>
                       <ul role="menu" class="dropdown-menu md-dropdown-menu dropdown-menu-right">
                         <li><a href="#">Action 1</a></li>
                         <li><a href="#">Action 2</a></li>
                       </ul>
-                    </div>
+                    </div-->
+
                     <!-- END dropdown-->About
-                  </h5>
+                  </h3>
+
+                  
+
+
+                  <!--edit/destroy user's hows-->
+<% if profile_signed_in? && current_profile == @company.profile %>
+
+                    
+                  <div class="card-divider cutbtn20px"></div>
+                  <div class="card-offset cutbtn20px">
+                    <div class="card-offset-item text-right cutbtn20px">
+
+                   
+
+
+                    
+
+
+                         
+                <%= link_to edit_company_path(@company) do %><span class="btn-raised btn btn-warning btn-circle btn-lg"><em class="ion-edit"></em> <% end %></span>
+
+                
+
+
+                <%= link_to @company, method: :delete, remote: true, data: { confirm: 'Are you sure you want to delete this company?' } do %><span class="btn-raised btn btn-default btn-circle btn-lg"><em class="ion-close"></em> <% end %></span>
+
+               
+
+
+                    </div>
+                  </div>
+                   <% else %>
+
+                    <% end %>
+
+                  <!--edit end-->
+
+
                   <div class="card-body">
-                    <p data-type="textarea" class="is-editable text-inherit">Pellentesque porta tincidunt justo, non fringilla erat iaculis in. Sed nisi erat, ornare eu pellentesque quis, pellentesque non nulla. Proin rutrum, est pellentesque commodo mattis, sem justo porttitor odio, id aliquet lacus augue nec nisl.</p>
+                    <span class="lead"><%=raw @company.about if @company.about? %></span>
                   </div>
                   <div class="card-divider"></div>
-                  <div class="card-offset">
-                    <div class="card-offset-item text-right">
-                      <button id="edit-enable" type="button" class="btn-raised btn btn-warning btn-circle btn-lg"><em class="ion-edit"></em></button>
-                      <button id="edit-disable" type="submit" class="btn-raised btn btn-success btn-circle btn-lg hidden"><em class="ion-checkmark-round"></em></button>
-                    </div>
-                  </div>
-                  <h5 class="card-heading pb0">Contact Information</h5>
-                  <div class="card-body">
-                    <table class="table table-striped">
+                  
+                  <!-- begin col-6 -->
+          <div class="card-body">
+              <div class="panel-group" id="accordion">
+
+
+              <!--Services-->
+                <div class="panel overflow-hidden card-divider btn-raised">
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#services">
+                      <i class="fa fa-plus-circle pull-right title-20px-black blk"></i> 
+                    <span class="title-20px-black blk">What We Do</span>
+                  </a>
+                </h3>
+              </div>
+              <div id="services" class="panel-collapse collapse">
+                <div class="panel-body lead">
+                  <%=raw @company.services if @company.services %>
+                </div>
+              </div>
+            </div>
+            <!--Services ends-->
+
+                      <!--Media-->
+                      <% if @company.video1? %>
+                <div class="panel overflow-hidden card-divider btn-raised ">
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#media">
+                      <i class="fa fa-plus-circle pull-right title-20px-black blk"></i> 
+                    <span class="title-20px-black blk">Media</span>
+                  </a>
+                </h3>
+              </div>
+            
+              <div id="media" class="panel-collapse collapse text-center">
+                <div class="panel-body text-center">
+                  <%= embed(@company.video1) %>
+                </div>
+              </div>
+            </div>
+            <% else %>
+                        <% end %>
+            <!--media ends-->
+
+            <!--company details-->
+
+
+            <div class="panel overflow-hidden card-divider btn-raised">
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                      <i class="fa fa-plus-circle pull-right title-20px-black blk"></i> 
+                    <span class="title-20px-black blk">Company Details</span>
+                  </a>
+                </h3>
+              </div>
+              <div id="collapseOne" class="panel-collapse collapse">
+                <table class="table table-striped">
                       <tbody>
-                        <tr>
-                          <td><em class="ion-document-text icon-fw mr"></em>Area</td>
-                          <td>Research &amp; development</td>
+
+                        <% if @company.websiteurl? %>
+
+                         <tr>
+                          <td><span class="col-md-2 control-label fa text-primary semi-bold">
+
+
+                            <a href="<%= "http://#{@company.websiteurl}" %>" target="_blank" ><i class="fa fa-globe"></i></a>
+                          </span>Website</td>
+                          <td><%= link_to @company.websiteurl, "http://#{@company.websiteurl}"  %></td>
                         </tr>
+
+                        <% else %>
+                        <% end %>
+
+                        <%# link_to 'facebook', 'https://www.facebook.com' %> 
+
+
+                       
+
+
                         <tr>
-                          <td><em class="ion-egg icon-fw mr"></em>Birthday</td>
-                          <td><span data-type="date" data-mode="popup" class="is-editable text-inherit">10/11/2000</span></td>
+                          <td><span class="col-md-2 control-label fa text-primary">
+
+
+                            <a href="<%= "#" %>" target="_blank" ><i class="fa fa-building-o "></i></a>
+                          </span>Industry</td>
+                          <td><h4><%= render @company.industries if @company.industries.present? %></h4></td>
                         </tr>
+
+                       
+
+
+                        <% if @company.yearfounded? %>
                         <tr>
-                          <td><em class="ion-ios-body icon-fw mr"></em>Member since</td>
-                          <td><span data-type="date" data-mode="popup" class="is-editable text-inherit">05/11/2015</span></td>
+                          <small>
+
+                        <td><span class="col-md-2 control-label fa text-primary">
+
+
+                            <a href="<%= "#" %>" target="_blank" ><i class="fa fa-calendar fa-stack"></i></a></span>Year founded</td>
+                          <td><span data-type="date" data-mode="popup" class="is-editable text-inherit">
+
+                            <%= @company.yearfounded.strftime(" %Y ") %> 
+
+                            </span></td>
                         </tr>
+
+                         <% else %>
+                        <% end %>
+
+
+
+
                         <tr>
-                          <td><em class="ion-man icon-fw mr"></em>Gender</td>
-                          <td><a id="gender" href="#" data-type="select" data-pk="1" data-value="2" data-title="Select sex" class="text-inherit"></a></td>
+                          <td><span class="col-md-2 control-label fa text-primary">
+
+
+                            <a href="<%= "#" %>" target="_blank" ><i class="fa fa-handshake-o"></i></a>
+                          </span></em>Member since</td>
+                          <td><span data-type="date" data-mode="popup" class="is-editable text-inherit"><% if @company.created_at > Time.now.beginning_of_day %>
+    <%="#{time_ago_in_words(@company.created_at)} ago"%> 
+<% else %>
+    <%= @company.created_at.strftime("%b %d, %Y ") %> 
+<% end %></small></span></td>
                         </tr>
+
+                       <% if @company.companyemail? %>
+
                         <tr>
-                          <td><em class="ion-android-home icon-fw mr"></em>Address</td>
-                          <td><span class="is-editable text-inherit">Some street, 123</span></td>
-                        </tr>
-                        <tr>
-                          <td><em class="ion-email icon-fw mr"></em>Email</td>
+                          <td><span class="col-md-2 control-label fa text-primary">
+
+
+                            <a href="<%= "#" %>" target="_blank" ><i class="fa fa-envelope "></i></a>
+                          </span>Email</td>
                           <td><span class="is-editable text-inherit"><a href="#">user@mail.com</a></span></td>
                         </tr>
+                          <% else %>
+                        <% end %>
+
+
+                        <% if @company.contactphone? %>
                         <tr>
-                          <td><em class="ion-ios-telephone icon-fw mr"></em>Contact phone</td>
-                          <td><span class="is-editable text-inherit">13-123-46578</span></td>
+                          <td><span class="col-md-2 control-label fa text-primary">
+
+
+                            <a href="<%= "#" %>" target="_blank" ><i class="fa fa-phone"></i></a>
+                          </span>Contact phone</td>
+                          <td><span class="is-editable text-inherit"><%= @company.contactphone %></span></td>
                         </tr>
+
+                        <% else %>
+                        <% end %>
+
+                        <% if @company.companytype_id? %>
+                         <tr>
+                          <td><span class="col-md-2 control-label fa text-primary">
+
+
+                            <a href="<%= "#" %>" target="_blank" ><i class="fa fa-building"></i></a>
+                          </span></em>Company type</td>
+                          <td><span class="is-editable text-inherit">
+
+
+                            <%= link_to @company.companytype.name, companies_path(companytype: @company.companytype.name)  %>
+
+                            
+                            
+
+
+                          </span></td>
+
+
+                        </tr>
+
+                          <% else %>
+                        <% end %>
+
+                         <% if @company.companysize_id? %>
+
+                        <tr>
+                          <td><span class="col-md-2 control-label fa text-primary">
+
+
+                            <a href="<%= "#" %>" target="_blank" ><i class="fa fa-expand "></i></a>
+                          </span></em>Company size</td>
+                          <td><span class="is-editable text-inherit">
+
+                            <%= @company.companysize.name  %>
+                            
+
+                          </span></td>
+                        </tr>
+
+                        <% else %>
+                        <% end %>
+
+
                       </tbody>
                     </table>
-                  </div>
+              </div>
+            </div>
+          <!--company details ends-->
+
+
+
+          <!--Social media-->
+
+          <% if @company.facebookurl? || @company.facebookurl? || @company.twitterurl? || @company.linkedinurl? || @company.instagramurl? || @company.googleplusurl? || @company.pinteresturl?   %>
+
+                  <div class="panel overflow-hidden card-divider btn-raised">
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#socialMedia">
+                      <i class="fa fa-plus-circle pull-right title-20px-black blk"></i> 
+                    <span class="title-20px-black blk">Social Media</span>
+                  </a>
+                </h3>
+              </div>
+              <div id="socialMedia" class="panel-collapse collapse">
+                <table class="table table-striped">
+                      <tbody>
+
+                        <% if @company.facebookurl? %>
+
+                         <tr>
+
+                          <td><span class="col-md-2 control-label fa text-primary">
+
+
+                            <a href="<%= "http://#{@company.facebookurl}" %>" target="_blank" ><i class="fa fa-facebook-square fa-stack-2x"></i></a>
+                          </span></td>
+                         
+                          <td><strong class="mt-l"><%= link_to 'Facebook', "http://#{@company.facebookurl}", target: "_blank"  %></strong></td>
+                        </tr>
+
+                        <% else %>
+                        <% end %>
+
+                        <%# link_to 'facebook', 'https://www.facebook.com' %> 
+
+
+                          <% if @company.twitterurl? %>
+
+                         <tr>
+
+                          <td><span class="col-md-2 control-label fa text-primary">
+                            <a href="<%= "http://#{@company.twitterurl}" %>" target="_blank" ><i class="fa fa-twitter-square fa-stack-2x"></i></a>
+                          </span></td>
+                          <td><strong class="mt-l"><%= link_to 'Twitter', "http://#{@company.twitterurl}", target: "_blank"  %></strong></td>
+                        </tr>
+
+                        <% else %>
+                        <% end %>
+
+                        <% if @company.linkedinurl? %>
+
+                         <tr>
+
+                          <td><span class="col-md-2 control-label fa text-primary">
+                            <a href="<%= "http://#{@company.linkedinurl}" %>" target="_blank" ><i class="fa fa-linkedin-square fa-stack-2x"></i></a></span></td>
+                          <td><strong class="mt-l"><%= link_to 'Linkedin', "http://#{@company.linkedinurl}", target: "_blank"  %></strong></td>
+                        </tr>
+
+                        <% else %>
+                        <% end %>
+
+                        <% if @company.instagramurl? %>
+
+                         <tr>
+
+                          <td><span class="col-md-2 control-label fa text-primary"><a href="<%= "http://#{@company.instagramurl}" %>" target="_blank" ><i class="fa fa-instagram fa-stack-2x"></i></a></span></td>
+                          <td><strong class="mt-l"><%= link_to 'Instagram', "http://#{@company.instagramurl}", target: "_blank"  %></strong></td>
+                        </tr>
+
+                        <% else %>
+                        <% end %>
+
+                       
+
+                      <% if @company.googleplusurl? %>
+
+                         <tr>
+
+                          <td><span class="col-md-2 control-label fa text-primary"><a href="<%= "http://#{@company.googleplusnurl}" %>" target="_blank" ><i class="fa fa-google-plus-square fa-stack-2x"></i></a></span></td>
+                          <td><strong class="mt-l"><%= link_to 'Google +', "http://#{@company.googleplusurl}", target: "_blank"  %></strong></td>
+                        </tr>
+
+                        <% else %>
+                        <% end %>
+
+
+                          <% if @company.pinteresturl? %>
+
+                         <tr>
+
+                          <td><span class="col-md-2 control-label fa text-danger"><a href="<%= "http://#{@company.pinteresturl}" %>" target="_blank" ><i class="fa fa-pinterest-square fa-stack-2x"></i></a><</span></td>
+                          <td><strong class="mt-l"><%= link_to 'Pinterest', "http://#{@company.pinteresturl}", target: "_blank"  %></strong></td>
+                        </tr>
+
+                        <% else %>
+                        <% end %>
+
+
+
+
+
+
+
+
+
+                      </tbody>
+                    </table>
+              </div>
+            </div>
+
+            <% else %>
+                        <% end %>
+            <!--Social ends-->
+
+
+
+
+            <div class="panel panel-inverse overflow-hidden">
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                      <i class="fa fa-plus-circle pull-right"></i> 
+                    Collapsible Group Item #2
+                  </a>
+                </h3>
+              </div>
+              <div id="collapseTwo" class="panel-collapse collapse">
+                <div class="panel-body">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+              </div>
+            </div>
+
+
+            <div class="panel panel-inverse overflow-hidden">
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                      <i class="fa fa-plus-circle pull-right"></i> 
+                    Collapsible Group Item #3
+                  </a>
+                </h3>
+              </div>
+              <div id="collapseThree" class="panel-collapse collapse">
+                <div class="panel-body">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-inverse overflow-hidden">
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                      <i class="fa fa-plus-circle pull-right"></i> 
+                    Collapsible Group Item #4
+                  </a>
+                </h3>
+              </div>
+              <div id="collapseFour" class="panel-collapse collapse">
+                <div class="panel-body">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-inverse overflow-hidden">
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
+                      <i class="fa fa-plus-circle pull-right"></i> 
+                    Collapsible Group Item #5
+                  </a>
+                </h3>
+              </div>
+              <div id="collapseFive" class="panel-collapse collapse">
+                <div class="panel-body">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-inverse overflow-hidden">
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix">
+                      <i class="fa fa-plus-circle pull-right"></i> 
+                    Collapsible Group Item #6
+                  </a>
+                </h3>
+              </div>
+              <div id="collapseSix" class="panel-collapse collapse">
+                <div class="panel-body">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-inverse overflow-hidden">
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven">
+                      <i class="fa fa-plus-circle pull-right"></i> 
+                    Collapsible Group Item #7
+                  </a>
+                </h3>
+              </div>
+              <div id="collapseSeven" class="panel-collapse collapse">
+                <div class="panel-body">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+          <!-- end col-6 -->
+
+
+              
+
                   <div class="card-divider"></div>
                   <h5 class="card-heading pb0">Recent articles</h5>
                   <div class="card-body">
@@ -270,7 +728,19 @@
                     </ul>
                   </div>
                 </form>
+
+                          
               </div>
+
+
+
+
+
+
+
+
+
+
               <!-- Right column-->
               <div class="col-md-5 col-lg-4">
                 <div class="card">
@@ -394,194 +864,19 @@
         </div>
       </div>
     </div>
+
+
+
     <!-- End Search template-->
-    <!-- Settings template-->
-    <div tabindex="-1" role="dialog" class="modal-settings modal modal-right fade">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <div data-dismiss="modal" class="pull-right clickable"><em class="ion-close-round text-soft"></em></div>
-            <h4 class="modal-title"><span>Settings</span></h4>
-          </div>
-          <div class="modal-body">
-            <div class="clearfix mb">
-              <div class="pull-left wd-tiny mb">
-                <div class="setting-color">
-                  <label class="preview-theme-1">
-                    <input type="radio" checked="checked" name="setting-theme" value="0"><span class="ion-checkmark-round"></span>
-                    <div class="t-grid">
-                      <div class="t-row">
-                        <div class="t-col preview-header"></div>
-                        <div class="t-col preview-sidebar"></div>
-                        <div class="t-col preview-content"></div>
-                      </div>
-                    </div>
-                  </label>
-                </div>
-              </div>
-              <div class="pull-left wd-tiny mb">
-                <div class="setting-color">
-                  <label class="preview-theme-2">
-                    <input type="radio" name="setting-theme" value="1"><span class="ion-checkmark-round"></span>
-                    <div class="t-grid">
-                      <div class="t-row">
-                        <div class="t-col preview-header"></div>
-                        <div class="t-col preview-sidebar"></div>
-                        <div class="t-col preview-content"></div>
-                      </div>
-                    </div>
-                  </label>
-                </div>
-              </div>
-              <div class="pull-left wd-tiny mb">
-                <div class="setting-color">
-                  <label class="preview-theme-3">
-                    <input type="radio" name="setting-theme" value="2"><span class="ion-checkmark-round"></span>
-                    <div class="t-grid">
-                      <div class="t-row">
-                        <div class="t-col preview-header"></div>
-                        <div class="t-col preview-sidebar"></div>
-                        <div class="t-col preview-content"></div>
-                      </div>
-                    </div>
-                  </label>
-                </div>
-              </div>
-              <div class="pull-left wd-tiny mb">
-                <div class="setting-color">
-                  <label class="preview-theme-4">
-                    <input type="radio" name="setting-theme" value="3"><span class="ion-checkmark-round"></span>
-                    <div class="t-grid">
-                      <div class="t-row">
-                        <div class="t-col preview-header"></div>
-                        <div class="t-col preview-sidebar"></div>
-                        <div class="t-col preview-content"></div>
-                      </div>
-                    </div>
-                  </label>
-                </div>
-              </div>
-              <div class="pull-left wd-tiny mb">
-                <div class="setting-color">
-                  <label class="preview-theme-5">
-                    <input type="radio" name="setting-theme" value="4"><span class="ion-checkmark-round"></span>
-                    <div class="t-grid">
-                      <div class="t-row">
-                        <div class="t-col preview-header"></div>
-                        <div class="t-col preview-sidebar"></div>
-                        <div class="t-col preview-content"></div>
-                      </div>
-                    </div>
-                  </label>
-                </div>
-              </div>
-              <div class="pull-left wd-tiny mb">
-                <div class="setting-color">
-                  <label class="preview-theme-6">
-                    <input type="radio" name="setting-theme" value="5"><span class="ion-checkmark-round"></span>
-                    <div class="t-grid">
-                      <div class="t-row">
-                        <div class="t-col preview-header"></div>
-                        <div class="t-col preview-sidebar"></div>
-                        <div class="t-col preview-content"></div>
-                      </div>
-                    </div>
-                  </label>
-                </div>
-              </div>
-              <div class="pull-left wd-tiny mb">
-                <div class="setting-color">
-                  <label class="preview-theme-7">
-                    <input type="radio" name="setting-theme" value="6"><span class="ion-checkmark-round"></span>
-                    <div class="t-grid">
-                      <div class="t-row">
-                        <div class="t-col preview-header"></div>
-                        <div class="t-col preview-sidebar"></div>
-                        <div class="t-col preview-content"></div>
-                      </div>
-                    </div>
-                  </label>
-                </div>
-              </div>
-              <div class="pull-left wd-tiny mb">
-                <div class="setting-color">
-                  <label class="preview-theme-8">
-                    <input type="radio" name="setting-theme" value="7"><span class="ion-checkmark-round"></span>
-                    <div class="t-grid">
-                      <div class="t-row">
-                        <div class="t-col preview-header"></div>
-                        <div class="t-col preview-sidebar"></div>
-                        <div class="t-col preview-content"></div>
-                      </div>
-                    </div>
-                  </label>
-                </div>
-              </div>
-              <div class="pull-left wd-tiny mb">
-                <div class="setting-color">
-                  <label class="preview-theme-9">
-                    <input type="radio" name="setting-theme" value="8"><span class="ion-checkmark-round"></span>
-                    <div class="t-grid">
-                      <div class="t-row">
-                        <div class="t-col preview-header"></div>
-                        <div class="t-col preview-sidebar"></div>
-                        <div class="t-col preview-content"></div>
-                      </div>
-                    </div>
-                  </label>
-                </div>
-              </div>
-            </div>
-            <hr>
-            <p>
-              <label class="mda-checkbox">
-                <input id="sidebar-showheader" type="checkbox" checked=""><em class="bg-indigo-500"></em>Sidebar header
-              </label>
-            </p>
-            <p>
-              <label class="mda-checkbox">
-                <input id="sidebar-showtoolbar" type="checkbox" checked=""><em class="bg-indigo-500"></em>Sidebar toolbar
-              </label>
-            </p>
-            <p>
-              <label class="mda-checkbox">
-                <input id="sidebar-offcanvas" type="checkbox"><em class="bg-indigo-500"></em>Sidebar offcanvas
-              </label>
-            </p>
-            <hr>
-            <p>Navigation icon</p>
-            <p>
-              <label class="mda-radio">
-                <input type="radio" name="headerMenulink" value="menu-link-close"><em class="bg-indigo-500"></em>Close icon
-              </label>
-            </p>
-            <p>
-              <label class="mda-radio">
-                <input type="radio" checked="" name="headerMenulink" value="menu-link-slide"><em class="bg-indigo-500"></em>Slide arrow
-              </label>
-            </p>
-            <p>
-              <label class="mda-radio">
-                <input type="radio" name="headerMenulink" value="menu-link-arrow"><em class="bg-indigo-500"></em>Big arrow
-              </label>
-            </p>
-            <hr>
-            <button type="button" data-toggle-fullscreen="" class="btn btn-default btn-raised">Toggle fullscreen</button>
-            <hr>
-            <p>Change language</p>
-            <!-- START Language list-->
-            <div class="btn-group">
-              <button type="button" data-toggle="dropdown" class="btn btn-default btn-block btn-raised">English</button>
-              <ul role="menu" class="dropdown-menu dropdown-menu-right animated fadeInUpShort">
-                <li><a href="#" data-set-lang="en">English</a></li>
-                <li><a href="#" data-set-lang="es">Spanish</a></li>
-              </ul>
-            </div>
-            <!-- END Language list-->
-          </div>
-        </div>
-      </div>
-    </div>
+    
+    <!-- End Settings template-->
+    <!-- Google Maps API-->
+<script src="https://cdn.rawgit.com/skipser/youtube-autoresize/master/youtube-autoresizer.js"></script>
+
+    
+  
+
+
     <!-- End Settings template-->
     <!-- Google Maps API-->
     
