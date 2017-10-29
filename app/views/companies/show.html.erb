@@ -3,7 +3,8 @@
 
 
 
-      <!-- Main section-->
+      <!-- Main section style="background:url( <%# @company.companycover.url(:large) %>) no-repeat center top fixed;
+    " data-stellar-background-ratio="0.5" id="home" img= "width: 100%; height: auto;"-->
       <main class="bg-white">
         <!-- Page content-->
 
@@ -12,8 +13,15 @@
         	<% if @company.companycover? %>
 
 
-          <div class="container-overlap bg-blue-500 img-responsive" style="background:url( <%= @company.companycover.url(:large) %>) no-repeat center top fixed;
-    " data-stellar-background-ratio="0.5" id="home" img= "width: 100%; height: auto;" ><!--baner content starts (/assets/el2bg.jpg-->
+          <div class="container-overlap bg-blue-500 img-responsive" 
+
+
+    style="background: url(https://s3.amazonaws.com/proinsidegh/static/el2bg.jpg) no-repeat center top fixed;
+    " data-stellar-background-ratio="0.5" id="home"
+
+
+
+     ><!--baner content starts (/assets/el2bg.jpg-->
 
       <% else %> 
 

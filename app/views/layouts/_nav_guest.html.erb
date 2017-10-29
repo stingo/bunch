@@ -19,18 +19,47 @@
                 </div>
             </div>
 
+
+
+
+
+
+
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="[ collapse navbar-collapse ]" id="bs-example-navbar-collapse-1">
                 <ul class="[ nav navbar-nav navbar-right ]">
-                    
+ <%# render '/layouts/searchform' unless @disable_searchform %>
+
+                    <!--mobile search  -->
+                    <li class="[ visible-xs ]">
 
 
-             <%= render '/layouts/searchform' unless @disable_searchform %>
+
+            <%= form_with url: search_path, local: true, method: :get, :class => "input-group" do |form| %>
+               <div class="[ input-group ]">
+                <!--input type="text" name="q" id="q" class="form-control" placeholder="Search insideGH" data-behavior= "autocomplete"  /-->
+                <%= form.text_field :q, placeholder: "Autocomplete Search", class: "form-control" %>
+
+                <span class="[ input-group-btn ]">
+                                    <button class="[ btn btn-primary ]" type="submit"><span class="[ glyphicon glyphicon-search ]"></span></button>
+
+                <button class="[ btn btn-danger ]" type="reset"><span class="[ glyphicon glyphicon-remove ]"></span></button>
+             </span>
+              </div >
+        
+            <% end %>
 
 
 
 
-                                  <!--Add starts-->
+
+            </li>
+
+
+
+                    <!--mobile search ends -->
+
+<!--Add starts-->
         <li class="dropdown">
             <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14">
               
@@ -40,7 +69,7 @@
               
               
             </a>
-            <ul class="dropdown-menu media-list pull-right animated fadeInDown">
+            <ul class="dropdown-menu media-list pull-left animated fadeInDown">
 
 
 
@@ -171,6 +200,9 @@
 <!--Add ends-->
 
 
+<!--Explore-->
+                    
+
           <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Explore <span class="caret"></span></a>
           <ul class="dropdown-menu animated flipInX" role="menu">
@@ -185,32 +217,13 @@
             <li><a href="/jobs"> Jobs</a></li>
           </ul>
         </li>
-                    
 
-        <li>
+<!--Explore ends-->
 
-
-
-
-<!--snippits-->
+<!--Snippits-->
 
 
 
- <ul class="[ dropdown-menu ]" role="menu">
-                            
-
-                            <li><a href="#" class="[ animate ]">Blog <span class="[ pull-right glyphicon glyphicon-pencil ]"></span></a></li>
-
-
-                            <li><a href="#" class="[ animate ]">List of resources <span class="[ pull-right glyphicon glyphicon-align-justify ]"></span></a></li>
-                            <li><a href="#" class="[ animate ]">Download Bootstrap <span class="[ pull-right glyphicon glyphicon-cloud-download ]"></span></a></li>
-                            <li class="[ dropdown-header ]">Bootstrap Templates</li>
-                            <li><a href="#" class="[ animate ]">Browse Templates <span class="[ pull-right glyphicon glyphicon-shopping-cart ]"></span></a></li>
-                            <li class="[ dropdown-header ]">Builders</li>
-                            <li><a href="#" class="[ animate ]">Form Builder <span class="[ pull-right glyphicon glyphicon-tasks ]"></span></a></li>
-                            <li><a href="#" class="[ animate ]">Button Builder <span class="[ pull-right glyphicon glyphicon-edit ]"></span></a></li>
-                        </ul>
-                    </li>
                     <li class="[ dropdown ]">
                         <a href="#" class="[ dropdown-toggle ][ animate ]" data-toggle="dropdown">Snippets <span class="[ caret ]"></span></a>
                         <ul class="[ dropdown-menu ]" role="menu">
@@ -225,20 +238,10 @@
                             <li><a href="#" class="[ animate ]">2.3.2</a></li>
                         </ul>
                     </li>
-
-                   
-                 
-
 <!--snippits ends-->
 
 
-
-
-                  
-
-
-
-
+<!--notification starts-->
 <li class="dropdown">
             <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14">
               <i class="fa fa-bell-o"></i>
@@ -306,6 +309,7 @@
 
 
 
+<!--notification ends-->
 
 
 
@@ -349,23 +353,20 @@
 
 
 
-
-
-
-
-
-
-
-        </ul>
-
-
-
-
-
-
-
+                    <li class="[ hidden-xs ]"><a href="#toggle-search" class="[ animate ]"><span class="[ glyphicon glyphicon-search ]"></span></a></li>
+                </ul>
             </div>
         </div>
+
+
+
+
+
+<!-- ENDS Collect the nav links, forms, and other content for toggling -->
+
+
+
+
         <div class="[ bootsnipp-search animate ]">
             <div class="[ container ]">
                <%= form_with url: search_path, local: true, method: :get, :class => "smallsearch col-sm-8 col-xs-11" do |form| %>
