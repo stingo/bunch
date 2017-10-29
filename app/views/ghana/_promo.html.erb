@@ -25,7 +25,8 @@
 
       
 
-         <header class="header" >
+         <header class="header" style="background: url(https://s3.amazonaws.com/proinsidegh/static/el2bg.jpg) no-repeat center top fixed;
+    " data-stellar-background-ratio="0.5" id="home">
 
             <!-- COLOR OVER IMAGE -->
             <div class="overlay-layer">
@@ -65,7 +66,19 @@
     <%= form_with url: search_path, local: true, method: :get, :class => "" do |form| %>
 
 
-                     
+                            <!--div class="input-group m-b-20">
+                            
+                            <%# form.text_field :q, placeholder: "Search and select or hit enter", data: { behavior: "autocomplete" }, class: "form-control input-lg" %>
+                                
+
+                                <span class="input-group-btn">
+                                    <button type="submit" class="btn btn-lg"><i class="fa fa-search"></i></button>
+                                </span>
+
+
+
+                            </div-->
+                    
          <% end %>
 
 
