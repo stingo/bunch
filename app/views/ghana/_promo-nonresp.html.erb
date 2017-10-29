@@ -1,17 +1,4 @@
-<!DOCTYPE html>
-<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
-<!--[if !IE]><!-->
-<html lang="en">
-<!--<![endif]-->
-<head>
-  <meta charset="utf-8" />
-  <title>InsideGH | Home</title>
-  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
-  <meta content="" name="description" />
-  <meta content="" name="author" />
- 
-</head>
-<body>
+
 
 
 
@@ -65,7 +52,19 @@
     <%= form_with url: search_path, local: true, method: :get, :class => "" do |form| %>
 
 
-                     
+                            <div class="input-group m-b-20">
+                            
+                            <%= form.text_field :q, placeholder: "Search and select or hit enter", data: { behavior: "autocomplete" }, class: "form-control input-lg" %>
+                                
+
+                                <span class="input-group-btn">
+                                    <button type="submit" class="btn btn-lg"><i class="fa fa-search"></i></button>
+                                </span>
+
+
+
+                            </div>
+                    
          <% end %>
 
 
@@ -398,9 +397,10 @@
         </header>
 
 
-</body>
 
-</html>
+
+
+
 
                    
 
