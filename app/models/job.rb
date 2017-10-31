@@ -1,4 +1,7 @@
 class Job < ApplicationRecord
+
+    is_impressionable
+
 	has_many :thing_locations
 	has_many :locations, through: :thing_locations
 
@@ -19,9 +22,24 @@ class Job < ApplicationRecord
 
     belongs_to :profile
 
+    validates :title, presence: true
+    validates :description, presence: true
+
+
+
     
 
     accepts_nested_attributes_for :thing_locations #allow_destroy: true
     accepts_nested_attributes_for :thing_skills #allow_destroy: true
     accepts_nested_attributes_for :thing_companies #allow_destroy: true
+
+    extend FriendlyId
+         friendly_id :title, use: :slugged
+
+ 
+
+     def should_generate_new_friendly_id?
+      title_changed?
+     end
+
 end

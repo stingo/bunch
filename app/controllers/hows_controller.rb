@@ -17,6 +17,7 @@ class HowsController < ApplicationController
     impressionist(@how)
      #@how = How.find(params[:id])
      @how = How.friendly.find(params[:id])
+     
   end
 
   # GET /hows/new

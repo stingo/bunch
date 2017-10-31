@@ -1,5 +1,7 @@
 <span class="">
 
+	<div class="col-lg-4 col-md-8">
+
 	<% if company.companylogo %>
         <%= link_to (image_tag(company.companylogo.url(:medium), :class => "fw img-responsive", :alt =>"company logo")), company_path(company) %>
 
@@ -13,9 +15,13 @@
 
 
        <% end %>
+
+   </div>
        <br>
 
-       <p class="mt"><em class="ion-briefcase mr-sm"></em><span><%= link_to company.name, company_path(company), :class => "" %> &nbsp; </span></p>
+       <p class="mt"><i class="fa fa-fw fa-briefcase fa-2x mr-sm" style="color:#7D8990; font-size: 20px;"></i><span class="profile-nav-txt-bold m-b-20"><%= link_to truncate(company.name, :length => 20), company_path(company), :class => "" %> &nbsp; </span></p>
+
+
 
 
 	  

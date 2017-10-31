@@ -1,6 +1,7 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_profile!, :except => [:index, :show]
+  impressionist actions: [:show,:index], unique: [:session_hash]
 
   # GET /jobs
   # GET /jobs.json
@@ -12,6 +13,9 @@ class JobsController < ApplicationController
   # GET /jobs/1
   # GET /jobs/1.json
   def show
+    impressionist(@job)
+    @job = Job.friendly.find(params[:id])
+  
   end
 
   # GET /jobs/new
@@ -43,6 +47,10 @@ class JobsController < ApplicationController
   # PATCH/PUT /jobs/1
   # PATCH/PUT /jobs/1.json
   def update
+
+    @job = Job.friendly.find(params[:id])
+
+
     respond_to do |format|
       if @job.update(job_params)
         format.html { redirect_to @job, notice: 'Job was successfully updated.' }
@@ -67,7 +75,7 @@ class JobsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_job
-      @job = Job.find(params[:id])
+      @job = Job.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
