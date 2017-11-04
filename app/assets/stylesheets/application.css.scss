@@ -10,6 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require trix
  *= require jquery-ui
  *= require selectize
  *= require selectize.default
@@ -20,7 +21,6 @@
  *= require bootstrap-datepicker3
  *= require easy-autocomplete
  *= require easy-autocomplete.themes
- *= require trix
  *= require songs
  *= require listings
  * require_tree .
@@ -28,6 +28,7 @@
  */
  
  @import 'lightbox';
+ @import "summernote";
  @import 'superbox';
  @import 'photo';
  @import 'custom';

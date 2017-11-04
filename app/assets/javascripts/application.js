@@ -16,6 +16,7 @@
 //= require formwiz1
 //= require jquery.Jcrop
 //= require turbolinks
+//= require trix
 //= require bootstrap
 //= require jquery.turbolinks
 //= require post
@@ -27,7 +28,7 @@
 //= require lightbox
 //= require masonry/jquery.masonry
 //= require bootstrap-datepicker
-//= require trix
+//= require summernote
 //= require btsnip
 //= require bootstrap
 //= require navdouble

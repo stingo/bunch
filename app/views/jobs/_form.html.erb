@@ -1,5 +1,38 @@
+
+
+
+
+     
+
+
+
+     <!-- Main section-->
+      <main class="bg-white">
+          <div class="container container-sm">
+            <div class="card">
+              <div class="card-body reader-block">
+
+
+
+
+
+
+
+
 <%= simple_form_for(@job) do |f| %>
   <%= f.error_notification %>
+
+ <% if job.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(job.errors.count, "error") %> prohibited this job from being saved:</h2>
+
+      <ul>
+      <% job.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
 
 
@@ -10,8 +43,13 @@
 
 
   <div class="form-inputs">
-    <%= f.input :title %>
-    <%= f.input :description %>
+
+
+
+    <%= f.trix_editor :main_requirements, label: false, as: :text, autofocus: true, :input_html => {:style => 'width: 10%', :height =>'300px', :rows => 10, class: 'bg-red'} %>
+    <%= f.input :main_responsibilities %>
+
+
 
 
     <div class="form-group">
@@ -20,11 +58,39 @@
   </div>
 <br>
 
+
+
 <div class="form-group">
     <%= f.label :company_ids, "CLOSE COMPANY" %>
     <%= f.select :company_ids, Company.all.pluck(:name, :id), {}, { multiple: true, class: "selectize" } %>
   </div>
 <br>
+
+
+<input id='text_input' type="hidden" name="content" value="<%= @job.main_responsibilities %>">
+<trix-editor input='text_input'></trix-editor>
+
+                                                  <div class="col-md-4">
+                          <div class="form-group">
+                            <label>Confirm Company</label>
+                            <%= f.collection_select :company_id, Company.all, :id, :name, {promt: "Confirm `Your Company" },:class => "form-control", input_html: { class: "dropdown-toggle"} %>
+                            
+                          </div>
+                                                </div>
+                                                <!-- end col-4 -->
+
+
+
+                                                  <div class="col-md-4 ">
+                          <div class="form-group">
+                            <label>Confirm Jobtype</label>
+                            <%= f.collection_select :jobtype_id, Jobtype.all, :id, :name, {promt: "Confirm `Your Jobtype" }, :class => "form-control", input_html: { class: "dropdown-toggle "} %>
+                            
+                          </div>
+                                                </div>
+                                                <!-- end col-4 -->
+
+                                               
 
     <div class="field">
     <%= f.label :select_monthly_salary_range %>
@@ -37,3 +103,14 @@
     <%= f.button :submit %>
   </div>
 <% end %>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#summernote').summernote();
+  });
+</script>

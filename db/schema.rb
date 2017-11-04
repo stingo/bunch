@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171024064149) do
+ActiveRecord::Schema.define(version: 20171103225127) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -138,8 +138,22 @@ ActiveRecord::Schema.define(version: 20171024064149) do
     t.integer "profile_id"
     t.integer "min_salary"
     t.integer "max_salary"
+    t.integer "company_id"
+    t.string "main_responsibilities"
+    t.string "main_requirements"
+    t.string "your_name"
+    t.string "phone"
+    t.integer "jobtype_id"
+    t.index ["company_id"], name: "index_jobs_on_company_id"
+    t.index ["jobtype_id"], name: "index_jobs_on_jobtype_id"
     t.index ["max_salary"], name: "index_jobs_on_max_salary"
     t.index ["min_salary"], name: "index_jobs_on_min_salary"
+  end
+
+  create_table "jobtypes", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "listings", force: :cascade do |t|

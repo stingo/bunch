@@ -31,13 +31,7 @@ respond_to do |format|
  
   end
 
-  def logo
-
-    @company = Company.friendly.find(params[:id])
-    @company_jobs = @company.jobs #paginate(page: params[:page], per_page: 5)
-    @company_listings = @company.listings #paginate(page: params[:page], per_page: 5)
-    @company_profiles = @company.profiles #paginate(page: params[:page], per_page: 5)
-  end
+ 
 
   # GET /companies/1
   # GET /companies/1.json
