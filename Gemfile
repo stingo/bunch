@@ -57,6 +57,8 @@ gem 'figaro'
 
 gem 'mp3_player'
 
+gem 'summernote-rails', '~> 0.8.1.1'
+
 
 
 group :development, :test do
@@ -75,8 +77,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'better_errors', '~> 2.1', '>= 2.1.1'
-  gem 'bootsnap', require: false
-  gem 'summernote-rails', '~> 0.8.1.1'
+ 
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
