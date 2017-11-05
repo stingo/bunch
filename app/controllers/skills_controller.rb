@@ -12,6 +12,7 @@ class SkillsController < ApplicationController
   # GET /skills/1
   # GET /skills/1.json
   def show
+    @skill = Skill.friendly.find(params[:id])
     @skill_jobs = @skill.jobs #paginate(page: params[:page], per_page: 5)
 
     @skill_profiles = @skill.profiles #paginate(page: params[:page], per_page: 5)
@@ -24,6 +25,7 @@ class SkillsController < ApplicationController
 
   # GET /skills/1/edit
   def edit
+    @skill = Skill.friendly.find(params[:id])
   end
 
   # POST /skills
@@ -49,6 +51,7 @@ class SkillsController < ApplicationController
   # PATCH/PUT /skills/1
   # PATCH/PUT /skills/1.json
   def update
+    @skill = Skill.friendly.find(params[:id])
     respond_to do |format|
       if @skill.update(skill_params)
         format.html { redirect_to @skill, notice: 'Skill was successfully updated.' }
@@ -73,7 +76,7 @@ class SkillsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_skill
-      @skill = Skill.find(params[:id])
+      @skill = Skill.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -1,1 +1,3 @@
-<span class=""><%= link_to skill.title, skill_path(skill), :class => "" %> &nbsp;  </span>
+<span class=""><%# link_to skill.title, skill_path(skill), :class => "" %> &nbsp;  
+
+<%= link_to skill_path(skill) do %><button type="button" class="btn btn-white"><i class="fa fa-tag"></i> <%= skill.title %> </button><% end %></span>

@@ -36,6 +36,8 @@
 
 
 
+<%# collection_radio_buttons(:job, :jobtype_id, Jobtype.all, :id, :name) %>
+
 
 
 
@@ -43,11 +45,45 @@
 
 
   <div class="form-inputs">
+    <%= f.input :title  %>
+    
+
+
+   <div class="col-md-">
+
+    <br>
+    <div class="form-group">
+      <label class="lead">Job Description </label>
+      <%= f.trix_editor :description, label: false, as: :text, autofocus: true, :input_html => {:style => 'width: 10%', :height =>'300px', :rows => 10, class: 'bg-red'} %>
+    </div>
+  </div>
+  <!-- end col-4 -->
 
 
 
-    <%= f.trix_editor :main_requirements, label: false, as: :text, autofocus: true, :input_html => {:style => 'width: 10%', :height =>'300px', :rows => 10, class: 'bg-red'} %>
-    <%= f.input :main_responsibilities %>
+
+     <div class="col-md-">
+
+    <br>
+    <div class="form-group">
+      <label class="lead">Main Requirements </label>
+      <%= f.trix_editor :main_requirements, label: false, as: :text, autofocus: true, :input_html => {:style => 'width: 10%', :height =>'300px', :rows => 10, class: 'bg-red'} %>
+    </div>
+  </div>
+  <!-- end col-4 -->
+
+
+
+
+
+ 
+
+
+  
+    
+
+
+ 
 
 
 
@@ -63,6 +99,12 @@
 <div class="form-group">
     <%= f.label :company_ids, "CLOSE COMPANY" %>
     <%= f.select :company_ids, Company.all.pluck(:name, :id), {}, { multiple: true, class: "selectize" } %>
+  </div>
+<br>
+
+<div class="form-group">
+    <%= f.label :skill_ids, "CLOSE SKILL" %>
+    <%= f.select :skill_ids, Skill.all.pluck(:title, :id), {}, { multiple: true, class: "selectize" } %>
   </div>
 <br>
 
@@ -84,11 +126,21 @@
                                                   <div class="col-md-4 ">
                           <div class="form-group">
                             <label>Confirm Jobtype</label>
-                            <%= f.collection_select :jobtype_id, Jobtype.all, :id, :name, {promt: "Confirm `Your Jobtype" }, :class => "form-control", input_html: { class: "dropdown-toggle "} %>
+                            <%= f.collection_select :jobtype_id, Jobtype.all, :id, :name, {:include_blank => 'Select Job Type'}, :class => "form-control", input_html: { class: "dropdown-toggle "} %>
                             
                           </div>
                                                 </div>
                                                 <!-- end col-4 -->
+
+                                               </div>
+                                                <!-- end col-4 -->
+
+
+
+                                            
+                                              
+
+
 
                                                
 

@@ -274,6 +274,26 @@
 
                      <br>
 
+                     <% if job.jobtype.present? %>
+
+                     <span class="profile-nav-txt-bold"><i class="fa fa-fw fa-clock-o 
+                    " style="color:#000000; font-size: 14px; margin-left: -2px;"></i> <%= job.jobtype.name %>
+
+                    &nbsp&nbsp
+
+                    <% else %>
+                    <% end %>
+
+                     <span class="profile-nav-txt-bold"><small>Posted <% if job.created_at > Time.now.beginning_of_day %>
+    <%="#{time_ago_in_words(job.created_at)} ago"%> 
+<% else %>
+    <%= job.created_at.strftime("%b %d, %Y ") %> 
+<% end %></small></span>
+
+
+
+                     <br>
+
                    
 
                     
@@ -293,8 +313,6 @@
 
                      
 
-                      <span class="mr-sm"><i class="fa fa-fw fa-clock-o "></i>
-                  <a href="#" class="text-muted"><%= timeago_tag Time.zone.now, :nojs => true, :limit => 10.days.ago %></a></span>
 
                   <hr>
 
