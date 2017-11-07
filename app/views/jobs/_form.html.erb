@@ -46,6 +46,8 @@
 
   <div class="form-inputs">
     <%= f.input :title  %>
+
+     <%= f.input :job_url, label: 'External url for application of this job'  %>
     
 
 
@@ -95,11 +97,27 @@
 <br>
 
 
+                                                  <div class="col-md-6">
+                          <div class="form-group">
+                            <label class="required">* Company</label>
+                            <%= f.collection_select :company_id, Company.all, :id, :name, {promt: "Confirm `Your Company", include_blank: "Select country" },:class => "form-control", input_html: { class: "dropdown-toggle"} %>
+                            
+                          </div>
+                                                </div>
+                                                <!-- end col-4 -->
 
-<div class="form-group">
-    <%= f.label :company_ids, "CLOSE COMPANY" %>
-    <%= f.select :company_ids, Company.all.pluck(:name, :id), {}, { multiple: true, class: "selectize" } %>
-  </div>
+
+                          <div class="col-md-6">
+                          <div class="form-group">
+                            <label class="required">* Confirm Company</label>
+                            <%= f.collection_select :company_ids, Company.all, :id, :name, {promt: "Confirm `Your Company", include_blank: "Select country" },:class => "form-control", input_html: { class: "dropdown-toggle"}, data_parsley: {required: "true"} %>
+                            
+                          </div>
+                                                </div>
+                                                <!-- end col-4 -->
+
+
+                                                <!-- end col-4 -->
 <br>
 
 <div class="form-group">
@@ -109,17 +127,8 @@
 <br>
 
 
-<input id='text_input' type="hidden" name="content" value="<%= @job.main_responsibilities %>">
-<trix-editor input='text_input'></trix-editor>
 
-                                                  <div class="col-md-4">
-                          <div class="form-group">
-                            <label>Confirm Company</label>
-                            <%= f.collection_select :company_id, Company.all, :id, :name, {promt: "Confirm `Your Company" },:class => "form-control", input_html: { class: "dropdown-toggle"} %>
-                            
-                          </div>
-                                                </div>
-                                                <!-- end col-4 -->
+
 
 
 
@@ -151,18 +160,27 @@
 
   </div>
 
+<div class="col-md-4 ">
+
+  <div class="form-group">
+
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
+
+  </div>
+  </div>
 <% end %>
+
+
+
+<br>
+<br>
+<br>
 
       </div>
     </div>
   </div>
 </main>
 
-<script type="text/javascript">
-  $(document).ready(function() {
-    $('#summernote').summernote();
-  });
-</script>
+

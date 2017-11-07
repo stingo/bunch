@@ -194,7 +194,15 @@
                 <h4><span class="media-heading " style="background: #ffffff; color:#000000; font-size: 22px; padding:5px; opacity: 0.9; border-radius: 2px;"><%= @company.name if @company.name %></span> </h4>
                 <span class="ccard-title" style="background: #ffffff; color:#337ab7; padding:5px; opacity: 0.9; border-radius: 2px;"> 
 
-<%= raw @company.skill_list.map { |t| link_to t, tag_path(t) }.join(', ') if @company.skill_list.present? %> <span style="font-size: 30px; color: #000000">.</span> <%= render @company.locations if @company.locations.present? %> <span style="font-size: 30px; color: #000000">.</span> 81,324 followers
+<%# raw @company.skill_list.map { |t| link_to t, tag_path(t) }.join(', ') if @company.skill_list.present? %>
+
+
+<% if @company.industries.present? %> <span style="font-size: 30px; color: #000000">.</span> <%= render @company.industries %> <% else %><% end %>
+
+<% if @company.locations.present? %> <span style="font-size: 30px; color: #000000">.</span> <%= render @company.locations %> <% else %><% end %>
+
+
+ <span style="font-size: 30px; color: #000000">.</span> 81,324 followers
   <span style="font-size: 30px; color: #000000">.</span> <i class="fa fa-eye" style="color:#337ab7;"></i> <%= @company.impressionist_count(:filter=>:session_hash) %></span> 
 
 
@@ -278,6 +286,7 @@
 
 
               <!--Services-->
+              <% if @company.services.present? %>
                 <div class="panel overflow-hidden card-divider btn-raised">
               <div class="panel-heading">
                 <h3 class="panel-title">
@@ -289,10 +298,13 @@
               </div>
               <div id="services" class="panel-collapse collapse">
                 <div class="panel-body lead">
-                  <%=raw @company.services if @company.services %>
+                  <%=raw @company.services %>
                 </div>
               </div>
             </div>
+
+            <% else %>
+                        <% end %>
             <!--Services ends-->
 
                       <!--Media-->
@@ -351,7 +363,7 @@
 
 
                        
-
+                      <% if @company.industries.present? %>
 
                         <tr>
                           <td><span class="col-md-2 control-label fa text-primary">
@@ -359,8 +371,11 @@
 
                             <a href="<%= "#" %>" target="_blank" ><i class="fa fa-building-o "></i></a>
                           </span>Industry</td>
-                          <td><h4><%= render @company.industries if @company.industries.present? %></h4></td>
+                          <td><h4><%= render @company.industries %></h4></td>
                         </tr>
+
+                        <% else %>
+                        <% end %>
 
                        
 
@@ -480,17 +495,18 @@
 
           <!--Social media-->
 
-          <% if @company.facebookurl? || @company.facebookurl? || @company.twitterurl? || @company.linkedinurl? || @company.instagramurl? || @company.googleplusurl? || @company.pinteresturl?   %>
+          <% if @company.facebookurl? || @company.facebookurl? || @company.twitterurl? || @company.linkedinurl? || @company.instagramurl? || @company.googleplusurl? || @company.pinteresturl?  %>
 
                   <div class="panel overflow-hidden card-divider btn-raised">
               <div class="panel-heading">
                 <h3 class="panel-title">
                   <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#socialMedia">
-                      <i class="fa fa-plus-circle pull-right title-20px-black blk"></i> 
+                          <i class="fa fa-plus-circle pull-right title-20px-black blk"></i> 
                     <span class="title-20px-black blk">Social Media</span>
                   </a>
                 </h3>
               </div>
+
               <div id="socialMedia" class="panel-collapse collapse">
                 <table class="table table-striped">
                       <tbody>
@@ -568,7 +584,7 @@
 
                          <tr>
 
-                          <td><span class="col-md-2 control-label fa text-danger"><a href="<%= "http://#{@company.pinteresturl}" %>" target="_blank" ><i class="fa fa-pinterest-square fa-stack-2x"></i></a><</span></td>
+                          <td><span class="col-md-2 control-label fa text-danger"><a href="<%= "http://#{@company.pinteresturl}" %>" target="_blank" ><i class="fa fa-pinterest-square fa-stack-2x"></i></a></span></td>
                           <td><strong class="mt-l"><%= link_to 'Pinterest', "http://#{@company.pinteresturl}", target: "_blank"  %></strong></td>
                         </tr>
 
@@ -594,21 +610,9 @@
 
 
 
-            <div class="panel overflow-hidden card-divider btn-raised">
-              <div class="panel-heading">
-                <h3 class="panel-title">
-                  <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#jobs">
-                      <i class="fa fa-plus-circle pull-right title-20px-black blk"></i> 
-                    <span class="title-20px-black blk">Recent jobs by <%= @company.name %>  </span>
-                  </a>
-                </h3>
-              </div>
-              <div id="jobs" class="panel-collapse collapse">
-                <div class="panel-body lead">
-                  <%=raw @company.services if @company.services %>
-                </div>
-              </div>
-            </div>
+
+
+
 
 
            
@@ -698,44 +702,24 @@
 
 
               
-
+<% if @company.jobs.present? %>
                   <div class="card-divider"></div>
-                  <h5 class="card-heading pb0">Recent articles</h5>
-                  <div class="card-body">
-                    <ul class="mda-list">
-                      <li class="mda-list-item pl0 bb">
-                        <div class="mda-list-item-text">
-                          <h3><a href="#">Release 3.0 is out</a></h3>
-                          <p>Proin metus justo, commodo in ultrices...</p><small class="text-muted">2 days ago</small>
-                        </div>
-                        <div class="pull-right">
-                          <div class="pt-lg"><em tooltip="Active" class="icon-2x ion-checkmark-circled text-success"></em></div>
-                        </div>
-                      </li>
-                      <li class="mda-list-item pl0 bb">
-                        <div class="mda-list-item-text">
-                          <h3><a href="#">Improving compatibility</a></h3>
-                          <p>Proin metus justo, commodo in ultrices...</p><small class="text-muted">3 days ago</small>
-                        </div>
-                        <div class="pull-right">
-                          <div class="pt-lg"><em tooltip="Active" class="icon-2x ion-checkmark-circled text-success"></em></div>
-                        </div>
-                      </li>
-                      <li class="mda-list-item pl0">
-                        <div class="mda-list-item-text">
-                          <h3><a href="#">Small decisions count</a></h3>
-                          <p>Proin metus justo, commodo in ultrices...</p><small class="text-muted">3 days ago</small>
-                        </div>
-                        <div class="pull-right">
-                          <div class="pt-lg"><em tooltip="Pending" class="icon-2x ion-minus-circled text-warning"></em></div>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
+                  <h5 class="title-20px-black blk ml-lg">Recent jobs by <%= @company.name %></h5>
+                  
+
+                 <%= render @company.jobs %>
+
+              <% else %>
+
+              <% end %>
+
+
                 </form>
 
                           
               </div>
+
+
 
 
 

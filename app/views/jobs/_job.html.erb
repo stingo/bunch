@@ -1,0 +1,21 @@
+
+
+
+ <div class="ml-lg">
+                    <ul class="mda-list">
+                      <li class="mda-list-item pl0">
+                        <div class="mda-list-item-text">
+                          <h3 class="lead"><%= link_to truncate(job.title.titleize, length: 120), job_path(job), :class => "lead" %></h3>
+                          <div class="panel-body lead"><%=raw (truncate(job.description, length: 240, escape: false)).html_safe %><br><small class="text-muted">3 days ago</small></div>
+                        </div>
+                        
+                      </li>
+
+                      <hr>
+
+
+
+
+                    </ul>
+                  </div>
+

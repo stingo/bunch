@@ -99,7 +99,7 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
-      params.require(:profile).permit(:first_name, :last_name, :is_female, :slug, :date_of_birth, :pesnavatar, :profilecover, :summary, :loctown,
+      params.require(:profile).permit(:first_name, :last_name, :country_code, :is_female, :slug, :date_of_birth, :pesnavatar, :profilecover, :summary, :loctown,
        :loccountry, :currjobtitle, :currtemployer, :curremployerstartdate,
        :employer2name, :employer2jobtitle, :employer2startdate, :employer2finishdate, :employer3name, :employer3jobtitle,
         :employer3startdate, :employer3finishdate, :employer4name,  :employer4jobtitle,  :employer4startdate, :employer4finishdate,

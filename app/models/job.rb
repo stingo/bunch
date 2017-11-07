@@ -25,6 +25,8 @@ class Job < ApplicationRecord
     validates :title, presence: true
     validates :description, presence: true
 
+    validates :company_id, presence: true, numericality: { only_integer: true }
+
 
  belongs_to :company, :optional => true
  belongs_to :jobtype, :optional => true

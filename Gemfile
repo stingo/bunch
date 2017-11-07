@@ -59,6 +59,8 @@ gem 'mp3_player'
 
 gem 'summernote-rails', '~> 0.8.1.1'
 
+gem 'country_select', '~> 3.1', '>= 3.1.1'
+
 
 
 group :development, :test do
