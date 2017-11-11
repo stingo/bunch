@@ -1,46 +1,226 @@
-<p id="notice"><%= notice %></p>
+<main>
+ <!-- begin page-title -->
+  <div class="page-title has-bg">
+    <!-- begin bg-cover -->
+    <div class="bg-cover">
+        <%= image_tag("cover3.jpg") %>
+    </div>
+    <!-- end bg-cover -->
+    <!-- begin container -->
+    <div class="container">
+      <!-- begin breadcrumb -->
+      <ul class="breadcrumb">
+        <li><a href="index.html">Forum</a></li>
+        <li><a href="category_list.html">Twitter Bootstrap</a></li>
+        <li class="active">&nbsp;</li>
+      </ul>
+      <!-- end breadcrumb -->
+      <h1>How to create an arrow by using css?</h1>
+    </div>
+    <!-- end container -->
+  </div>
+  <!-- end page-title -->
 
-<h1>Companies</h1>
+  <!-- Main section-->
+  <section class="custombgD9E0E7">
+    <div class="container custombgD9E0E7">
+      <div class="row fh">
+        <!-- Mid starts -->
+        <div class="col-md-9">
+        <!-- begin #content -->
+          <div id="content" class="content1">
+            <!-- begin row -->
+            <div class="row">
+              <!-- begin col-12 -->
+              <div class="col-md-12">
+                <div class="result-container">
+                <!--starts-->
+                  <ul class="result-list">
+                  <% @companies.reverse.each do |company| %>
+                    <li>
+                      <div class="result-image"><!--image starts-->
+                        <% if company.companycover? %>
+                          <%= link_to (image_tag(company.companycover_url(:thumb), :class => "img-responsive", :alt =>"company image")), company_path(company) %>
+                        <% else %>
+                          <%= link_to (image_tag("http://via.placeholder.com/468x400", :class => "img-responsive", :alt =>"company image")), company_path(company) %>
+                        <% end %>
+                        
+                        
+                      </div><!--image ends-->
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>About</th>
-      <th>Website</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+                      <div class="result-info">
+                        <h4 class="lead blue text-bold"><%= link_to truncate(company.name, length: 29), company %></h4>
 
-  <tbody>
-    <% @companies.each do |company| %>
-      <tr>
+                    
 
-        
-        <td><%= company.name %></td>
-        <td><%= company.about %></td>
-        <td><%= company.websiteurl %></td>
-        <td><% if company.companylogo %>
-        <%= link_to (image_tag(company.companylogo.url(:medium), :class => "img-responsive", :alt =>"company image")), company_path(company) %>
+                        <!--p>Played <strong><%# company.impressionist_count %></strong> views.</p-->
+
+                        <p style="margin-top: -15px;" =""><% if company.industries.present? %> <%= render company.industries %>|<% else %><% end %>&nbsp&nbsp<span class="location">
+
+                          <% if company.countries.present? %>
 
 
-        <% else %> 
-        <%# link_to (image_tag("login-bg/bg-3.jpg", :class => "img-responsive img-h", :alt =>"event image")), event_path(event) %>
+                          <%= render company.countries %>,
 
-        
+                          <% else %>
 
-        <%= link_to (image_tag("http://via.placeholder.com/405x285", :class => "img-responsive", :alt =>"company image")), company_path(company) %>
+                          <% end %>
+
+                        </span> <% if company.locations.present? %> <%= render company.locations %> <% else %><% end %></p>
+
+                        <p class="location">United State, <% if company.locations.present? %> <%= render company.locations %> <% else %><% end %></p>
 
 
-       <% end %> </td>
-        <td><%= link_to 'Show', company %></td>
-        <td><%= link_to 'Edit', edit_company_path(company) %></td>
-        <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+                        <p class="desc">
+                          Nunc et ornare ligula. Aenean commodo lectus turpis, eu laoreet risus lobortis quis. Suspendisse vehicula mollis magna vel aliquet. Donec ac tempor neque, convallis euismod mauris. Integer dictum dictum ipsum quis viverra.
+                        </p>
+                        <div class="btn-row">
+                          <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Analytics"><i class="fa fa-fw fa-bar-chart-o"></i></a>
+                          <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Tasks"><i class="fa fa-fw fa-tasks"></i></a>
+                          <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Configuration"><i class="fa fa-fw fa-cog"></i></a>
+                          <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Performance"><i class="fa fa-fw fa-tachometer"></i></a>
+                          <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Users"><i class="fa fa-fw fa-user"></i></a>
+                        </div>
+                      </div>
+                      <div class="result-price">
+                          $92,101 <small>PER MONTH</small>
+                          <a href="javascript:;" class="btn btn-inverse btn-block">View Details</a>
+                      </div>
+                    </li>
+                  <% end %>
+                  </ul>
+                </div>
+              </div>
 
-<br>
+              <%# will_paginate @hows %>
+              <div class="clearfix">
+                <ul class="pagination pagination-without-border">
+                  <li class="disabled"><a href="javascript:;">«</a></li>
+                  <li class="active"><a href="javascript:;">1</a></li>
+                  <li><a href="javascript:;">2</a></li>
+                  <li><a href="javascript:;">3</a></li>
+                  <li><a href="javascript:;">4</a></li>
+                  <li><a href="javascript:;">5</a></li>
+                  <li><a href="javascript:;">6</a></li>
+                  <li><a href="javascript:;">7</a></li>
+                  <li><a href="javascript:;">»</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div><!-- end col-9 -->
+        <!-- Right starts -->
+        <div class="col-md-3 fh-md oa text-center">
+          <div class="p-lg">
+            <h5>Right Column</h5>
+            <p class="text-center">Nullam pretium fermentum sapien ut convallis.</p>
+          </div>
+          <div class="p-lg">
+            <p>Pellentesque sed purus libero. Nam eleifend, ipsum at suscipit pellentesque, diam enim dignissim nunc, eu egestas sem velit vel nunc. Phasellus vel nisl orci.</p>
+          </div>
+        </div>
+      </div><!-- end row -->
+    </div><!-- end #content -->
+  </section>
 
-<%= link_to 'New Company', new_company_path %>
+  <!-- begin #footer -->
+  <div id="footer" class="footer">
+    <!-- begin container -->
+    <div class="container">
+      <!-- begin row -->
+      <div class="row">
+        <!-- begin col-4 -->
+        <div class="col-md-4">
+          <!-- begin section-container -->
+          <div class="section-container">
+            <h4>About Color Admin</h4>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultrices ipsum in elementum porttitor.
+              Cras porttitor fermentum nisl non elementum. Nulla in placerat libero. Nulla pharetra purus eget diam dictum
+              ullamcorper nec et eros. Suspendisse consectetur nulla ut volutpat aliquam.
+            </p>
+          </div>
+          <!-- end section-container -->
+        </div>
+        <!-- end col-4 -->
+
+        <!-- begin col-4 -->
+        <div class="col-md-4">
+          <!-- begin section-container -->
+          <div class="section-container">
+            <h4>Latest Post</h4>
+            <ul class="latest-post">
+              <li>
+                <h4 class="title"><a href="#">Consectetur adipiscing elit ultrices</a></h4>
+                <p class="time">yesterday 10:42am</p>
+              </li>
+              <li>
+                <h4 class="title"><a href="#">Fusce ultrices ipsum porttitor</a></h4>
+                <p class="time">10/04/2015</p>
+              </li>
+              <li>
+                <h4 class="title"><a href="#">Cras porttitor fermentum adipiscing</a></h4>
+                <p class="time">02/04/2015</p>
+              </li>
+            </ul>
+          </div>
+          <!-- end section-container -->
+        </div>
+        <!-- end col-4 -->
+
+        <!-- begin col-4 -->
+        <div class="col-md-4">
+          <!-- begin section-container -->
+          <div class="section-container">
+            <h4>New Users</h4>
+            <!--ul class="new-user">
+              <li><a href="#"><img src="assets/img/user-1.jpg" alt="" /></a></li>
+              <li><a href="#"><img src="assets/img/user-2.jpg" alt="" /></a></li>
+              <li><a href="#"><img src="assets/img/user-3.jpg" alt="" /></a></li>
+              <li><a href="#"><img src="assets/img/user-4.jpg" alt="" /></a></li>
+              <li><a href="#"><img src="assets/img/user-5.jpg" alt="" /></a></li>
+              <li><a href="#"><img src="assets/img/user-6.jpg" alt="" /></a></li>
+              <li><a href="#"><img src="assets/img/user-7.jpg" alt="" /></a></li>
+              <li><a href="#"><img src="assets/img/user-8.jpg" alt="" /></a></li>
+              <li><a href="#"><img src="assets/img/user-9.jpg" alt="" /></a></li>
+            </ul-->
+          </div>
+          <!-- end section-container -->
+        </div>
+        <!-- end col-4 -->
+      </div>
+      <!-- end row -->
+    </div>
+    <!-- end container -->
+  </div>
+  <!-- end #footer -->
+
+  <!-- begin #footer-copyright -->
+  <div id="footer-copyright" class="footer-copyright">
+    <div class="container">
+      &copy; 2014 - 2015 SeanTheme All Right Reserved
+      <a href="#">Contact Us</a>
+      <a href="#">Knowledge Base</a>
+    </div>
+  </div>
+  <!-- end #footer-copyright -->
+
+  <!-- begin theme-panel -->
+  <div class="theme-panel">
+    <a href="javascript:;" data-click="theme-panel-expand" class="theme-collapse-btn"><i class="fa fa-cog"></i></a>
+    <div class="theme-panel-content">
+      <ul class="theme-list clearfix">
+        <li><a href="javascript:;" class="bg-purple" data-theme="purple" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Purple">&nbsp;</a></li>
+        <li><a href="javascript:;" class="bg-blue" data-theme="blue" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Blue">&nbsp;</a></li>
+        <li class="active"><a href="javascript:;" class="bg-green" data-theme="default" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Default">&nbsp;</a></li>
+        <li><a href="javascript:;" class="bg-orange" data-theme="orange" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Orange">&nbsp;</a></li>
+        <li><a href="javascript:;" class="bg-red" data-theme="red" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Red">&nbsp;</a></li>
+      </ul>
+    </div>
+  </div>
+</main>
+<!-- end theme-panel -->
+
+<script>
+  
+</script>

@@ -101,6 +101,17 @@
                                                 </div>
                                                 <!-- end col-4 -->
 
+
+                                                                                                </div>
+                                                <!-- end col-4 -->
+                                                <!-- begin col-4 -->
+                                                <div class="col-md-4">
+                          <div class="form-group">
+                            <label>Country <span class="required">*</span></label>
+                            <%= f.select :country_ids, Country.all.pluck(:country, :id), {}, { multiple: true, class: "selectize"} %>
+                          </div>
+                                                </div>
+
                                                
 
                                                                                             <!-- begin col-4 -->
@@ -462,8 +473,8 @@
 
                                                 <div class="col-md-4">
                           <div class="form-group">
-                            <label>Company size</label>
-                            <%= f.text_field :contactphone, placeholder: "Company contact phone", class: "form-control" %>
+                             <label>Contact phone <span class="required">*</span></label>
+                            <%= f.text_field :contactphone, placeholder: "Company contact phone e.g +233 0242764533", class: "form-control" %>
                           </div>
                                                 </div>
                                                 <!-- end col-4 -->
@@ -493,8 +504,8 @@
                                                 <!-- begin col-4 -->
                                                 <div class="col-md-4">
                           <div class="form-group">
-                            <label>Contact phone</label>
-                            <%= f.text_field :contactphone, placeholder: "Company contact phone", class: "form-control" %>
+                            <label>Company size</label>
+                            <%# f.text_field :contactphone, placeholder: "Company contact phone", class: "form-control" %>
                           </div>
                                                 </div>
                                                 <!-- end col-4 -->

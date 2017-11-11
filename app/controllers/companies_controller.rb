@@ -37,6 +37,7 @@ respond_to do |format|
   # GET /companies/1.json
   def show
     @company = Company.friendly.find(params[:id])
+    #@profile_photos = @profile.photos.order("created_at DESC") #important! to enable users posts on user profile
     @company_jobs = @company.jobs #paginate(page: params[:page], per_page: 5)
     @company_listings = @company.listings #paginate(page: params[:page], per_page: 5)
     @company_profiles = @company.profiles #paginate(page: params[:page], per_page: 5)
@@ -119,11 +120,12 @@ respond_to do |format|
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_params
-      params.require(:company).permit(:name, :about, :companytype_id, :companytype_name, :skill_list, :skill, { skill_ids: [] }, :skill_ids,
+      params.require(:company).permit(:name, :country, :about, :companytype_id, :companytype_name, :skill_list, :skill, { skill_ids: [] }, :skill_ids,
        :tag_list, :tag, { tag_ids: [] }, :tag_ids, :services, :yearfounded, :companyemail,
        :contactphone, :video1, :video2, :companysize_id, :facebookurl, :twitterurl, :linkedinurl, :googleplusurl, :pinteresturl,
         :instagramurl, :companylogo, :remove_companycover, :remove_companylogo, :slug, :companycover, :websiteurl, 
-        thing_locations_attributes: [:id, :thing_location_id, :_destroy, location_ids: []], location_ids: [], 
+        thing_locations_attributes: [:id, :thing_location_id, :_destroy, location_ids: []], location_ids: [],
+        thing_countries_attributes: [:id, :thing_country_id, :_destroy, country_ids: []], country_ids: [], 
         thing_industries_attributes: [:id, :thing_industry_id, :_destroy, industry_ids: []], industry_ids: [] )
     end
 end

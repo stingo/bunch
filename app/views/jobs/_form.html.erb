@@ -100,7 +100,7 @@
                                                   <div class="col-md-6">
                           <div class="form-group">
                             <label class="required">* Company</label>
-                            <%= f.collection_select :company_id, Company.all, :id, :name, {promt: "Confirm `Your Company", include_blank: "Select country" },:class => "form-control", input_html: { class: "dropdown-toggle"} %>
+                            <%= f.collection_select :company_id, Company.all, :id, :name, {promt: "Confirm `Your Company", include_blank: "Select Company" },:class => "form-control", input_html: { class: "dropdown-toggle"} %>
                             
                           </div>
                                                 </div>

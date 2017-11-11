@@ -17,6 +17,9 @@ class Company < ApplicationRecord
 
     has_many :thing_industries
     has_many :industries, through: :thing_industries
+
+    has_many :thing_countries
+    has_many :countries, through: :thing_countries
 	
 has_many :jobs
 
@@ -25,6 +28,7 @@ has_many :jobs
 	belongs_to :companysize, :optional => true
 
 	validates :name, presence: true
+	validates :contactphone, presence: true
 
 	mount_uploader :companylogo, CompanylogoUploader
 	mount_uploader :companycover, CompanycoverUploader

@@ -35,6 +35,11 @@ class CompanycoverUploader < CarrierWave::Uploader::Base
      process :resize_to_fill => [1500, 470]
    end
 
+   # Create different versions of your uploaded files:
+   version :thumb do
+     process :resize_to_fill => [468, 400]
+   end
+
    def extension_whitelist
     %w(jpg jpeg gif png)
   end
