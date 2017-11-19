@@ -22,8 +22,8 @@
   <!-- end page-title -->
 
   <!-- Main section-->
-  <section class="graybg">
-    <div class="container ">
+  <section class="custombgD9E0E7">
+    <div class="container custombgD9E0E7">
       <div class="row fh">
         <!-- Mid starts -->
         <div class="col-md-9">
@@ -43,25 +43,18 @@
                    
 
                     <li>
-                      <div class="col-md-2 text-center"><!--image starts-->
+                      <div class="col-md-1 text-center"><!--image starts-->
                         <% if company.companylogo? %>
-                          <%= link_to (image_tag(company.companylogo_url(:large), :class => "media-object thumb68 img-responsive text-center", :alt =>"company image")), company_path(company) %>
+                          <%= link_to (image_tag(company.companylogo_url(:large), :class => "img-responsive", :alt =>"company image")), company_path(company) %>
                         <% else %>
-                          <%= link_to (image_tag("http://via.placeholder.com/468x400", :class => "media-object img-circle img-responsive text-center", :alt =>"company image")), company_path(company) %>
+                          <%= link_to (image_tag("http://via.placeholder.com/468x400", :class => "img-responsive", :alt =>"company image")), company_path(company) %>
                         <% end %>
                         
                         
                       </div><!--result-image-->
 
-                      <div class="col-md-7 result-info">
-                        <h4 class="lead blue text-bold">
-
-
-                          <%= link_to truncate(company.name, length: 29), company %>
-                          
-
-                        </h4>
-
+                      <div class="result-info">
+                        <h4 class="lead blue text-bold"><%= link_to truncate(company.name, length: 29), company %></h4>
 
                     
 
@@ -88,12 +81,7 @@
 
 
                         <p >
-
-                           <hr>
-
-                          <%=truncate(sanitize(company.about, tags: %w(strong em p u br #ff0000 font-size)), :class =>"blk in-inner m-t-5", length: 100) {link_to 'read more', company } %>
-
-                          <%#  truncate(sanitize(company.about.capitalize, tags: %w(strong em p u br #ff0000 font-size)),:class =>"blk in-inner m-t-5", length: 100) if company.about? %>
+                          <%=  truncate(sanitize(company.about.capitalize, tags: %w(strong em p u br #ff0000 font-size)),:class =>"blk in-inner m-t-5", length: 100) if company.about? %>
 
                         </p>
                         <div class="btn-row">
@@ -103,32 +91,19 @@
                           <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Performance"><i class="fa fa-fw fa-tachometer"></i></a>
                           <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Users"><i class="fa fa-fw fa-user"></i></a>
                         </div>
-
-                        <hr>
-
-                         <div class=" m-l-20 m-t-0" style="color: #000000 !important; font-size: 16px;">
-                          <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Analytics"; ><i class="fa fa-fw fa-plus"></i>&nbspFollow</a>&nbsp
-                          <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Tasks"><i class="fa fa-fw fa-comment-o"></i>&nbspComment</a>&nbsp
-                          <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Configuration"><i class="fa fa-fw fa-share"></i>&nbspShare</a>
-                          
-                        </div>
                       </div>
 
 
-                      <div class="result-price" >
+                      <div class="result-price">
 
                         
 
                           <div class="profile-nav-txt-bold m-b-0"><i class="fa fa-globe "></i> <%= link_to 'Website', "http://#{company.websiteurl}", target: "_blank"  %></div>
                           <div class="profile-nav-txt-bold m-b-20"><i class="fa fa-phone "></i> <%= company.contactphone  %></div>
 
-                          <h5 class="text-center"> <a href="#">
-                       <i class="fa fa-eye fa-2x" style="color:#337ab7; font-size: 20px;"></i></a>
-                       <br><strong><%= company.impressionist_count(:filter=>:session_hash) %></strong></h5>
 
-
-                        <small>PER MONTH</small>
-                          <a href="javascript:;" class="btn btn-primary btn-block">View Details</a>
+                          $92,101 <small>PER MONTH</small>
+                          <a href="javascript:;" class="btn btn-inverse btn-block">View Details</a>
                       </div>
                     </li>
                   <% end %>

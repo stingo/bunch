@@ -1,0 +1,3 @@
+$('.vpos').bind('ajax:success', 'turbolinks:load', function() {
+ $('.vcount-<%= @urbanterm.id %>').html('<%=escape_javascript @urbanterm.get_upvotes.size.to_s %>');
+});

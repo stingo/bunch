@@ -50,6 +50,8 @@ class Profile < ApplicationRecord
 
 	acts_as_votable
 
+	acts_as_voter
+
 
 	#validations
 	validates :first_name, presence: true

@@ -1,19 +1,19 @@
 class UrbantermsController < ApplicationController
-  before_action :authenticate_profile!, :except => [:index, :show]
-  before_action :set_urbanterm, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_profile!, :except => [:index, :show, :vote, :like ]
+  before_action :set_urbanterm, only: [:show, :edit, :update, :destroy ]
   impressionist actions: [:show,:index], unique: [:session_hash]
 
   # GET /urbanterms
   # GET /urbanterms.json
   def index
-    @urbanterms = Urbanterm.all
+    @urbanterms = Urbanterm.all.order(:cached_votes_score => :asc)
   end
 
   # GET /urbanterms/1
   # GET /urbanterms/1.json
   def show
     impressionist(@urbanterm)
-    @urbanterm = Urbanterm.friendly.find(params[:id])
+    @urbanterm = Urbanterm.find(params[:id])
   end
 
   # GET /urbanterms/new
@@ -49,17 +49,45 @@ class UrbantermsController < ApplicationController
 
 
 
-   def upvote 
-  @link = Urbanterm.friendly.find(params[:id])
-  @link.upvote_by current_profile
-  redirect_to request.referer || root_path
-end  
+   #def vote
+   #if !current_profile.liked? @urbanterm
+   #@urbanterm.liked_by current_profile
+   #elsif current_profile.liked @urbanterm
+   #@urbanterm.unliked_by current_profile 
+  #@link = Urbanterm.friendly.find(params[:id])
+  #@link.upvote_by current_profile
+  #redirect_to request.referer || root_path
+#end  
+#end 
+
+
+#def downvote
+  #@link = Urbanterm.friendly.find(params[:id])
+  #@link.downvote_by current_profile
+  #redirect_to request.referer || root_path
+#end
+
+
+def upvote
+  @urbanterm = Urbanterm.find(params[:id])
+  @urbanterm.upvote_by current_profile
+    respond_to do |format|
+      format.html {redirect_to request.referer || root_path }
+      format.json { render json: { count: @urbanterm.liked_count } }
+      format.js   { render :layout => false }
+    end
+end
 
 def downvote
-  @link = Urbanterm.friendly.find(params[:id])
-  @link.downvote_by current_profile
-  redirect_to request.referer || root_path
+  @urbanterm =Urbanterm.find(params[:id])
+  @urbanterm.downvote_by current_profile
+  respond_to do |format|
+   format.html {redirect_to request.referer || root_path }
+   format.json { render json: { count: @urbanterm.unliked_count } }
+   format.js   { render :layout => false }
+ end
 end
+
 
 
 
@@ -95,7 +123,7 @@ end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_urbanterm
-      @urbanterm = Urbanterm.friendly.find(params[:id])
+      @urbanterm = Urbanterm.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

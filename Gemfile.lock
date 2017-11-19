@@ -313,6 +313,10 @@ GEM
       mini_portile2 (~> 2.2.0)
     orm_adapter (0.5.0)
     pg (0.21.0)
+    phony (2.15.48)
+    phony_rails (0.14.6)
+      activesupport (>= 3.0)
+      phony (> 2.15)
     polyamorous (1.3.1)
       activerecord (>= 3.0)
     public_suffix (2.0.5)
@@ -461,6 +465,7 @@ DEPENDENCIES
   mini_magick
   mp3_player
   pg (~> 0.18)
+  phony_rails (~> 0.14.2)
   puma (~> 3.7)
   rails (~> 5.1.2)
   rails-timeago (~> 2.0)

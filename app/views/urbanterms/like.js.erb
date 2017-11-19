@@ -1,0 +1,4 @@
+$(“#like_<%= @urbanterm.id %>”).removeClass(‘glyphicon-heart-empty’).addClass(‘glyphicon-heart’);
+$(“#like_<%= @urbanterm.id %>”).attr(“href”, ‘/urbanterms/<%= @urbanterm.id %>/unlike’);
+$(“#likes_<%= @urbanterm.id %>”).html(“<%= j (render partial: ‘urbanterms/likes’, locals: { urbanterm: @urbanterm } ) %>”);
+

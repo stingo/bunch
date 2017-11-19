@@ -121,9 +121,10 @@
                                                 <div class="col-md-8 ml0">
 
                                                   <br>
+
                           <div class="form-group">
                             <label>About The Comapany (Summary) </label>
-                            <%= f.trix_editor :about, placeholder: "Short summary of your company", class: "form-control", rows: "5" %>
+                            <%= f.trix_editor :about, placeholder: "Short summary of your company" %>
 
 
                           </div>
@@ -137,7 +138,7 @@
                                                   <br>
                           <div class="form-group">
                             <label>What we do </label>
-                            <%= f.trix_editor :services, placeholder: "Describe what your company does", class: "form-control", rows: "5" %>
+                            <%= f.trix_editor :services, placeholder: "Describe what your company does" %>
                           </div>
                                                 </div>
                                                 <!-- end col-4 -->
@@ -478,6 +479,17 @@
                           </div>
                                                 </div>
                                                 <!-- end col-4 -->
+
+
+                                                <br>
+
+
+                                                <%= f.input :country_code,  label: false  do %>
+                  <span class="input-group-addon">Country</span>
+                <%= country_select("contactphone", "country_code", { priority_countries: ["AU", "GB", "NZ"], selected: "AU" }, class: "form-control" ) %>
+                <% end %>
+
+                <br>
 
 
                                                 <!-- begin col-4 -->

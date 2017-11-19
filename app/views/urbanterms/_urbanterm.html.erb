@@ -1,0 +1,8 @@
+<aside class="vote-count bind-<%= urbanterm.id %>">
+ <%= link_to like_urbanterm_path(urbanterm), :remote => true, method: :put, class: 'vpos' do %>
+  <i class="fa fa-thumbs-up"></i>
+  <span class="vcount-<%= urbanterm.id %>"><%= urbanterm.get_upvotes.size %></span>
+ <% end %>
+
+</aside>
+

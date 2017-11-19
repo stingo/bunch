@@ -61,6 +61,8 @@ gem 'summernote-rails', '~> 0.8.1.1'
 
 gem 'country_select', '~> 3.1', '>= 3.1.1'
 
+gem 'phony_rails', '~> 0.14.2'
+
 
 
 group :development, :test do

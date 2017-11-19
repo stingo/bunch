@@ -280,7 +280,7 @@
 
 
                   <div class="card-body">
-                    <span class="lead"><%=raw @company.about if @company.about? %></span>
+                    <span class="lead"><%=raw @company.about.capitalize %></span>
                   </div>
                   <div class="card-divider"></div>
                   
@@ -433,14 +433,35 @@
 
 
                         <% if @company.contactphone? %>
+
+                        <%= PhonyRails.normalize_number('+4790909090', country_code: '#{render @company.countries}' )  %>
+
+                        <br>
+
+                        <%= render @company.countries %>
+
+                        <br>
+
+                      <%= "311012341234".phony_formatted!(normalize: :US, format: :international) %>
+
+                      <%= "311012341234".phony_formatted(format: :international, spaces: '-') %>
+
+                        <br>
+
+                      
+
+
                         <tr>
                           <td><span class="col-md-2 control-label fa text-primary">
 
 
                             <a href="<%= "#" %>" target="_blank" ><i class="fa fa-phone"></i></a>
                           </span>Contact phone</td>
-                          <td><span class="is-editable text-inherit"><%= @company.contactphone %></span></td>
+                          <td><span class="is-editable text-inherit"><%= "#{@company.contactphone}".phony_formatted(format: :international, spaces: '-') %>
+                           </span></td>
                         </tr>
+
+
 
                         <% else %>
                         <% end %>

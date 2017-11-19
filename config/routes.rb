@@ -45,8 +45,8 @@ Rails.application.routes.draw do
       resources :urbanterms do
     #get :search, :on => :collection
     #get :autocomplete, :on => :collection
-        member do
-      put "like", to:    "urbanterms#upvote"
+      member do
+      put "like" => "urbanterms#upvote"
       put "unlike", to: "urbanterms#downvote"
   end
   end

@@ -31,7 +31,7 @@ class CompanylogoUploader < CarrierWave::Uploader::Base
    end
 
      version :large do
-     process :resize_to_fill => [300, 225]
+     process :resize_to_fit => [400, 400]
    end
 
   # Create different versions of your uploaded files:

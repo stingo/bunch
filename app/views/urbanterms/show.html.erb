@@ -50,5 +50,15 @@
   <%= @urbanterm.termaudio %>
 </p>
 
+<%= link_to like_urbanterm_path(@urbanterm), class: "like-btn", method: :put, remote: :true do  %>
+
+<div><span><p><i class="fa fa-thumbs-up fa-3x"> </i></p></span></div>
+
+<% end %>
+
+<span class="likes-count"><%= @urbanterm.get_upvotes.size %></span>
+
+
+
 <%= link_to 'Edit', edit_urbanterm_path(@urbanterm) %> |
 <%= link_to 'Back', urbanterms_path %>

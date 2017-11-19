@@ -1,0 +1,5 @@
+$('.npos').bind('ajax:success', 'turbolinks:load', function() {
+ $('.ncount-<%= @urbanterm.id %>').html('<%=escape_javascript @urbanterm.get_downpvotes.size.to_s %>');
+});
+
+

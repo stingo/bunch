@@ -13,12 +13,7 @@ class Urbanterm < ApplicationRecord
 	mount_uploader :termcover, TermcoverUploader
 	mount_uploader :termaudio, TermaudioUploader
 
-extend FriendlyId
-  friendly_id :title, use: :slugged
 
-  def should_generate_new_friendly_id?
-    title_changed?
-  end
 
   validates :meaning1, presence: { message: "Give at least one meaning to this term" }
 
