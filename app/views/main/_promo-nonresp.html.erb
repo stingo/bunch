@@ -1,0 +1,420 @@
+
+
+
+
+
+
+
+                <!-- =========================
+         SECTION: HOME / HEADER  style="background: url(https://s3.amazonaws.com/proinsidegh/static/el2bg.jpg) no-repeat center top fixed;
+    " data-stellar-background-ratio="0.5" id="home"
+        ============================== -->
+
+      
+
+         <header class="header" >
+
+            <!-- COLOR OVER IMAGE -->
+            <div class="overlay-layer">
+
+                <!-- STICKY NAVIGATION -->
+                
+                <!-- /END STICKY NAVIGATION -->
+
+                <!-- CONTAINER -->
+                <div class="container">
+
+                    <!-- ONLY LOGO ON HEADER 
+                          <div class="only-logo">
+                             <div class="navbar">
+                                    <div class="navbar-header">
+                                       <img src="images/logo-2.png" alt="">
+                                    </div>
+                             </div>
+                          </div>
+                          /END ONLY LOGO ON HEADER -->
+
+                    <div class="row">
+                        <div class="col-md-7 text-left">
+
+                            <!-- HEADING AND BUTTONS -->
+                            <div class="intro-section">
+
+                                <!-- WELCOM MESSAGE -->
+                                <h1 class="intro white-text frontsize">insideGH Simple
+    and Reliable Platform</h1>
+
+    <br>
+
+
+
+
+    <%= form_with url: search_path, local: true, method: :get, :class => "" do |form| %>
+
+
+                            <div class="input-group m-b-20">
+                            
+                            <%= form.text_field :q, placeholder: "Search and select or hit enter", data: { behavior: "autocomplete" }, class: "form-control input-lg" %>
+                                
+
+                                <span class="input-group-btn">
+                                    <button type="submit" class="btn btn-lg"><i class="fa fa-search"></i></button>
+                                </span>
+
+
+
+                            </div>
+                    
+         <% end %>
+
+
+
+        
+
+
+
+
+
+
+
+                                
+                                <p class="lead text-white">InsideGH.com is a cool and fun way of sharing online. A community to find or share resources. Find and connect to friends...</p>
+
+                                <p >
+                <h5 class="text-white">Browse by Popular Categories</h5>
+                <!--ul class="popular-tags"-->
+
+                <ul class="popular-tags text-center item-thumbnail">
+                    <!--li><a href="#"><i class="fa fa-circle text-danger"></i> CSS</a></li>
+                    <li><a href="#"><i class="fa fa-circle text-primary"></i> Bootstrap</a></li>
+                    <li><a href="#"><i class="fa fa-circle text-warning"></i> Javascript</a></li>
+                    <li><a href="#"><i class="fa fa-circle"></i> jQuery</a></li>
+                    <li><a href="#"><i class="fa fa-circle text-success"></i> Android</a></li>
+                    <li><a href="#"><i class="fa fa-circle text-muted"></i> iOS</a></li>
+                    <li><a href="#"><i class="fa fa-circle text-purple"></i> Template</a></li-->
+
+                    <li><span class="fa-stack fa-4x text-center">
+                                        <a href="#"><i class="fa fa-shopping-cart fa-stack-2x text-info"></i></a>
+                                       
+                                    </span>
+
+                                    <br>
+                                    <span class="black-f" style="color: #FFFFFF !important;">Market Place</span>
+                                    
+
+                    </li>
+
+
+
+                    <li><span class="fa-stack fa-4x text-center">
+                                        <a href="#"><i class="fa fa-calendar fa-stack-2x text-danger"></i></a>
+                                       
+                                    </span>
+
+                                    <br>
+                                    <span class="black-f" style="color: #FFFFFF !important;">Events</span>
+                                    
+
+                    </li>
+
+                    <li><span class="fa-stack fa-4x text-center">
+                                        <a href="#"><i class="fa fa-text-width fa-stack-2x text-muted"></i></a>
+                                       
+                                    </span>
+
+                                    <br>
+                                    <span class="black-f" style="color: #FFFFFF !important;">Urban Terms</span>
+                                    
+
+                    </li>
+
+
+                    <li><span class="fa-stack fa-4x text-center">
+                                        <a href="#"><i class="fa fa-music fa-stack-2x text-success"></i></a>
+                                       
+                                    </span>
+
+                                    <br>
+                                    <span class="black-f" style="color: #FFFFFF !important;">Music</span>
+                                    
+
+                    </li>
+
+
+                    <li><span class="fa-stack fa-4x text-center">
+                                        <a href="#"><i class="fa fa-map-marker fa-stack-2x text-warning"></i></a>
+                                       
+                                    </span>
+
+                                    <br>
+                                    <span class="black-f" style="color: #FFFFFF !important;">Locations</span>
+                                    
+
+                    </li>
+
+                    <br>
+                      <br>
+
+
+                    <li><a href="/profiles"><i class="fa fa-circle text-primary"></i> People</a></li>
+                    <li><a href="/jobs"><i class="fa fa-circle text-warning"></i> Jobs</a></li>
+                    <li><a href="/companies"><i class="fa fa-circle text-warning"></i> Businesses</a></li>
+                    <li><a href="#"><i class="fa fa-circle"></i> How To</a></li>
+                    <li><a href="#"><i class="fa fa-circle text-success"></i> Articles</a></li>
+                    <li><a href="#"><i class="fa fa-circle text-muted"></i> Property</a></li>
+
+
+
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+    
+                
+                </ul>
+                                    
+
+                                </p>
+                                
+                                <!-- BUTTON -->
+                                <!--div class="button hidden-xs">
+                                    <a href="#section1" class="btn btn-primary secondary-button">Learn More</a>
+                                </div>
+                                <!/END BUTTON -->
+                                
+                            </div>
+
+                        </div>
+
+
+        <!-- =========================
+         USER REGISTRATION
+        ============================== -->
+
+                        <div class="col-md-5 pull-right">
+                            
+                            <!-- VERTICAL REGISTRATION FORM -->
+                            <div class="vertical-registration-form">
+                                
+                                <h4 class="whitee-text text-center">Get started - it's free.</h4>
+
+                               <%# form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+                               <%= form_for(:profile, :url => registration_path(:profile)) do |f| %>
+                                
+                                <form class="registration-form" id="contact-form">
+
+
+
+
+     <label class="control-label">Name <span class="text-danger">*</span></label>
+                            
+                            <div class="row row-space-10">
+                                <div class="col-md-6 m-b-15">
+
+
+                                    <%= f.text_field :first_name, required: true, :autofocus => true, :placeholder => 'First name', :class => "form-control input-box " %>
+
+
+
+
+                                 
+                                </div>
+                                <div class="col-md-6 m-b-15">
+                                    
+                                    <%= f.text_field :last_name, required: true, :autofocus => true, :placeholder => 'Last name', :class => "form-control input-box " %>
+
+                                </div>
+                            </div>
+
+
+
+
+     
+
+
+
+                                    
+                                    <%# f.text_field :dispalyname, :autofocus => true, :placeholder => 'Pick a username', :class => "form-control input-box" %>
+
+                                    
+
+                                    <label class="control-label">Email <span class="text-danger">*</span></label>
+                            <div class="row m-b-15">
+                                <div class="col-md-12">
+                                <%= f.email_field :email, required: true, :autofocus => true, :class => "form-control", :placeholder => "Email address" %>
+                                
+                                </div>
+                            
+                            </div>
+                            
+
+                          
+
+
+
+                             <!--password-->
+
+                             <label class="control-label">Password<% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %> <span class="text-danger">*</span></label>
+                            
+                            <div class="row row-space-10">
+                                <div class="col-md-6 m-b-15">
+
+
+                                    <%= f.password_field :password, autocomplete: "off", :class => "form-control", :placeholder => "Password"  %>
+
+
+                                 
+                                </div>
+                                <div class="col-md-6 m-b-15">
+                                    
+                                    <%= f.password_field :password_confirmation,required: true, autocomplete: "off", :class => "form-control", :placeholder => "Confirm password"  %>
+
+                                </div>
+                            </div>
+
+
+                            <!--password ends-->
+                            
+
+                          
+
+
+
+
+
+                              <!--div class="text-inverse m-b-10">Password<%# if @minimum_password_length %>
+        <em>(<%# @minimum_password_length %> characters minimum)</em>
+        <%# end %><br /> </div-->
+
+
+     
+                                       
+                                     
+                           
+
+
+
+        <div><%= f.label :birthday %><br />
+            <%= f.date_select :date_of_birth, required: true, :start_year => 1945 %>&nbsp<span><!-- START dropdown-->
+                            
+                                 
+                            <div class="pull-right dropdown">
+                              <button type="button" data-toggle="dropdown" class="btn btn-flat btn-flat-icon"><em class="ion-android-more-vertical"></em></button>
+                              <ul role="menu" class="dropdown-menu md-dropdown-menu dropdown-menu-right" style="padding-left: 4px !important;">
+                                <span class="card-body small Ttransparent-text" >Providing your date <br> of birth helps make <br>sure that you get the right insideGH <br>experience for your age.<br> This will not visible to the public, <br>For more details, <br>please visit our <a href="#">Data Policy.</a></span>
+                                
+                              </ul>
+                            </div>
+                            <!-- END dropdown--></span>
+
+
+            </div>
+
+
+          <br>
+
+               <div class="col-md-12 m-b-10">
+                                            <label class="radio-inline">
+                                    <%= radio_button :is_female, {}, true %> <%= f.label :is_female, "Female" %>
+                                            </label>
+
+                                            <label class="radio-inline">
+                                             <%= radio_button :is_female, {}, false%> <%= f.label :is_female, "Male" %>
+                                            </label>
+                                        </div>
+
+                            
+                            
+
+
+
+
+                                    
+                                    
+
+
+                                   <p class=" small Ttransparent-text">
+                                    By clicking Sign up, you agree to insideGH's User Agreement, Privacy Policy, and Cookie Policy.
+                                    </p>
+                                    
+                                 
+                                    
+                            
+
+
+
+                            <div class="register-buttons">
+
+                        
+
+
+                        <%= f.submit "Sign up",  :class => "btn btn-primary btn-block btn-lg" %>
+
+
+                            </div>
+
+
+
+                            <div class="m-t-20 text-inverse">
+                                Already a member? Click <%= link_to('Here', new_profile_session_path) %> to login.
+                            </div>
+                                    
+                                </form>
+
+                                <% end %>
+
+                                
+
+      
+
+
+                                
+                                <!-- FORM SUBMIT SUCCESS / ERROR MESSAGES -->
+                                <p class="email-success dark-text small-text"><span class="icon-check-alt2 colored-text"></span>Email sent seuccessfully</p>
+                                <p class="email-error dark-text small-text"><span class="icon-close-alt2"></span>Error! Please check all fields filled correctly</p>
+                                <!-- MAILCHIMP ALERTS 
+                        <p class="mailchimp-success dark-text"><span class="icon-check-alt2 colored-text"></span>We sent the confirmation to your email</p>
+                        <p class="mailchimp-error dark-text"><span class="icon-close-alt2"></span>Error! Please check all fields filled correctly</p>
+                        -->
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+
+
+
+
+
+                   
+
+     
+
+
+
+
+
+
+
+
+
+
+
+    
+        

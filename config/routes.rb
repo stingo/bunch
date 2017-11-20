@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :events
   resources :profiles
   resources :ghana, :only => [:index, :search]
+  resources :main, :only => [:index, :search]
 
   resources :tags, except: :show
   get 'tags/:tag', to: 'ghana#search'
@@ -24,12 +25,14 @@ Rails.application.routes.draw do
   get 'ghana/market' => 'ghana#search' # override default routes.
   #get '/user/:id' => 'pages#profile'
 
+   get 'main/market' => 'main#search'
 
 
 
 
 
-  get :search, controller: :ghana
+
+  get :search, controller: :main
   
     resources :profiles do
       
@@ -53,7 +56,7 @@ Rails.application.routes.draw do
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'ghana#index'
+  root 'main#index'
 
   #root 'ghana#index'
 end

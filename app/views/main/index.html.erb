@@ -1,0 +1,6 @@
+<% if !profile_signed_in? %>
+  <%= render 'promo' %>
+<% else %>
+  <%= render 'normal' %>
+<% end %>
+

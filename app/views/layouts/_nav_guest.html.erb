@@ -60,6 +60,12 @@
                     <!--mobile search ends -->
 
 <!--Add starts-->
+
+                                    
+
+
+       
+
         <li class="dropdown">
             <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14">
               
@@ -326,7 +332,8 @@
                                     <span class="hidden-md hidden-sm hidden-xs">
 
 
-<%= link_to('Login', new_profile_session_path)  %> 
+<%# link_to('Login', new_profile_session_path)  %> 
+<%= link_to "Login", "#login", "data-toggle" => "modal", :class => 'btn btn-small' %> 
 
                                
                                     </li>
@@ -340,9 +347,11 @@
 
                                     <span class="hidden-md hidden-sm hidden-xs">
 
+                                        <%= link_to "Sign up", "#sign_up", "data-toggle" => "modal", :class => 'btn btn-small btn-primary' %>
 
 
-<%= link_to('Register', new_profile_registration_path ) %>
+
+<%# link_to('Register', new_profile_registration_path ) %>
 
 
                                     </li>
@@ -385,6 +394,8 @@
             </div>
         </div>
     </nav>
+
+
 
 
 
