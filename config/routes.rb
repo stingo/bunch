@@ -16,13 +16,13 @@ Rails.application.routes.draw do
   resources :profiles
   resources :ghana, :only => [:index, :search]
   resources :main, :only => [:index, :search]
+  resources :contacts, :only => [:new, :create]
 
   resources :tags, except: :show
   get 'tags/:tag', to: 'ghana#search'
 
   get 'tags/:tag', to: 'urbanterms#index'
 
-  get 'ghana/market' => 'ghana#search' # override default routes.
   #get '/user/:id' => 'pages#profile'
 
    get 'main/market' => 'main#search'

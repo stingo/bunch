@@ -126,7 +126,28 @@
   <% @profiles.each_slice(3) do |profile| %>
     <div class="row">
       <% profile.each do |profile| %>
+
+    
+
+             
         <div class="col-md-4">
+
+                        
+                          <% if profile.locations.present? %>
+
+               <i class="fa fa-fw fa-map-marker"></i><%= render profile.locations %>
+
+               <% else %>
+               <br>
+               <% end %> <% if profile.countries.present? %>, 
+
+              <%= render profile.countries %>
+
+               <% else %>
+               
+               <% end %>
+
+          
           <div class="photo photo-type-line">
 
             <!--a href="<%# profile.pesnavatar_url() %>" class="photo-hover" data-lightbox="my-images" data-title="<%# profile.first_name %>"-->
@@ -137,12 +158,12 @@
               <div class="photo-info">
                 <div class="headline">
 
-                  <%= profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ profile.last_name.split(" ").map(&:capitalize).join(" ") if profile.first_name || profile.last_name %>
+                  <%= profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ profile.last_name.split(" ").map(&:capitalize).join(" ") if profile.first_name || profile.last_name %> 
 
                   </div>
 
                 <div class="line"></div>
-                <div class="desc">More..<%# profile.locations if profile.locations.present? %></div>
+                <div class="desc"> View profile <%# profile.locations if profile.locations.present? %></div>
               </div>
               <div class="mask"></div>
             </a>
@@ -162,16 +183,43 @@
 
 
               <% end %>
+
+                    <div class="row m-b-20">
+
+ <div class=" m-l-0 m-t-0" style="color: #000000 !important; font-size: 16px;">
+                          <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Analytics"; ><i class="fa fa-fw fa-plus"></i>&nbspFollow</a>&nbsp
+                          <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Tasks"><i class="fa fa-fw fa-comment-o"></i>&nbspComment</a>&nbsp
+                          <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Configuration"><i class="fa fa-fw fa-share"></i>&nbspShare</a>
+                          
+                        </div>
+
+</div>
+
+             
                 
             </div>
           </div>
-        </div>     
+        </div> 
+
+
+
+
+
+
       <% end %>
+
+
+
+
     </div>
   <% end %>
   <% else %>
   <p>There are no images</p>
+
+
 <% end %>
+
+
 </div>
 
 

@@ -63,6 +63,8 @@ gem 'country_select', '~> 3.1', '>= 3.1.1'
 
 gem 'phony_rails', '~> 0.14.2'
 
+gem 'mail_form', '~> 1.5', '>= 1.5.1'
+
 
 
 group :development, :test do

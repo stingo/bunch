@@ -55,6 +55,20 @@
   </div>
 <br>
 
+
+
+            
+              <!-- end col-4 -->
+                                                <!-- begin col-4 -->
+                                                <div class="col-md-4">
+                          <div class="form-group">
+                            <label>Country <span class="required">*</span></label>
+                            <%= form.select :country_ids, Country.all.pluck(:country, :id), {}, { multiple: true, class: "selectize"} %>
+                          </div>
+                                                </div>
+                                  
+                                    
+
 <div class="form-group">
     <%= form.label :skill_ids, "CLOSE SKILL" %>
     <%= form.select :skill_ids, Skill.all.pluck(:title, :id), {}, { multiple: true, class: "selectize" } %>

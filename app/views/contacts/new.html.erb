@@ -1,0 +1,81 @@
+<h1>Say Hellow</h1>
+
+
+
+     
+
+
+
+     <!-- Main section-->
+      <main class="">
+        <!-- Page content-->
+
+
+
+
+
+
+          <div class="container container-sm">
+            <div class="card">
+
+          <div class="card-body reader-block">
+
+
+
+
+          	<!-- begin wrapper -->
+                    <div class="wrapper">
+                    	
+
+ 
+                        <div class="p-30 bg-white">
+                            <!-- begin email form -->
+                           <%= form_for @contact do |f| %>
+
+                         
+                                <!-- begin email to -->
+                                <label class="control-label">To:</label>
+                                <div class="m-b-15">
+                                    <%= f.text_field :name, required: true, class: "form-control" %>
+                                </div>
+                                <!-- end email to -->
+                                <!-- begin email subject -->
+                                <label class="control-label">Subject:</label>
+                                <div class="m-b-15">
+                                    <input type="text" class="form-control" />
+                                </div>
+                                <!-- end email subject -->
+                                <!-- begin email content -->
+                                <label class="control-label">Content:</label>
+                                <div class="m-b-15">
+                                    <textarea class="textarea form-control" id="wysihtml5" placeholder="Enter text ..." rows="12"></textarea>
+                                </div>
+
+                                  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+                                <!-- end email content -->
+                                <!--button type="submit" class="btn btn-primary p-l-40 p-r-40">Send</button-->
+                         <% end %>
+                            <!-- end email form -->
+                        </div>
+                    </div>
+		            <!-- end wrapper -->
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</div>
+
+    
+        <!-- Page footer-->
+        <footer><span>2017 - Centric app.</span></footer>
+      </main>
+
