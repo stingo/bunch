@@ -944,6 +944,45 @@ background-color: #F1F1F1;
     border: 4px solid rgba(255, 255, 255, 0.8);
 }
 
+.follow_index {
+
+ 
+  color: #2A72B5;
+  text-decoration: none;
+  background-color: none;
+  padding: 1px 5px;
+ font-size: 13px;
+  line-height: 1.5;
+  border-radius: 3px;
+  border: 1px solid #eeeeee;
+
+}
+
+.follow_index:hover {
+
+color: #2A72B5;
+  text-decoration: none;
+  background-color: #eeeeee;
+  padding: 1px 5px;
+ font-size: 13px;
+  line-height: 1.5;
+  border-radius: 3px;
+   border: 1px solid #eeeeeee;
+
+}
+
+.follow-title {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #7ba7f1;
+}
+
+.follow-value {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #1655bd;
+}
+
 .h-header{
     color : #808080;
     margin-left:10%;

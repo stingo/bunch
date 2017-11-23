@@ -1,81 +1,184 @@
-<!--link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-
-<div class="container" style="margin-top: 20px; margin-bottom: 20px;">
-   
-
-   <div class="row panel ">
-        
-
-        <div class="col-md-4 bg_blur ">
-            <a href="#" class="follow_btn hidden-xs">Follow</a>
-        </div>
-
-
-
-
-        <div class="col-md-8  col-xs-12">
-
-           <img src="http://lorempixel.com/output/people-q-c-100-100-1.jpg" class="img-thumbnail picture hidden-xs" />
-           <img src="http://lorempixel.com/output/people-q-c-100-100-1.jpg" class="img-thumbnail visible-xs picture_mob" />
-           <div class="h-header">
-                <h1>Lorem Ipsum</h1>
-                <h4>Web Developer</h4>
-                <span>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
-"There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."</span>
-           </div>
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <div class="row n-nav">    
-        <div class="col-md-4"></div>
-        <div class="col-md-8 col-xs-12" style="margin: 0px;padding: 0px; float: right;">
-            <div class="col-md-4 col-xs-4 well"><i class="fa fa-weixin fa-lg"></i> 16</div>
-            <div class="col-md-4 col-xs-4 well"><i class="fa fa-heart-o fa-lg"></i> 14</div>
-            <div class="col-md-4 col-xs-4 well"><i class="fa fa-thumbs-o-up fa-lg"></i> 26</div>
-        </div>
-        </div>
-    </div>
-    </div>   
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Bootstrap Admin Template">
+    <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
+    <title></title>
+    <!-- Vendor styles-->
+    <!-- build:css(../app) css/vendor.css-->
     
+  </head>
+  <body class="theme-1">
+    <div class="layout-container">
+     
+
+      <!-- top navbar-->
+      <header class="header-container">
+        <!--nav>
+          <ul class="visible-xs visible-sm">
+            <li><a id="sidebar-toggler" href="#" class="menu-link menu-link-slide"><span><em></em></span></a></li>
+          </ul>
+          <ul class="hidden-xs">
+            <li><a id="offcanvas-toggler" href="#" class="menu-link menu-link-slide"><span><em></em></span></a></li>
+          </ul>
+          <h2 class="header-title">Profile</h2>
+          <ul class="pull-right">
+            <li><a id="header-search" href="#" class="ripple"><em class="ion-ios-search-strong"></em></a></li>
+            <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle has-badge ripple"><em class="ion-person"></em><sup class="badge bg-danger">3</sup></a>
+              <ul class="dropdown-menu dropdown-menu-right md-dropdown-menu">
+                <li><a href="profile.html"><em class="ion-home icon-fw"></em>Profile</a></li>
+                <li><a href="messages.html"><em class="ion-gear-a icon-fw"></em>Messages</a></li>
+                <li role="presentation" class="divider"></li>
+                <li><a href="user.login.html"><em class="ion-log-out icon-fw"></em>Logout</a></li>
+              </ul>
+            </li>
+            <li><a id="header-settings" href="#" class="ripple"><em class="ion-gear-b"></em></a></li>
+          </ul>
+        </nav-->
+      </header>
 
 
-    <div class="row n-nav">    
-        <div class="col-md-4"></div>
-        <div class="col-md-12 col-xs-12" style="margin: 0px;padding: 0px;">
-            <div class="col-md-4 col-xs-4 well"><i class="fa fa-weixin fa-lg"></i> 16</div>
-            <div class="col-md-4 col-xs-4 well"><i class="fa fa-heart-o fa-lg"></i> 14</div>
-            <div class="col-md-4 col-xs-4 well"><i class="fa fa-thumbs-o-up fa-lg"></i> 26</div>
+      <!-- sidebar-->
+      <!--aside class="sidebar-container">
+        <div class="sidebar-header">
+          <div class="pull-right pt-lg text-muted hidden"><em class="ion-close-round"></em></div><a href="#" class="sidebar-header-logo"><img src="img/logo.png" data-svg-replace="img/logo.svg" alt="Logo"><span class="sidebar-header-logo-text">Centric</span></a>
         </div>
+        <div class="sidebar-content">
+          <div class="sidebar-toolbar text-center"><a href=""><img src="img/user/01.jpg" alt="Profile" class="img-circle thumb64"></a>
+            <div class="mt">Welcome, Willie Webb</div>
+          </div>
+          <nav class="sidebar-nav">
+            <ul>
+              <li><a href="dashboard.html" class="ripple"><span class="pull-right nav-label"><span class="badge bg-success">2</span></span><span class="nav-icon"><img src="" data-svg-replace="img/icons/aperture.svg" alt="MenuItem" class="hidden"></span><span>Dashboard</span></a></li>
+              <li><a href="cards.html" class="ripple"><span class="pull-right nav-label"></span><span class="nav-icon"><img src="" data-svg-replace="img/icons/radio-waves.svg" alt="MenuItem" class="hidden"></span><span>Cards</span></a></li>
+              <li><a href="#" class="ripple"><span class="pull-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="pull-right nav-label"></span><span class="nav-icon"><img src="" data-svg-replace="img/icons/connection-bars.svg" alt="MenuItem" class="hidden"></span><span>Charts</span></a>
+                <ul class="sidebar-subnav">
+                  <li><a href="flot.html" class="ripple"><span class="pull-right nav-label"></span><span>Flot</span></a></li>
+                  <li><a href="radial.html" class="ripple"><span class="pull-right nav-label"></span><span>Radial</span></a></li>
+                  <li><a href="rickshaw.html" class="ripple"><span class="pull-right nav-label"></span><span>Rickshaw</span></a></li>
+                </ul>
+              </li>
+              <li><a href="#" class="ripple"><span class="pull-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="pull-right nav-label"></span><span class="nav-icon"><img src="" data-svg-replace="img/icons/clipboard.svg" alt="MenuItem" class="hidden"></span><span>Forms</span></a>
+                <ul class="sidebar-subnav">
+                  <li><a href="forms.classic.html" class="ripple"><span class="pull-right nav-label"></span><span>Classic</span></a></li>
+                  <li><a href="validation.html" class="ripple"><span class="pull-right nav-label"></span><span>Validation</span></a></li>
+                  <li><a href="forms.advanced.html" class="ripple"><span class="pull-right nav-label"></span><span>Advanced</span></a></li>
+                  <li><a href="material.html" class="ripple"><span class="pull-right nav-label"></span><span>Material</span></a></li>
+                  <li><a href="editor.html" class="ripple"><span class="pull-right nav-label"></span><span>Editors</span></a></li>
+                  <li><a href="dropzone.html" class="ripple"><span class="pull-right nav-label"></span><span>Dropzone</span></a></li>
+                  <li><a href="xeditable.html" class="ripple"><span class="pull-right nav-label"></span><span>xEditable</span></a></li>
+                  <li><a href="wizard.html" class="ripple"><span class="pull-right nav-label"></span><span>Wizard</span></a></li>
+                </ul>
+              </li>
+              <li><a href="#" class="ripple"><span class="pull-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="pull-right nav-label"></span><span class="nav-icon"><img src="" data-svg-replace="img/icons/navicon.svg" alt="MenuItem" class="hidden"></span><span>Tables</span></a>
+                <ul id="tables" class="sidebar-subnav">
+                  <li><a href="tables.classic.html" class="ripple"><span class="pull-right nav-label"></span><span>Classic</span></a></li>
+                  <li><a href="datatable.html" class="ripple"><span class="pull-right nav-label"></span><span>Datatable</span></a></li>
+                  <li><a href="bootgrid.html" class="ripple"><span class="pull-right nav-label"></span><span>Bootgrid</span></a></li>
+                </ul>
+              </li>
+              <li><a href="#" class="ripple"><span class="pull-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="pull-right nav-label"></span><span class="nav-icon"><img src="" data-svg-replace="img/icons/grid.svg" alt="MenuItem" class="hidden"></span><span>Layouts</span></a>
+                <ul id="layouts" class="sidebar-subnav">
+                  <li><a href="layouts.columns.html" class="ripple"><span class="pull-right nav-label"></span><span>Columns</span></a></li>
+                  <li><a href="layouts.overlap.html" class="ripple"><span class="pull-right nav-label"></span><span>Overlap</span></a></li>
+                  <li><a href="layouts.boxed.html" class="ripple"><span class="pull-right nav-label"></span><span>Boxed</span></a></li>
+                  <li><a href="layouts.tabs.html" class="ripple"><span class="pull-right nav-label"></span><span>Tabs</span></a></li>
+                  <li><a href="layouts.containers.html" class="ripple"><span class="pull-right nav-label"></span><span>Containers</span></a></li>
+                </ul>
+              </li>
+              <li><a href="#" class="ripple"><span class="pull-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="pull-right nav-label"></span><span class="nav-icon"><img src="" data-svg-replace="img/icons/levels.svg" alt="MenuItem" class="hidden"></span><span>Elements</span></a>
+                <ul id="elements" class="sidebar-subnav">
+                  <li><a href="colors.html" class="ripple"><span class="pull-right nav-label"></span><span>Colors</span></a></li>
+                  <li><a href="whiteframes.html" class="ripple"><span class="pull-right nav-label"></span><span>Whiteframes</span></a></li>
+                  <li><a href="lists.html" class="ripple"><span class="pull-right nav-label"></span><span>Lists</span></a></li>
+                  <li><a href="bootstrapui.html" class="ripple"><span class="pull-right nav-label"></span><span>Bootstrap</span></a></li>
+                  <li><a href="buttons.html" class="ripple"><span class="pull-right nav-label"></span><span>Buttons</span></a></li>
+                  <li><a href="sweetalert.html"><span class="pull-right nav-label"></span><span>Sweet-alert</span></a></li>
+                  <li><a href="spinners.html" class="ripple"><span class="pull-right nav-label"></span><span>Spinners</span></a></li>
+                  <li><a href="nestable.html" class="ripple"><span class="pull-right nav-label"></span><span>Nestable</span></a></li>
+                  <li><a href="grid.html" class="ripple"><span class="pull-right nav-label"></span><span>Grid</span></a></li>
+                  <li><a href="grid-masonry.html" class="ripple"><span class="pull-right nav-label"></span><span>Grid Masonry</span></a></li>
+                  <li><a href="typography.html" class="ripple"><span class="pull-right nav-label"></span><span>Typography</span></a></li>
+                  <li><a href="icons.html" class="ripple"><span class="pull-right nav-label"></span><span>Icons</span></a></li>
+                  <li><a href="utilities.html" class="ripple"><span class="pull-right nav-label"></span><span>Utilities</span></a></li>
+                </ul>
+              </li>
+              <li><a href="#" class="ripple"><span class="pull-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="pull-right nav-label"></span><span class="nav-icon"><img src="" data-svg-replace="img/icons/planet.svg" alt="MenuItem" class="hidden"></span><span>Maps</span></a>
+                <ul id="maps" class="sidebar-subnav">
+                  <li><a href="google-map-full.html" class="ripple"><span class="pull-right nav-label"></span><span>Google Maps Full</span></a></li>
+                  <li><a href="google-map.html" class="ripple"><span class="pull-right nav-label"></span><span>Google Maps</span></a></li>
+                  <li><a href="vector-map.html" class="ripple"><span class="pull-right nav-label"></span><span>Vector Maps</span></a></li>
+                  <li><a href="datamaps.html" class="ripple"><span class="pull-right nav-label"></span><span>Datamaps</span></a></li>
+                </ul>
+              </li>
+              <li><a href="#" class="ripple"><span class="pull-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="pull-right nav-label"></span><span class="nav-icon"><img src="" data-svg-replace="img/icons/ios-browsers.svg" alt="MenuItem" class="hidden"></span><span>Pages</span></a>
+                <ul id="pages" class="sidebar-subnav">
+                  <li><a href="timeline.html" class="ripple"><span class="pull-right nav-label"></span><span>Timeline</span></a></li>
+                  <li><a href="invoice.html" class="ripple"><span class="pull-right nav-label"></span><span>Invoice</span></a></li>
+                  <li><a href="pricing.html" class="ripple"><span class="pull-right nav-label"></span><span>Pricing</span></a></li>
+                  <li><a href="contacts.html" class="ripple"><span class="pull-right nav-label"></span><span>Contacts</span></a></li>
+                  <li><a href="faq.html" class="ripple"><span class="pull-right nav-label"></span><span>FAQ</span></a></li>
+                  <li><a href="projects.html" class="ripple"><span class="pull-right nav-label"></span><span>Projects</span></a></li>
+                  <li><a href="blog.html" class="ripple"><span class="pull-right nav-label"></span><span>Blog</span></a></li>
+                  <li><a href="blog.article.html" class="ripple"><span class="pull-right nav-label"></span><span>Article</span></a></li>
+                  <li><a href="profile.html" class="ripple"><span class="pull-right nav-label"></span><span>Profile</span></a></li>
+                  <li><a href="gallery.html" class="ripple"><span class="pull-right nav-label"></span><span>Gallery</span></a></li>
+                  <li><a href="wall.html" class="ripple"><span class="pull-right nav-label"></span><span>Wall</span></a></li>
+                  <li><a href="search.html" class="ripple"><span class="pull-right nav-label"></span><span>Search</span></a></li>
+                  <li><a href="messages.html" class="ripple"><span class="pull-right nav-label"></span><span>Messages Board</span></a></li>
+                </ul>
+              </li>
+              <li><a href="#" class="ripple"><span class="pull-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="pull-right nav-label"></span><span class="nav-icon"><img src="" data-svg-replace="img/icons/person-stalker.svg" alt="MenuItem" class="hidden"></span><span>User</span></a>
+                <ul id="user" class="sidebar-subnav">
+                  <li><a href="login.html" class="ripple"><span class="pull-right nav-label"></span><span>Login</span></a></li>
+                  <li><a href="signup.html" class="ripple"><span class="pull-right nav-label"></span><span>Signup</span></a></li>
+                  <li><a href="lock.html" class="ripple"><span class="pull-right nav-label"></span><span>Lock</span></a></li>
+                  <li><a href="recover.html" class="ripple"><span class="pull-right nav-label"></span><span>Recover</span></a></li>
+                </ul>
+              </li>
+              <li><a href="../../angularjs/" class="ripple"><span class="nav-icon"><em class="ion-android-open"></em></span><span>AngularJS</span></a></li>
+            </ul>
+          </nav>
         </div>
-    </div-->
+      </aside>
+      <div class="sidebar-layout-obfuscator"></div-->
+
+      <!-- Main section-->
+<main class="bg-white">
+        <!-- Page content-->
+    <section class="custombgD9E0E7">
+
+      <!--imagecover-->
+
+      <% if @profile.profilecover? %>
+
+          <div class="container-overlap bg-blue-500" style="background: url(<%= @profile.profilecover.url(:large) %>) no-repeat center top fixed;
+    " data-stellar-background-ratio="0.5" id="home"><!--1-->
+
+    <% else %>
+
+    <div class="container-overlap bg-blue-500" ><!--1-->
+
+      <% end %>
+
+      <!--end-image-cover-->
+          
+
+       
+        <div class="container container-md"><!--2-->
 
 
 
- 
 
 
-<!--START-->
 
 
-<div class="col-lg-12 col-sm-12">
-
- 
-   
 
 
+
+<!--MID Profile Cover begings-->
 <div class="ccard hovercard">
 
 
@@ -83,9 +186,25 @@
 
         <div class="col-md-4 bg_blur ">
 
+          <%# @profile.followers_count %>
 
 
-            <a href="# " class="follow_btn " style="z-index: 999 !important;">Connect</a>
+
+        <br>
+
+        
+
+                      
+<%# render 'following' %> <%# render 'followers' %>
+
+<% if profile_signed_in? %>
+ <button class="follow_btn" style="z-index: 999 !important;" value="<%= @profile.id %>">
+          <%= current_profile.following?(@profile) ? "UnFollow" : "+ Follow" %></button>
+<% end %>
+
+
+
+           
             
 
         </div>
@@ -131,16 +250,18 @@
 
         
 
-        <div class="ccard-info"> 
+        <div class="ccard-info m-b-40 m-l-40"> 
 
             
 
-                <h1><%= @profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ @profile.last_name.split(" ").map(&:capitalize).join(" ") if @profile.first_name || @profile.last_name %></h1>
+                
                 <h4><%= render @profile.skills if @profile.skills.present? %></h4>
 
                 <span class="ccard-title" style="background: #ffffff;"> <i class="fa fa-eye" style="color:#337ab7;"></i><%= @profile.impressionist_count(:filter=>:session_hash) %> &nbsp | <i class="fa fa-fw fa-map-marker"></i><%= render @profile.locations if @profile.locations.present? %></span>
                 <!--span class="card-title">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
 "There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."</span-->
+
+<br>
 
 <br>
 
@@ -150,389 +271,728 @@
                 <%# else %> <%# end %></div-->
 
 
-                      
-                
-
-
-
-
-
            
-     <% if profile_signed_in? %>
-                <%= link_to edit_profile_path(current_profile) do %><span class="btn btn-sm mr-2x btn-default"> <i class="fa fa-pencil fa-2x" style="color:#17AA1C"></i>Update profile <% end %></span>
-
-                <% else %> <% end %>    
-
+ 
         
 
 
     </div>
 
 </div>
+<!--MID Profile Cover ends-->
+          
+
+              
+
+            
 
 
-<!--right starts-->
-<div class="col-md-2 col-xs-12" style="padding-left: ;">
+             
 
- <div class="">
-                  <h1 >
-                    <!-- START dropdown-->
+
+          </div><!--2-->
+          </div><!--1-->
+
+
+
+          <div class="container container-md">
+            <div class="row">
+              
+
+
+              <!-- Left column-->
+              <div class="col-md-7 col-lg-8">
+
+             
+
+
+
+
+                <form editable-form="" name="user.profileForm" class="card">
+
+    <div class="panel overflow-hidden m-l-20">
+                   <table style="width:100%">
+  <tr>
+    <th class="media-heading">Following</th>
+    <th class="fmedia-heading">Followers</th>
+    <th class="fmedia-heading">Likes</th>
+    <th class="media-heading">Age</th>
+  </tr>
+  <tr>
+    <td class="follow-value text-bold"><span id="followings<%= @profile.id %>"><%= @profile.follow_count %></span></td>
+    <td class="follow-value text-bold"><span id="followers<%= @profile.id %>"><%= @profile.followers_count %></span></td>
+    <td class="follow-value text-bold">3922</td>
+    <td class="follow-value text-bold">2992</td>
+  </tr>
+  
+</table> 
+</div>
+  <!--edit/destroy user's hows-->
+<% if profile_signed_in? && current_profile == @profile %>
+
                     
-                    <!-- END dropdown-->Summary
-                  </h1>
-                    
+                  <div class="card-divider cutbtn20px"></div>
+                  <div class="card-offset cutbtn20px">
+                    <div class="card-offset-item text-right cutbtn20px">
 
-                    <div class="mda-list">
-                    
-                      <div class="mda-list-item-text mda-2-line">
-
-
-
-
-                      <div class="profile-nav-txt-spec">
-
-
-                      <%= @profile.summary if @profile.summary %>
-
-
-                        
-
-                      </div>
-
-
-
-
-                        <h3>
-<span class="profile-nav-txt-bold"><i class="fa fa-fw fa-map-marker"></i><%= render @profile.locations if @profile.locations.present? %><span class="text-muted text-ellipsis">Dansoman, GH</span></span></h3>
-
-
-                       
-                     
-                    </div>
-
-
-
-                    
-                      <div class="mda-list-item-text mda-2-line">
-                        <h3>
-
-                  <span class="profile-nav-txt-bold"><i class="fa fa-fw fa-link"></i>
-                  <a href="#">youtube/charlie.com</a>
-
-
-                  </span>
-
-                        
-
-                        </h3>
-                      
-                      </div>
                    
 
 
-                      <div class="mda-list-item-text mda-2-line">
-                        <h3>
-
-                  <span class="profile-nav-txt-bold"><i class="fa fa-fw fa-calendar"></i>
-                  <a href="#" class="text-muted">Joined <%= @profile.created_at.strftime("%e %b %Y") %></a>
-
-
-                  </span>
-
-                  </h3>
-                       
-                      </div>
-                 
-
-
-
-
-
-                         <div class="mda-list-item-text mda-2-line">
-                        <h3>
-
-                  <span class="profile-nav-txt-bold"><i class="fa fa-file-image-o"></i>
-                  <a href="#">Photos and videos </a>
-
-
-                  </span>
-
-                  </h3>
                     
-                      </div>
 
 
+                         
+                <%= link_to edit_profile_path(@profile) do %><span class="btn-raised btn btn-warning btn-circle btn-lg"><em class="ion-edit"></em> <% end %></span>
 
+                
+
+
+                <%= link_to @profile, method: :delete, remote: true, data: { confirm: 'Are you sure you want to delete this profile?' } do %><span class="btn-raised btn btn-default btn-circle btn-lg"><em class="ion-close"></em> <% end %></span>
+
+               
 
 
                     </div>
-                
+                  </div>
+                   <% else %>
 
-</div>
-</div>
+                    <% end %>
 
-<!-- right ends-->
-
-
-
-
-
-
+                  <!--edit end-->
+                  
+                  <!-- begin col-6 -->
+          <div class="card-body">
+              <div class="panel-group" id="accordion">
 
 
-<div class="col-md-8  col-xs-12"><!-- Left starts -->
+              <!--Services-->
+                <div class="panel overflow-hidden card-divider btn-raised">
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#services">
+                      <i class="fa fa-plus-circle pull-right title-20px-black blk"></i> 
+                    <span class="title-20px-black blk">What We Do</span>
+                  </a>
+                </h3>
+              </div>
+              <div id="services" class="panel-collapse collapse">
+                <div class="panel-body lead">
+                  <%#raw @company.services if @company.services %>
+                </div>
+              </div>
+            </div>
+            <!--Services ends-->
 
-     
+                      <!--Media-->
+                      <%# if @company.video1? %>
+                <div class="panel overflow-hidden card-divider btn-raised ">
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#media">
+                      <i class="fa fa-plus-circle pull-right title-20px-black blk"></i> 
+                    <span class="title-20px-black blk">Media</span>
+                  </a>
+                </h3>
+              </div>
+            
+              <div id="media" class="panel-collapse collapse text-center">
+                <div class="panel-body text-center">
+                  <%# embed(@company.video1) %>
+                </div>
+              </div>
+            </div>
+            <%# else %>
+                        <%# end %>
+            <!--media ends-->
+
+            <!--company details-->
+
+
+            <div class="panel overflow-hidden card-divider btn-raised">
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                      <i class="fa fa-plus-circle pull-right title-20px-black blk"></i> 
+                    <span class="title-20px-black blk">Company Details</span>
+                  </a>
+                </h3>
+              </div>
+              <div id="collapseOne" class="panel-collapse collapse">
+                <table class="table table-striped">
+                      <tbody>
+
+                        <%#if @company.websiteurl? %>
+
+                         <tr>
+                          <td><span class="col-md-2 control-label fa text-primary semi-bold">
+
+
+                            <a href="<%# "http://#{@company.websiteurl}" %>" target="_blank" ><i class="fa fa-globe"></i></a>
+                          </span>Website</td>
+                          <td><%# link_to @company.websiteurl, "http://#{@company.websiteurl}"  %></td>
+                        </tr>
+
+                        <%# else %>
+                        <%# end %>
+
+                        <%# link_to 'facebook', 'https://www.facebook.com' %> 
+
+
+                       
+
+
+                        <tr>
+                          <td><span class="col-md-2 control-label fa text-primary">
+
+
+                            <a href="<%# "#" %>" target="_blank" ><i class="fa fa-building-o "></i></a>
+                          </span>Industry</td>
+                          <td><h4><%# render @company.industries if @company.industries.present? %></h4></td>
+                        </tr>
+
+                       
+
+
+                        <%# if @company.yearfounded? %>
+                        <tr>
+                          <small>
+
+                        <td><span class="col-md-2 control-label fa text-primary">
+
+
+                            <a href="<%# "#" %>" target="_blank" ><i class="fa fa-calendar fa-stack"></i></a></span>Year founded</td>
+                          <td><span data-type="date" data-mode="popup" class="is-editable text-inherit">
+
+                            <%# @company.yearfounded.strftime(" %Y ") %> 
+
+                            </span></td>
+                        </tr>
+
+                         <%# else %>
+                        <%#end %>
 
 
 
-    <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
-        <div class="btn-group" role="group">
-            <button type="button" id="stars" class="btn btn-primary" href="#tab1" data-toggle="tab"><span class="glyphicon glyphicon-star" aria-hidden="true"><%= @profile.urbanterms.count %></span>
-                <div class="hidden-xs"><%= "Urban Term".pluralize(@profile.urbanterms.count) %></div>
-            </button>
+
+                        <tr>
+                          <td><span class="col-md-2 control-label fa text-primary">
+
+
+                            <a href="<%# "#" %>" target="_blank" ><i class="fa fa-handshake-o"></i></a>
+                          </span></em>Member since</td>
+                          <td><span data-type="date" data-mode="popup" class="is-editable text-inherit"><%# if @company.created_at > Time.now.beginning_of_day %>
+    <%#"#{time_ago_in_words(@company.created_at)} ago"%> 
+<%# else %>
+    <%#@company.created_at.strftime("%b %d, %Y ") %> 
+<%# end %></small></span></td>
+                        </tr>
+
+                       <%# if @company.companyemail? %>
+
+                        <tr>
+                          <td><span class="col-md-2 control-label fa text-primary">
+
+
+                            <a href="<%# "#" %>" target="_blank" ><i class="fa fa-envelope "></i></a>
+                          </span>Email</td>
+                          <td><span class="is-editable text-inherit"><a href="#">user@mail.com</a></span></td>
+                        </tr>
+                          <%# else %>
+                        <%# end %>
+
+
+                        <%# if @company.contactphone? %>
+                        <tr>
+                          <td><span class="col-md-2 control-label fa text-primary">
+
+
+                            <a href="<%# "#" %>" target="_blank" ><i class="fa fa-phone"></i></a>
+                          </span>Contact phone</td>
+                          <td><span class="is-editable text-inherit"><%# @company.contactphone %></span></td>
+                        </tr>
+
+                        <%#else %>
+                        <%#end %>
+
+                        <% #if @company.companytype_id? %>
+                         <tr>
+                          <td><span class="col-md-2 control-label fa text-primary">
+
+
+                            <a href="<%# "#" %>" target="_blank" ><i class="fa fa-building"></i></a>
+                          </span></em>Company type</td>
+                          <td><span class="is-editable text-inherit">
+
+
+                            <%# link_to @company.companytype.name, companies_path(companytype: @company.companytype.name)  %>
+
+                            
+                            
+
+
+                          </span></td>
+
+
+                        </tr>
+
+                          <%# else %>
+                        <%# end %>
+
+                         <%# if @company.companysize_id? %>
+
+                        <tr>
+                          <td><span class="col-md-2 control-label fa text-primary">
+
+
+                            <a href="<%= "#" %>" target="_blank" ><i class="fa fa-expand "></i></a>
+                          </span></em>Company size</td>
+                          <td><span class="is-editable text-inherit">
+
+                            <%# @company.companysize.name  %>
+                            
+
+                          </span></td>
+                        </tr>
+
+                        <%# else %>
+                        <%# end %>
+
+
+                      </tbody>
+                    </table>
+              </div>
+            </div>
+          <!--company details ends-->
+
+
+
+          <!--Social media-->
+
+          <%# if @company.facebookurl? || @company.facebookurl? || @company.twitterurl? || @company.linkedinurl? || @company.instagramurl? || @company.googleplusurl? || @company.pinteresturl?   %>
+
+                  <div class="panel overflow-hidden card-divider btn-raised">
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#socialMedia">
+                      <i class="fa fa-plus-circle pull-right title-20px-black blk"></i> 
+                    <span class="title-20px-black blk">Social Media</span>
+                  </a>
+                </h3>
+              </div>
+              <div id="socialMedia" class="panel-collapse collapse">
+                <table class="table table-striped">
+                      <tbody>
+
+                        <%# if @company.facebookurl? %>
+
+                         <tr>
+
+                          <td><span class="col-md-2 control-label fa text-primary">
+
+
+                            <a href="<%# "http://#{@company.facebookurl}" %>" target="_blank" ><i class="fa fa-facebook-square fa-stack-2x"></i></a>
+                          </span></td>
+                         
+                          <td><strong class="mt-l"><%# link_to 'Facebook', "http://#{@company.facebookurl}", target: "_blank"  %></strong></td>
+                        </tr>
+
+                        <%# else %>
+                        <%# end %>
+
+                        <%# link_to 'facebook', 'https://www.facebook.com' %> 
+
+
+                          <%# if @company.twitterurl? %>
+
+                         <tr>
+
+                          <td><span class="col-md-2 control-label fa text-primary">
+                            <a href="<%# "http://#{@company.twitterurl}" %>" target="_blank" ><i class="fa fa-twitter-square fa-stack-2x"></i></a>
+                          </span></td>
+                          <td><strong class="mt-l"><%# link_to 'Twitter', "http://#{@company.twitterurl}", target: "_blank"  %></strong></td>
+                        </tr>
+
+                        <%# else %>
+                        <%# end %>
+
+                        <%# if @company.linkedinurl? %>
+
+                         <tr>
+
+                          <td><span class="col-md-2 control-label fa text-primary">
+                            <a href="<%# "http://#{@company.linkedinurl}" %>" target="_blank" ><i class="fa fa-linkedin-square fa-stack-2x"></i></a></span></td>
+                          <td><strong class="mt-l"><%# link_to 'Linkedin', "http://#{@company.linkedinurl}", target: "_blank"  %></strong></td>
+                        </tr>
+
+                        <%# else %>
+                        <%# end %>
+
+                        <%# if @company.instagramurl? %>
+
+                         <tr>
+
+                          <td><span class="col-md-2 control-label fa text-primary"><a href="<%# "http://#{@company.instagramurl}" %>" target="_blank" ><i class="fa fa-instagram fa-stack-2x"></i></a></span></td>
+                          <td><strong class="mt-l"><%# link_to 'Instagram', "http://#{@company.instagramurl}", target: "_blank"  %></strong></td>
+                        </tr>
+
+                        <%# else %>
+                        <%# end %>
+
+                       
+
+                      <% #if @company.googleplusurl? %>
+
+                         <tr>
+
+                          <td><span class="col-md-2 control-label fa text-primary"><a href="<%# "http://#{@company.googleplusnurl}" %>" target="_blank" ><i class="fa fa-google-plus-square fa-stack-2x"></i></a></span></td>
+                          <td><strong class="mt-l"><%# link_to 'Google +', "http://#{@company.googleplusurl}", target: "_blank"  %></strong></td>
+                        </tr>
+
+                        <%# else %>
+                        <%# end %>
+
+
+                          <%# if @company.pinteresturl? %>
+
+                         <tr>
+
+                          <td><span class="col-md-2 control-label fa text-danger"><a href="<%#  "http://#{@company.pinteresturl}" %>" target="_blank" ><i class="fa fa-pinterest-square fa-stack-2x"></i></a><</span></td>
+                          <td><strong class="mt-l"><%# link_to 'Pinterest', "http://#{@company.pinteresturl}", target: "_blank"  %></strong></td>
+                        </tr>
+
+                        <%# else %>
+                        <%# end %>
+
+
+
+
+
+
+
+
+
+                      </tbody>
+                    </table>
+              </div>
+            </div>
+
+            <%# else %>
+                        <%# end %>
+            <!--Social ends-->
+
+
+
+            <div class="panel overflow-hidden card-divider btn-raised">
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#jobs">
+                      <i class="fa fa-plus-circle pull-right title-20px-black blk"></i> 
+                    <span class="title-20px-black blk">Recent jobs by <%# @company.name %>  </span>
+                  </a>
+                </h3>
+              </div>
+              <div id="jobs" class="panel-collapse collapse">
+                <div class="panel-body lead">
+                  <%#raw @company.services if @company.services %>
+                </div>
+              </div>
+            </div>
+
+
+           
+
+
+
+
+
+            <!--div class="panel panel-inverse overflow-hidden">
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                      <i class="fa fa-plus-circle pull-right"></i> 
+                    Collapsible Group Item #3
+                  </a>
+                </h3>
+              </div>
+              <div id="collapseThree" class="panel-collapse collapse">
+                <div class="panel-body">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-inverse overflow-hidden">
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                      <i class="fa fa-plus-circle pull-right"></i> 
+                    Collapsible Group Item #4
+                  </a>
+                </h3>
+              </div>
+              <div id="collapseFour" class="panel-collapse collapse">
+                <div class="panel-body">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-inverse overflow-hidden">
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
+                      <i class="fa fa-plus-circle pull-right"></i> 
+                    Collapsible Group Item #5
+                  </a>
+                </h3>
+              </div>
+              <div id="collapseFive" class="panel-collapse collapse">
+                <div class="panel-body">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-inverse overflow-hidden">
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix">
+                      <i class="fa fa-plus-circle pull-right"></i> 
+                    Collapsible Group Item #6
+                  </a>
+                </h3>
+              </div>
+              <div id="collapseSix" class="panel-collapse collapse">
+                <div class="panel-body">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-inverse overflow-hidden">
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven">
+                      <i class="fa fa-plus-circle pull-right"></i> 
+                    Collapsible Group Item #7
+                  </a>
+                </h3>
+              </div>
+              <div id="collapseSeven" class="panel-collapse collapse">
+                <div class="panel-body">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+              </div>
+            </div-->
+          </div>
+          </div>
+          <!-- end col-6 -->
+
+
+              
+
+                  <div class="card-divider"></div>
+                  <h5 class="card-heading pb0">Recent articles</h5>
+                  <div class="card-body">
+                    <ul class="mda-list">
+                      <li class="mda-list-item pl0 bb">
+                        <div class="mda-list-item-text">
+                          <h3><a href="#">Release 3.0 is out</a></h3>
+                          <p>Proin metus justo, commodo in ultrices...</p><small class="text-muted">2 days ago</small>
+                        </div>
+                        <div class="pull-right">
+                          <div class="pt-lg"><em tooltip="Active" class="icon-2x ion-checkmark-circled text-success"></em></div>
+                        </div>
+                      </li>
+                      <li class="mda-list-item pl0 bb">
+                        <div class="mda-list-item-text">
+                          <h3><a href="#">Improving compatibility</a></h3>
+                          <p>Proin metus justo, commodo in ultrices...</p><small class="text-muted">3 days ago</small>
+                        </div>
+                        <div class="pull-right">
+                          <div class="pt-lg"><em tooltip="Active" class="icon-2x ion-checkmark-circled text-success"></em></div>
+                        </div>
+                      </li>
+                      <li class="mda-list-item pl0">
+                        <div class="mda-list-item-text">
+                          <h3><a href="#">Small decisions count</a></h3>
+                          <p>Proin metus justo, commodo in ultrices...</p><small class="text-muted">3 days ago</small>
+                        </div>
+                        <div class="pull-right">
+                          <div class="pt-lg"><em tooltip="Pending" class="icon-2x ion-minus-circled text-warning"></em></div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </form>
+
+                          
+              </div>
+
+
+
+
+
+
+
+
+
+
+              <!-- Right column-->
+              <div class="col-md-5 col-lg-4">
+                <div class="card">
+                  <h5 class="card-heading">
+                    <!-- START dropdown-->
+                    <div class="pull-right dropdown">
+                      <button type="button" data-toggle="dropdown" class="btn btn-default btn-flat btn-flat-icon"><em class="ion-android-more-vertical"></em></button>
+                      <ul role="menu" class="dropdown-menu md-dropdown-menu dropdown-menu-right">
+                        <li><a href="#">Action 1</a></li>
+                        <li><a href="#">Action 2</a></li>
+                      </ul>
+                    </div>
+                    <!-- END dropdown-->Contacts
+                  </h5>
+                  <div class="mda-list">
+                    <div class="mda-list-item"><img src="img/user/01.jpg" alt="List user" class="mda-list-item-img">
+                      <div class="mda-list-item-text mda-2-line">
+                        <h3><a href="#">Eric Graves</a></h3>
+                        <div class="text-muted text-ellipsis">Ut ac nisi id mauris</div>
+                      </div>
+                    </div>
+                    <div class="mda-list-item"><img src="img/user/02.jpg" alt="List user" class="mda-list-item-img">
+                      <div class="mda-list-item-text mda-2-line">
+                        <h3><a href="#">Jessie Cox</a></h3>
+                        <div class="text-muted text-ellipsis">Sed lacus nisl luctus</div>
+                      </div>
+                    </div>
+                    <div class="mda-list-item"><img src="img/user/03.jpg" alt="List user" class="mda-list-item-img">
+                      <div class="mda-list-item-text mda-2-line">
+                        <h3><a href="#">Marie Hall</a></h3>
+                        <div class="text-muted text-ellipsis">Donec congue sagittis mi</div>
+                      </div>
+                    </div>
+                    <div class="mda-list-item"><img src="img/user/04.jpg" alt="List user" class="mda-list-item-img">
+                      <div class="mda-list-item-text mda-2-line">
+                        <h3><a href="#">Guy Carpenter</a></h3>
+                        <div class="text-muted text-ellipsis">Donec convallis arcu sit</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body pv0 text-right"><a href="#" class="btn btn-flat btn-info">View all</a></div>
+                  <div class="card-divider"></div>
+                  <h5 class="card-heading">Activity</h5>
+                  <div class="card-body pb0">
+                    <p class="pull-left mr"><em class="ion-record text-info"></em></p>
+                    <div class="oh">
+                      <p><strong class="mr-sm">Added</strong><span class="mr-sm">a new issue</span><a href="#">#5478</a></p>
+                      <div class="clearfix">
+                        <div class="pull-left text-muted"><em class="ion-android-time mr-sm"></em><span>an hour ago</span></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body pb0">
+                    <p class="pull-left mr"><em class="ion-record text-danger"></em></p>
+                    <div class="oh">
+                      <p><strong class="mr-sm">Commented</strong><span class="mr-sm"> on the project</span><a href="#">Material</a></p>
+                      <p class="bl pl"><i>That's awesome!</i></p>
+                      <div class="clearfix">
+                        <div class="pull-left text-muted"><em class="ion-android-time mr-sm"></em><span>2 hours ago</span></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body pb0">
+                    <p class="pull-left mr"><em class="ion-record text-success"></em></p>
+                    <div class="oh">
+                      <p><strong class="mr-sm">Completed</strong><span> all tasks asigned this week</span></p>
+                      <div class="clearfix">
+                        <div class="pull-left text-muted"><em class="ion-android-time mr-sm"></em><span>3 hours ago</span></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body pb0">
+                    <p class="pull-left mr"><em class="ion-record text-info"></em></p>
+                    <div class="oh">
+                      <p><strong class="mr-sm">Published</strong><span class="mr-sm"> new photos on the album</span><a href="#">WorldTrip</a></p>
+                      <p><a href="#"><img src="img/pic4.jpg" alt="Pic" class="mr-sm thumb48"></a><a href="#"><img src="img/pic5.jpg" alt="Pic" class="mr-sm thumb48"></a><a href="#"><img src="img/pic6.jpg" alt="Pic" class="mr-sm thumb48"></a></p>
+                      <div class="clearfix">
+                        <div class="pull-left text-muted"><em class="ion-android-time mr-sm"></em><span>4 hours ago</span></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="clearfix">
+                      <p class="pull-left mr"><em class="ion-record text-primary"></em></p>
+                      <div class="oh">
+                        <p><strong class="mr-sm">Following</strong><span class="mr-sm">Jane Kuhn</span></p>
+                        <p><span class="image-list"><a href="#"><img src="img/user/03.jpg" alt="User" class="img-circle thumb32"></a><a href="#"><img src="img/user/04.jpg" alt="User" class="img-circle thumb32"></a><a href="#"><img src="img/user/05.jpg" alt="User" class="img-circle thumb32"></a><a href="#"><img src="img/user/06.jpg" alt="User" class="img-circle thumb32"></a><a href="#"><img src="img/user/07.jpg" alt="User" class="img-circle thumb32"></a><strong><a href="#" class="ml-sm link-unstyled">+200</a></strong></span></p>
+                        <div class="clearfix">
+                          <div class="pull-left text-muted"><em class="ion-android-time mr-sm"></em><span>yesterday</span></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Page footer-->
+        <footer><span>2017 - Centric app.</span></footer>
+      </main>
+    </div>
+    <!-- Search template-->
+    <div tabindex="-1" role="dialog" class="modal modal-top fade modal-search">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="pull-left">
+              <button type="button" data-dismiss="modal" class="btn btn-flat"><em class="ion-arrow-left-c icon-24"></em></button>
+            </div>
+            <div class="pull-right">
+              <button type="button" class="btn btn-flat"><em class="ion-android-microphone icon-24"></em></button>
+            </div>
+            <form action="#" class="oh">
+              <div class="mda-form-control pt0">
+                <input type="text" placeholder="Search.." data-localize="header.SEARCH" class="form-control header-input-search">
+                <div class="mda-form-control-line"></div>
+              </div>
+            </form>
+          </div>
         </div>
-        <div class="btn-group" role="group">
-            <button type="button" id="favorites" class="btn btn-default" href="#tab2" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
-                <div class="hidden-xs">How To</div>
-            </button>
-        </div>
-        <div class="btn-group" role="group">
-            <button type="button" id="following" class="btn btn-default" href="#tab3" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                <div class="hidden-xs">Music</div>
-        </button>
-        </div>
-
-                <div class="btn-group" role="group">
-            <button type="button" id="following" class="btn btn-default" href="#events" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                <div class="hidden-xs">Events</div>
-        </button>
-        </div>
-
+      </div>
     </div>
 
 
 
-    <div class="well"><!--Well-->
-     
-      <div class="tab-content"><!--tab content-->
-
-
-<!--######## urbanterms ######-->
-        <div class="tab-pane fade in active" id="tab1">
-
-
-
-
-
-          <!-- begin row -->
-      <div class="row">
-          <!-- begin col-12 -->
-          <div class="col-md-12">
-              <div class="result-container">
-                  
-                       
-                        
-                        <ul class="result-list">
-                          <% @profile_urbanterms.each do |urbanterm| %> 
-                            <li>
-                                <div class="result-image text-center biglettersize">
-                                    <a href="javascript:;"><img src="assets/img/gallery/gallery-1.jpg" alt="" /></a>
-
-                                  
-
-                                    
-
-
-                          <%= link_to urbanterm.title.split.map(&:first).join.upcase, urbanterm %>
-
-
-
-                                </div>
-                                <div class="result-info">
-
-                                  
-                                  <h4 class=" uw" style="font: 700 32px;" ><%= link_to urbanterm.title.downcase, urbanterm %> 
-                                  </h4>
-                                    <!--h4 class="title"><a href="javascript:;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></h4-->
-                                    <p class="ustandard text-muted"><small> created <% if urbanterm.created_at > Time.now.beginning_of_day %>
-    <%="#{time_ago_in_words(urbanterm.created_at)} ago"%> 
-<% else %>
-    <%= urbanterm.created_at.strftime("%b %d, %Y ") %> 
-<% end %></small></p>
-                                    
-
-                                    <p class="desc"><!--description-->
-                                                                            <% if urbanterm.meaning1.present? %>
-
-                                     <span class="ustandard" style="font-size: 17px">
-        
-
-
-
-        <%# truncate(sanitize(how.body, tags: %w(strong em p u br div ul ol li #ff0000 font-size)), length: 160) %>
-<%# link_to 'read more', how %> 
-
-
-<%#sanitize how.body.truncate(160) {link_to 'read more', how } %>
-
-<%=truncate(sanitize(urbanterm.meaning1, tags: %w(strong em p u br #ff0000 font-size)).capitalize, length: 60) {link_to 'continue', urbanterm } %>
-
-
-
-      <% else %>
-
-      <% end %> 
-
-      <% if urbanterm.meaning1.length<70 %>
-
-    &nbsp&nbsp &nbsp&nbsp    &nbsp&nbsp &nbsp
-
-      <% else %>
-
-      <% end %> 
-
-      <br>
-
-      <!--example1-->
-
-      <% if urbanterm.example1.present? %>
-
-      <small class="text-muted">
-
-   
-
-
-   "<%=truncate(sanitize(urbanterm.example1, tags: %w(strong em p u br #ff0000 font-size)).downcase, length: 60) {link_to 'read more', urbanterm } %>"
-
-
-     </small>
-
-      <% else %> 
-
-      <% end %>
-
-            <br>
-
-     
-<% if urbanterm.tag_ids.present? %> <small style="font-style: italic;">Tagged:</small><% else %> <% end %>
-
- <small class=" text-center"><%= raw urbanterm.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') if urbanterm.tag_ids.present? %></small>
-                                    </p><!--description-->
-
-
-
-
-                                    <div class="btn-row">
-                                        <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Analytics"><i class="fa fa-fw fa-bar-chart-o"></i></a>
-                                        <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Tasks"><i class="fa fa-fw fa-tasks"></i></a>
-                                        <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Configuration"><i class="fa fa-fw fa-cog"></i></a>
-                                        <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Performance"><i class="fa fa-fw fa-tachometer"></i></a>
-                                        <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Users"><i class="fa fa-fw fa-user"></i></a>
-                                    </div>
-                                </div>
-                                <div class=" result-price">
-                                    $92,101 <small>PER MONTH</small>
-                                    <a href="javascript:;" class="btn btn-inverse btn-block">View Details</a>
-                                </div>
-                            </li>
-                            
-
-
-
-
-
-<% end %>
-
-                        </ul>
-
-        
-
-
-
-
-
-                        <div class="clearfix">
-                            <ul class="pagination pagination-without-border pull-right">
-                                <li class="disabled"><a href="javascript:;">«</a></li>
-                                <li class="active"><a href="javascript:;">1</a></li>
-                                <li><a href="javascript:;">2</a></li>
-                                <li><a href="javascript:;">3</a></li>
-                                <li><a href="javascript:;">4</a></li>
-                                <li><a href="javascript:;">5</a></li>
-                                <li><a href="javascript:;">6</a></li>
-                                <li><a href="javascript:;">7</a></li>
-                                <li><a href="javascript:;">»</a></li>
-                            </ul>
-                        </div>
-                    </div>
-          </div>
-          <!-- end col-12 -->
-      </div>
-      <!-- end row -->
-
-        </div><!--###### end urbanterms #####-->
-
-
-        
-        <div class="tab-pane fade in" id="tab2">
-          <h3>This is tab 2</h3>
-        </div>
-
-        <div class="tab-pane fade in" id="tab3">
-          <h3>This is tab 3</h3>
-        </div>
-
-        <div class="tab-pane fade in" id="events">
-          <h3>This is tab 3</h3>
-        </div>
-
-      </div><!--tab content-->
-    </div><!--Well-->
-
-</div><!-- Left ends -->
-
-<!-- Right starts -->
-              
-
-              <div class="col-md-2 fh-md oa text-center">
-                
-
-                <div class="p-lg">
-                  <h5>Right Column</h5>
-                  <p class="text-center">Nullam pretium fermentum sapien ut convallis.</p>
-                </div>
-
-
-                <div class="p-lg">
-                  <p>Pellentesque sed purus libero. Nam eleifend, ipsum at suscipit pellentesque, diam enim dignissim nunc, eu egestas sem velit vel nunc. Phasellus vel nisl orci.</p>
-
-              </div>
-
-
-              </div>
-
-<!-- Right Ends -->
+    <!-- End Search template-->
     
-</div>
+    <!-- End Settings template-->
+    <!-- Google Maps API-->
+<script src="https://cdn.rawgit.com/skipser/youtube-autoresize/master/youtube-autoresizer.js"></script>
 
+    
+  
+<input type="hidden" value="<%= current_profile.id %>" id="current_profile_id">
+<br>
 
+<%= link_to 'New Profile', new_profile_path %>
+<script type="text/javascript">
+  $(document).on('click','.follow_btn',function(){
+    var val = $(this).val();
+    var current_profile = $("#current_profile_id").val();
+    var current = $(this);
+    $.ajax({
+        url: '/profiles/'+ val + '/follows',
+        type: 'post',
+        success: function(data) {
+          if(data.state == 1){
+            $(current).html(data.message);
+            $("#followers"+val).html(data.followers);
+            $("#followings"+current_profile).html(data.followings);
+          }
+        }
+    });
+  })
+</script>
 
-
-
-
-
-    <script>
-            
-    $(document).ready(function() {
-$(".btn-pref .btn").click(function () {
-    $(".btn-pref .btn").removeClass("btn-primary").addClass("btn-default");
-    // $(".tab").addClass("active"); // instead of this do the below 
-    $(this).removeClass("btn-default").addClass("btn-primary");   
-});
-});
-    </script>
-
-
-
-
+    <!-- End Settings template-->
+    <!-- Google Maps API-->
+    
+  </body>
+</html>

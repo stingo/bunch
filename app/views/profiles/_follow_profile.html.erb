@@ -1,0 +1,10 @@
+<% unless current_profile %>
+    <% if current_profile.following?(profile) %>
+        <%= link_to "Unfollow #{profile.first_name}",
+unfollow_profile_path(profile), :method => :delete, :remote => true %>
+    <% else %>
+        <%= link_to "Follow #{profile.first_name}", follow_profile_path(profile),
+class: 'button success radius small', :method => :post, :remote => true
+%>
+    <% end %>
+<% end %>

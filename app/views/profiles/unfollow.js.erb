@@ -1,0 +1,3 @@
+$('.vpos').bind('ajax:success', 'turbolinks:load', function() {
+ $('.vcount-<%= @profile.id %>').html('<%=escape_javascript @profile.get_unfollowers.size.to_s %>');
+});

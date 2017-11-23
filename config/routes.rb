@@ -54,6 +54,10 @@ Rails.application.routes.draw do
   end
   end
 
+    resources :profiles, :only => [:index, :show] do
+    resources :follows, :only => [:create, :destroy]
+  end
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'main#index'

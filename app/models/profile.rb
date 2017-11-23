@@ -49,8 +49,11 @@ class Profile < ApplicationRecord
 	accepts_nested_attributes_for :thing_skills #allow_destroy: true
 
 	acts_as_votable
-
 	acts_as_voter
+
+	acts_as_follower
+    acts_as_followable
+   
 
 
 	#validations
