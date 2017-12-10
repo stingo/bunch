@@ -500,8 +500,8 @@ strong,
 }
 
 .header .overlay-layer {
-	padding-top: 84px;
-	padding-bottom: 175px;
+	padding-top: 0px;
+	padding-bottom: 0px;
 	height: auto;
 }
 

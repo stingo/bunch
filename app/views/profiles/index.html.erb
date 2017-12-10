@@ -133,19 +133,7 @@
         <div class="col-md-4">
 
                         
-                          <% if profile.locations.present? %>
-
-               <i class="fa fa-fw fa-map-marker"></i><%= render profile.locations %>
-
-               <% else %>
-               <br>
-               <% end %> <% if profile.countries.present? %>, 
-
-              <%= render profile.countries %>
-
-               <% else %>
-               
-               <% end %>
+ <br>
 
           
           <div class="photo photo-type-line">
@@ -194,7 +182,7 @@
   <%# if current_profile.id != profile.id %> 
 
 
-<% if current_profile.id != profile.id %>
+<% if profile_signed_in? && current_profile.id != profile.id %>
             <button class="follow_index text-bold" value="<%= profile.id %>">
               <%= current_profile.following?(profile) ? "UnFollow" : "+ Follow" %>
             </button>
@@ -392,7 +380,7 @@
  
   <!-- ================== END BASE JS ================== -->
   
-  
+  <% if profile_signed_in? %>
 
 
 <input type="hidden" value="<%= current_profile.id %>" id="current_profile_id">
@@ -417,6 +405,10 @@
     });
   })
 </script>
+
+<% else %>
+
+<% end %>
 
 </body>
 </html>

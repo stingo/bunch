@@ -966,14 +966,20 @@
     <!-- Google Maps API-->
 <script src="https://cdn.rawgit.com/skipser/youtube-autoresize/master/youtube-autoresizer.js"></script>
 
-    
   
+  <% if profile_signed_in? %>
+
+
 <input type="hidden" value="<%= current_profile.id %>" id="current_profile_id">
+<br>
+
+
+
 <br>
 
 <%= link_to 'New Profile', new_profile_path %>
 <script type="text/javascript">
-  $(document).on('click','.follow_btn',function(){
+  $(document).on('click','.follow_index',function(){
     var val = $(this).val();
     var current_profile = $("#current_profile_id").val();
     var current = $(this);
@@ -990,6 +996,12 @@
     });
   })
 </script>
+
+<% else %>
+
+<% end %>
+
+
 
     <!-- End Settings template-->
     <!-- Google Maps API-->

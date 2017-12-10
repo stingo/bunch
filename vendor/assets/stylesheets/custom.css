@@ -21,7 +21,16 @@
 
 }
 
+.bg-green-dft {
+  background-color: #96c322 !important;
+  color: #FFFFFF !important;
+}
 
+.bg-green-dft.hover {
+  background-color: #7DAA28 !important;
+  color: #000000 !important;
+
+}
 
 body.modal-open div.modal-backdrop { 
     z-index: 0; 

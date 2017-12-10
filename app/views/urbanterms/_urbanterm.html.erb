@@ -3,6 +3,9 @@
   <i class="fa fa-thumbs-up"></i>
   <span class="vcount-<%= urbanterm.id %>"><%= urbanterm.get_upvotes.size %></span>
  <% end %>
-
+ <%= link_to unlike_urbanterm_path(urbanterm), :remote => true, method: :put, class: 'npos' do %>
+  <i class="fa fa-thumbs-down"></i>
+  <span class="ncount-<%= urbanterm.id %>"><%= urbanterm.get_downvotes.size %></span>
+ <% end %>
 </aside>
 

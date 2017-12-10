@@ -35,9 +35,11 @@
 
 .navbar-bootsnipp .navbar-brand {
   /*color: rgb(95, 176, 228);*/
-  color: rgba(0, 0, 0, 0) linear-gradient(40deg, #d1edf0 50%, #ecc8c6 100%) !important;
+  /*color: rgba(0, 0, 0, 0) linear-gradient(40deg, #d1edf0 50%, #ecc8c6 100%) !important;*/
+  color: #0D8AE6 !important;
   font-weight: 900;
   letter-spacing: 2px;
+  font-size: 22px !important;
   font-family: "Questrial" !important;
 }
 

@@ -18,6 +18,7 @@ class ProfilesController < ApplicationController
 
     @profile_urbanterms = @profile.urbanterms.order("created_at DESC") #important! to enable profiles urbanterms on profile
     
+
   end
 
   # GET /profiles/new
@@ -31,6 +32,8 @@ class ProfilesController < ApplicationController
   @profile = Profile.friendly.find(params[:id])
 
   end
+
+
 
   # POST /profiles
   # POST /profiles.json

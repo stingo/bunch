@@ -50,6 +50,10 @@ end
      #@urban_terms = UrbanTerm.all
   #end
 
+  def set_redirect_path
+    @redirect_path = request.path
+  end
+
 
   def disable_searchform
   @disable_searchform = true
