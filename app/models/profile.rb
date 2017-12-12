@@ -16,6 +16,12 @@ class Profile < ApplicationRecord
 
     has_many :countries
 
+
+
+
+
+
+
  
 
 
@@ -31,9 +37,7 @@ class Profile < ApplicationRecord
     
 
 
-
-
-	
+    #Destruy object when profile is removed	
 	has_many :events, dependent: :destroy
 	has_many :jobs, dependent: :destroy
 	has_many :hows, dependent: :destroy
@@ -41,6 +45,9 @@ class Profile < ApplicationRecord
 	has_many :urbanterms, dependent: :destroy
 	has_many :companies, dependent: :destroy
 	has_many :listings, dependent: :destroy
+	has_many :echos, dependent: :destroy
+
+
 
 	mount_uploader :pesnavatar, PesnavatarUploader
 	mount_uploader :profilecover, ProfilecoverUploader

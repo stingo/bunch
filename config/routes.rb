@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :echos
   resources :countries
   resources :industries
   resources :companytypes

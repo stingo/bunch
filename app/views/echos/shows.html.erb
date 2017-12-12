@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Headline:</strong>
+  <%= @echo.headline %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @echo.body %>
+</p>
+
+<p>
+  <strong>Image1:</strong>
+  <%= @echo.image1 %>
+</p>
+
+<p>
+  <strong>Videourl:</strong>
+  <%= @echo.videourl %>
+</p>
+
+<%= link_to 'Edit', edit_echo_path(@echo) %> |
+<%= link_to 'Back', echos_path %>
