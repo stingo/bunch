@@ -15,4 +15,7 @@ class Echo < ApplicationRecord
      def should_generate_new_friendly_id?
       headline_changed?
      end
+
+    mount_uploader :echoimage1, EchoImage1Uploader
+	mount_uploader :echoimage2, EchoImage2Uploader
 end

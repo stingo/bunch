@@ -1,0 +1,105 @@
+<%= simple_form_for(@echo) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :headline %>
+    <%= f.input :body %>
+    <%= f.input :image1 %>
+    <%= f.input :videourl %>
+  </div>
+
+
+
+  <div class="row">
+  
+                         <div class="col-sm-6"><!--div text-->
+
+
+                          <div class="col-md-6 ml0">
+
+                                                  <br>
+                          <div class="form-group">
+                            <label>Add main image to this Echo </label>
+                            <%= f.file_field :echoimage1, class: "btn btn-primary" %>
+                          </div>
+                                                </div>
+                                                <!-- end col-4 -->
+
+
+
+                           
+
+                         </div><!--div text ends-->
+
+
+                         <!--pic-->
+                         <div class="col-sm-6">
+
+                          <div class="form-group">
+
+                         
+    <% if f.object.echoimage1? %>
+      <%= image_tag f.object.echoimage1.large.url, :class => "img-responsive" %>
+      <br>
+      <%= f.label :remove_echo_image, :class => "lead ml-l"  %>
+      <%= f.check_box :remove_echoimage1 %> 
+    <% end %>
+
+
+                         </div>
+
+
+                         </div>
+                           </div> 
+
+<!--image 2 starts-->
+
+
+  <div class="row">
+  
+                         <div class="col-sm-6"><!--div text-->
+
+
+                          <div class="col-md-6 ml0">
+
+                                                  <br>
+                          <div class="form-group">
+                            <label>Add a second image to this Echo </label>
+                            <%= f.file_field :echoimage2, class: "btn btn-primary" %>
+                          </div>
+                                                </div>
+                                                <!-- end col-4 -->
+
+
+
+                           
+
+                         </div><!--div text ends-->
+
+
+                         <!--pic-->
+                         <div class="col-sm-6">
+
+                          <div class="form-group">
+
+                         
+    <% if f.object.echoimage2? %>
+      <%= image_tag f.object.echoimage2.large.url, :class => "img-responsive" %>
+      <br>
+      <%= f.label :remove_echo_image, :class => "lead ml-l"  %>
+      <%= f.check_box :remove_echoimage2 %> 
+    <% end %>
+
+
+                         </div>
+
+
+                         </div>
+                           </div> 
+
+
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

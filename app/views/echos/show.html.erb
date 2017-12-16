@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="Bootstrap Admin Template">
     <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
-    <title>Centric - Bootstrap Admin Template</title>
+    <title>upFrica</title>
 
   </head>
-  <body class="theme-1">
-    <div class="layout-container">
+  <body class="bg-upfrica-grey">
+    <div class="layout-container" >
       <!-- top navbar-->
       <header class="header-container">
         <!--nav>
@@ -154,22 +154,22 @@
 
 
 
-      <div class="sidebar-layout-obfuscator"></div>
+      <!--div class="sidebar-layout-obfuscator"></div-->
       <!-- Main section-->
-      <main class="main-container">
+      <main class="container"> <!--class main-container will give a lft sider-->
         <!-- Page content-->
         <section>
-          <div class="container-fluid bg-full bg-blue">
+          <div class="container-fluid bg-full bg-upfrica-grey">
             <div class="container container-md">
               <div class="card animated fadeInUp b0">
 
 
 
-              	<div class="card-item card-media bg-pic4 overlay-layer" style="background: url(https://s3.amazonaws.com/proinsidegh/static/el2bg.jpg) no-repeat center top fixed;
+              	<div class="card-item card-media bg-pic4 overlay-layer" style="background: url(<%= @echo.echoimage1.url(:large) %>) no-repeat center top fixed;
     " data-stellar-background-ratio="0.5" id="home">
 
     <div class="card-item-text bg-transparent">
-                    <h2 class="text-blk" style="color: #000000 !important;"><%= @echo.headline %></h2>
+                    <h1 class="ccard-title m-l-20" style="background: #ffffff; color:#000000; padding:12px; opacity: 0.8; border-radius: 2px; font-family: Questrial !important; "><%= @echo.headline.titleize %></h1>
                   </div>
     	
 
@@ -246,15 +246,89 @@
     <%="#{time_ago_in_words(@echo.created_at)} ago"%> 
 <% else %>
     <%= @echo.created_at.strftime("%b %d, %Y %I:%M %p") %> 
-<% end %>        | Featured in: India, Social Media  </span></div>
+<% end %>        | Featured in: India, Social Media  </span>
+
+
+
+
+                      
+
+
+
+
+
+
+</div>
+
+
+
+
+
                       </div>
-                    </div>
+
+                   </div>
+
+                       <!-- START dropdown--><% if @echo.profile == current_profile %>
+ <!-- START dropdown-->
+                <span class="pull-right dropdown">
+                  <button type="button" data-toggle="dropdown" class="btn btn-default btn-flat btn-flat-icon"><em class="ion-android-more-vertical"></em></button>
+                  <ul role="menu" class="dropdown-menu md-dropdown-menu dropdown-menu-right">
+                    <li><a href="<%= @ehco_id %>/edit">Option 1</a></li>
+                    <li><a href="#">Option 2</a></li>
+                    <li><a href="#">Option 3</a></li>
+                  </ul>
+
+                   <ul role="menu" class="dropdown-menu md-dropdown-menu dropdown-menu-right">
+                            <li><a href="#">Hide post</a></li>
+                            <li><%= link_to "Edit", edit_echo_path(@echo), class: "" %></li>
+                            <li role="separator" class="divider"></li>
+
+                              <li><%= link_to 'Delete', @echo, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+
+                            <li><a href="#">Report</a></li>
+                          </ul>
+
+
+
+                 
+
+
+
+                </span>
+                <!-- END dropdown-->
+
+                        <% else %>
+                         <% end %>
+
+
                   </div>
-                  <div class="container container-xs reader-block">
+
+
+                  <div class="container container-sm reader-block">
                     <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi sollicitudin, massa quis posuere mollis, turpis mi suscipit magna, ac tristique tellus arcu pretium mi. Sed quam magna, tincidunt ac fermentum eget, vestibulum id magna. Nullam felis ipsum, tempus at fermentum nec, porttitor eu libero. Curabitur porttitor fermentum dapibus.</p>
                     <p>Praesent a rhoncus magna. Nam nec tellus tortor. Proin adipiscing, dolor faucibus ullamcorper interdum, urna justo convallis arcu, ultrices auctor enim turpis ut purus. Fusce a egestas turpis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin euismod malesuada dui ac laoreet. Donec purus leo, lobortis vel volutpat vel, dictum nec augue. Proin ullamcorper lectus ut libero blandit pretium.</p>
-                    <p class="text-center"><img src="img/pic5.jpg" alt="Article Image" class="img-thumbnail"></p>
+
+ 
+
+<% if @echo.echoimage2? %>
+                    <p class="text-center"><img src="<%= @echo.echoimage2.url(:large) %>" alt="Echo Image" class="img-thumbnail"></p>
+
+<% else %>
+
+<% end %>
                     <p>Cras fringilla ipsum sed elit sodales malesuada. Nam sem magna, tristique non facilisis a, porta ut elit. Vestibulum mauris nisl, dictum vitae dapibus iaculis, tempor sed libero. Ut vestibulum est eget justo facilisis ullamcorper. Pellentesque sodales aliquam lorem, eu tempor enim pretium ac. Aliquam vitae purus dolor. Etiam odio ante, placerat eu accumsan ut, consectetur vel mi. Ut eu aliquam orci.</p>
+
+
+<% if @echo.videourl? %>
+                    <p class="text-center mg-thumbnail"><%= embed(@echo.videourl) %> </p>
+
+<% else %>
+
+<% end %>
+
+                    
+
+
                   </div>
                 </div>
                 <div class="card-body bg-gray-lighter">
@@ -532,8 +606,10 @@
     </div>
     <!-- End Settings template-->
     <!-- Google Maps API-->
-    <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBNs42Rt_CyxAqdbIBK0a5Ut83QiauESPA"></script>
+
     <!-- build:js(../app) js/vendor.js-->
 
   </body>
 </html>
+
+   <script src="https://cdn.rawgit.com/skipser/youtube-autoresize/master/youtube-autoresizer.js"></script>

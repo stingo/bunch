@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171211130541) do
+ActiveRecord::Schema.define(version: 20171216040550) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,6 +80,10 @@ ActiveRecord::Schema.define(version: 20171211130541) do
     t.datetime "updated_at", null: false
     t.integer "profile_id"
     t.string "slug"
+    t.string "echoimage1"
+    t.string "echoimage2"
+    t.index ["echoimage1"], name: "index_echos_on_echoimage1"
+    t.index ["echoimage2"], name: "index_echos_on_echoimage2"
     t.index ["profile_id", "created_at"], name: "index_echos_on_profile_id_and_created_at"
     t.index ["slug"], name: "index_echos_on_slug"
   end

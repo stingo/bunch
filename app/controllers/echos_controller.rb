@@ -96,6 +96,6 @@ class EchosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def echo_params
-      params.require(:echo).permit(:headline, :body, :image1, :videourl, :slug)
+      params.require(:echo).permit(:headline, :body, :image1, :echoimage1, :echoimage2, :videourl, :slug)
     end
 end
