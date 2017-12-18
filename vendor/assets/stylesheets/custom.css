@@ -3,7 +3,7 @@
 
   padding-left: 0px !important;
     /*background-color: rgba(0, 0, 0, 0) linear-gradient(40deg, #d1edf0 10%, #ecc8c6 100%) !important; */
-    background-color: #FFFFFF;
+    background: #FFFFFF;
     /*font-family: "Questrial" !important; */
     font-family: "Arial,"Helvetica Neue",Helvetica,sans-serif" !important;
 
@@ -19,6 +19,11 @@
     padding-left: 40px;
 
 
+}
+
+
+.li {
+    list-style: outside !important;
 }
 
 .bg-green-dft {
@@ -62,7 +67,7 @@ video-container {
 }
 
 /*ordered unordered list*/
-ul {
+/*ul {
  
     list-style-type: square;
     margin-top: 1em;
@@ -161,6 +166,8 @@ ol.d {
   line-height: 1.5em;
   list-style-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4621/treehouse-marker.png);
 }
+*/
+
 
 
 

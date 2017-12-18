@@ -31,10 +31,17 @@ class EchoImage1Uploader < CarrierWave::Uploader::Base
   #   # do something
    end
 
+     version :thumb do
+     process :resize_to_fill => [778, 519]
+   end
+
    # Create different versions of your uploaded files:
   version :large do
      process :resize_to_fill => [1200, 415]
    end
+
+
+
 
 
    def extension_whitelist

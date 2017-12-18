@@ -165,11 +165,26 @@
 
 
 
+
+
+
+
+
+
               	<div class="card-item card-media bg-pic4 overlay-layer" style="background: url(<%= @echo.echoimage1.url(:large) %>) no-repeat center top fixed;
     " data-stellar-background-ratio="0.5" id="home">
 
     <div class="card-item-text bg-transparent">
-                    <h1 class="ccard-title m-l-20" style="background: #ffffff; color:#000000; padding:12px; opacity: 0.8; border-radius: 2px; font-family: Questrial !important; "><%= @echo.headline.titleize %></h1>
+                    <h1 class="ccard-title m-l-20" style="background: #ffffff; color:#000000; padding:12px; opacity: 0.8; border-radius: 2px; font-family: Questrial !important; ">
+
+                    	<%= best_in_place_if @echo.profile == current_profile, @echo, :headline, type: :textfield, :ok_button => 'Save', :cancel_button => 'Cancel' %>
+
+                    	<%# @echo.headline.titleize %>
+
+
+                    		
+
+                    	</h1>
                   </div>
     	
 
@@ -182,6 +197,14 @@
 
                 <div class="card-offset">
                   <div class="card-offset-item text-right">
+<% if @echo.echoimage1.blank? && @echo.profile == current_profile %>
+
+                  	<span><a href="#modal-echoimage1" class="btn btn-sm btn bg-green-dft " data-toggle="modal"><i class="fa fa-file-image-o fa-2x mr-sm" style="color:#7D8990; font-size: 20px;"></i>Add Image</a></span>
+    <% else %> 
+
+    <% end %>               
+
+
                     <button type="button" class="btn-raised btn btn-danger btn-circle btn-lg"><em class="ion-ios-heart-outline"></em></button>
                   </div>
                 </div>
@@ -193,8 +216,10 @@
     	
 
 
-   
+  
 
+        
+							           
 
 
 
@@ -239,14 +264,17 @@
                       <div class="clearfix">
                         <div class="pull-left text-blk"><span>
 
-                        	    Published,
+                        	    Echoed,
 
 
                         	<% if @echo.created_at > Time.now.beginning_of_day %>
     <%="#{time_ago_in_words(@echo.created_at)} ago"%> 
 <% else %>
-    <%= @echo.created_at.strftime("%b %d, %Y %I:%M %p") %> 
-<% end %>        | Featured in: India, Social Media  </span>
+    <%= @echo.created_at.strftime("%b %d, %Y ") %> 
+<% end %>        | Featured in: <%= link_to Echocategory.find(@echo.echocategory_id).name, echocategory_path(@echo.echocategory_id) %> | <i class="fa fa-eye" style="color:#337ab7;"></i> <%= @echo.impressionist_count(:filter=>:session_hash) %></span> | <i class="fa fa-comment-o" style="color:#337ab7;"></i> 124   </span>
+
+
+
 
 
 
@@ -304,9 +332,11 @@
                   </div>
 
 
-                  <div class="container container-sm reader-block">
-                    <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi sollicitudin, massa quis posuere mollis, turpis mi suscipit magna, ac tristique tellus arcu pretium mi. Sed quam magna, tincidunt ac fermentum eget, vestibulum id magna. Nullam felis ipsum, tempus at fermentum nec, porttitor eu libero. Curabitur porttitor fermentum dapibus.</p>
-                    <p>Praesent a rhoncus magna. Nam nec tellus tortor. Proin adipiscing, dolor faucibus ullamcorper interdum, urna justo convallis arcu, ultrices auctor enim turpis ut purus. Fusce a egestas turpis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin euismod malesuada dui ac laoreet. Donec purus leo, lobortis vel volutpat vel, dictum nec augue. Proin ullamcorper lectus ut libero blandit pretium.</p>
+                    <div class=" container container-sm profile-nav-txt-bold m-b-20">
+                    <%= sanitize(@echo.body, tags: %w(strong em p br div ul ol li)).html_safe if @echo.body %>
+
+
+                   
 
  
 
@@ -316,11 +346,24 @@
 <% else %>
 
 <% end %>
-                    <p>Cras fringilla ipsum sed elit sodales malesuada. Nam sem magna, tristique non facilisis a, porta ut elit. Vestibulum mauris nisl, dictum vitae dapibus iaculis, tempor sed libero. Ut vestibulum est eget justo facilisis ullamcorper. Pellentesque sodales aliquam lorem, eu tempor enim pretium ac. Aliquam vitae purus dolor. Etiam odio ante, placerat eu accumsan ut, consectetur vel mi. Ut eu aliquam orci.</p>
+                    <p><%= sanitize(@echo.content2	, tags: %w(strong em p br div ul ol li)).html_safe if @echo.content2 %></p>
 
 
 <% if @echo.videourl? %>
-                    <p class="text-center mg-thumbnail"><%= embed(@echo.videourl) %> </p>
+
+
+                            <div class="post-content">
+                                <!-- begin post-video -->
+                            <div class="post-video">
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                       <%= embed(@echo.videourl) %> 
+                                    </div>
+                                </div>
+
+
+
+
+                    
 
 <% else %>
 
@@ -609,6 +652,38 @@
 
     <!-- build:js(../app) js/vendor.js-->
 
+    <!-- #modal-echoimage1 -->
+							<div class="modal fade" id="modal-echoimage1">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+											<h4 class="modal-title">Alert Header</h4>
+										</div>
+										<div class="modal-body">
+											<div class="alert alert-danger m-b-0">
+												<h4><i class="fa fa-info-circle"></i> Updating Echo Image1</h4>
+												<p> <%= form_for(@echo) do |f| %>
+
+   <div><%= f.collection_select :echocategory_id, Echocategory.all, :id, :name, {:include_blank => 'Select Echo Category'}, :class => "form-control", input_html: { class: "dropdown-toggle "} %></div>
+        
+              <div class="field" style="margin-left: 10px;">
+            <%= f.file_field :echoimage1 %><%= f.submit "Add Echo image", class: "btn btn-primary" %></span>
+              </div>
+
+
+          
+        <% end %></p>
+											</div>
+										</div>
+										<div class="modal-footer">
+											<a href="javascript:;" class="btn btn-sm btn-white" data-dismiss="modal">Close</a>
+											<a href="javascript:;" class="btn btn-sm btn-danger" data-dismiss="modal">Action</a>
+										</div>
+									</div>
+								</div>
+							</div>
+ <!-- #modal-echoimage1-->
   </body>
 </html>
 

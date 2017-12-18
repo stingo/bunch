@@ -47,7 +47,7 @@
                         <% if company.companylogo? %>
                           <%= link_to (image_tag(company.companylogo_url(:large), :class => "media-object thumb68 img-responsive text-center", :alt =>"company image")), company_path(company) %>
                         <% else %>
-                          <%= link_to (image_tag("http://via.placeholder.com/468x400", :class => "media-object img-circle img-responsive text-center", :alt =>"company image")), company_path(company) %>
+                          <%= link_to (image_tag("https://s3.amazonaws.com/proinsidegh/static/noimage__corp_thumbnail_upfrica_v2.jpg", :class => "media-object img-thum img-responsive text-center", :alt =>"company image")), company_path(company) %>
                         <% end %>
                         
                         

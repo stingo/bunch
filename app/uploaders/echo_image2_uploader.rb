@@ -27,6 +27,12 @@ class EchoImage2Uploader < CarrierWave::Uploader::Base
 
   # Process files as they are uploaded:
    process :resize_to_fill => [880, 496]
+
+
+    version :thumb do
+     process :resize_to_fill => [778, 519]
+   end
+
   #
    def scale(width, height)
   #   # do something

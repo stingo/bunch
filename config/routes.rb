@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :echocategories
   resources :echos
   resources :countries
   resources :industries

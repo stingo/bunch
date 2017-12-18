@@ -1,0 +1,709 @@
+/*! Blue Monday Skin for jPlayer 2.9.2 ~ (c) 2009-2014 Happyworm Ltd ~ MIT License */
+/* line 6, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-audio :focus, .jp-audio-stream :focus, .jp-video :focus {
+  outline: 0;
+}
+
+/* line 9, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-audio button::-moz-focus-inner,
+.jp-audio-stream button::-moz-focus-inner,
+.jp-video button::-moz-focus-inner {
+  border: 0;
+}
+
+/* line 14, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-audio, .jp-audio-stream, .jp-video {
+  font-size: 16px;
+  font-family: Verdana, Arial, sans-serif;
+  line-height: 1.6;
+  color: #666;
+  border: 1px solid #009be3;
+  background-color: #eee;
+}
+
+/* line 22, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-audio {
+  width: 420px;
+}
+
+/* line 25, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-audio-stream {
+  width: 182px;
+}
+
+/* line 28, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-video-270p {
+  width: 480px;
+}
+
+/* line 31, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-video-360p {
+  width: 640px;
+}
+
+/* line 34, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-video-full {
+  width: 480px;
+  height: 270px;
+  position: static !important;
+  position: relative;
+}
+
+/* line 40, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-video-full div div {
+  z-index: 1000;
+}
+
+/* line 43, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-video-full .jp-jplayer {
+  top: 0;
+  left: 0;
+  position: fixed !important;
+  position: relative;
+  overflow: hidden;
+}
+
+/* line 50, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-video-full .jp-gui {
+  position: fixed !important;
+  position: static;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1001;
+}
+
+/* line 59, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-video-full .jp-interface {
+  position: absolute !important;
+  position: relative;
+  bottom: 0;
+  left: 0;
+}
+
+/* line 65, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-interface {
+  position: relative;
+  background-color: #eee;
+  width: 100%;
+}
+
+/* line 70, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-audio .jp-interface, .jp-audio-stream .jp-interface {
+  height: 80px;
+}
+
+/* line 73, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-video .jp-interface {
+  border-top: 1px solid #009be3;
+}
+
+/* line 76, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-controls-holder {
+  clear: both;
+  width: 440px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  top: -8px;
+}
+
+/* line 84, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-interface .jp-controls {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* line 89, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-audio .jp-controls {
+  width: 380px;
+  padding: 20px 20px 0;
+}
+
+/* line 93, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-audio-stream .jp-controls {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 142px;
+}
+
+/* line 99, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-video .jp-type-single .jp-controls {
+  width: 78px;
+  margin-left: 200px;
+}
+
+/* line 103, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-video .jp-type-playlist .jp-controls {
+  width: 134px;
+  margin-left: 172px;
+}
+
+/* line 107, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-video .jp-controls {
+  float: left;
+}
+
+/* line 110, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-controls button {
+  display: block;
+  float: left;
+  overflow: hidden;
+  text-indent: -9999px;
+  border: none;
+  cursor: pointer;
+}
+
+/* line 118, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-play {
+  width: 40px;
+  height: 40px;
+  background: url(../image/jplayer.blue.monday.jpg) no-repeat;
+}
+
+/* line 123, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-play:focus {
+  background: url(../image/jplayer.blue.monday.jpg) -41px 0 no-repeat;
+}
+
+/* line 126, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-state-playing .jp-play {
+  background: url(../image/jplayer.blue.monday.jpg) 0 -42px no-repeat;
+}
+
+/* line 129, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-state-playing .jp-play:focus {
+  background: url(../image/jplayer.blue.monday.jpg) -41px -42px no-repeat;
+}
+
+/* line 132, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-next, .jp-previous, .jp-stop {
+  width: 28px;
+  height: 28px;
+  margin-top: 6px;
+}
+
+/* line 137, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-stop {
+  background: url(../image/jplayer.blue.monday.jpg) 0 -83px no-repeat;
+  margin-left: 10px;
+}
+
+/* line 141, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-stop:focus {
+  background: url(../image/jplayer.blue.monday.jpg) -29px -83px no-repeat;
+}
+
+/* line 144, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-previous {
+  background: url(../image/jplayer.blue.monday.jpg) 0 -112px no-repeat;
+}
+
+/* line 147, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-previous:focus {
+  background: url(../image/jplayer.blue.monday.jpg) -29px -112px no-repeat;
+}
+
+/* line 150, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-next {
+  background: url(../image/jplayer.blue.monday.jpg) 0 -141px no-repeat;
+}
+
+/* line 153, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-next:focus {
+  background: url(../image/jplayer.blue.monday.jpg) -29px -141px no-repeat;
+}
+
+/* line 156, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-progress {
+  overflow: hidden;
+  background-color: #ddd;
+}
+
+/* line 160, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-audio .jp-progress {
+  position: absolute;
+  top: 32px;
+  height: 15px;
+}
+
+/* line 165, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-audio .jp-type-single .jp-progress {
+  left: 110px;
+  width: 186px;
+}
+
+/* line 169, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-audio .jp-type-playlist .jp-progress {
+  left: 166px;
+  width: 130px;
+}
+
+/* line 173, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-video .jp-progress {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+}
+
+/* line 179, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-seek-bar {
+  background: url(../image/jplayer.blue.monday.jpg) 0 -202px repeat-x;
+  width: 0;
+  height: 100%;
+  cursor: pointer;
+}
+
+/* line 185, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-play-bar {
+  background: url(../image/jplayer.blue.monday.jpg) 0 -218px repeat-x;
+  width: 0;
+  height: 100%;
+}
+
+/* line 190, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-seeking-bg {
+  background: url(../image/jplayer.blue.monday.seeking.gif);
+}
+
+/* line 193, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-state-no-volume .jp-volume-controls {
+  display: none;
+}
+
+/* line 196, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-volume-controls {
+  position: absolute;
+  top: 32px;
+  left: 308px;
+  width: 200px;
+}
+
+/* line 202, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-audio-stream .jp-volume-controls {
+  left: 70px;
+}
+
+/* line 205, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-video .jp-volume-controls {
+  top: 12px;
+  left: 50px;
+}
+
+/* line 209, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-volume-controls button {
+  display: block;
+  position: absolute;
+  overflow: hidden;
+  text-indent: -9999px;
+  border: none;
+  cursor: pointer;
+}
+
+/* line 217, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-mute, .jp-volume-max {
+  width: 18px;
+  height: 15px;
+}
+
+/* line 221, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-volume-max {
+  left: 74px;
+}
+
+/* line 224, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-mute {
+  background: url(../image/jplayer.blue.monday.jpg) 0 -170px no-repeat;
+}
+
+/* line 227, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-mute:focus {
+  background: url(../image/jplayer.blue.monday.jpg) -19px -170px no-repeat;
+}
+
+/* line 230, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-state-muted .jp-mute {
+  background: url(../image/jplayer.blue.monday.jpg) -60px -170px no-repeat;
+}
+
+/* line 233, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-state-muted .jp-mute:focus {
+  background: url(../image/jplayer.blue.monday.jpg) -79px -170px no-repeat;
+}
+
+/* line 236, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-volume-max {
+  background: url(../image/jplayer.blue.monday.jpg) 0 -186px no-repeat;
+}
+
+/* line 239, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-volume-max:focus {
+  background: url(../image/jplayer.blue.monday.jpg) -19px -186px no-repeat;
+}
+
+/* line 242, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-volume-bar {
+  position: absolute;
+  overflow: hidden;
+  background: url(../image/jplayer.blue.monday.jpg) 0 -250px repeat-x;
+  top: 5px;
+  left: 22px;
+  width: 46px;
+  height: 5px;
+  cursor: pointer;
+}
+
+/* line 252, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-volume-bar-value {
+  background: url(../image/jplayer.blue.monday.jpg) 0 -256px repeat-x;
+  width: 0;
+  height: 5px;
+}
+
+/* line 257, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-audio .jp-time-holder {
+  position: absolute;
+  top: 50px;
+}
+
+/* line 261, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-audio .jp-type-single .jp-time-holder {
+  left: 110px;
+  width: 186px;
+}
+
+/* line 265, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-audio .jp-type-playlist .jp-time-holder {
+  left: 166px;
+  width: 130px;
+}
+
+/* line 269, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-current-time, .jp-duration {
+  width: 60px;
+  font-size: .64em;
+  font-style: oblique;
+}
+
+/* line 274, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-current-time {
+  float: left;
+  display: inline;
+  cursor: default;
+}
+
+/* line 279, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-duration {
+  float: right;
+  display: inline;
+  text-align: right;
+  cursor: pointer;
+}
+
+/* line 285, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-video .jp-current-time {
+  margin-left: 20px;
+}
+
+/* line 288, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-video .jp-duration {
+  margin-right: 20px;
+}
+
+/* line 291, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-details {
+  font-weight: 700;
+  text-align: center;
+  cursor: default;
+}
+
+/* line 296, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-details, .jp-playlist {
+  width: 100%;
+  background-color: #ccc;
+  border-top: 1px solid #009be3;
+}
+
+/* line 301, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-type-playlist .jp-details, .jp-type-single .jp-details {
+  border-top: none;
+}
+
+/* line 304, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-details .jp-title {
+  margin: 0;
+  padding: 5px 20px;
+  font-size: .72em;
+  font-weight: 700;
+}
+
+/* line 310, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-playlist ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0 20px;
+  font-size: .72em;
+}
+
+/* line 316, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-playlist li {
+  padding: 5px 0 4px 20px;
+  border-bottom: 1px solid #eee;
+}
+
+/* line 320, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-playlist li div {
+  display: inline;
+}
+
+/* line 323, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+div.jp-type-playlist div.jp-playlist li:last-child {
+  padding: 5px 0 5px 20px;
+  border-bottom: none;
+}
+
+/* line 327, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+div.jp-type-playlist div.jp-playlist li.jp-playlist-current {
+  list-style-type: square;
+  list-style-position: inside;
+  padding-left: 7px;
+}
+
+/* line 332, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+div.jp-type-playlist div.jp-playlist a {
+  color: #333;
+  text-decoration: none;
+}
+
+/* line 336, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+div.jp-type-playlist div.jp-playlist a.jp-playlist-current,
+div.jp-type-playlist div.jp-playlist a:hover {
+  color: #0d88c1;
+}
+
+/* line 340, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+div.jp-type-playlist div.jp-playlist a.jp-playlist-item-remove {
+  float: right;
+  display: inline;
+  text-align: right;
+  margin-right: 10px;
+  font-weight: 700;
+  color: #666;
+}
+
+/* line 348, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+div.jp-type-playlist div.jp-playlist a.jp-playlist-item-remove:hover {
+  color: #0d88c1;
+}
+
+/* line 351, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+div.jp-type-playlist div.jp-playlist span.jp-free-media {
+  float: right;
+  display: inline;
+  text-align: right;
+  margin-right: 10px;
+}
+
+/* line 357, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+div.jp-type-playlist div.jp-playlist span.jp-free-media a {
+  color: #666;
+}
+
+/* line 360, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+div.jp-type-playlist div.jp-playlist span.jp-free-media a:hover {
+  color: #0d88c1;
+}
+
+/* line 363, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+span.jp-artist {
+  font-size: .8em;
+  color: #666;
+}
+
+/* line 367, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-video-play {
+  width: 100%;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+/* line 373, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-video-270p .jp-video-play {
+  margin-top: -270px;
+  height: 270px;
+}
+
+/* line 377, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-video-360p .jp-video-play {
+  margin-top: -360px;
+  height: 360px;
+}
+
+/* line 381, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-video-full .jp-video-play {
+  height: 100%;
+}
+
+/* line 384, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-video-play-icon {
+  position: relative;
+  display: block;
+  width: 112px;
+  height: 100px;
+  margin-left: -56px;
+  margin-top: -50px;
+  left: 50%;
+  top: 50%;
+  background: url(../image/jplayer.blue.monday.video.play.png) no-repeat;
+  text-indent: -9999px;
+  border: none;
+  cursor: pointer;
+}
+
+/* line 398, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-video-play-icon:focus {
+  background: url(../image/jplayer.blue.monday.video.play.png) 0 -100px no-repeat;
+}
+
+/* line 403, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-jplayer, .jp-jplayer audio {
+  width: 0;
+  height: 0;
+}
+
+/* line 407, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-jplayer {
+  background-color: #000;
+}
+
+/* line 410, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-toggles {
+  padding: 0;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* line 415, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-audio .jp-type-single .jp-toggles {
+  width: 25px;
+}
+
+/* line 418, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-audio .jp-type-playlist .jp-toggles {
+  width: 55px;
+  margin: 0;
+  position: absolute;
+  left: 325px;
+  top: 50px;
+}
+
+/* line 425, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-video .jp-toggles {
+  position: absolute;
+  right: 16px;
+  margin: 10px 0 0;
+  width: 100px;
+}
+
+/* line 431, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-toggles button {
+  display: block;
+  float: left;
+  width: 25px;
+  height: 18px;
+  text-indent: -9999px;
+  line-height: 100%;
+  border: none;
+  cursor: pointer;
+}
+
+/* line 441, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-full-screen {
+  background-image: url(/assets/jplayer.blue.monday-8f846cf00e1d9d706c451e270698f5578bcec92bbda348f6ad5ccf8a3bf894c5.jpg) 0 -310px no-repeat;
+  margin-left: 20px;
+}
+
+/* line 446, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-full-screen:focus {
+  background: url(../image/jplayer.blue.monday.jpg) -30px -310px no-repeat;
+  background-image: url(/assets/jplayer.blue.monday-8f846cf00e1d9d706c451e270698f5578bcec92bbda348f6ad5ccf8a3bf894c5.jpg);
+}
+
+/* line 450, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-state-full-screen .jp-full-screen {
+  background: url(../image/jplayer.blue.monday.jpg) -60px -310px no-repeat;
+}
+
+/* line 453, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-state-full-screen .jp-full-screen:focus {
+  background: url(../image/jplayer.blue.monday.jpg) -90px -310px no-repeat;
+}
+
+/* line 456, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-repeat {
+  background: url(../image/jplayer.blue.monday.jpg) 0 -290px no-repeat;
+}
+
+/* line 459, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-repeat:focus {
+  background: url(../image/jplayer.blue.monday.jpg) -30px -290px no-repeat;
+}
+
+/* line 462, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-state-looped .jp-repeat {
+  background: url(../image/jplayer.blue.monday.jpg) -60px -290px no-repeat;
+}
+
+/* line 465, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-state-looped .jp-repeat:focus {
+  background: url(../image/jplayer.blue.monday.jpg) -90px -290px no-repeat;
+}
+
+/* line 468, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-shuffle {
+  background: url(../image/jplayer.blue.monday.jpg) 0 -270px no-repeat;
+  margin-left: 5px;
+}
+
+/* line 472, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-shuffle:focus {
+  background: url(../image/jplayer.blue.monday.jpg) -30px -270px no-repeat;
+}
+
+/* line 475, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-state-shuffled .jp-shuffle {
+  background: url(../image/jplayer.blue.monday.jpg) -60px -270px no-repeat;
+}
+
+/* line 478, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-state-shuffled .jp-shuffle:focus {
+  background: url(../image/jplayer.blue.monday.jpg) -90px -270px no-repeat;
+}
+
+/* line 481, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-no-solution {
+  padding: 5px;
+  font-size: .8em;
+  background-color: #eee;
+  border: 2px solid #009be3;
+  color: #000;
+  display: none;
+}
+
+/* line 489, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-no-solution a {
+  color: #000;
+}
+
+/* line 492, /Users/charliewiredu/Dev/bunch/app/assets/stylesheets/songs.scss */
+.jp-no-solution span {
+  font-size: 1em;
+  display: block;
+  text-align: center;
+  font-weight: 700;
+}

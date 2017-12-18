@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Echocategories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Echocatimage</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @echocategories.each do |echocategory| %>
+      <tr>
+        <td><%= echocategory.name %></td>
+        <td><%= echocategory.description %></td>
+        <td><%= echocategory.echocatimage %></td>
+        <td><%= link_to 'Show', echocategory %></td>
+        <td><%= link_to 'Edit', edit_echocategory_path(echocategory) %></td>
+        <td><%= link_to 'Destroy', echocategory, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Echocategory', new_echocategory_path %>

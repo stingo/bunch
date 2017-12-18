@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
+//= require best_in_place
 //= require formwiz1
 //= require jquery.Jcrop
 //= require turbolinks

@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+
+<h3> Echos under this category </h3>
+<% Echo.where(echocategory_id: @echocategory.id).each do |echo| %>
+<li> <%= echo.headline %> </li>
+<% end %>
+
+
+
+
+
+
+<p>
+  <strong>Name:</strong>
+  <%= @echocategory.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @echocategory.description %>
+</p>
+
+<p>
+  <strong>Echocatimage:</strong>
+  <%= @echocategory.echocatimage %>
+</p>
+
+<%= link_to 'Edit', edit_echocategory_path(@echocategory) %> |
+<%= link_to 'Back', echocategories_path %>

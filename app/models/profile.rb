@@ -15,6 +15,7 @@ class Profile < ApplicationRecord
     has_many :companytypes
 
     has_many :countries
+    has_many :echocategories
 
 
 

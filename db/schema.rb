@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171216040550) do
+ActiveRecord::Schema.define(version: 20171217052335) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,18 @@ ActiveRecord::Schema.define(version: 20171216040550) do
     t.index ["slug"], name: "index_countries_on_slug"
   end
 
+  create_table "echocategories", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "echocatimage"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "slug"
+    t.integer "profile_id"
+    t.index ["profile_id", "created_at"], name: "index_echocategories_on_profile_id_and_created_at"
+    t.index ["slug"], name: "index_echocategories_on_slug"
+  end
+
   create_table "echos", force: :cascade do |t|
     t.string "headline"
     t.text "body"
@@ -82,6 +94,9 @@ ActiveRecord::Schema.define(version: 20171216040550) do
     t.string "slug"
     t.string "echoimage1"
     t.string "echoimage2"
+    t.integer "echocategory_id"
+    t.text "content2"
+    t.index ["content2"], name: "index_echos_on_content2"
     t.index ["echoimage1"], name: "index_echos_on_echoimage1"
     t.index ["echoimage2"], name: "index_echos_on_echoimage2"
     t.index ["profile_id", "created_at"], name: "index_echos_on_profile_id_and_created_at"
