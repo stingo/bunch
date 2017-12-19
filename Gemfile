@@ -66,6 +66,7 @@ gem 'phony_rails', '~> 0.14.2'
 gem 'mail_form', '~> 1.5', '>= 1.5.1'
 
 gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
+#gem 'social-share-button', '~> 0.1.10'
 
 
 

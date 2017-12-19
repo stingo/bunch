@@ -177,9 +177,9 @@
     <div class="card-item-text bg-transparent">
                     <h1 class="ccard-title m-l-20" style="background: #ffffff; color:#000000; padding:12px; opacity: 0.8; border-radius: 2px; font-family: Questrial !important; ">
 
-                    	<%= best_in_place_if @echo.profile == current_profile, @echo, :headline, type: :textfield, :ok_button => 'Save', :cancel_button => 'Cancel' %>
+                    	<%# best_in_place_if @echo.profile == current_profile, @echo, :headline, type: :textfield, :ok_button => 'Save', :cancel_button => 'Cancel' %>
 
-                    	<%# @echo.headline.titleize %>
+                    	<%= @echo.headline.titleize %>
 
 
                     		
@@ -332,7 +332,7 @@
                   </div>
 
 
-                    <div class=" container container-sm profile-nav-txt-bold m-b-20">
+                    <div class=" container container-sm upfrica-20-questrial m-b-20">
                     <%= sanitize(@echo.body, tags: %w(strong em p br div ul ol li)).html_safe if @echo.body %>
 
 
@@ -360,6 +360,8 @@
                                     </div>
                                 </div>
 
+                                </div>
+
 
 
 
@@ -369,11 +371,39 @@
 
 <% end %>
 
+<br>
+
+<% if @echo.acknowledgments? %>
+
+<h4 class="section-title"><span>Acknowledgments</span></h4>
+
+<small class="text-small">
+ <%= sanitize(@echo.acknowledgments, tags: %w(strong em p br div ul ol li)).html_safe %>
+
+</small>
+<% else %>
+
+<% end %>
+
+<br>
+<br>
+<% if @echo.references? %>
+<h4 class="section-title"><span>References</span></h4>
+<div class="post-by">
+ <%= sanitize(@echo.references, tags: %w(strong em p br div ul ol li), :class=> "post-by").html_safe %>
+
+</div>
+<% else %>
+
+<% end %>
+
                     
 
 
                   </div>
                 </div>
+
+
                 <div class="card-body bg-gray-lighter">
                   <form action="" class="mt">
                     <div class="input-group mda-input-group">
@@ -686,5 +716,7 @@
  <!-- #modal-echoimage1-->
   </body>
 </html>
+
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5a38b6716924d799"></script>
 
    <script src="https://cdn.rawgit.com/skipser/youtube-autoresize/master/youtube-autoresizer.js"></script>

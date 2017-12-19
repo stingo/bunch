@@ -23,8 +23,8 @@
             <!-- UISELECT-->
             <div class="card">
               <div class="card-heading">
-                <div class="card-title">Select2</div>
-                <div class="text-muted">jQuery based replacement for select boxes</div>
+                
+                
               </div>
               <div class="card-body">
                 <div class="form-horizontal">
@@ -36,24 +36,8 @@
 
 
 
-                      <%= f.input :headline, :label => 'Give this Echo a nice headline' %>
-                      <!--select id="select2-1" class="form-control">
-                        <option value="AL">Alabama</option>
-                        <option value="AR">Arkansas</option>
-                        <option value="IL">Illinois</option>
-                        <option value="IA">Iowa</option>
-                        <option value="KS">Kansas</option>
-                        <option value="KY">Kentucky</option>
-                        <option value="LA">Louisiana</option>
-                        <option value="MN">Minnesota</option>
-                        <option value="MS">Mississippi</option>
-                        <option value="MO">Missouri</option>
-                        <option value="OK">Oklahoma</option>
-                        <option value="SD">South Dakota</option>
-                        <option value="TX">Texas</option>
-                        <option value="TN">Tennessee</option>
-                        <option value="WI">Wisconsin</option>
-                      </select-->
+                      <%= f.input :headline, :label => 'Give this Echo a nice headline', :class => "form-control" %>
+                     
                     </div>
                   </div>
 
@@ -81,29 +65,7 @@
 
 
                        <%= f.collection_select :echocategory_id, Echocategory.all, :id, :name, {:include_blank => 'Select Echo Category'}, :class => "form-control", input_html: { class: "dropdown-toggle "} %>
-                      <!--select id="select2-4" class="form-control">
-                        <optgroup label="Alaskan/Hawaiian Time Zone">
-                          <option value="AK">Alaska</option>
-                          <option value="HI">Hawaii</option>
-                        </optgroup>
-                        <optgroup label="Pacific Time Zone">
-                          <option value="CA">California</option>
-                          <option value="NV">Nevada</option>
-                          <option value="OR">Oregon</option>
-                          <option value="WA">Washington</option>
-                        </optgroup>
-                        <optgroup label="Mountain Time Zone">
-                          <option value="AZ">Arizona</option>
-                          <option value="CO">Colorado</option>
-                          <option value="ID">Idaho</option>
-                          <option value="MT">Montana</option>
-                          <option value="NE">Nebraska</option>
-                          <option value="NM">New Mexico</option>
-                          <option value="ND">North Dakota</option>
-                          <option value="UT">Utah</option>
-                          <option value="WY">Wyoming</option>
-                        </optgroup>
-                      </select-->
+                      
                     </div>
                   </div>
 
@@ -113,9 +75,9 @@
 
                   <div class="form-group">
                     <div class="col-md-3 col-sm-4">
-                      <p class="m0">Featured image</p>
+                      <p class="m0">Featured Image 1</p>
                     </div>
-                    <div class="col-md-5 col-sm-8 bg-green-dft">
+                    <div class="col-md-8 col-sm-8 bg-green-dft">
 
 
                       <label style="color: #FFFFFF; font-family: Questrial"; >Add a nice image which will show as a banner above your Echo </label>
@@ -123,68 +85,7 @@
                       <%= f.file_field :echoimage1 %>
 
 
-                      <!--select id="select2-2" class="form-control">
-                        <optgroup label="Alaskan/Hawaiian Time Zone">
-                          <option value="AK">Alaska</option>
-                          <option value="HI">Hawaii</option>
-                        </optgroup>
-                        <optgroup label="Pacific Time Zone">
-                          <option value="CA">California</option>
-                          <option value="NV">Nevada</option>
-                          <option value="OR">Oregon</option>
-                          <option value="WA">Washington</option>
-                        </optgroup>
-                        <optgroup label="Mountain Time Zone">
-                          <option value="AZ">Arizona</option>
-                          <option value="CO">Colorado</option>
-                          <option value="ID">Idaho</option>
-                          <option value="MT">Montana</option>
-                          <option value="NE">Nebraska</option>
-                          <option value="NM">New Mexico</option>
-                          <option value="ND">North Dakota</option>
-                          <option value="UT">Utah</option>
-                          <option value="WY">Wyoming</option>
-                        </optgroup>
-                        <optgroup label="Central Time Zone">
-                          <option value="AL">Alabama</option>
-                          <option value="AR">Arkansas</option>
-                          <option value="IL">Illinois</option>
-                          <option value="IA">Iowa</option>
-                          <option value="KS">Kansas</option>
-                          <option value="KY">Kentucky</option>
-                          <option value="LA">Louisiana</option>
-                          <option value="MN">Minnesota</option>
-                          <option value="MS">Mississippi</option>
-                          <option value="MO">Missouri</option>
-                          <option value="OK">Oklahoma</option>
-                          <option value="SD">South Dakota</option>
-                          <option value="TX">Texas</option>
-                          <option value="TN">Tennessee</option>
-                          <option value="WI">Wisconsin</option>
-                        </optgroup>
-                        <optgroup label="Eastern Time Zone">
-                          <option value="CT">Connecticut</option>
-                          <option value="DE">Delaware</option>
-                          <option value="FL">Florida</option>
-                          <option value="GA">Georgia</option>
-                          <option value="IN">Indiana</option>
-                          <option value="ME">Maine</option>
-                          <option value="MD">Maryland</option>
-                          <option value="MA">Massachusetts</option>
-                          <option value="MI">Michigan</option>
-                          <option value="NH">New Hampshire</option>
-                          <option value="NJ">New Jersey</option>
-                          <option value="NY">New York</option>
-                          <option value="NC">North Carolina</option>
-                          <option value="OH">Ohio</option>
-                          <option value="PA">Pennsylvania</option>
-                          <option value="RI">Rhode Island</option>
-                          <option value="SC">South Carolina</option>
-                          <option value="VT">Vermont</option>
-                          <option value="VA">Virginia</option>
-                          <option value="WV">West Virginia</option>
-                        </optgroup>
-                      </select-->
+                      
                     </div>
                   </div>
                 
@@ -203,42 +104,22 @@
             <div class="card">
               <div class="card-heading">
                 <div class="card-title">Echo Body 1</div>
-                <div class="text-muted">jQuery based replacement for select boxes</div>
+               
               </div>
               <div class="card-body">
                 <div class="form-horizontal">
                   <div class="form-group">
                     <div class="col-md-3 col-sm-4">
-                      <p class="m0">Headline</p>
+                      <p class="m0">Content Area 1</p>
                     </div>
-                    <div class="col-md-5 col-sm-8">
+                    <div class="col-md-8 col-sm-8">
 
                       <label> First content before second image (if a second image is available) </label>
                             <%= f.trix_editor :body, placeholder: "Content 1 goes here" %>
 
                            
 
-                            <%# f.input :body, :label => 'Give this Echo a nice headline' %>
-                            <%# f.text_field :body, placeholder: "Company name", class: "form-control" %>
-
-                      <!--select id="select2-1" class="form-control">
-                        <option value="AL">Alabama</option>
-                        <option value="AR">Arkansas</option>
-                        <option value="IL">Illinois</option>
-                        <option value="IA">Iowa</option>
-                        <option value="KS">Kansas</option>
-                        <option value="KY">Kentucky</option>
-                        <option value="LA">Louisiana</option>
-                        <option value="MN">Minnesota</option>
-                        <option value="MS">Mississippi</option>
-                        <option value="MO">Missouri</option>
-                        <option value="OK">Oklahoma</option>
-                        <option value="SD">South Dakota</option>
-                        <option value="TX">Texas</option>
-                        <option value="TN">Tennessee</option>
-                        <option value="WI">Wisconsin</option>
-                      </select-->
-
+                          
 
                     </div>
                   </div>
@@ -275,8 +156,8 @@
              <!-- UISELECT-->
             <div class="card">
               <div class="card-heading">
-                <div class="card-title">Echo Body 1</div>
-                <div class="text-muted">jQuery based replacement for select boxes</div>
+                <div class="card-title">Featured Image 2</div>
+             
               </div>
               <div class="card-body">
                 <div class="form-horizontal">
@@ -298,78 +179,16 @@
 
                   <div class="form-group">
                     <div class="col-md-3 col-sm-4">
-                      <p class="m0">Featured image</p>
+                   
                     </div>
-                    <div class="col-md-5 col-sm-8 bg-green-dft">
+                    <div class="col-md-8 col-sm-8 bg-green-dft">
 
 
-                      <label style="color: #FFFFFF; font-family: Questrial"; >Add a nice image which will show as a banner above your Echo </label>
+                      <label style="color: #FFFFFF; font-family: Questrial"; >Add another nice image which will show in the middle content of your Echo </label>
 
                       <%= f.file_field :echoimage2 %>
 
 
-                      <!--select id="select2-2" class="form-control">
-                        <optgroup label="Alaskan/Hawaiian Time Zone">
-                          <option value="AK">Alaska</option>
-                          <option value="HI">Hawaii</option>
-                        </optgroup>
-                        <optgroup label="Pacific Time Zone">
-                          <option value="CA">California</option>
-                          <option value="NV">Nevada</option>
-                          <option value="OR">Oregon</option>
-                          <option value="WA">Washington</option>
-                        </optgroup>
-                        <optgroup label="Mountain Time Zone">
-                          <option value="AZ">Arizona</option>
-                          <option value="CO">Colorado</option>
-                          <option value="ID">Idaho</option>
-                          <option value="MT">Montana</option>
-                          <option value="NE">Nebraska</option>
-                          <option value="NM">New Mexico</option>
-                          <option value="ND">North Dakota</option>
-                          <option value="UT">Utah</option>
-                          <option value="WY">Wyoming</option>
-                        </optgroup>
-                        <optgroup label="Central Time Zone">
-                          <option value="AL">Alabama</option>
-                          <option value="AR">Arkansas</option>
-                          <option value="IL">Illinois</option>
-                          <option value="IA">Iowa</option>
-                          <option value="KS">Kansas</option>
-                          <option value="KY">Kentucky</option>
-                          <option value="LA">Louisiana</option>
-                          <option value="MN">Minnesota</option>
-                          <option value="MS">Mississippi</option>
-                          <option value="MO">Missouri</option>
-                          <option value="OK">Oklahoma</option>
-                          <option value="SD">South Dakota</option>
-                          <option value="TX">Texas</option>
-                          <option value="TN">Tennessee</option>
-                          <option value="WI">Wisconsin</option>
-                        </optgroup>
-                        <optgroup label="Eastern Time Zone">
-                          <option value="CT">Connecticut</option>
-                          <option value="DE">Delaware</option>
-                          <option value="FL">Florida</option>
-                          <option value="GA">Georgia</option>
-                          <option value="IN">Indiana</option>
-                          <option value="ME">Maine</option>
-                          <option value="MD">Maryland</option>
-                          <option value="MA">Massachusetts</option>
-                          <option value="MI">Michigan</option>
-                          <option value="NH">New Hampshire</option>
-                          <option value="NJ">New Jersey</option>
-                          <option value="NY">New York</option>
-                          <option value="NC">North Carolina</option>
-                          <option value="OH">Ohio</option>
-                          <option value="PA">Pennsylvania</option>
-                          <option value="RI">Rhode Island</option>
-                          <option value="SC">South Carolina</option>
-                          <option value="VT">Vermont</option>
-                          <option value="VA">Virginia</option>
-                          <option value="WV">West Virginia</option>
-                        </optgroup>
-                      </select-->
                     </div>
                   </div>
                 
@@ -393,36 +212,20 @@
             <div class="card">
               <div class="card-heading">
                 <div class="card-title">Echo Body 2</div>
-                <div class="text-muted">jQuery based replacement for select boxes</div>
+        
               </div>
               <div class="card-body">
                 <div class="form-horizontal">
                   <div class="form-group">
                     <div class="col-md-3 col-sm-4">
-                      <p class="m0">Headline</p>
+                      <p class="m0">Content Area 2</p>
                     </div>
-                    <div class="col-md-5 col-sm-8">
+                    <div class="col-md-8 col-sm-8">
 
                       <label>Second content after second image (if available) </label>
-                            <%= f.trix_editor :content2, placeholder: "Content 2 goes here" %>
+                            <%= f.trix_editor :content2, placeholder: "More content goes here" %>
 
-                      <!--select id="select2-1" class="form-control">
-                        <option value="AL">Alabama</option>
-                        <option value="AR">Arkansas</option>
-                        <option value="IL">Illinois</option>
-                        <option value="IA">Iowa</option>
-                        <option value="KS">Kansas</option>
-                        <option value="KY">Kentucky</option>
-                        <option value="LA">Louisiana</option>
-                        <option value="MN">Minnesota</option>
-                        <option value="MS">Mississippi</option>
-                        <option value="MO">Missouri</option>
-                        <option value="OK">Oklahoma</option>
-                        <option value="SD">South Dakota</option>
-                        <option value="TX">Texas</option>
-                        <option value="TN">Tennessee</option>
-                        <option value="WI">Wisconsin</option>
-                      </select-->
+                      
                     </div>
                   </div>
 
@@ -447,7 +250,7 @@
 
             
 
-<!--end main content card-->
+<!--end content 2 card-->
 
 
 
@@ -457,8 +260,8 @@
              <!-- UISELECT-->
             <div class="card">
               <div class="card-heading">
-                <div class="card-title">Video</div>
-                <div class="text-muted">jQuery based replacement for select boxes</div>
+                <div class="card-title">Featured video</div>
+             
               </div>
               <div class="card-body">
                 <div class="form-horizontal">
@@ -480,78 +283,20 @@
 
                   <div class="form-group">
                     <div class="col-md-3 col-sm-4">
-                      <p class="m0">Featured video</p>
+                      <p class="m0">YouTube Video URL</p>
                     </div>
-                    <div class="col-md-5 col-sm-8 bg-green-dft">
+                    <div class="col-md-5 col-sm-8 ">
 
 
-                      <label style="color: #FFFFFF; font-family: Questrial"; >Copy and paste your YouTube video link in below field </label>
-
-                     <%= f.text_field :videourl, placeholder: "example https://www.youtube.com/watch?v=eKFTSSKCzWA", class: "form-control" %>
 
 
-                      <!--select id="select2-2" class="form-control">
-                        <optgroup label="Alaskan/Hawaiian Time Zone">
-                          <option value="AK">Alaska</option>
-                          <option value="HI">Hawaii</option>
-                        </optgroup>
-                        <optgroup label="Pacific Time Zone">
-                          <option value="CA">California</option>
-                          <option value="NV">Nevada</option>
-                          <option value="OR">Oregon</option>
-                          <option value="WA">Washington</option>
-                        </optgroup>
-                        <optgroup label="Mountain Time Zone">
-                          <option value="AZ">Arizona</option>
-                          <option value="CO">Colorado</option>
-                          <option value="ID">Idaho</option>
-                          <option value="MT">Montana</option>
-                          <option value="NE">Nebraska</option>
-                          <option value="NM">New Mexico</option>
-                          <option value="ND">North Dakota</option>
-                          <option value="UT">Utah</option>
-                          <option value="WY">Wyoming</option>
-                        </optgroup>
-                        <optgroup label="Central Time Zone">
-                          <option value="AL">Alabama</option>
-                          <option value="AR">Arkansas</option>
-                          <option value="IL">Illinois</option>
-                          <option value="IA">Iowa</option>
-                          <option value="KS">Kansas</option>
-                          <option value="KY">Kentucky</option>
-                          <option value="LA">Louisiana</option>
-                          <option value="MN">Minnesota</option>
-                          <option value="MS">Mississippi</option>
-                          <option value="MO">Missouri</option>
-                          <option value="OK">Oklahoma</option>
-                          <option value="SD">South Dakota</option>
-                          <option value="TX">Texas</option>
-                          <option value="TN">Tennessee</option>
-                          <option value="WI">Wisconsin</option>
-                        </optgroup>
-                        <optgroup label="Eastern Time Zone">
-                          <option value="CT">Connecticut</option>
-                          <option value="DE">Delaware</option>
-                          <option value="FL">Florida</option>
-                          <option value="GA">Georgia</option>
-                          <option value="IN">Indiana</option>
-                          <option value="ME">Maine</option>
-                          <option value="MD">Maryland</option>
-                          <option value="MA">Massachusetts</option>
-                          <option value="MI">Michigan</option>
-                          <option value="NH">New Hampshire</option>
-                          <option value="NJ">New Jersey</option>
-                          <option value="NY">New York</option>
-                          <option value="NC">North Carolina</option>
-                          <option value="OH">Ohio</option>
-                          <option value="PA">Pennsylvania</option>
-                          <option value="RI">Rhode Island</option>
-                          <option value="SC">South Carolina</option>
-                          <option value="VT">Vermont</option>
-                          <option value="VA">Virginia</option>
-                          <option value="WV">West Virginia</option>
-                        </optgroup>
-                      </select-->
+                     
+
+                      <%= f.input :videourl, :label => 'Copy and paste your YouTube video link in below field', placeholder: "example https://www.youtube.com/watch?v=eKFTSSKCzWA" %>
+
+
+
+                      
                     </div>
                   </div>
                 
@@ -566,6 +311,85 @@
             
 
 <!--image2 ends-->
+
+
+<!--start acknowledgments  card-->
+
+             <!-- UISELECT-->
+            <div class="card">
+              <div class="card-heading">
+                <div class="card-title">Acknowledgments</div>
+        
+              </div>
+              <div class="card-body">
+                <div class="form-horizontal">
+                  <div class="form-group">
+                    <div class="col-md-3 col-sm-4">
+                    
+                    </div>
+                    <div class="col-md-8 col-sm-8">
+
+                      <label>Add acknowledgments (if available) </label>
+                            <%= f.trix_editor :acknowledgments, placeholder: "List acknowledgments here. You can number them or in bullet points" %>
+
+                      
+                    </div>
+                  </div>
+
+
+
+              
+                 
+
+                </div>
+              </div>
+            </div>
+            <!-- END UISELECT-->
+
+            
+
+<!--end Acknowledgments-->
+
+
+<!--start acknowledgments  card-->
+
+             <!-- UISELECT-->
+            <div class="card">
+              <div class="card-heading">
+                <div class="card-title">References</div>
+        
+              </div>
+              <div class="card-body">
+                <div class="form-horizontal">
+                  <div class="form-group">
+                    <div class="col-md-3 col-sm-4">
+                      
+                    </div>
+                    <div class="col-md-8 col-sm-8">
+
+                      <label>Add references to this Echo (if available) </label>
+                            <%= f.trix_editor :references, placeholder: "List your references here. You can number them or in bullet points and add external links" %>
+
+                      
+                    </div>
+                  </div>
+
+
+
+              
+                 
+
+                </div>
+              </div>
+            </div>
+            <!-- END UISELECT-->
+
+            
+
+<!--end Acknowledgments-->
+
+
+
 
 <br>
 

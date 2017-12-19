@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171217052335) do
+ActiveRecord::Schema.define(version: 20171218190530) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -96,6 +96,8 @@ ActiveRecord::Schema.define(version: 20171217052335) do
     t.string "echoimage2"
     t.integer "echocategory_id"
     t.text "content2"
+    t.text "acknowledgments"
+    t.text "references"
     t.index ["content2"], name: "index_echos_on_content2"
     t.index ["echoimage1"], name: "index_echos_on_echoimage1"
     t.index ["echoimage2"], name: "index_echos_on_echoimage2"

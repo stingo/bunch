@@ -467,6 +467,19 @@ a[data]:hover:after {
   
 }
 
+.upfrica-20-questrial {
+  font-size: 20px !important;
+  font-weight: 300 !important;
+  line-height: 1.5;
+  color: #000000 !important;
+  letter-spacing: 1px !important;
+  word-spacing: 0.3px !important;
+  font-family: 'Questrial';
+  
+}
+
+
+
 .profile-nav-txt-bold{
   font-size: 18px !important;
   font-weight: 300 !important;

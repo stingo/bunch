@@ -30,6 +30,7 @@ respond_to do |format|
     end
     end
 
+@echocategories = Echocategory.all
  
   end
 
@@ -136,6 +137,7 @@ respond_to do |format|
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def echo_params
-      params.require(:echo).permit(:headline, :body, :content2, :image1, :echoimage1, :echoimage2, :videourl, :slug, :echocategory_id)
+      params.require(:echo).permit(:headline, :body, :content2, :image1, :echoimage1, 
+        :echoimage2, :videourl, :slug, :echocategory_id, :acknowledgments, :references )
     end
 end
