@@ -1,30 +1,129 @@
-<p id="notice"><%= notice %></p>
+        
+<!-- begin #header -->
+ 
+        <!-- begin Eechocat nav container -->
+        <div class="container m-b-10">
+            <!-- begin navbar-header -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="index.html" class="navbar-brand">
+                    
+                    <span class="brand-text m-l-10">
+                        ECHO CATEGORIES
+                    </span>
+                </a>
+            </div>
+            <!-- end navbar-header -->
+            <!-- begin navbar-collapse -->
+            <div class="collapse navbar-collapse" id="header-navbar">
+                <ul class="nav navbar-nav navbar-right">
+                   
+                    <li>
+                        <a href="javascript:;" data-toggle="dropdown">ALL ECHO CATEGORIES <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <% @echocategories.each do |echocategory| %>
+ 
+                            <li><%= link_to echocategory.name+ ' '+ '('+ echocategory.echos.count.to_s + ')', echocategory  %> </li>
+
+                              <% end %>
+                            
+                        </ul>
+                    </li>
+                    
+                    <li><a href="/echos">BACK TO ECHOS</a></li>
+                </ul>
+            </div>
+            <!-- end navbar-collapse -->
+        </div>
+        <!-- end echo nav container -->
+   
+    <!-- end #header -->
+    
+
+<hr>
 
 
-<h3> Echos under this category </h3>
-<% Echo.where(echocategory_id: @echocategory.id).each do |echo| %>
-<li> <%= echo.headline %> </li>
-<% end %>
 
 
 
 
 
 
-<p>
-  <strong>Name:</strong>
-  <%= @echocategory.name %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @echocategory.description %>
-</p>
 
-<p>
-  <strong>Echocatimage:</strong>
-  <%= @echocategory.echocatimage %>
-</p>
 
-<%= link_to 'Edit', edit_echocategory_path(@echocategory) %> |
-<%= link_to 'Back', echocategories_path %>
+
+<div class="transitions-enabled m-t-10" id="echocats">
+  <% Echo.where(echocategory_id: @echocategory.id).each do |echo| %>
+    <div class="box panel panel-default">
+
+      <% if echo.echoimage1? %>
+
+      <%= link_to (image_tag(echo.echoimage1.url(:thumb), :class => "img-responsive", :alt =>"echo image")), echo_path(echo) %>
+
+      <% elsif echo.echoimage2? %>
+
+      
+
+      <%= link_to (image_tag(echo.echoimage2.url(:thumb), :class => "img-responsive", :alt =>"echo image")), echo_path(echo) %>
+
+      <% elsif echo.videourl? %>
+
+      
+
+     
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <%= embed(echo.videourl) %> 
+                                    </div>
+                               
+      <% else %>
+
+      <% end %>
+
+
+
+
+      <h2>
+        <%= link_to (truncate(sanitize(echo.headline.titleize, tags: %w(strong em p u br #ff0000 font-size)),:class =>"blk in-inner m-t-5", length: 120)), echo %>
+      </h2>
+      
+
+      <p class="profile">
+
+
+
+    <div class="post-left-info">
+                      <% if echo.profile.pesnavatar? %>
+        <%= link_to (image_tag(echo.profile.pesnavatar.url(:large), :class => "m-l-20 img-circle thumb48 btn-raised btn-circle text-center", :alt =>"profile image")), profile_path(echo.profile_id) %>
+
+
+        <% else %> 
+        <%= link_to (image_tag("noimage.jpg", :class => "media-object img-circle thumb40 btn-raised btn-circle text-center", :alt =>"profile image")), profile_path(@cho.profile_id) %>
+
+
+               <% end %>
+
+
+     </div>
+
+
+
+
+
+
+            <div class="post-by">
+             Echoed By <%= link_to echo.profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ echo.profile.last_name.split(" ").map(&:capitalize).join(" "), profile_path(echo.profile_id) if echo.profile.first_name || echo.profile.last_name %>, <%="#{time_ago_in_words(echo.created_at)} ago"%>  <span class="divider">|</span> <%= link_to Echocategory.friendly.find(echo.echocategory_id).name, echocategory_path(echo.echocategory_id) %><span class="divider">|</span>
+                                        <%= pluralize(echo.impressionist_count(:filter=>:session_hash), "View") %> <span class="divider">|</span> 12 Comments
+             </div>
+      </p>
+
+
+
+    </div>  
+  <% end %> 
+</div>  
+

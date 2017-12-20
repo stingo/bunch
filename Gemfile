@@ -30,7 +30,7 @@ gem 'awesome_print', '~> 1.6', '>= 1.6.1'
 gem 'simple_form', '~> 3.5'
 gem 'will_paginate', '~> 3.1', '>= 3.1.6'
 gem 'bootstrap-will_paginate', '~> 1.0'
-gem 'masonry-rails'
+
 gem 'rails-timeago', '~> 2.0'
 
 gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
@@ -67,6 +67,8 @@ gem 'mail_form', '~> 1.5', '>= 1.5.1'
 
 gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
 #gem 'social-share-button', '~> 0.1.10'
+
+gem 'masonry-rails', '~> 0.2.4'
 
 
 

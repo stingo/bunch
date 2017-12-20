@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require best_in_place
+//= require masonry/jquery.masonry
 //= require formwiz1
 //= require jquery.Jcrop
 //= require turbolinks
@@ -27,7 +28,6 @@
 //= require rails-ujs
 //= require selectize
 //= require lightbox
-//= require masonry/jquery.masonry
 //= require bootstrap-datepicker
 //= require summernote
 //= require btsnip

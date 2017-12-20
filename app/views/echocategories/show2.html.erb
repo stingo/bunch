@@ -1,0 +1,49 @@
+        
+
+
+
+
+<div class="transitions-enabled" id="echocats">
+  <% Echo.where(echocategory_id: @echocategory.id).each do |echo| %>
+    <div class="box panel panel-default">
+      <%= link_to (image_tag(echo.echoimage1.url(:thumb), :class => "img-responsive", :alt =>"echo image")), echo_path(echo) %>
+      <h2>
+        <%= link_to (truncate(sanitize(echo.headline.titleize, tags: %w(strong em p u br #ff0000 font-size)),:class =>"blk in-inner m-t-5", length: 120)), echo %>
+      </h2>
+      
+
+      <p class="profile">
+
+
+
+    <div class="post-left-info">
+                      <% if echo.profile.pesnavatar? %>
+        <%= link_to (image_tag(echo.profile.pesnavatar.url(:large), :class => "m-l-20 img-circle thumb48 btn-raised btn-circle text-center", :alt =>"profile image")), profile_path(echo.profile_id) %>
+
+
+        <% else %> 
+        <%= link_to (image_tag("noimage.jpg", :class => "media-object img-circle thumb40 btn-raised btn-circle text-center", :alt =>"profile image")), profile_path(@cho.profile_id) %>
+
+
+               <% end %>
+
+
+     </div>
+
+
+
+
+
+
+            <div class="post-by">
+             Echoed By <%= link_to echo.profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ echo.profile.last_name.split(" ").map(&:capitalize).join(" "), profile_path(echo.profile_id) if echo.profile.first_name || echo.profile.last_name %>, <%="#{time_ago_in_words(echo.created_at)} ago"%>  <span class="divider">|</span> <%= link_to Echocategory.friendly.find(echo.echocategory_id).name, echocategory_path(echo.echocategory_id) %><span class="divider">|</span>
+                                        <%= pluralize(echo.impressionist_count(:filter=>:session_hash), "View") %> <span class="divider">|</span> 12 Comments
+             </div>
+      </p>
+
+
+
+    </div>  
+  <% end %> 
+</div>  
+<%= link_to 'New Pin', new_echocategory_path %>

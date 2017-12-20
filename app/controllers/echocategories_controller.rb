@@ -11,6 +11,7 @@ class EchocategoriesController < ApplicationController
   # GET /echocategories/1.json
   def show
     @echocategory = Echocategory.friendly.find(params[:id])
+    @echocategories = Echocategory.all # list all echocategories on echocategory page
   end
 
   # GET /echocategories/new
