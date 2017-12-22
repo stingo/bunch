@@ -48,6 +48,16 @@ respond_to do |format|
      @echo = Echo.friendly.find(params[:id])
 
      @newEcho = Echo.new
+
+     #@new_comment = Comment.new
+
+    if current_profile.present?
+        @new_comment = Comment.build_from(@echo, current_profile.id, "",nil)
+    else
+
+    end
+
+    
     
   end
 

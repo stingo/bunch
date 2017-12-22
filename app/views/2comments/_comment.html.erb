@@ -1,0 +1,82 @@
+<div class="comments-show">
+  <div class="comment">
+    <div class="panel-body">
+      <ul class="media-list media-list-with-divider">
+        <li class="media media-sm">
+          <a class="media-left" href="<%= profile_path(comment.profile_id) %>">
+            <% if comment.profile.pesnavatar? %>
+              <%= image_tag comment.profile.pesnavatar.url(:small), :class => "media-object rounded-corner" %>
+            <% else %> 
+              <%= image_tag("noimage.jpg", :class => "media-object rounded-corner") %>
+            <% end %>
+          </a>
+
+          <div class="media-body">
+            <h5 class="media-heading cutbtn20px inblack"><%= link_to comment.profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ comment.profile.last_name.split(" ").map(&:capitalize).join(" "), profile_path(comment.profile_id) if comment.profile.first_name || comment.profile.last_name %></h5> <%= timeago_tag Time.zone.now, :nojs => true, :limit => 10.days.ago %>
+
+
+            <!-- delete comment -->
+            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-3 text-right pull-right">
+
+              <div class="dropdown pull-right">
+                <% if comment.profile == current_profile %>
+                  <button class="btn btn-xs btn-default btn-icon dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa fa-ellipsis-v"></i></button>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                      <li>
+                          <h5><%= link_to 'Delete comment', comment, method: :delete, data: { confirm: 'Are you sure?' }, class: "label label-danger text-right" %></h5>
+                      </li>
+                <% end %>
+
+
+                          <!--li><a href="#">Report spam or abuse</a></li>
+                          <li><a href="#">Send a message</a></li-->
+                        </ul>
+              </div>
+                <!--a href="#" class="btn btn-primary">Edit</a-->
+            </div><!-- /.cols ends -->
+
+            <!--p><%# comment.body %></p-->
+
+            <div class="pt-1x">
+
+              <div class="reviews">
+                <%= comment.rating %>
+
+                <div class="star-rating" data-score= "<%= comment.rating %>" ></div>
+
+                <%= best_in_place_if comment.profile == current_profile, comment, :body,  :as => :textarea, :ok_button => 'Save ',  :cancel_button => ' Cancel' %>
+              </div>
+
+            </div>
+            <p>
+                    
+            <!-- Reply to current comment-->
+
+              <div class="comment-nav"><a href="#" class="comment-reply">reply</a></div>
+              <div class="reply-form">
+                <% if current_profile.present? %>
+
+                  <%= form_for @new_comment do |f| %>
+                    <%= f.hidden_field :commentable_id, value: @new_comment.commentable_id %>
+                    <%= f.hidden_field :commentable_type, value: @new_comment.commentable_type %>
+                    <%= f.hidden_field :comment_id, value: comment.id %>
+                    <div class="field form-group">
+                      <%= f.text_area :body, class: 'form-control' %>
+                    </div>
+                    <div class="field form-group">
+                      <%= submit_tag "Post Reply", class: 'btn btn-primary' %>
+                    </div>
+                  <% end %>
+                <% else %>
+                <% end %>
+              </div>
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <%= render partial: "comments/reply", locals: {comments: comment.children} %>
+  </div>
+</div>
+

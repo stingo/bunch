@@ -8,6 +8,9 @@ class Echo < ApplicationRecord
 
 	is_impressionable
 
+
+  acts_as_commentable
+
 	#def to_param
     #{}"#{id} #{name}".parameterize
      #end

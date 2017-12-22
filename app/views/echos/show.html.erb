@@ -404,6 +404,27 @@
                 </div>
 
 
+              <div class="card" id="comments">
+              <div class="card-body reader-block">
+                
+
+              
+               <%= render partial: "comments/template", locals: {commentable: @echo, new_comment: @comment} %> 
+
+                  
+              
+              </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
                 <div class="card-body bg-gray-lighter">
                   <form action="" class="mt">
                     <div class="input-group mda-input-group">
@@ -717,6 +738,6 @@
   </body>
 </html>
 
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5a38b6716924d799"></script>
+<!--script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5a38b6716924d799"></script-->
 
    <script src="https://cdn.rawgit.com/skipser/youtube-autoresize/master/youtube-autoresizer.js"></script>

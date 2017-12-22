@@ -28,6 +28,7 @@
 //= require rails-ujs
 //= require selectize
 //= require lightbox
+//= require jquery.raty
 //= require bootstrap-datepicker
 //= require summernote
 //= require btsnip

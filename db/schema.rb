@@ -10,10 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171218190530) do
+ActiveRecord::Schema.define(version: 20171220122347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "commentable_id"
+    t.string "commentable_type"
+    t.string "title"
+    t.text "body"
+    t.string "subject"
+    t.integer "profile_id", null: false
+    t.integer "parent_id"
+    t.integer "lft"
+    t.integer "rgt"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "rating"
+    t.integer "echo_id"
+    t.index ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type"
+    t.index ["echo_id"], name: "index_comments_on_echo_id"
+    t.index ["profile_id"], name: "index_comments_on_profile_id"
+  end
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
@@ -98,10 +117,12 @@ ActiveRecord::Schema.define(version: 20171218190530) do
     t.text "content2"
     t.text "acknowledgments"
     t.text "references"
+    t.integer "rating"
     t.index ["content2"], name: "index_echos_on_content2"
     t.index ["echoimage1"], name: "index_echos_on_echoimage1"
     t.index ["echoimage2"], name: "index_echos_on_echoimage2"
     t.index ["profile_id", "created_at"], name: "index_echos_on_profile_id_and_created_at"
+    t.index ["rating"], name: "index_echos_on_rating"
     t.index ["slug"], name: "index_echos_on_slug"
   end
 

@@ -1,0 +1,109 @@
+
+
+
+<% if current_profile.present? %>
+
+
+
+
+
+                        <div class="panel-body">
+                      <ul class="media-list media-list-with-divider">
+                <li class="media media-sm">
+                  <a class="media-left" href="javascript:;">
+
+
+                  <% if current_profile.pesnavatar? %>
+        <%= image_tag current_profile.pesnavatar.url(:small), :class => "media-object rounded-corner" %>
+        <% else %> 
+        <%= image_tag("noimage.jpg", :class => "media-object rounded-corner") %>
+
+
+       <% end %>
+
+
+                                   
+
+
+
+
+                  </a>
+                  <div class="media-body">
+                    <!--h4 class="media-heading">Media heading</h4-->
+                    <h5></h5>
+
+                    <%= form_for @new_comment, remote: true do |f| %>  
+  <%= f.hidden_field :commentable_id, value: @new_comment.commentable_id %>
+  <%= f.hidden_field :commentable_type, value: @new_comment.commentable_type %>
+  
+  <div class="field form-group">
+    <%= f.select :rating, options_for_select(1..5), { prompt: "Rate This" }  %>
+  </div>
+
+
+
+  
+
+  <div class="field form-group">
+    <%= f.text_area :body, class: 'form-control' %>
+  </div>
+
+
+
+                      
+
+
+                      <p class= "text-right">
+
+
+
+    <%= submit_tag "Post comment", class: 'btn btn-sm btn-primary m-r-5' %>
+ 
+                          
+                          <a href="javascript:;" class="btn btn-sm btn-default">Cancel</a>
+                      </p>
+                  </div>
+                </li>
+
+
+
+<% end %> 
+<hr>
+
+
+
+
+
+
+
+
+
+<!--%# form_for @new_comment do |f| %>  
+  <%# f.hidden_field :commentable_id, value: @new_comment.commentable_id %>
+  <%# f.hidden_field :commentable_type, value: @new_comment.commentable_type %>
+  <div class="field form-group">
+    <%# f.text_area :body, class: 'form-control' %>
+  </div>
+
+
+  <div class="field form-group">
+    <%# submit_tag "Post comment", class: 'btn btn-primary' %>
+  </div>
+< end --> 
+
+
+
+
+
+
+<% else %>
+
+<% end %>
+
+
+<script>
+  $('#star-rating').raty({
+    path: '/assets/',
+    scoreName: 'review[rating]'
+  });
+</script>

@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   devise_for :profiles
   resources :events
   resources :profiles
+  resources :comments
   resources :ghana, :only => [:index, :search]
   resources :main, :only => [:index, :search]
   resources :contacts, :only => [:new, :create]

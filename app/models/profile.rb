@@ -47,6 +47,7 @@ class Profile < ApplicationRecord
 	has_many :companies, dependent: :destroy
 	has_many :listings, dependent: :destroy
 	has_many :echos, dependent: :destroy
+	has_many :comments, dependent: :destroy 
 
 
 

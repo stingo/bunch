@@ -1,0 +1,14 @@
+
+$('#comment_rating').prop('selectedIndex',0);
+$('#comment_how_id').prop('selectedIndex',0);
+$('#comment_body').val('');
+
+$('.comments_list:last').append("<%= j render(:partial => 'comments/comment', :locals => { :comment => @comment }) %>");
+
+$('.star-rating').raty({
+path: '/assets',
+readOnly: true,
+score: function() {
+  return $(this).attr('data-score');
+}
+});
