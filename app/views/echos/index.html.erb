@@ -47,9 +47,29 @@
                     <!-- begin post-list -->
                     <ul class="post-list">
 
-                   <% @echos.each do |echo| %>        
+                   <% @echos.each do |echo| %> 
+
 
                         <li>
+
+<span class="text-center">
+  <button class="like_btn" value="<%= echo.id %>">
+    <i class="fa fa-fw fa-thumbs-up fa-lg"></i>
+    <span id="like"> Like </span> 
+    <span id="like_count"> <%= echo.get_upvotes.size %></span>
+  </button>
+
+  <button class="dislike_btn" value="<%= echo.id %>">
+    <i class="fa fa-fw fa-thumbs-down fa-lg"></i>
+    <span id="dislike"> DisLike </span> 
+    <span id="dislike_count"> <%= echo.get_downvotes.size %></span>
+  </button>
+
+</span> 
+
+<br>
+
+
                             <!-- begin post-left-info -->
                             <div class="post-left-info">
                                 <div class="post-date">
@@ -156,7 +176,13 @@
 
 
                                         Echoed By <%= link_to echo.profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ echo.profile.last_name.split(" ").map(&:capitalize).join(" "), profile_path(echo.profile_id) if echo.profile.first_name || echo.profile.last_name %>, <%="#{time_ago_in_words(echo.created_at)} ago"%>  <span class="divider">|</span> <%= link_to Echocategory.friendly.find(echo.echocategory_id).name, echocategory_path(echo.echocategory_id) if echo.echocategory_id %><span class="divider">|</span>
-                                        <%= pluralize(echo.impressionist_count(:filter=>:session_hash), "View") %> <span class="divider">|</span> 12 Comments
+                                        <%= pluralize(echo.impressionist_count(:filter=>:session_hash), "View") %> <span class="divider">|</span> <%= pluralize(echo.comment_threads.size, "Comment")%> 
+
+                                        <% if echo.comment_threads.blank? %>
+
+                                         <a href="/echos/<%= echo.id %>/#comments">Be the first to add comments</a>
+                                         <% else %>
+                                         <% end %>
                                     </div>
 
 
@@ -421,13 +447,9 @@
             </ul>
         </div>
     </div-->
-    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5a38b6716924d799"></script>
+    <!--script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5a38b6716924d799"></script-->
   
-  <script>
-      $(document).ready(function() {
-          App.init();
-      });
-  </script>
+
 
   <!--Like, dislike -->
   <script>    

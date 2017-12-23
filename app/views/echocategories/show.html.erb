@@ -117,7 +117,7 @@
 
             <div class="post-by">
              Echoed By <%= link_to echo.profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ echo.profile.last_name.split(" ").map(&:capitalize).join(" "), profile_path(echo.profile_id) if echo.profile.first_name || echo.profile.last_name %>, <%="#{time_ago_in_words(echo.created_at)} ago"%>  <span class="divider">|</span> <%= link_to Echocategory.friendly.find(echo.echocategory_id).name, echocategory_path(echo.echocategory_id) %><span class="divider">|</span>
-                                        <%= pluralize(echo.impressionist_count(:filter=>:session_hash), "View") %> <span class="divider">|</span> 12 Comments
+                                        <%= pluralize(echo.impressionist_count(:filter=>:session_hash), "View") %> <span class="divider">|</span> <%= pluralize(echo.comment_threads.size, "Comment")%>
              </div>
       </p>
 

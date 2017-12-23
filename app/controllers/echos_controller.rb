@@ -31,6 +31,8 @@ respond_to do |format|
     end
 
 @echocategories = Echocategory.all
+
+@comment = Comment.all.order("created_at DESC")
  
   end
 
@@ -49,6 +51,8 @@ respond_to do |format|
 
      @newEcho = Echo.new
 
+     
+
      #@new_comment = Comment.new
 
     if current_profile.present?
@@ -57,7 +61,7 @@ respond_to do |format|
 
     end
 
-    
+
     
   end
 
@@ -119,6 +123,37 @@ respond_to do |format|
       format.json { head :no_content }
     end
   end
+
+
+
+  def upvote 
+    @link = Echo.friendly.find(params[:id])
+
+    if current_profile.voted_up_on? @link
+      status = 0
+      render :json => {:message => "Already Liked",:state=>status}
+    else
+      @link.upvote_by current_profile
+      status = 1
+      render :json => {:message => "Liked",:state=>status,:like_count=>@link.get_upvotes.size,:dislike_count=>@link.get_downvotes.size}
+    end
+    
+  end  
+
+  def downvote
+    @link = Echo.friendly.find(params[:id])
+    
+    if current_profile.voted_down_on? @link
+      status = 0
+      render :json => {:message => "Already DisLiked",:state=>status}
+    else
+      @link.downvote_by current_profile
+      status = 1
+      render :json => {:message => "DisLiked",:state=>status,:like_count=>@link.get_upvotes.size,:dislike_count=>@link.get_downvotes.size}
+    end
+    
+  end
+
 
     #Redirect to previous page after sign in
 

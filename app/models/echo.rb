@@ -8,6 +8,8 @@ class Echo < ApplicationRecord
 
 	is_impressionable
 
+	acts_as_votable
+
 
   acts_as_commentable
 

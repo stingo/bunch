@@ -25,10 +25,10 @@
 // require superbox
 // require superbox.min
 //= require jquery.easy-autocomplete
-//= require rails-ujs
+// require rails-ujs
 //= require selectize
 //= require lightbox
-//= require jquery.raty
+//= require masonry/jquery.masonry
 //= require bootstrap-datepicker
 //= require summernote
 //= require btsnip

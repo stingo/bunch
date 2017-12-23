@@ -57,6 +57,15 @@ Rails.application.routes.draw do
   end
   end
 
+  resources :echos do
+    #get :search, :on => :collection
+    #get :autocomplete, :on => :collection
+    member do
+      put "like", to:    "echos#upvote"
+      put "dislike", to: "echos#downvote"
+    end
+     end
+
     resources :profiles, :only => [:index, :show] do
     resources :follows, :only => [:create, :destroy]
   end

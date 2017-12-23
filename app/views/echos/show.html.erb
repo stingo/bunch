@@ -271,11 +271,13 @@
     <%="#{time_ago_in_words(@echo.created_at)} ago"%> 
 <% else %>
     <%= @echo.created_at.strftime("%b %d, %Y ") %> 
-<% end %>        | Featured in: <%= link_to Echocategory.find(@echo.echocategory_id).name, echocategory_path(@echo.echocategory_id) %> | <i class="fa fa-eye" style="color:#337ab7;"></i> <%= @echo.impressionist_count(:filter=>:session_hash) %></span> | <i class="fa fa-comment-o" style="color:#337ab7;"></i> 124   </span>
+<% end %>        | Featured in: <%= link_to Echocategory.find(@echo.echocategory_id).name, echocategory_path(@echo.echocategory_id) %> | <i class="fa fa-eye" style="color:#337ab7;"></i> <%= @echo.impressionist_count(:filter=>:session_hash) %></span> | <i class="fa fa-comment-o" style="color:#337ab7;"></i> <%= @echo.comment_threads.size %>   </span>
 
 
+<% if @echo.comment_threads.blank? %>
 
-
+<a href="#comments">Be the first to add comments</a>
+<% else %> <a href="#comments">Comments</a><% end %>
 
 
 
@@ -410,6 +412,7 @@
 
               
                <%= render partial: "comments/template", locals: {commentable: @echo, new_comment: @comment} %> 
+               
 
                   
               
@@ -425,7 +428,9 @@
 
 
 
-                <div class="card-body bg-gray-lighter">
+                <!--div class="card-body bg-gray-lighter">
+                  
+
                   <form action="" class="mt">
                     <div class="input-group mda-input-group">
                       <div class="mda-form-group float-label">
@@ -438,45 +443,10 @@
                         <button type="button" class="btn btn-flat btn-success btn-circle"><em class="ion-checkmark-round"></em></button></span>
                     </div>
                   </form>
-                  <div class="mt">
-                    <div class="media">
-                      <div class="media-left"><a href="#"><img src="img/user/01.jpg" alt="Image Post" class="media-object img-circle thumb48"></a></div>
-                      <div class="media-body">
-                        <h6 class="mt0 mb-sm">Joel Murray<small class="text-muted">2 days ago</small></h6>
-                        <div class="mb">Pellentesque mauris orci, lobortis in tristique mollis, consequat eu magna.</div>
-                        <ul class="list-inline">
-                          <li><a href="#" class="text-soft"><em class="ion-thumbsup icon-2x"></em></a></li>
-                          <li><a href="#" class="text-soft"><em class="ion-thumbsdown icon-2x"></em></a></li>
-                          <li><a href="#" class="text-soft"><em class="ion-android-share-alt icon-2x"></em></a></li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div class="media">
-                      <div class="media-left"><a href="#"><img src="img/user/02.jpg" alt="Image Post" class="media-object img-circle thumb48"></a></div>
-                      <div class="media-body">
-                        <h6 class="mt0 mb-sm">Daryl Parker<small class="text-muted">2 days ago</small></h6>
-                        <div class="mb">Duis elit dolor, gravida vitae varius in, viverra eu nibh. In sit amet accumsan arcu.</div>
-                        <ul class="list-inline">
-                          <li><a href="#" class="text-soft"><em class="ion-thumbsup icon-2x"></em></a></li>
-                          <li><a href="#" class="text-soft"><em class="ion-thumbsdown icon-2x"></em></a></li>
-                          <li><a href="#" class="text-soft"><em class="ion-android-share-alt icon-2x"></em></a></li>
-                        </ul>
-                        <div class="media">
-                          <div class="media-left"><a href="#"><img src="img/user/03.jpg" alt="Image Post" class="media-object img-circle thumb48"></a></div>
-                          <div class="media-body">
-                            <h6 class="mt0 mb-sm">Eddie Kelly<small class="text-muted">2 days ago</small></h6>
-                            <div class="mb">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla condimentum viverra vestibulum. Fusce eleifend ornare ante at dignissim.</div>
-                            <ul class="list-inline">
-                              <li><a href="#" class="text-soft"><em class="ion-thumbsup icon-2x"></em></a></li>
-                              <li><a href="#" class="text-soft"><em class="ion-thumbsdown icon-2x"></em></a></li>
-                              <li><a href="#" class="text-soft"><em class="ion-android-share-alt icon-2x"></em></a></li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+
+
+
+                </div-->
               </div>
               <div class="clearfix mv-lg">
                 <h5 class="pull-left"><a href="#" class="btn btn-circle btn-default"><em class="ion-ios-arrow-thin-left icon-2x"></em></a><span class="ml text-white">Older</span></h5>

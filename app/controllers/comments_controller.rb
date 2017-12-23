@@ -1,13 +1,14 @@
 class CommentsController < ApplicationController  
   before_action :authenticate_profile!
 
+
   def create
     commentable = commentable_type.constantize.find(commentable_id)
-    @comment = Comment.build_from(commentable, current_profile.id, body)
+    @comment = Comment.build_from(commentable, current_profile.id, body, rating)
 
     respond_to do |format|
       if @comment.save
-        @new_comment    = Comment.build_from(@comment.commentable, current_profile.id, "")
+        @new_comment    = Comment.build_from(@comment.commentable, current_profile.id, "",nil)
         make_child_comment
          format.html  { redirect_to request.referer || root_path, :notice => 'Comment was successfully added.'  }
          format.js
@@ -18,7 +19,10 @@ class CommentsController < ApplicationController
   end
 
 
-  
+
+
+
+
   #Redirect to previous page after sign in
 
    def store_location
@@ -45,6 +49,7 @@ class CommentsController < ApplicationController
     params.require(:comment).permit(:body, :commentable_id, :commentable_type, :comment_id)
   end
 
+
   def commentable_type
     comment_params[:commentable_type]
   end
@@ -59,6 +64,10 @@ class CommentsController < ApplicationController
 
   def body
     comment_params[:body]
+  end
+
+    def rating
+    comment_params[:rating]
   end
 
   def make_child_comment

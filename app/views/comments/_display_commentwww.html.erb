@@ -1,0 +1,87 @@
+<div class="comments-show">
+  <div class="comment">
+    
+
+    <!--p><%# comment.body %><br></p-->
+
+        <div class="mt">
+                    <div class="media">
+
+                      <!--comment profile image-->
+                      <div class="media-left">
+
+
+
+
+                      <% if comment.profile.pesnavatar? %>
+                       <%=link_to (image_tag(comment.profile.pesnavatar.url(:small), :class => "media-object img-circle thumb48")), profile_path(comment.profile_id) %>
+                      <% else %> 
+                      <%= link_to (image_tag("noimage.jpg", :class => "media-object img-circle thumb48")), profile_path(comment.profile_id) %>
+                      <% end %>
+
+
+
+
+
+                       
+                      </div>
+                      <!--comment profile image ends-->
+
+
+                      <div class="media-body">
+
+                        <!--profile name-->
+
+                        <h6 class="mt0 mb-sm"><%= link_to comment.profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ comment.profile.last_name.split(" ").map(&:capitalize).join(" "), profile_path(comment.profile_id) if comment.profile.first_name || comment.profile.last_name %>
+
+                          <!--profile name ends-->
+
+                         <small class="text-muted"><% if @echo.created_at > Time.now.beginning_of_day %>
+                         <%="#{time_ago_in_words(@echo.created_at)} ago"%> 
+                         <% else %>
+                         <%= @echo.created_at.strftime("%H:%M %b %d, %Y ") %> 
+                         <% end %>
+                
+                <span class="divider">| </span>Report</small>
+
+                        </h6>
+                        
+
+                        <div class="mb"><%= comment.body %></div>
+                        <!--ul class="list-inline">
+                          <li><a href="#" class="text-soft"><em class="ion-thumbsup icon-2x"></em></a></li>
+                          <li><a href="#" class="text-soft"><em class="ion-thumbsdown icon-2x"></em></a></li>
+                          <li><a href="#" class="text-soft"><em class="ion-android-share-alt icon-2x"></em></a></li>
+                        </ul-->
+                         <hr>
+                      </div>
+                    </div>
+</div>
+
+
+    <!--comments body ends-->
+     <!--reply comments goes below includin partial-->
+
+    <div class="comment-nav"><a href="#" class="comment-reply">reply</a></div>
+    <div class="reply-form">
+      <%= form_for @new_comment do |f| %>
+        <%= f.hidden_field :commentable_id, value: @new_comment.commentable_id %>
+        <%= f.hidden_field :commentable_type, value: @new_comment.commentable_type %>
+        <%= f.hidden_field :comment_id, value: comment.id %>
+        
+        <div class="field form-group">
+          <%= f.text_area :body, class: 'form-control' %>
+        </div>
+        <div class="field form-group">
+          <%= submit_tag "Post Reply", class: 'btn btn-primary' %>
+        </div>
+      <% end if false %>
+    </div>
+  </div>
+
+  <%= render partial: "comments/reply", locals: {comments: comment.children, main: false} %>
+
+
+</div>
+
+ 
