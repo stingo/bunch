@@ -72,7 +72,7 @@ gem 'masonry-rails', '~> 0.2.4'
 
 gem 'acts_as_commentable_with_threading', '~> 2.0', '>= 2.0.1'
 
-gem 'will_paginate', '~> 3.1', '>= 3.1.6'
+
 
 
 
