@@ -536,61 +536,7 @@
 <!--script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5a38b6716924d799"></script-->
 
    <script src="https://cdn.rawgit.com/skipser/youtube-autoresize/master/youtube-autoresizer.js"></script>
-<script>
 
-        $('turbolinks:load', function () {
-    $(document).on('turbolinks:load', "keyup", "textarea", function (e) {
-        if ($(e.target).val().length >= 20) {
-            $("data").text($(e.target).attr("placeholder")).fadeIn(1000).fadeOut(9000);
-        };
-    });
-})
-    
-</script>
-
- <!--Like, dislike -->
-  <script>    
-    $(document).ready(function() {
-        
-        $(document).on('click','.like_btn',function(){
-          var val = $(this).val();
-          var current = $(this);
-          $.ajax({
-              url: '/echos/'+ val + '/like',
-              type: 'put',
-              success: function(data) {
-                if(data.state == 1){
-                  $("#like").html(data.message);
-                  $("#like_count").html(data.like_count);
-                  $("#dislike_count").html(data.dislike_count);
-                }
-                else if(data.state == 0){
-                  alert(data.message);
-                }
-              }
-          });
-        })
-
-        $(document).on('click','.dislike_btn',function(){
-          var val = $(this).val();
-          var current = $(this);
-          $.ajax({
-              url: '/echos/'+ val + '/dislike',
-              type: 'put',
-              success: function(data) {
-                if(data.state == 1){
-                  $("#dislike").html(data.message);
-                  $("#like_count").html(data.like_count);
-                  $("#dislike_count").html(data.dislike_count);
-                }
-                else if(data.state == 0){
-                  alert(data.message);
-                }
-              }
-          });
-        })
-    });
-  </script>
 
 
 
