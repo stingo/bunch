@@ -42,6 +42,8 @@
                 <!-- begin col-9 -->
                 <div class="col-md-9">
                   
+<div id="echos">
+
 
 
                     <!-- begin post-list -->
@@ -62,13 +64,26 @@
                                     <span class="month"><%= echo.created_at.strftime("%Y") %> </span>
                                 </div>
 
-                                <div class="post-likes">
-
-                                    <span><i class="fa fa-fw fa-thumbs-up fa-lg"></i>
-                                    <span class="number"><%= echo.get_upvotes.size %></span></span>
+<div class="post-date" style="border-top: 2px solid #ddd;">
 
 
-                                </div>
+  <button class="like_btn" value="<%= echo.id %>" style="background: #FFFFFF;">
+    <i class="fa fa-fw fa-chevron-up fa-2x"></i>
+    <!--span id="like"> Like </span--> 
+  </button>
+
+  <br>
+
+  <span style="font-size: 16px"> <%= echo.get_upvotes.size %></span>
+
+
+    <button class="dislike_btn" value="<%= echo.id %>" style="background: #FFFFFF";>
+    <i class="fa fa-fw fa-chevron-down fa-2x"></i>
+     
+    
+  </button>
+
+  </div>
                             
                             </div>
 
@@ -155,6 +170,15 @@
                                 <div class="post-info">
                                     <h4 class="post-title">
                                         <%= link_to (truncate(sanitize(echo.headline.titleize, tags: %w(strong em p u br #ff0000 font-size)),:class =>"blk in-inner m-t-5", length: 120)), echo %>
+<span class="text-center">
+  <button class="like_btn" value="<%= echo.id %>" style="background: #FFFFFF; color: blue; font-size: 14px";>
+    <i class="fa fa-fw fa-chevron-up"></i>
+    <span id="like"> Up </span> 
+    <span id="like_count"> <%= echo.get_upvotes.size %></span>
+  </button>
+
+
+</span>
                                     </h4>
                                     <div class="post-by">
 
@@ -171,29 +195,56 @@
 
                                          <a href="/echos/<%= echo.id %>/#comments">Be the first to add comments</a>
                                          <% else %>
-                                         <% end %>
+                                         <% end %><span class="divider">|</span>
+
+                                         <%= "Tagged:" if echo.tag_ids.present? %> <span class="tags text-center"><%= raw(echo.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')) %>
+                                         
+
                                     </div>
 
-                                    <span class="text-center">
-  <button class="like_btn" value="<%= echo.id %>">
-    <i class="fa fa-fw fa-thumbs-up fa-lg"></i>
-    <span id="like"> Like </span> 
-    <span id="like_count"> <%= echo.get_upvotes.size %></span>
-  </button>
-
-  <button class="dislike_btn" value="<%= echo.id %>">
+                                    
+                                      <!--button class="dislike_btn" value="<%# echo.id %>">
     <i class="fa fa-fw fa-thumbs-down fa-lg"></i>
     <span id="dislike"> DisLike </span> 
-    <span id="dislike_count"> <%= echo.get_downvotes.size %></span>
+    <span id="dislike_count"> <%# echo.get_downvotes.size %></span>
+  </button-->
+
+
+
+
+<%# if current_profile.voted_up_on? echo
+      status = 0 %>
+
+
+  <!--button class="dislike_btn" value="<%# echo.id %>" style="background: #FFFFFF; color: blue";>
+    <i class="fa fa-fw fa-thumbs-o-up fa-2x "></i>
+    <span> Like </span> 
+    
   </button>
 
+
+
+
+
+
+
+<%# else %>
+                                    <span class="text-center">
+  <button class="like_btn" value="<%# echo.id %>" style="background: #FFFFFF; color: blue";>
+    <i class="fa fa-fw fa fa-chevron-up fa-2x"></i>
+    <span id="like"> Like </span> 
+    <span id="like_count"> <%# echo.get_upvotes.size %></span>
+  </button>
+
+
 </span> 
+<%# end %>
 
-<br>
+<br-->
 
 
 
-                                    <div class="post-desc profile-nav-txt-bold ">
+                                    <div class="post-desc profile-nav-txt-bold" >
                                      <%=truncate(sanitize(echo.body, tags: %w(strong em p u br #ff0000 font-size)).capitalize, length: 300) {link_to 'Read More >>', echo if echo.body } %>
                                     </div>
 
@@ -201,11 +252,16 @@
                                 </div>
                                 <!-- end post-info -->
                                 <!-- begin read-btn-container -->
+
                                
                                 <!-- end read-btn-container -->
                             </div>
                             <!-- end post-content -->
+
+
                         </li>
+
+                         <!--hr style="border-bottom:1px dashed #ddd;"-->
 
 
 <% end %>
@@ -222,22 +278,26 @@
 
                     
                     <div class="section-container">
+                        
                         <!-- begin pagination -->
                         <div class="pagination-container text-center">
-                            <ul class="pagination m-t-0 m-b-0">
-                                <li class="disabled"><a href="javascript:;">Prev</a></li>
-                                <li class="active"><a href="javascript:;">1</a></li>
-                                <li><a href="javascript:;">2</a></li>
-                                <li><a href="javascript:;">3</a></li>
-                                <li><span class="text">...</span></li>
-                                <li><a href="javascript:;">1797</a></li>
-                                <li><a href="javascript:;">Next</a></li>
-                            </ul>
+                            <%= will_paginate @echos %>
                         </div>
                         <!-- end pagination -->
                     </div>
+                
+
                 </div>
                 <!-- end col-9 -->
+
+            </div>
+
+                
+
+
+
+
+
                 <!-- begin col-3 -->
                 <div class="col-md-3">
                     <!-- begin section-container -->
@@ -502,5 +562,10 @@
         })
     });
   </script>
+
+
+
+
+
 </body>
 </html>

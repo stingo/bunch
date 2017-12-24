@@ -12,12 +12,17 @@ class EchosController < ApplicationController
 
     if params[:echocategory].blank? 
       #@posts = Post.all.order("created_at DESC")
-    @echos = Echo.all.order("created_at DESC")
+    @echos = Echo.paginate(page: params[:page], per_page: 4).order("created_at DESC")
+    #@tags = Echo.tag_counts_on(:tags, :limit => 1, :order => "count desc") 
+  
+
 
      else
 
     @echocategory_id = Echocategory.find_by(name: params[:echocategory]).id
-    @echos = Echo.where(echocategory_id: @echocategory_id).order("created_at DESC")
+    @echos = Echo.where(echocategory_id: @echocategory_id).paginate(page: params[:page], per_page: 4).order("created_at DESC")
+     #@tags = Echo.tag_counts_on(:tags, :limit => 1, :order => "count desc") 
+   
 
     #@companysize_id = Companysize.find_by(name: params[:companysize]).id
     #@companies = Company.where(companysize_id: @companysize_id).order("created_at DESC")
@@ -69,6 +74,7 @@ respond_to do |format|
   def new
     @echo = Echo.new
     @echocategories = Echocategory.all.map{|c| [ c.name, c.id ] }
+    @tag = Tag.new
 
 
   end
@@ -77,6 +83,7 @@ respond_to do |format|
   def edit
     @echo = Echo.friendly.find(params[:id])
    # @echocategories = Echocategory.all.map{|c| [ c.name, c.id ] }
+    @tag = Tag.new
   end
 
   # POST /echos
@@ -106,7 +113,8 @@ respond_to do |format|
     respond_to do |format|
       if @echo.update(echo_params)
         format.html { redirect_to @echo, notice: 'Echo was successfully updated.' }
-        format.json { render :show, status: :ok, location: @echo }
+        #format.json { render :show, status: :ok, location: @echo }
+        format.json { respond_with_bip(@echo) }
       else
         format.html { render :edit }
         format.json { render json: @echo.errors, status: :unprocessable_entity }
@@ -182,7 +190,7 @@ respond_to do |format|
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def echo_params
-      params.require(:echo).permit(:headline, :body, :content2, :image1, :echoimage1, 
+      params.require(:echo).permit(:headline, :tag_list, :tag, { tag_ids: [] }, :tag_ids, :body, :content2, :image1, :echoimage1, 
         :echoimage2, :videourl, :slug, :echocategory_id, :acknowledgments, :references )
     end
 end

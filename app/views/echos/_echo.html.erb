@@ -1,0 +1,186 @@
+  <div id="echos"> 
+
+    <div class="col-md-9">
+
+                    <!-- begin post-list -->
+                    <ul class="post-list">
+
+                   <% @echos.each do |echo| %> 
+
+
+                        <li>
+
+
+
+                            <!-- begin post-left-info -->
+                            <div class="post-left-info">
+                                <div class="post-date">
+                                    <span class="day"><%= echo.created_at.strftime("%d") %></span>
+                                    <span class="month"><%= echo.created_at.strftime("%b") %> </span>
+                                    <span class="month"><%= echo.created_at.strftime("%Y") %> </span>
+                                </div>
+
+                                <div class="post-likes">
+
+                                    <span><i class="fa fa-fw fa-thumbs-up fa-lg"></i>
+                                    <span class="number"><%= echo.get_upvotes.size %></span></span>
+
+
+                                </div>
+                            
+                            </div>
+
+
+
+
+
+
+
+<% if echo.echoimage1? %>
+
+                            <!-- end post-left-info -->
+                            <!-- begin post-content -->
+                            <div class="post-content">
+                                <!-- begin post-image -->
+                            <div class="post-image">
+        <%= link_to (image_tag(echo.echoimage1.url(:thumb), :class => "img-responsive", :alt =>"echo image")), echo_path(echo) %>
+
+                           </div>
+
+
+        <% elsif echo.echoimage2? %> 
+                            <!-- end post-left-info -->
+                            <!-- begin post-content -->
+                            <div class="post-content">
+                                <!-- begin post-image -->
+                            <div class="post-image">
+
+        <%= link_to (image_tag(echo.echoimage2.url(:thumb), :class => "img-responsive", :alt =>"echo image")), echo_path(echo) %> 
+                            </div>
+
+        <% elsif echo.videourl? %> 
+
+                                    <!-- begin post-content -->
+                            <div class="post-content">
+                                <!-- begin post-video -->
+                            <div class="post-video">
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <%= embed(echo.videourl) %> 
+                                    </div>
+                                </div>
+            <!-- end post-video -->
+            <!-- begin post-info -->
+
+
+
+        <% else %>
+
+                             <div class="post-content">
+                                <!-- begin post-image -->
+                            
+                                <!-- end post-image -->
+                                <!-- begin post-info -->
+
+    <% end %> 
+
+
+            <!-- end post-left-info -->
+
+
+
+
+
+                              
+
+         <div class="post-left-info">
+
+
+
+                      <% if echo.profile.pesnavatar? %>
+        <%= link_to (image_tag(echo.profile.pesnavatar.url(:large), :class => "img-circle thumb48 btn-raised btn-circle text-center", :alt =>"user")), profile_path(echo.profile_id) %>
+
+
+         
+
+        <% else %> 
+        <%= link_to (image_tag("noimage.jpg", :class => "media-object img-circle thumb40 btn-raised btn-circle text-center", :alt =>"user")), profile_path(@cho.profile_id) %>
+
+
+       <% end %>
+
+
+        </div>
+                                <div class="post-info">
+                                    <h4 class="post-title">
+                                        <%= link_to (truncate(sanitize(echo.headline.titleize, tags: %w(strong em p u br #ff0000 font-size)),:class =>"blk in-inner m-t-5", length: 120)), echo %>
+                                    </h4>
+                                    <div class="post-by">
+
+
+
+
+
+
+
+                                        Echoed By <%= link_to echo.profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ echo.profile.last_name.split(" ").map(&:capitalize).join(" "), profile_path(echo.profile_id) if echo.profile.first_name || echo.profile.last_name %>, <%="#{time_ago_in_words(echo.created_at)} ago"%>  <span class="divider">|</span> <%= link_to Echocategory.friendly.find(echo.echocategory_id).name, echocategory_path(echo.echocategory_id) if echo.echocategory_id %><span class="divider">|</span>
+                                        <%= pluralize(echo.impressionist_count(:filter=>:session_hash), "View") %> <span class="divider">|</span> <%= pluralize(echo.comment_threads.size, "Comment")%> 
+
+                                        <% if echo.comment_threads.blank? %>
+
+                                         <a href="/echos/<%= echo.id %>/#comments">Be the first to add comments</a>
+                                         <% else %>
+                                         <% end %>
+                                    </div>
+
+                                    <span class="text-center">
+  <button class="like_btn" value="<%= echo.id %>">
+    <i class="fa fa-fw fa-thumbs-up fa-lg"></i>
+    <span id="like"> Like </span> 
+    <span id="like_count"> <%= echo.get_upvotes.size %></span>
+  </button>
+
+  <button class="dislike_btn" value="<%= echo.id %>">
+    <i class="fa fa-fw fa-thumbs-down fa-lg"></i>
+    <span id="dislike"> DisLike </span> 
+    <span id="dislike_count"> <%= echo.get_downvotes.size %></span>
+  </button>
+
+</span> 
+
+<br>
+
+
+
+                                    <div class="post-desc profile-nav-txt-bold ">
+                                     <%=truncate(sanitize(echo.body, tags: %w(strong em p u br #ff0000 font-size)).capitalize, length: 300) {link_to 'Read More >>', echo if echo.body } %>
+                                    </div>
+
+
+                                </div>
+                                <!-- end post-info -->
+                                <!-- begin read-btn-container -->
+                               
+                                <!-- end read-btn-container -->
+                            </div>
+                            <!-- end post-content -->
+                        </li>
+
+
+<% end %>
+
+
+
+
+                    </ul>
+                    <!-- end post-list -->
+
+
+
+
+
+                    
+                   
+                </div>
+                <!-- end col-9 -->
+
+            </div>

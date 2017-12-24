@@ -1,2 +1,4 @@
 $('#echos').append('<%= escape_javascript render(@echos) %>');
-$('.pagination').replaceWith('<%= escape_javascript will_paginate(@hows) %>');
+$('.pagination').replaceWith('<%= escape_javascript will_paginate(@echos) %>');
+
+

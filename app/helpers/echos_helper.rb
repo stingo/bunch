@@ -1,5 +1,8 @@
 module EchosHelper
 
+
+	include ActsAsTaggableOn::TagsHelper
+
 	
 
 	def embed(videourl)

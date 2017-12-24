@@ -21,6 +21,14 @@
 
 }
 
+.highlight {
+ color:red;
+}
+
+#warning {
+  display: none;
+}
+
 
 .li {
     list-style: outside !important;

@@ -30,8 +30,9 @@
   
 
   <div class="field form-group">
-    <%= f.text_area :body, class: 'form-control' %>
-  </div>
+    <%= f.text_area :body, :maxlength =>"580", :placeholder => "580 maximum character limit", class: 'form-control' %>
+
+   
 
 
 

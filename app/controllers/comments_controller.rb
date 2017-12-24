@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController  
   before_action :authenticate_profile!
+  before_action :set_comment, only: [:show, :edit, :update, :destroy]
 
 
   def create
@@ -19,7 +20,22 @@ class CommentsController < ApplicationController
   end
 
 
+  def destroy
 
+    @comment.destroy
+    respond_to do |format|
+      format.html { redirect_to request.referer || root_path, notice: 'Comment was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+    def update
+    @comment.update(comment_params)
+    respond_to do |format|
+      format.html { redirect_to request.referer || root_path, notice: 'Comment was successfully updated.' }
+      format.json { respond_with_bip(@comment) }
+    end
+  end
 
 
 
@@ -49,6 +65,9 @@ class CommentsController < ApplicationController
     params.require(:comment).permit(:body, :commentable_id, :commentable_type, :comment_id)
   end
 
+  def set_comment
+  @comment = Comment.find(params[:id])
+  end
 
   def commentable_type
     comment_params[:commentable_type]

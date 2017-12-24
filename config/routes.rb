@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :profiles
   resources :echocategories
   resources :echos
   resources :countries
@@ -13,7 +14,6 @@ Rails.application.routes.draw do
   resources :urbanterms
   resources :hows
   resources :locations
-  devise_for :profiles
   resources :events
   resources :profiles
   resources :comments
@@ -25,6 +25,8 @@ Rails.application.routes.draw do
   get 'tags/:tag', to: 'ghana#search'
 
   get 'tags/:tag', to: 'urbanterms#index'
+
+  get 'tags/:tag', to: 'echos#index'
 
   #get '/user/:id' => 'pages#profile'
 

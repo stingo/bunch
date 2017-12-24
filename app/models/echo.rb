@@ -10,8 +10,10 @@ class Echo < ApplicationRecord
 
 	acts_as_votable
 
+	acts_as_taggable
 
-  acts_as_commentable
+
+     acts_as_commentable
 
 	#def to_param
     #{}"#{id} #{name}".parameterize
@@ -28,4 +30,11 @@ class Echo < ApplicationRecord
 
     mount_uploader :echoimage1, EchoImage1Uploader
 	mount_uploader :echoimage2, EchoImage2Uploader
+	
+	  def taglimit
+
+  	ActsAsTaggableOn::Tag.most_used(1)
+  	
+  end
+
 end
