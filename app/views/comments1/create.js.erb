@@ -1,3 +1,0 @@
-$("#main-comments").append("<%= j render partial: "comments/display_comment", locals: {comment: @comment} %>");
-$("#post-comments-count").html("<%= @comment.commentable.comment_threads.count %>");
-$("#comment_body").val('');

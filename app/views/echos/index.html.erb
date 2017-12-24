@@ -52,22 +52,6 @@
 
                         <li>
 
-<span class="text-center">
-  <button class="like_btn" value="<%= echo.id %>">
-    <i class="fa fa-fw fa-thumbs-up fa-lg"></i>
-    <span id="like"> Like </span> 
-    <span id="like_count"> <%= echo.get_upvotes.size %></span>
-  </button>
-
-  <button class="dislike_btn" value="<%= echo.id %>">
-    <i class="fa fa-fw fa-thumbs-down fa-lg"></i>
-    <span id="dislike"> DisLike </span> 
-    <span id="dislike_count"> <%= echo.get_downvotes.size %></span>
-  </button>
-
-</span> 
-
-<br>
 
 
                             <!-- begin post-left-info -->
@@ -77,10 +61,15 @@
                                     <span class="month"><%= echo.created_at.strftime("%b") %> </span>
                                     <span class="month"><%= echo.created_at.strftime("%Y") %> </span>
                                 </div>
+
                                 <div class="post-likes">
-                                    <i class="fa fa-heart-o"></i>
-                                    <span class="number">1,292</span>
+
+                                    <span><i class="fa fa-fw fa-thumbs-up fa-lg"></i>
+                                    <span class="number"><%= echo.get_upvotes.size %></span></span>
+
+
                                 </div>
+                            
                             </div>
 
 
@@ -184,6 +173,24 @@
                                          <% else %>
                                          <% end %>
                                     </div>
+
+                                    <span class="text-center">
+  <button class="like_btn" value="<%= echo.id %>">
+    <i class="fa fa-fw fa-thumbs-up fa-lg"></i>
+    <span id="like"> Like </span> 
+    <span id="like_count"> <%= echo.get_upvotes.size %></span>
+  </button>
+
+  <button class="dislike_btn" value="<%= echo.id %>">
+    <i class="fa fa-fw fa-thumbs-down fa-lg"></i>
+    <span id="dislike"> DisLike </span> 
+    <span id="dislike_count"> <%= echo.get_downvotes.size %></span>
+  </button>
+
+</span> 
+
+<br>
+
 
 
                                     <div class="post-desc profile-nav-txt-bold ">
@@ -444,11 +451,12 @@
                 <li class="active"><a href="javascript:;" class="bg-green" data-theme="default" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Default">&nbsp;</a></li>
                 <li><a href="javascript:;" class="bg-orange" data-theme="orange" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Orange">&nbsp;</a></li>
                 <li><a href="javascript:;" class="bg-red" data-theme="red" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Red">&nbsp;</a></li>
-            </ul>
+            </ul>pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
         </div>
     </div-->
+    
     <!--script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5a38b6716924d799"></script-->
-  
+ 
 
 
   <!--Like, dislike -->
