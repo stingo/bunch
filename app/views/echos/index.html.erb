@@ -102,19 +102,32 @@
 
 
 
-<% if echo.echoimage1? %>
+<% if echo.videourl? %>
 
                             <!-- end post-left-info -->
                             <!-- begin post-content -->
                             <div class="post-content shadow-wrapper-square">
                                 <!-- begin post-image -->
+                             <!-- begin post-video -->
+                            <div class="post-video">
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <%= embed(echo.videourl) %> 
+                                    </div>
+                                </div>
+            <!-- end post-video -->
+
+
+        <% elsif echo.echoimage1? %> 
+                            <!-- end post-left-info -->
+                            <!-- begin post-content -->
+                            <div class="post-content shadow-wrapper-square">
+                                <!-- begin post-image -->
                             <div class="post-image">
-        <%= link_to (image_tag(echo.echoimage1.url(:thumb), :class => "img-responsive", :alt =>"echo image")), echo_path(echo) %>
 
-                           </div>
+        <%= link_to (image_tag(echo.echoimage1.url(:thumb), :class => "img-responsive", :alt =>"echo image")), echo_path(echo) %> 
+                            </div>
 
-
-        <% elsif echo.echoimage2? %> 
+         <% elsif echo.echoimage2? %> 
                             <!-- end post-left-info -->
                             <!-- begin post-content -->
                             <div class="post-content shadow-wrapper-square">
@@ -123,17 +136,6 @@
 
         <%= link_to (image_tag(echo.echoimage2.url(:thumb), :class => "img-responsive", :alt =>"echo image")), echo_path(echo) %> 
                             </div>
-
-        <% elsif echo.videourl? %> 
-
-                                    <!-- begin post-content -->
-                            <div class="post-content shadow-wrapper-square">
-                                <!-- begin post-video -->
-                            <div class="post-video">
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                        <%= embed(echo.videourl) %> 
-                                    </div>
-                                </div>
             <!-- end post-video -->
             <!-- begin post-info -->
 

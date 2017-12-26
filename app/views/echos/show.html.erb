@@ -202,7 +202,7 @@
 
                 <div class="card-offset">
                   <div class="card-offset-item text-right">
-<% if @echo.echoimage1.blank? && @echo.profile == current_profile %>
+<% if  @echo.echoimage1.blank? && @echo.echoimage2.blank? && @echo.profile == current_profile %>
 
                   	<span><a href="#modal-echoimage1" class="btn btn-sm btn bg-green-dft " data-toggle="modal"><i class="fa fa-file-image-o fa-2x mr-sm" style="color:#7D8990; font-size: 20px;"></i>Add Image</a></span>
     <% else %> 
