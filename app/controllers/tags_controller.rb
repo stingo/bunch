@@ -12,6 +12,8 @@ class TagsController < ApplicationController
   # GET /tags/1
   # GET /tags/1.json
   def show
+    @tags = Tag.find(params[:id])
+    @tags = Tags.all # list all echocategories on echocategory page
   end
 
   # GET /tags/new

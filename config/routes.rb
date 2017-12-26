@@ -22,9 +22,9 @@ Rails.application.routes.draw do
   resources :contacts, :only => [:new, :create]
 
   resources :tags, except: :show
-  get 'tags/:tag', to: 'ghana#search'
+  #get 'tags/:tag', to: 'ghana#search'
 
-  get 'tags/:tag', to: 'urbanterms#index'
+  #get 'tags/:tag', to: 'urbanterms#index'
 
   get 'tags/:tag', to: 'echos#index'
 

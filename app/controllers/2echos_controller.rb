@@ -6,29 +6,40 @@ class EchosController < ApplicationController
 
   # GET /echos
   # GET /echos.json
+  
 
 
   def index
 
-  if params[:tag]
+    if params[:echocategory].blank? 
 
-    #@echos = Echo.paginate(page: params[:page], per_page: 3).order("created_at DESC")
-  @echos = Echo.order("created_at desc").tagged_with(params[:tag]).paginate(:page => params[:page], :per_page => 3)
-
+      #@posts = Post.all.order("created_at DESC")
+    @echos = Echo.paginate(page: params[:page], per_page: 3).order("created_at DESC")
+    #@tags = Echo.tag_counts_on(:tags, :limit => 1, :order => "count desc") 
   
-  else
 
-  @echos = Echo.order("created_at desc").paginate(:page => params[:page], :per_page => 3)
 
-  respond_to do |format|
+     else
+
+    @echocategory_id = Echocategory.find_by(name: params[:echocategory]).id
+    @echos = Echo.where(echocategory_id: @echocategory_id).paginate(page: params[:page], per_page: 3).order("created_at DESC")
+     #@tags = Echo.tag_counts_on(:tags, :limit => 1, :order => "count desc") 
+
+
+    #@companysize_id = Companysize.find_by(name: params[:companysize]).id
+    #@companies = Company.where(companysize_id: @companysize_id).order("created_at DESC")
+
+
+
+respond_to do |format|
       format.html
       format.js # add this line for your js template
     end
     end
 
-  @echocategories = Echocategory.all
+@echocategories = Echocategory.all
 
-  @comment = Comment.all.order("created_at DESC")
+@comment = Comment.all.order("created_at DESC")
  
   end
 

@@ -18,6 +18,11 @@ def index
 @listings = Listing.all
 @songs = Song.all
 
+@echos = Echo.all
+
+  @tags = Tag.find(params[:id])
+    @tags = Tags.all # list all echocategories on echocategory page
+
   #if params[:tag]
 
  #@hows = How.order("created_at desc").tagged_with(params[:tag])#.paginate(:page => params[:page], :per_page => 3)

@@ -10,3 +10,10 @@
     <div class='col-md-4'></div>
   </div>
 </section>
+
+  <% Tag.where(tag_id: @tag.id).each do |echo| %>
+
+  <%= tag.name %>
+
+
+  <% end %>

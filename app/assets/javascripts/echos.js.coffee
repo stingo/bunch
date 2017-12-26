@@ -3,10 +3,19 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 
+
+
 jQuery ->
-  $(window).scroll ->
-    if $(window).scrollTop() > $(document).height() - $(window).height() - 50
-      alert('near bottom')
+  if $('.pagination').length
+          $(window).scroll ->
+                  url = $('.pagination .next_page').attr('href')
+                  if url &&  $(window).scrollTop() > $(document).height() - $(window).height() - 50
+                          $('.pagination').text('Fetching more products...')
+                          $.getScript(url)
+    $(window).scroll()
+
+
+
 
 
   $('.best_in_place').best_in_place()

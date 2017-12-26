@@ -675,6 +675,16 @@ margin-bottom: 0px !important;
      
     }
 
+    .shadow-wrapper-square {
+    -webkit-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.44);
+    -moz-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.44);
+    box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.44);
+    border: 1px solid #eeeeee;
+     }
+    .upfrica-padding-10{
+      padding: 10px;
+    }
+
     .nav-shadow {
     -webkit-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.44);
     -moz-box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.44);

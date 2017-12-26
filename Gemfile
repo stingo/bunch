@@ -48,7 +48,7 @@ gem 'acts_as_votable', '~> 0.10.0'
 gem "binding_of_caller" 
 gem 'fog-aws'
 
-gem 'acts-as-taggable-on', '~> 4.0'
+gem 'acts-as-taggable-on', github: 'mbleigh/acts-as-taggable-on'
 
 
 

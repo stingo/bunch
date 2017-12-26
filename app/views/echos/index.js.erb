@@ -1,4 +1,9 @@
-$('#echos').append('<%= escape_javascript render(@echos) %>');
-$('.pagination').replaceWith('<%= escape_javascript will_paginate(@echos) %>');
+$('#echos').append('<%= j render("echo_page_header") %>');
+$('#echos').append('<%= j render(@echos) %>');
+<% if @echos.next_page %>
+  $('.pagination').replaceWith('<%= j will_paginate(@echos) %>');
+<% else %>
+  $('.pagination').remove();
+<% end %>
 
 
