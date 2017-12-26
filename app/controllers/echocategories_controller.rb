@@ -1,4 +1,5 @@
 class EchocategoriesController < ApplicationController
+  before_action :authenticate_profile!, :except => [:index, :show]
   before_action :set_echocategory, only: [:show, :edit, :update, :destroy]
 
   # GET /echocategories
