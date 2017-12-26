@@ -221,7 +221,7 @@
 
 
                                     <div class="post-desc profile-nav-txt-bold" >
-                                     <%=truncate(sanitize(echo.body, tags: %w(strong em p u br #ff0000 font-size)).capitalize, length: 300) {link_to 'Read More >>', echo if echo.body } %>
+                                     <%= truncate(sanitize(echo.body, tags: %w(strong em p u #ff0000 font-size)).capitalize, length: 300) {link_to 'Read More >>', echo if echo.body } %>
                                     </div>
 
 
