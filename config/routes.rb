@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :howcategories
   devise_for :profiles
   resources :echocategories
   resources :echos
@@ -31,6 +32,8 @@ Rails.application.routes.draw do
   #get '/user/:id' => 'pages#profile'
 
    get 'main/market' => 'main#search'
+
+   get 'tags/:tag', to: 'hows#index'
 
 
 

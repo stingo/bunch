@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require jquery-ui
 //= require best_in_place
@@ -20,7 +21,6 @@
 //= require turbolinks
 //= require trix
 //= require bootstrap
-//= require jquery.turbolinks
 //= require post
 // require superbox
 // require superbox.min

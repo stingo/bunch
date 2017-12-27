@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171220122347) do
+ActiveRecord::Schema.define(version: 20171227055117) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -151,6 +151,16 @@ ActiveRecord::Schema.define(version: 20171220122347) do
     t.index ["follower_id", "follower_type"], name: "fk_follows"
   end
 
+  create_table "howcategories", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.text "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "profile_id"
+    t.index ["profile_id", "created_at"], name: "index_howcategories_on_profile_id_and_created_at"
+  end
+
   create_table "hows", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -169,6 +179,8 @@ ActiveRecord::Schema.define(version: 20171220122347) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "profile_id"
+    t.integer "howcategory_id"
+    t.index ["howcategory_id"], name: "index_hows_on_howcategory_id"
     t.index ["profile_id", "created_at"], name: "index_hows_on_profile_id_and_created_at"
   end
 

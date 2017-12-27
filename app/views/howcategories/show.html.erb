@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @howcategory.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @howcategory.description %>
+</p>
+
+<p>
+  <strong>Slug:</strong>
+  <%= @howcategory.slug %>
+</p>
+
+<%= link_to 'Edit', edit_howcategory_path(@howcategory) %> |
+<%= link_to 'Back', howcategories_path %>

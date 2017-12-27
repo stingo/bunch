@@ -1,365 +1,72 @@
- <!DOCTYPE html>
-<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
-<!--[if !IE]><!-->
-<html lang="en">
+  <html lang="en">
 <!--<![endif]-->
 <head>
   <meta charset="utf-8" />
-  <title>Color Admin | Support Forum Front End Theme</title>
+  <title>Color Admin | Blog Concept Front End Theme</title>
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
   <meta content="" name="description" />
   <meta content="" name="author" />
- 
-</head>
-<body>
-    <!-- begin #header -->
+  
+  <!-- ================== BEGIN BASE CSS STYLE ================== -->
+
+  <!-- ================== END BASE CSS STYLE ================== -->
     
+  <!-- ================== BEGIN BASE JS ================== -->
+  
+  <!-- ================== END BASE JS ================== -->
+</head>
+<body class="bg-upfrica-grey" style=" height: auto;">      
 
 
+
+<!-- begin #header -->
+ 
+        <!-- begin Howcat nav container -->
+        <div class="container m-b-10">
+            <!-- begin navbar-header -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="index.html" class="navbar-brand">
+                    
+                    <span class="brand-text m-l-10">
+                        HOW CATEGORIES
+                    </span>
+                </a>
+            </div>
+            <!-- end navbar-header -->
+            <!-- begin navbar-collapse -->
+            <div class="collapse navbar-collapse" id="header-navbar">
+                <ul class="nav navbar-nav navbar-right">
+                   
+                    <li>
+                        <a href="javascript:;" data-toggle="dropdown">ALL HOW CATEGORIES <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <% @hows.each do |how| %>
+ 
+                            <li><%= link_to how.name, how  %> </li>
+
+                              <% end %>
+                            
+                        </ul>
+                    </li>
+                    
+                    <li><a href="/hows">BACK TO HOWS</a></li>
+                </ul>
+            </div>
+            <!-- end navbar-collapse -->
+        </div>
+        <!-- end how nav container -->
+   
     <!-- end #header -->
     
-    
 
-
-
-    <!-- begin search-banner -->
-    <!--div class="search-banner has-bg">
-      
-        <div class="bg-cover">
-        <%# image_tag("cover.jpg") %>
-
-        </div>
-
-        <div class="container">
-            <h1>1,293 Post for discussion</h1>
-            
-
-             <%# form_tag @urban_terms_path, method: :get do %>
-
-            <div class="input-group m-b-20">
-
-             <input type="text" name="q" id="q" placeholder="Search insideGH" data-localize="header.SEARCH" class="form-control input-lg">
-
-             <div class="mda-form-control-line" id="urban_terms-search-results"></div>
-                
-                <span class="input-group-btn">
-                    <button type="submit" class="btn btn-lg"><i class="fa fa-search"></i></button>
-                </span>
-            </div>
-
-            < end %>
-
-
-            <h5>Browse by Popular Categories</h5>
-            <ul class="popular-tags">
-                <li><a href="#"><i class="fa fa-circle text-danger"></i> CSS</a></li>
-                <li><a href="#"><i class="fa fa-circle text-primary"></i> Bootstrap</a></li>
-                <li><a href="#"><i class="fa fa-circle text-warning"></i> Javascript</a></li>
-                <li><a href="#"><i class="fa fa-circle"></i> jQuery</a></li>
-                <li><a href="#"><i class="fa fa-circle text-success"></i> Android</a></li>
-                <li><a href="#"><i class="fa fa-circle text-muted"></i> iOS</a></li>
-                <li><a href="#"><i class="fa fa-circle text-purple"></i> Template</a></li>
-            </ul>
-        </div>
-      
-    </div-->
-    <!-- end search-banner -->
-       <main>
- <!-- begin page-title -->
-    <div class="page-title has-bg">
-        <!-- begin bg-cover -->
-        <div class="bg-cover">
-            <%= image_tag("cover3.jpg") %>
-        </div>
-        <!-- end bg-cover -->
-        <!-- begin container -->
-        <div class="container">
-
-
-        
-            <!-- begin breadcrumb -->
-            <ul class="breadcrumb">
-                <li><a href="index.html">Forum</a></li>
-                <li><a href="category_list.html">Twitter Bootstrap</a></li>
-                <li class="active">&nbsp;</li>
-            </ul>
-            <!-- end breadcrumb -->
-            <h1>How to create an arrow by using css?</h1>
-        </div>
-        <!-- end container -->
-    </div>
-    <!-- end page-title -->
-
-
-
-   
-      <!-- Main section-->
-  
-        <section class="custombgD9E0E7">
-          <div class="container custombgD9E0E7">
-            <div class="row fh">
-     <!-- Left starts -->           
-
-              <!--div class="col-md-3 fh-md oa text-center">
-                <div class="p-lg">
-                  <h5>Left Column</h5>
-                  <p class="">Nullam pretium fermentum sapien ut convallis.</p>
-                </div>
-                <div class="p-lg">
-                  <p>Pellentesque sed purus libero. Nam eleifend, ipsum at suscipit pellentesque, diam enim dignissim nunc, eu egestas sem velit vel nunc. Phasellus vel nisl orci.</p>
-                </div>
-              </div-->
-        <!-- Left Ends -->  
-
-    
-            
-<!-- Mid starts --> <div class="col-md-9 fh-md oa">
-
-
-
-
-
-
-<!-- begin #content -->
-    <div id="content" class="conten">
-      <!-- begin breadcrumb -->
-      <!--ol class="breadcrumb pull-right">
-        <li><a href="javascript:;">Home</a></li>
-        <li><a href="javascript:;">Extra</a></li>
-        <li class="active">Search Results</li>
-      </ol-->
-      <!-- end breadcrumb -->
-      <!-- begin page-header -->
-      <!--h1 class="page-header">Search Results <small>3 results found</small></h1-->
-      <!-- end page-header -->
-      
-      <!-- begin row -->
-      <div class="row">
-          <!-- begin col-12 -->
-          <div class="col-md-12">
-              <div class="result-container">
-                  <!--div class="input-group m-b-20">
-                            <input type="text" class="form-control input-white" placeholder="Enter keywords here..." />
-                            <div class="input-group-btn">
-                                <button type="button" class="btn btn-inverse"><i class="fa fa-search"></i> Search</button>
-                                <button type="button" class="btn btn-inverse dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-cog"></i>
-                                </button>
-                                <ul class="dropdown-menu pull-right">
-                                    <li><a href="javascript:;">Action</a></li>
-                                    <li><a href="javascript:;">Another action</a></li>
-                                    <li><a href="javascript:;">Something else here</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="javascript:;">Separated link</a></li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="dropdown pull-left">
-                            <a href="javascript:;" class="btn btn-white btn-white-without-border dropdown-toggle" data-toggle="dropdown">
-                                Filters by <span class="caret m-l-5"></span>
-                            </a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="javascript:;">Posted Date</a></li>
-                                <li><a href="javascript:;">View Count</a></li>
-                                <li><a href="javascript:;">Total View</a></li>
-                                <li class="divider"></li>
-                                <li><a href="javascript:;">Location</a></li>
-                            </ul>
-                        </div>
-                        <div class="btn-group m-l-10 m-b-20">
-                            <a href="javascript:;" class="btn btn-white btn-white-without-border"><i class="fa fa-list"></i></a>
-                            <a href="javascript:;" class="btn btn-white btn-white-without-border"><i class="fa fa-th"></i></a>
-                            <a href="javascript:;" class="btn btn-white btn-white-without-border"><i class="fa fa-th-large"></i></a>
-                        </div-->
-                        <!--ul class="pagination pagination-without-border pull-right m-t-0">
-                            <li class="disabled"><a href="javascript:;">«</a></li>
-                            <li class="active"><a href="javascript:;">1</a></li>
-                            <li><a href="javascript:;">2</a></li>
-                            <li><a href="javascript:;">3</a></li>
-                            <li><a href="javascript:;">4</a></li>
-                            <li><a href="javascript:;">5</a></li>
-                            <li><a href="javascript:;">6</a></li>
-                            <li><a href="javascript:;">7</a></li>
-                            <li><a href="javascript:;">»</a></li>
-                        </ul!-->
-                        
-                        <br>
-
-                        <ul class="result-list">
-  <% @hows.reverse.each do |how| %>                           
-
-
-                            <li>
-                                <div class="col-md-1 text-center">
-                                   
-                                   <% if how.profile.pesnavatar? %>
-        <%= link_to (image_tag(how.profile.pesnavatar.url(:small), :class => "media-object img-circle img-responsive text-center", :alt =>"profile")), profile_path(how.profile_id) %>
-
-
-         
-
-        <% else %> 
-        <%= link_to (image_tag("noimage.jpg", :class => "media-object img-circle img-responsive text-center", :alt =>"profile")), profile_path(how.profile_id) %>
-
-
-       <% end %>
-
-
-       <h6 class="cutbtn20px inblack"><%= link_to how.profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ how.profile.last_name.split(" ").map(&:capitalize).join(" "), profile_path(how.profile_id) if how.profile.first_name || how.profile.last_name %></h6>
-
-
-
-
-                                </div>
-                                <div class="col-md-9 result-info">
-
-<h3 class="title" style="border-bottom: 1px dashed #ddd;"> <%= link_to how.name.titleize, how %> </h3>
-
-
-<p class="location"><%# timeago_tag Time.zone.now, :nojs => true, :limit => 10.days.ago %>, 
-
-<%# "Tagged:" if how.tag_ids.present? %> <span class="tags text-center"><%# raw how.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></span>
-
-</p>
-                                    
-
-
-<% if how.description.present? %>
-
-                                     <span class="desc">
-        
-
-
-
-        <%# truncate(sanitize(how.body, tags: %w(strong em p u br div ul ol li #ff0000 font-size)), length: 160) %>
-<%# link_to 'read more', how %> 
-
-
-<%#sanitize how.body.truncate(160) {link_to 'read more', how } %>
-
-<%=truncate(sanitize(how.description, tags: %w(strong em p u br #ff0000 font-size)), length: 260) {link_to 'continue', how } %>
-
-
-      <% else %>
-
-      <% end %>                             
-
-
-                                    
-  <%# if how.body.length > 250 %>
-    <%# raw truncate(how.body, length: 250) %>
-    <%# link_to '...Read more', '', class: "read-more-#{how.id}" %>
-    <!--script>
-      $('.read-more-<%= how.id %>').on('click', function(e) {
-        e.preventDefault()
-        $(this).parent().html('<%= escape_javascript how.description %>')
-      })
-    </script>
-  <%# else %>
-    <% #sanitize how.body %>
-  <%# end %>
-<div-->
-
-
-
-
-                                    <!--div class="btn-row">
-                                        <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Analytics"><i class="fa fa-fw fa-bar-chart-o"></i></a>
-                                        <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Tasks"><i class="fa fa-fw fa-tasks"></i></a>
-                                        <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Configuration"><i class="fa fa-fw fa-cog"></i></a>
-                                        <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Performance"><i class="fa fa-fw fa-tachometer"></i></a>
-                                        <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Users"><i class="fa fa-fw fa-user"></i></a>
-                                    </div-->
-                                </div>
-
-
-<div class="col-md-2 result-info text-center" style="border-left: 1px dashed #ddd; padding-right: 0px; margin-bottom: 0px margin-right: 0px !important;">
-
-
-
-
-
-
-
-
-
-    
- 
-    <h5 class="text-center"> <a href="#">
-                       <i class="fa fa-eye fa-2x" style="color:#337ab7; font-size: 20px;"></i></a>
-                       <br><strong><%= how.impressionist_count(:filter=>:session_hash) %></strong></h5>
-     
-
-     <span class="">
-
-
-
-
-     <%# how.comment_threads.count == 0 ? "0" : how.comment_threads.count %> <%# link_to "Comment".pluralize(how.comment_threads.count == 0 ? "0" : how.comment_threads.count), how_path(how) %> 
 <hr>
 
 
-</span>
-
-                    
-<span class="text-center">
-                      <%# link_to like_how_path(how), method: :put do %>
-
-  <i class="fa fa-fw fa-thumbs-up fa-lg"></i>
-
-  <%# how.get_upvotes.size %>
-<%# end %>
-
-<%# link_to dislike_how_path(how), method: :put do %>
- <i class="fa fa-fw fa-thumbs-down fa-lg"></i>
-  <%# how.get_downvotes.size %>
-<%# end %>
-
-</span>
-
-
-     
-
-
-</div>
-                            
-
-                            </li>
-
-<% end %>
-
-
-
-                            
-
-
-
-                        </ul>
-
-                        <%# will_paginate @hows %>
-
-
-                        <div class="clearfix">
-                            <ul class="pagination pagination-without-border pull-right">
-                                <li class="disabled"><a href="javascript:;">«</a></li>
-                                <li class="active"><a href="javascript:;">1</a></li>
-                                <li><a href="javascript:;">2</a></li>
-                                <li><a href="javascript:;">3</a></li>
-                                <li><a href="javascript:;">4</a></li>
-                                <li><a href="javascript:;">5</a></li>
-                                <li><a href="javascript:;">6</a></li>
-                                <li><a href="javascript:;">7</a></li>
-                                <li><a href="javascript:;">»</a></li>
-                            </ul>
-                        </div>
-                    </div>
-          </div>
-          <!-- end col-12 -->
-      </div>
-      <!-- end row -->
-    </div>
-    <!-- end #content -->
 
 
 
@@ -368,167 +75,74 @@
 
 
 
-<!-- Mid Ends --> </div>      
 
-               
+
+<div class="transitions-enabled m-t-10" id="upfrica-pins">
+  <% @hows.each do |how| %>
+    <div class="box panel panel-default">
+
+      <% if how.howcover? %>
+
+      <%= link_to (image_tag(how.howcover.url(:thumb), :class => "img-responsive", :alt =>"how image")), how_path(how) %>
 
      
 
+      <% elsif how.video? %>
 
-              <!-- Right starts -->
-              
+      
 
-              <div class="col-md-3 fh-md oa text-center">
-                <div class="p-lg">
-                  <h5>Right Column</h5>
-                  <p class="text-center">Nullam pretium fermentum sapien ut convallis.</p>
-                </div>
-                <div class="p-lg">
-                  <p>Pellentesque sed purus libero. Nam eleifend, ipsum at suscipit pellentesque, diam enim dignissim nunc, eu egestas sem velit vel nunc. Phasellus vel nisl orci.</p>
+     
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <%= embed(how.video) %> 
+                                    </div>
+                               
+      <% else %>
 
-              </div>
-              </div>
-
-
-            
-
-            </div>
-          </div>
-        </section>
+      <% end %>
 
 
 
 
+      <h2>
+        <%= link_to (truncate(sanitize(how.name.titleize, tags: %w(strong em p u br #ff0000 font-size)),:class =>"blk in-inner m-t-5", length: 120)), how %>
+      </h2>
+      
+
+      <p class="profile">
 
 
 
+    <div class="post-left-info">
+                      <% if how.profile.pesnavatar? %>
+        <%= link_to (image_tag(how.profile.pesnavatar.url(:large), :class => "m-l-20 img-circle thumb48 btn-raised btn-circle text-center", :alt =>"profile image")), profile_path(how.profile_id) %>
 
 
+        <% else %> 
+        <%= link_to (image_tag("noimage.jpg", :class => "media-object img-circle thumb40 btn-raised btn-circle text-center", :alt =>"profile image")), profile_path(@cho.profile_id) %>
 
 
-   <!-- Right Ends -->
-    
+               <% end %>
 
 
-
-
-
-
+     </div>
 
 
 
 
 
 
+            <div class="post-by">
+             Published By <%= link_to how.profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ how.profile.last_name.split(" ").map(&:capitalize).join(" "), profile_path(how.profile_id) if how.profile.first_name || how.profile.last_name %>, <%="#{time_ago_in_words(how.created_at)} ago"%>  <span class="divider">|</span> <%# link_to Howcategory.friendly.find(echo.echocategory_id).name, ehowcategory_path(echo.echocategory_id) %><span class="divider">|</span>
+                                        <%= pluralize(how.impressionist_count(:filter=>:session_hash), "View") %> <span class="divider">|</span> <%# pluralize(how.comment_threads.size, "Comment")%>
+             </div>
+      </p>
 
 
 
+    </div>  
+  <% end %> 
+</div>  
 
-    
-    <!-- begin #footer -->
-    <div id="footer" class="footer">
-        <!-- begin container -->
-        <div class="container">
-            <!-- begin row -->
-            <div class="row">
-                <!-- begin col-4 -->
-                <div class="col-md-4">
-                    <!-- begin section-container -->
-                    <div class="section-container">
-                        <h4>About Color Admin</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultrices ipsum in elementum porttitor. 
-                            Cras porttitor fermentum nisl non elementum. Nulla in placerat libero. Nulla pharetra purus eget diam dictum 
-                            ullamcorper nec et eros. Suspendisse consectetur nulla ut volutpat aliquam.
-                        </p>
-                    </div>
-                    <!-- end section-container -->
-                </div>
-                <!-- end col-4 -->
-                <!-- begin col-4 -->
-                <div class="col-md-4">
-                    <!-- begin section-container -->
-                    <div class="section-container">
-                        <h4>Latest Post</h4>
-                        <ul class="latest-post">
-                            <li>
-                                <h4 class="title"><a href="#">Consectetur adipiscing elit ultrices</a></h4>
-                                <p class="time">yesterday 10:42am</p>
-                            </li>
-                            <li>
-                                <h4 class="title"><a href="#">Fusce ultrices ipsum porttitor</a></h4>
-                                <p class="time">10/04/2015</p>
-                            </li>
-                            <li>
-                                <h4 class="title"><a href="#">Cras porttitor fermentum adipiscing</a></h4>
-                                <p class="time">02/04/2015</p>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- end section-container -->
-                </div>
-                <!-- end col-4 -->
-                <!-- begin col-4 -->
-                <div class="col-md-4">
-                    <!-- begin section-container -->
-                    <div class="section-container">
-                        <h4>New Users</h4>
-                        <!--ul class="new-user">
-                            <li><a href="#"><img src="assets/img/user-1.jpg" alt="" /></a></li>
-                            <li><a href="#"><img src="assets/img/user-2.jpg" alt="" /></a></li>
-                            <li><a href="#"><img src="assets/img/user-3.jpg" alt="" /></a></li>
-                            <li><a href="#"><img src="assets/img/user-4.jpg" alt="" /></a></li>
-                            <li><a href="#"><img src="assets/img/user-5.jpg" alt="" /></a></li>
-                            <li><a href="#"><img src="assets/img/user-6.jpg" alt="" /></a></li>
-                            <li><a href="#"><img src="assets/img/user-7.jpg" alt="" /></a></li>
-                            <li><a href="#"><img src="assets/img/user-8.jpg" alt="" /></a></li>
-                            <li><a href="#"><img src="assets/img/user-9.jpg" alt="" /></a></li>
-                        </ul-->
-                    </div>
-                    <!-- end section-container -->
-                </div>
-                <!-- end col-4 -->
-            </div>
-            <!-- end row -->
-        </div>
-        <!-- end container -->
-    </div>
-    <!-- end #footer -->
-    <!-- begin #footer-copyright -->
-    <div id="footer-copyright" class="footer-copyright">
-        <div class="container">
-            &copy; 2014 - 2015 SeanTheme All Right Reserved
-            <a href="#">Contact Us</a> 
-            <a href="#">Knowledge Base</a>
-        </div>
-    </div>
-    <!-- end #footer-copyright -->
-    <!-- begin theme-panel -->
-    <div class="theme-panel">
-        <a href="javascript:;" data-click="theme-panel-expand" class="theme-collapse-btn"><i class="fa fa-cog"></i></a>
-        <div class="theme-panel-content">
-            <ul class="theme-list clearfix">
-                <li><a href="javascript:;" class="bg-purple" data-theme="purple" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Purple">&nbsp;</a></li>
-                <li><a href="javascript:;" class="bg-blue" data-theme="blue" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Blue">&nbsp;</a></li>
-                <li class="active"><a href="javascript:;" class="bg-green" data-theme="default" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Default">&nbsp;</a></li>
-                <li><a href="javascript:;" class="bg-orange" data-theme="orange" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Orange">&nbsp;</a></li>
-                <li><a href="javascript:;" class="bg-red" data-theme="red" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Red">&nbsp;</a></li>
-            </ul>
-        </div>
-    </div>
 
-    </main>
-    <!-- end theme-panel -->
-  
-  <!-- ================== BEGIN BASE JS ================== -->
- 
-  <!-- ================== END BASE JS ================== -->
-  
-  <script>    
-      $(document).ready(function() {
-          App.init();
-      });
-  </script>
 </body>
 </html>
-
