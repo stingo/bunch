@@ -1,5 +1,5 @@
 class HowcategoriesController < ApplicationController
-  before_action :authenticate_profiles! :except => [:index, :show]
+  before_action :authenticate_profile!, :except => [:index, :show]
   before_action :set_howcategory, only: [:show, :edit, :update, :destroy]
 
   # GET /howcategories
