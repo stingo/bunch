@@ -16,6 +16,7 @@ class Profile < ApplicationRecord
 
     has_many :countries
     has_many :echocategories
+    has_many :howcategories
 
 
 

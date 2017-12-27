@@ -28,7 +28,9 @@ class HowcategoriesController < ApplicationController
   # POST /howcategories
   # POST /howcategories.json
   def create
-     @howcategory = current_profile.howcategories.build(howcategory_params)
+    @howcategory = current_profile.howcategories.build(howcategory_params)
+
+
 
     respond_to do |format|
       if @howcategory.save

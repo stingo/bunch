@@ -6,7 +6,20 @@
                   <div class="modal-content">
                     <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                      <h4 class="modal-title">Upfrica</h4>
+                    <div class="upfrica-black-brand">
+
+                    <%= link_to root_path, turbolinks: true, :class => "[ upfrica-black-brand ][ animate ] img-responsive " do %>
+    <%= image_tag("upFrica.png") %>
+<% end %>
+
+
+                    
+
+                   <%# link_to "upFrica", root_path, turbolinks: true, :class => "[ navbar-brand ][ animate ]" %>
+
+
+
+                </div>
                     </div>
                     <div class="modal-body">
 
@@ -14,12 +27,10 @@
                     	                      <!-- begin brand -->
             <div class="login-header">
                 <div class="brand">
-                    <span class="logo modal-title"></span> Inside GH
-                    <small>Ghana's Largest OneStop Web!</small>
+                    <span class="logo modal-title"></span>This site is in Beta state -
+                    <small>Meaning some features are not yet 100% stable, and thus should NOT be relied on to be working properly OR working at all</small>
                 </div>
-                <div class="icon">
-                    <i class="fa fa-sign-in"></i>
-                </div>
+                
             </div>
 
 
