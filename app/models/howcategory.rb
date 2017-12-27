@@ -11,5 +11,5 @@ class Howcategory < ApplicationRecord
       name_changed?
      end
 
-     mount_
+    
 end
