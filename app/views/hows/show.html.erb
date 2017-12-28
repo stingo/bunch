@@ -155,7 +155,7 @@
 
 
 
-        <section class="custombgD9E0E7">
+        <section class="bg-upfrica-grey"><!--custombgD9E0E7-->
           <div class="container-overlap bg-red-500"><%# image_tag "cover2.jpg" %>
 
             <div class="container container-md">
@@ -198,8 +198,8 @@
   <div class="col-6 col-md-8"><!--mid for title-->
 
 
-<span class=" text-center"><% if @how.name? %>
-<h2 class="text-center cap"><%= best_in_place_if @how.profile == current_profile, @how, :name,  :as => :textarea, :class => "txtgrey", :ok_button => 'Save ',  :cancel_button => ' Cancel' %></h2>
+<span class=" text-center"><% if @how.title? %>
+<h2 class="text-center cap"><%= best_in_place_if @how.profile == current_profile, @how, :title,  :as => :textarea, :class => "txtgrey", :ok_button => 'Save ',  :cancel_button => ' Cancel' %></h2>
 
 <% else %>
 
@@ -294,12 +294,28 @@
                       </ul>
                     </div-->
 
-                    <!-- END dropdown-->About
+                    <% if @how.description.present? %>
+
+                    <!-- END dropdown-->Summary
                   </h3>
 
-                  
+                  <div class=" lead m">
+                    <%= sanitize(@how.description, tags: %w(strong em p br div ul ol li)).html_safe %>
 
+                  </div>
 
+<% else %>
+<% end %>
+
+<div>
+
+<% if @how.howcover? %>
+                    <p class="text-center"><img src="<%= @how.howcover.url(:large) %>" alt="Echo Image" class="img-thumbnail img-responsive"></p>
+
+<% else %>
+
+<% end %>
+</div>
 
                    <!--edit/destroy user's hows-->
 <% if profile_signed_in? && current_profile == @how.profile %>
@@ -338,205 +354,69 @@
           <div class="card-body">
               <div class="panel-group" id="accordion">
 
-
+    <% if @how.subbody2.present? %>
               <!--Services-->
                 <div class="panel overflow-hidden card-divider btn-raised">
               <div class="panel-heading">
                 <h3 class="panel-title">
-                  <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#services">
+                  <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#steps">
                       <i class="fa fa-plus-circle pull-right title-20px-black blk"></i> 
-                    <span class="title-20px-black blk">What We Do</span>
+                    <span class="title-20px-black blk">Method/Steps/Directions</span>
                   </a>
                 </h3>
               </div>
-              <div id="services" class="panel-collapse collapse">
-                <div class="panel-body lead">
-                  <%#raw @company.services if @company.services %>
+              <div id="steps" class="panel-collapse collapse in">
+                <div class="panel-body lead txtblack m">
+                  <%=raw @how.subbody2 if @how.subbody2 %>
                 </div>
               </div>
             </div>
             <!--Services ends-->
 
+                    <% else %>
+
+                    <% end %>
+
                       <!--Media-->
-                      <%# if @company.video1? %>
+                      <% if @how.videourl? %>
                 <div class="panel overflow-hidden card-divider btn-raised ">
               <div class="panel-heading">
                 <h3 class="panel-title">
                   <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#media">
                       <i class="fa fa-plus-circle pull-right title-20px-black blk"></i> 
-                    <span class="title-20px-black blk">Media</span>
+                    <span class="title-20px-black blk">Video</span>
                   </a>
                 </h3>
               </div>
             
               <div id="media" class="panel-collapse collapse text-center">
                 <div class="panel-body text-center">
-                  <%# embed(@company.video1) %>
+                
+
+
+                            <div class="post-content">
+                                <!-- begin post-video -->
+                            <div class="post-video">
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                       <%= embed(@how.videourl) %> 
+                                    </div>
+                                </div>
+
+                                </div>
+
+
+
+
+                    
+
+
                 </div>
               </div>
             </div>
-            <%# else %>
-                        <%# end %>
+            <% else %>
+                        <% end %>
             <!--media ends-->
 
-            <!--company details-->
-
-
-            <div class="panel overflow-hidden card-divider btn-raised">
-              <div class="panel-heading">
-                <h3 class="panel-title">
-                  <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                      <i class="fa fa-plus-circle pull-right title-20px-black blk"></i> 
-                    <span class="title-20px-black blk">Company Details</span>
-                  </a>
-                </h3>
-              </div>
-              <div id="collapseOne" class="panel-collapse collapse">
-                <table class="table table-striped">
-                      <tbody>
-
-                        <%#if @company.websiteurl? %>
-
-                         <tr>
-                          <td><span class="col-md-2 control-label fa text-primary semi-bold">
-
-
-                            <a href="<%# "http://#{@company.websiteurl}" %>" target="_blank" ><i class="fa fa-globe"></i></a>
-                          </span>Website</td>
-                          <td><%# link_to @company.websiteurl, "http://#{@company.websiteurl}"  %></td>
-                        </tr>
-
-                        <%# else %>
-                        <%# end %>
-
-                        <%# link_to 'facebook', 'https://www.facebook.com' %> 
-
-
-                       
-
-
-                        <tr>
-                          <td><span class="col-md-2 control-label fa text-primary">
-
-
-                            <a href="<%# "#" %>" target="_blank" ><i class="fa fa-building-o "></i></a>
-                          </span>Industry</td>
-                          <td><h4><%# render @company.industries if @company.industries.present? %></h4></td>
-                        </tr>
-
-                       
-
-
-                        <%# if @company.yearfounded? %>
-                        <tr>
-                          <small>
-
-                        <td><span class="col-md-2 control-label fa text-primary">
-
-
-                            <a href="<%# "#" %>" target="_blank" ><i class="fa fa-calendar fa-stack"></i></a></span>Year founded</td>
-                          <td><span data-type="date" data-mode="popup" class="is-editable text-inherit">
-
-                            <%# @company.yearfounded.strftime(" %Y ") %> 
-
-                            </span></td>
-                        </tr>
-
-                         <%# else %>
-                        <%#end %>
-
-
-
-
-                        <tr>
-                          <td><span class="col-md-2 control-label fa text-primary">
-
-
-                            <a href="<%# "#" %>" target="_blank" ><i class="fa fa-handshake-o"></i></a>
-                          </span></em>Member since</td>
-                          <td><span data-type="date" data-mode="popup" class="is-editable text-inherit"><%# if @company.created_at > Time.now.beginning_of_day %>
-    <%#"#{time_ago_in_words(@company.created_at)} ago"%> 
-<%# else %>
-    <%#@company.created_at.strftime("%b %d, %Y ") %> 
-<%# end %></small></span></td>
-                        </tr>
-
-                       <%# if @company.companyemail? %>
-
-                        <tr>
-                          <td><span class="col-md-2 control-label fa text-primary">
-
-
-                            <a href="<%# "#" %>" target="_blank" ><i class="fa fa-envelope "></i></a>
-                          </span>Email</td>
-                          <td><span class="is-editable text-inherit"><a href="#">user@mail.com</a></span></td>
-                        </tr>
-                          <%# else %>
-                        <%# end %>
-
-
-                        <%# if @company.contactphone? %>
-                        <tr>
-                          <td><span class="col-md-2 control-label fa text-primary">
-
-
-                            <a href="<%# "#" %>" target="_blank" ><i class="fa fa-phone"></i></a>
-                          </span>Contact phone</td>
-                          <td><span class="is-editable text-inherit"><%# @company.contactphone %></span></td>
-                        </tr>
-
-                        <%#else %>
-                        <%#end %>
-
-                        <% #if @company.companytype_id? %>
-                         <tr>
-                          <td><span class="col-md-2 control-label fa text-primary">
-
-
-                            <a href="<%# "#" %>" target="_blank" ><i class="fa fa-building"></i></a>
-                          </span></em>Company type</td>
-                          <td><span class="is-editable text-inherit">
-
-
-                            <%# link_to @company.companytype.name, companies_path(companytype: @company.companytype.name)  %>
-
-                            
-                            
-
-
-                          </span></td>
-
-
-                        </tr>
-
-                          <%# else %>
-                        <%# end %>
-
-                         <%# if @company.companysize_id? %>
-
-                        <tr>
-                          <td><span class="col-md-2 control-label fa text-primary">
-
-
-                            <a href="<%= "#" %>" target="_blank" ><i class="fa fa-expand "></i></a>
-                          </span></em>Company size</td>
-                          <td><span class="is-editable text-inherit">
-
-                            <%# @company.companysize.name  %>
-                            
-
-                          </span></td>
-                        </tr>
-
-                        <%# else %>
-                        <%# end %>
-
-
-                      </tbody>
-                    </table>
-              </div>
-            </div>
-          <!--company details ends-->
 
 
 
@@ -544,136 +424,42 @@
 
           <%# if @company.facebookurl? || @company.facebookurl? || @company.twitterurl? || @company.linkedinurl? || @company.instagramurl? || @company.googleplusurl? || @company.pinteresturl?   %>
 
-                  <div class="panel overflow-hidden card-divider btn-raised">
-              <div class="panel-heading">
-                <h3 class="panel-title">
-                  <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#socialMedia">
-                      <i class="fa fa-plus-circle pull-right title-20px-black blk"></i> 
-                    <span class="title-20px-black blk">Social Media</span>
-                  </a>
-                </h3>
-              </div>
-              <div id="socialMedia" class="panel-collapse collapse">
-                <table class="table table-striped">
-                      <tbody>
-
-                        <%# if @company.facebookurl? %>
-
-                         <tr>
-
-                          <td><span class="col-md-2 control-label fa text-primary">
 
 
-                            <a href="<%# "http://#{@company.facebookurl}" %>" target="_blank" ><i class="fa fa-facebook-square fa-stack-2x"></i></a>
-                          </span></td>
-                         
-                          <td><strong class="mt-l"><%# link_to 'Facebook', "http://#{@company.facebookurl}", target: "_blank"  %></strong></td>
-                        </tr>
-
-                        <%# else %>
-                        <%# end %>
-
-                        <%# link_to 'facebook', 'https://www.facebook.com' %> 
-
-
-                          <%# if @company.twitterurl? %>
-
-                         <tr>
-
-                          <td><span class="col-md-2 control-label fa text-primary">
-                            <a href="<%# "http://#{@company.twitterurl}" %>" target="_blank" ><i class="fa fa-twitter-square fa-stack-2x"></i></a>
-                          </span></td>
-                          <td><strong class="mt-l"><%# link_to 'Twitter', "http://#{@company.twitterurl}", target: "_blank"  %></strong></td>
-                        </tr>
-
-                        <%# else %>
-                        <%# end %>
-
-                        <%# if @company.linkedinurl? %>
-
-                         <tr>
-
-                          <td><span class="col-md-2 control-label fa text-primary">
-                            <a href="<%# "http://#{@company.linkedinurl}" %>" target="_blank" ><i class="fa fa-linkedin-square fa-stack-2x"></i></a></span></td>
-                          <td><strong class="mt-l"><%# link_to 'Linkedin', "http://#{@company.linkedinurl}", target: "_blank"  %></strong></td>
-                        </tr>
-
-                        <%# else %>
-                        <%# end %>
-
-                        <%# if @company.instagramurl? %>
-
-                         <tr>
-
-                          <td><span class="col-md-2 control-label fa text-primary"><a href="<%# "http://#{@company.instagramurl}" %>" target="_blank" ><i class="fa fa-instagram fa-stack-2x"></i></a></span></td>
-                          <td><strong class="mt-l"><%# link_to 'Instagram', "http://#{@company.instagramurl}", target: "_blank"  %></strong></td>
-                        </tr>
-
-                        <%# else %>
-                        <%# end %>
-
-                       
-
-                      <% #if @company.googleplusurl? %>
-
-                         <tr>
-
-                          <td><span class="col-md-2 control-label fa text-primary"><a href="<%# "http://#{@company.googleplusnurl}" %>" target="_blank" ><i class="fa fa-google-plus-square fa-stack-2x"></i></a></span></td>
-                          <td><strong class="mt-l"><%# link_to 'Google +', "http://#{@company.googleplusurl}", target: "_blank"  %></strong></td>
-                        </tr>
-
-                        <%# else %>
-                        <%# end %>
-
-
-                          <%# if @company.pinteresturl? %>
-
-                         <tr>
-
-                          <td><span class="col-md-2 control-label fa text-danger"><a href="<%#  "http://#{@company.pinteresturl}" %>" target="_blank" ><i class="fa fa-pinterest-square fa-stack-2x"></i></a><</span></td>
-                          <td><strong class="mt-l"><%# link_to 'Pinterest', "http://#{@company.pinteresturl}", target: "_blank"  %></strong></td>
-                        </tr>
-
-                        <%# else %>
-                        <%# end %>
-
-
-
-
-
-
-
-
-
-                      </tbody>
-                    </table>
-              </div>
-            </div>
-
-            <%# else %>
-                        <%# end %>
-            <!--Social ends-->
-
-
+<% if @how.hints_and_tips? %>
 
             <div class="panel overflow-hidden card-divider btn-raised">
               <div class="panel-heading">
                 <h3 class="panel-title">
-                  <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#jobs">
+                  <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#hints_and_tips">
                       <i class="fa fa-plus-circle pull-right title-20px-black blk"></i> 
-                    <span class="title-20px-black blk">Recent jobs by <%# @company.name %>  </span>
+                    <span class="title-20px-black blk">Hints & Tips <%# @company.name %>  </span>
                   </a>
                 </h3>
               </div>
-              <div id="jobs" class="panel-collapse collapse">
-                <div class="panel-body lead">
-                  <%#raw @company.services if @company.services %>
+              <div id="hints_and_tips" class="panel-collapse collapse">
+                <div class="panel-body lead m">
+                  <%=raw @how.hints_and_tips %>
                 </div>
               </div>
             </div>
 
 
-           
+           <% else %>
+
+           <% end %>
+
+           <% if @how.references? %>
+<br>
+<br>
+<h4 class="section-title"><span>References</span></h4>
+<div class="post-by">
+ <%= sanitize(@how.references, tags: %w(strong em p br div ul ol li), :class=> "post-by").html_safe %>
+
+</div>
+<% else %>
+
+<% end %>
 
 
 
@@ -762,38 +548,7 @@
               
 
                   <div class="card-divider"></div>
-                  <h5 class="card-heading pb0">Recent articles</h5>
-                  <div class="card-body">
-                    <ul class="mda-list">
-                      <li class="mda-list-item pl0 bb">
-                        <div class="mda-list-item-text">
-                          <h3><a href="#">Release 3.0 is out</a></h3>
-                          <p>Proin metus justo, commodo in ultrices...</p><small class="text-muted">2 days ago</small>
-                        </div>
-                        <div class="pull-right">
-                          <div class="pt-lg"><em tooltip="Active" class="icon-2x ion-checkmark-circled text-success"></em></div>
-                        </div>
-                      </li>
-                      <li class="mda-list-item pl0 bb">
-                        <div class="mda-list-item-text">
-                          <h3><a href="#">Improving compatibility</a></h3>
-                          <p>Proin metus justo, commodo in ultrices...</p><small class="text-muted">3 days ago</small>
-                        </div>
-                        <div class="pull-right">
-                          <div class="pt-lg"><em tooltip="Active" class="icon-2x ion-checkmark-circled text-success"></em></div>
-                        </div>
-                      </li>
-                      <li class="mda-list-item pl0">
-                        <div class="mda-list-item-text">
-                          <h3><a href="#">Small decisions count</a></h3>
-                          <p>Proin metus justo, commodo in ultrices...</p><small class="text-muted">3 days ago</small>
-                        </div>
-                        <div class="pull-right">
-                          <div class="pt-lg"><em tooltip="Pending" class="icon-2x ion-minus-circled text-warning"></em></div>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
+                  
                 </form>
 
                           

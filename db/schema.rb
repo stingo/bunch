@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171227055117) do
+ActiveRecord::Schema.define(version: 20171228151257) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -162,12 +162,12 @@ ActiveRecord::Schema.define(version: 20171227055117) do
   end
 
   create_table "hows", force: :cascade do |t|
-    t.string "name"
+    t.string "title"
     t.text "description"
     t.string "howcover"
-    t.string "video"
-    t.datetime "duration"
-    t.text "recipetips"
+    t.string "videourl"
+    t.datetime "minutes"
+    t.text "hints_and_tips"
     t.string "slug"
     t.string "subtitle"
     t.string "subtitle1"
@@ -175,13 +175,21 @@ ActiveRecord::Schema.define(version: 20171227055117) do
     t.string "subtitle3"
     t.text "subbody1"
     t.text "subbody2"
-    t.text "subbody3"
+    t.text "references"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "profile_id"
     t.integer "howcategory_id"
+    t.datetime "hours"
+    t.datetime "days"
+    t.integer "rating"
+    t.text "ingredients"
+    t.index ["days"], name: "index_hows_on_days"
+    t.index ["hours"], name: "index_hows_on_hours"
     t.index ["howcategory_id"], name: "index_hows_on_howcategory_id"
+    t.index ["ingredients"], name: "index_hows_on_ingredients"
     t.index ["profile_id", "created_at"], name: "index_hows_on_profile_id_and_created_at"
+    t.index ["rating"], name: "index_hows_on_rating"
   end
 
   create_table "impressions", id: :serial, force: :cascade do |t|

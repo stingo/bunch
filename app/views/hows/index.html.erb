@@ -47,7 +47,7 @@
                         <ul class="dropdown-menu">
                             <% @hows.each do |how| %>
  
-                            <li><%= link_to how.name, how  %> </li>
+                            <li><%= link_to how.title, how  %> </li>
 
                               <% end %>
                             
@@ -87,13 +87,13 @@
 
      
 
-      <% elsif how.video? %>
+      <% elsif how.videourl? %>
 
       
 
      
                                     <div class="embed-responsive embed-responsive-16by9">
-                                        <%= embed(how.video) %> 
+                                        <%= embed(how.videourl) %> 
                                     </div>
                                
       <% else %>
@@ -104,7 +104,7 @@
 
 
       <h2>
-        <%= link_to (truncate(sanitize(how.name.titleize, tags: %w(strong em p u br #ff0000 font-size)),:class =>"blk in-inner m-t-5", length: 120)), how %>
+        <%= link_to (truncate(sanitize(how.title.titleize, tags: %w(strong em p u br #ff0000 font-size)),:class =>"blk in-inner m-t-5", length: 120)), how %>
       </h2>
       
 

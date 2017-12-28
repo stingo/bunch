@@ -1,0 +1,364 @@
+
+
+
+     
+
+
+
+     <!-- Main section-->
+      <main class="">
+        <!-- Page content-->
+
+
+
+
+
+
+          <div class="container container-sm">
+            <div class="card">
+
+
+
+              <div class="card-body reader-block">
+
+
+
+
+
+
+
+
+
+              <%= simple_form_for(@how) do |f| %>
+  <%= f.error_notification %>
+
+  <% if how.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(how.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% how.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+
+      </ul>
+    </div>
+  <% end %>
+ 
+
+
+
+<div class="card">
+<div class="card-body reader-block">
+
+
+
+
+     <div class="mda-form-group float-label mb">
+                    <div class="mda-form-control">
+                     <%= f.text_field :name, :class => "form-control" %>
+                      <div class="mda-form-control-line"></div>
+                       <label><h5 class="m0 text-primary">Title e.g How To Prepare Rice</h5></label>
+                    </div><!--span class="mda-form-msg">Give a title to this post e.g How To Prepare Rice</span-->
+                  </div>
+
+<br>
+
+
+<%# f.label :tag_list, 'Tags (separated with comas)' %>
+<%# f.text_field :tag_list, class: 'form-control' %>
+
+<%# f.select :tag_ids, Tag.all.pluck(:name, :id), {}, {multiple: true, class: "selectize"} %>
+
+<%# f.collection_select :tag_ids, Tag.order(:name), :id, :name, {}, {multiple: true, class: "selectize"} %>
+
+
+<%# f.select :tag_ids,
+  Tag.all.map { |u| [u.name, u.id] },
+               { include_blank: true },
+          
+               { multiple: true, class: 'chosen-select' }
+
+               %>
+
+<br>
+
+
+
+
+
+
+
+
+  <div class="field">
+
+  <%= f.label :Duration %>: Select below, the time it usually take to finish
+  <br>
+    
+    <%# f.select :days, ((0..500).map {|i| [i,i] } << ["No limit",nil]) %><%= f.label :days %>
+    <%# f.select :hours, ((0..500).map {|i| [i,i] } << ["No limit",nil]) %><%= f.label :hours %>
+    <%# f.select :minutes, ((0..500).map {|i| [i,i] } << ["No limit",nil]) %><%= f.label :minutes %>
+    
+  </div>
+
+
+
+      </div><!--card body ends-->
+  </div><!-- card ends-->
+
+
+
+
+
+<br>
+
+
+<div class="card">
+<div class="card-body reader-block">
+
+<div class="field">
+    <label><h5 class="m0 text-primary">Add image </h5></label>
+    <%= f.file_field :howcover %>
+        <% if f.object.howcover? %>
+      <%= image_tag f.object.howcover.large.url, :class => "img-responsive" %>
+      <br>
+      <%= f.label :remove_image, :class => "lead"  %>
+      <%= f.check_box :remove_howcover %> 
+    <% end %>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div><!--card body ends-->
+  </div><!-- card ends-->
+
+
+
+  <br>
+
+
+
+<div class="card">
+<div class="card-body reader-block">
+
+
+    <div class="mda-form-group float-label mb">
+                    <div class="mda-form-control">
+                     <%= f.text_field :video, :class => "form-control" %>
+                      <div class="mda-form-control-line"></div>
+                       <label><h5 class="m0 text-primary">YouTube video url </h5></label>
+                    </div><!--span class="mda-form-msg">Add a youtube video to this post e.g https://www.youtube.com/watch?v=XVOXDVG4B9A</span-->
+  </div>
+
+  </div><!--card body ends-->
+  </div><!-- card ends-->
+
+
+
+
+
+
+
+Text Content 
+  
+<div class="card">
+<div class="card-body reader-block">
+
+
+
+
+
+                  <div class="mda-form-group float-label mb">
+                    <div class="mda-form-control">
+                     <%= f.text_field :subtitle, :class => "form-control bold" %>
+                      <div class="mda-form-control-line"></div>
+                       <label><h5 class="m0 text-primary">Heading 1</h5></label>
+                    </div><span class="mda-form-msg">e.g Method</span>
+                  </div>
+
+
+    <div class="field card">
+
+  
+    <%= f.trix_editor :description, :placeholder => "Description goes here..." %>
+  
+  </div>
+
+   <div class="mda-form-group float-label mb">
+                    <div class="mda-form-control">
+                     <%= f.text_field :subtitle1, :class => "form-control bold" %>
+                      <div class="mda-form-control-line"></div>
+                       <label><h5 class="m0 text-primary">Heading 2 (optional)</h5></label>
+                    </div><span class="mda-form-msg">e.g ingredients in terms of recipe preparation</span>
+                  </div>
+
+  <div class="field card">
+
+  
+    <%= f.trix_editor :subbody1, :placeholder => "Additional description goes here..." %>
+  
+  </div>
+
+
+</div>
+
+  </div><!--card ends-->
+
+
+
+<div class="actions">
+    <%= f.submit %>
+  </div>
+
+
+
+
+
+
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                 
+
+              </div>
+            </div>
+
+
+
+
+
+
+
+  <div class="modal fade tag-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+        <h4 class="modal-title" id="mySmallModalLabel">Add Tag</h4>
+      </div>
+      <div class="modal-body">
+
+
+
+      <%# form_for Tag.new do |f| %>
+          <div class='form-group'>
+    <%# f.label :name, "Name" %>
+    <%# f.text_field :name, autofocus: true, class: 'form-control' %>
+  </div>
+          <div class="form-group">
+            <%# f.submit class: "btn btn-primary" %>
+          </div>
+<%#ß   end %>
+
+
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+            <!--div class="card">
+              <div class="card-body reader-block">
+                
+
+                <span class="text-center"><strong>BREAKING IT DOWN</strong></span>
+              <br>
+               
+
+              <span><%# @how.inaction %></span>
+
+
+
+
+
+                <div class="text-center">
+
+                      post  image
+
+                      </div>
+
+
+
+
+
+
+
+              </div>
+            </div-->
+
+
+
+            <!--breaking it down ends-->
+
+            <!--images starts -->
+
+
+
+
+            <!--Video ends -->
+
+<!-- comments card-->
+
+
+              
+
+
+
+
+          </div>
+
+
+
+     
+
+        
+       
+                  
+
+              
+
+             
+               
+                    
+                     
+                
+
+                
+       
+    
+        <!-- Page footer-->
+        <footer><span>2017 - Centric app.</span></footer>
+      </main>

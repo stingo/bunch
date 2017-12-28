@@ -3,6 +3,8 @@ class HowsController < ApplicationController
   before_action :set_how, only: [:show, :edit, :update, :destroy]
   impressionist actions: [:show,:index], unique: [:session_hash]
 
+
+
   # GET /hows
   # GET /hows.json
   def index
@@ -36,6 +38,8 @@ class HowsController < ApplicationController
     #@how = How.new(how_params)
     @how = current_profile.hows.build(how_params)
 
+    @how.howcategory_id = params[:howcategory_id]
+
     respond_to do |format|
       if @how.save
         format.html { redirect_to @how, notice: 'How was successfully created.' }
@@ -47,10 +51,15 @@ class HowsController < ApplicationController
     end
   end
 
+
+
+
   # PATCH/PUT /hows/1
   # PATCH/PUT /hows/1.json
   def update
     @how = How.friendly.find(params[:id])
+    @how.howcategory_id = params[:howcategory_id]
+
     respond_to do |format|
       if @how.update(how_params)
         format.html { redirect_to @how, notice: 'How was successfully updated.' }
@@ -61,6 +70,8 @@ class HowsController < ApplicationController
       end
     end
   end
+
+    
 
   # DELETE /hows/1
   # DELETE /hows/1.json
@@ -102,6 +113,7 @@ class HowsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def how_params
-      params.require(:how).permit(:name, :description, :howcover, :video, :duration, :recipetips, :slug, :subtitle, :subtitle1, :subtitle2, :subtitle3, :subbody1, :subbody2, :subbody3)
+      params.require(:how).permit(:title, :description, :howcover, :videourl, :minutes, :hints_and_tips, :slug,  
+ :subtitle, :subtitle1, :subtitle2, :subtitle3, :howcategory_id, :subbody1, :subbody2, :references, :created_at, :hours, :days, :updated_at, :ingredients )
     end
 end

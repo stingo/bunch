@@ -1,71 +1,137 @@
 
+<div class="" style="background: #F1F2F3">
+<%= simple_form_for(@how) do |f| %>
+ <%= f.error_notification %>
 
-
-     
-
-
-
-     <!-- Main section-->
-      <main class="">
-        <!-- Page content-->
-
-
-
-
-
-
-          <div class="container container-sm">
-            <div class="card">
-
-
-
-              <div class="card-body reader-block">
-
-
-
-
-
-
-
-
-
-              <%= simple_form_for(@how) do |f| %>
-  <%= f.error_notification %>
-
-  <% if how.errors.any? %>
+ <% if how.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(how.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <h2><%= pluralize(how.errors.count, "error") %> prohibited this how from being saved:</h2>
 
       <ul>
       <% how.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
-
       </ul>
     </div>
   <% end %>
- 
+
+
+   <!-- Main section-->
+      <main class="container">
+        <!-- Page content-->
+        <section>
+          <div class="container-fluid">
+            <!-- UISELECT-->
+            <div class="card">
+              <div class="card-heading">
+                
+                
+              </div>
+              <div class="card-body lead">
+                <div class="form-horizontal">
+                  <div class="form-group">
+                    <div class="col-md-3 col-sm-4">
+                      <p class="m0"><strong>Title,</strong> starting with "How to" if applicable</p>
+                    </div>
+                    <div class="col-md-8 col-sm-8">
 
 
 
-<div class="card">
-<div class="card-body reader-block">
-
-
-
-
-     <div class="mda-form-group float-label mb">
-                    <div class="mda-form-control">
-                     <%= f.text_field :name, :class => "form-control" %>
-                      <div class="mda-form-control-line"></div>
-                       <label><h5 class="m0 text-primary">Title e.g How To Prepare Rice</h5></label>
-                    </div><!--span class="mda-form-msg">Give a title to this post e.g How To Prepare Rice</span-->
+                      <%= f.input :title, :label => 'Example: How to open a business bank account in South Africa ', :placeholder => "How to ...", :class => "form-control" %>
+                     
+                    </div>
                   </div>
 
-<br>
 
 
-<%# f.label :tag_list, 'Tags (separated with comas)' %>
+
+       
+
+
+
+
+
+
+
+                    <div class="form-group">
+                    <div class="col-md-3 col-sm-4">
+                      <p class="m0">How Category</p>
+                    </div>
+
+
+
+                    <div class="col-md-5 col-sm-8">
+
+                       <label>Select a category for this Post</label>
+
+
+                       <%= f.collection_select :howcategory_id, Howcategory.all, :id, :name, {:include_blank => 'Select How Category'}, :class => "form-control", input_html: { class: "dropdown-toggle "} %>
+                      
+                    </div>
+                  </div>
+
+
+
+                                      <div class="form-group">
+                    <div class="col-md-3 col-sm-4">
+                      <p class="m0">Duration</p>
+                    </div>
+
+
+
+                    <div class="col-md-5 col-sm-8">
+
+                       <label>Select from below, the average finishing time if applicable</label>
+
+
+                       <div class="form-control"><%= f.select :days, ((0..500).map {|i| [i,i] } << ["No limit",nil]) %> <%= f.label :days %></div>
+    <div class="form-control"> <%= f.select :hours, ((0..12).map {|i| [i,i] } << ["No limit",nil]) %> <%= f.label :hours %></div>
+    <div class="form-control"><%= f.select :minutes, ((0..60).map {|i| [i,i] } << ["No limit",nil]) %> <%= f.label :minutes %></div>
+    
+                      
+                    </div>
+                  </div>
+
+
+
+
+    
+
+    
+
+
+
+
+
+
+
+
+                  <div class="form-group lead">
+                    <div class="col-md-3 col-sm-4">
+                      <p class="m0">Featured Image </p>
+                    </div>
+                    <div class="col-md-8 col-sm-8 bg-green-dft">
+
+
+                      <label style="color: #FFFFFF; font-family: Questrial"; >Add a nice image which will show as a banner above your Echo </label>
+
+                      <%= f.file_field :howcover %>
+
+
+                      
+                    </div>
+                  </div>
+                
+
+
+
+                </div>
+              </div>
+            </div>
+            <!-- END UISELECT-->
+
+
+            <%# f.label :tag_list, 'Tags (separated with comas)' %>
 <%# f.text_field :tag_list, class: 'form-control' %>
 
 <%# f.select :tag_ids, Tag.all.pluck(:name, :id), {}, {multiple: true, class: "selectize"} %>
@@ -73,168 +139,35 @@
 <%# f.collection_select :tag_ids, Tag.order(:name), :id, :name, {}, {multiple: true, class: "selectize"} %>
 
 
-<%# f.select :tag_ids,
-  Tag.all.map { |u| [u.name, u.id] },
-               { include_blank: true },
-          
-               { multiple: true, class: 'chosen-select' }
+<!--start main content card-->
 
-               %>
+             <!-- UISELECT-->
+            <div class="card lead">
+              <div class="card-heading">
+                <div class="card-title">Short Description</div>
+               
+              </div>
+              <div class="card-body">
+                <div class="form-horizontal">
+                  <div class="form-group">
+                    <div class="col-md-3 col-sm-4">
+                      <p class="m0"></p>
+                    </div>
+                    <div class="col-md-12 col-sm-12">
 
-<br>
+                      <label> Give a short description/summary or go straight to methods & directions in the next field </label>
+                            <%= f.trix_editor :description, placeholder: "Short description or summary goes here" %>
 
+                           
 
+                          
 
-
-
-
-
-
-  <div class="field">
-
-  <%= f.label :Duration %>: Select below, the time it usually take to finish
-  <br>
-    
-    <%# f.select :days, ((0..500).map {|i| [i,i] } << ["No limit",nil]) %><%= f.label :days %>
-    <%# f.select :hours, ((0..500).map {|i| [i,i] } << ["No limit",nil]) %><%= f.label :hours %>
-    <%# f.select :minutes, ((0..500).map {|i| [i,i] } << ["No limit",nil]) %><%= f.label :minutes %>
-    
-  </div>
-
-
-
-      </div><!--card body ends-->
-  </div><!-- card ends-->
-
-
-
-
-
-<br>
-
-
-<div class="card">
-<div class="card-body reader-block">
-
-<div class="field">
-    <label><h5 class="m0 text-primary">Add image </h5></label>
-    <%= f.file_field :howcover %>
-        <% if f.object.howcover? %>
-      <%= image_tag f.object.howcover.large.url, :class => "img-responsive" %>
-      <br>
-      <%= f.label :remove_image, :class => "lead"  %>
-      <%= f.check_box :remove_howcover %> 
-    <% end %>
-
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div><!--card body ends-->
-  </div><!-- card ends-->
-
-
-
-  <br>
-
-
-
-<div class="card">
-<div class="card-body reader-block">
-
-
-    <div class="mda-form-group float-label mb">
-                    <div class="mda-form-control">
-                     <%= f.text_field :video, :class => "form-control" %>
-                      <div class="mda-form-control-line"></div>
-                       <label><h5 class="m0 text-primary">YouTube video url </h5></label>
-                    </div><!--span class="mda-form-msg">Add a youtube video to this post e.g https://www.youtube.com/watch?v=XVOXDVG4B9A</span-->
-  </div>
-
-  </div><!--card body ends-->
-  </div><!-- card ends-->
-
-
-
-
-
-
-
-Text Content 
-  
-<div class="card">
-<div class="card-body reader-block">
-
-
-
-
-
-                  <div class="mda-form-group float-label mb">
-                    <div class="mda-form-control">
-                     <%= f.text_field :subtitle, :class => "form-control bold" %>
-                      <div class="mda-form-control-line"></div>
-                       <label><h5 class="m0 text-primary">Heading 1</h5></label>
-                    </div><span class="mda-form-msg">e.g Method</span>
+                    </div>
                   </div>
 
 
-    <div class="field card">
 
-  
-    <%= f.trix_editor :description, :placeholder => "Description goes here..." %>
-  
-  </div>
-
-   <div class="mda-form-group float-label mb">
-                    <div class="mda-form-control">
-                     <%= f.text_field :subtitle1, :class => "form-control bold" %>
-                      <div class="mda-form-control-line"></div>
-                       <label><h5 class="m0 text-primary">Heading 2 (optional)</h5></label>
-                    </div><span class="mda-form-msg">e.g ingredients in terms of recipe preparation</span>
-                  </div>
-
-  <div class="field card">
-
-  
-    <%= f.trix_editor :subbody1, :placeholder => "Additional description goes here..." %>
-  
-  </div>
-
-
-</div>
-
-  </div><!--card ends-->
-
-
-
-<div class="actions">
-    <%= f.submit %>
-  </div>
-
-
-
-
-
-
-<% end %>
-
-
-
-
-
-
-
-
+                    
 
 
 
@@ -246,8 +179,392 @@ Text Content
 
                  
 
+                </div>
               </div>
             </div>
+            <!-- END UISELECT-->
+
+
+    
+
+<!--end main content card-->
+
+
+
+
+<!--image 2  card-->
+
+             <!-- UISELECT-->
+            <!--div class="card">
+              <div class="card-heading">
+                <div class="card-title">Featured Image 2</div>
+             
+              </div>
+              <div class="card-body">
+                <div class="form-horizontal">
+                 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  <div class="form-group">
+                    <div class="col-md-3 col-sm-4">
+                   
+                    </div>
+                    <div class="col-md-8 col-sm-8 bg-green-dft">
+
+
+                      <label style="color: #FFFFFF; font-family: Questrial"; >Add another nice image which will show in the middle content of your Echo </label>
+
+                      <%# f.file_field :echoimage2 %>
+
+
+                    </div>
+                  </div>
+                
+
+
+
+                </div>
+              </div>
+            </div-->
+            <!-- END UISELECT-->
+
+            
+
+<!--image2 ends-->
+
+
+
+<!--start second content card-->
+
+             <!-- UISELECT-->
+            <div class="card lead">
+              <div class="card-heading">
+                <div class="card-title">Steps/Method/Directions</div>
+        
+              </div>
+              <div class="card-body">
+                <div class="form-horizontal">
+                  <div class="form-group">
+
+                    <div class="col-md-12 col-sm-12">
+
+                      <label style="color: #ff0000"> In a format of numbered or bullet points </label>
+                            <%= f.trix_editor :subbody2, placeholder: "Steps, method or directions go here" %>
+
+                      
+                    </div>
+                  </div>
+
+
+
+                    
+
+
+
+
+
+
+
+
+
+                 
+
+                </div>
+              </div>
+            </div>
+            <!-- END UISELECT-->
+
+            
+
+<!--end content 2 card-->
+
+
+
+
+<!--image 2  card-->
+
+             <!-- UISELECT-->
+            <div class="card">
+              <div class="card-heading">
+                <div class="card-title">Featured video</div>
+             
+              </div>
+              <div class="card-body">
+                <div class="form-horizontal">
+                 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  <div class="form-group">
+                    <div class="col-md-3 col-sm-4">
+                      <p class="m0">YouTube Video URL</p>
+                    </div>
+                    <div class="col-md-5 col-sm-8 ">
+
+
+
+
+                     
+
+                      <%= f.input :videourl, :label => 'Copy and paste your YouTube video link in below field', placeholder: "example https://www.youtube.com/watch?v=eKFTSSKCzWA" %>
+
+
+
+                      
+                    </div>
+                  </div>
+                
+
+
+
+                </div>
+              </div>
+            </div>
+            <!-- END UISELECT-->
+
+            <!--start main content card-->
+
+             <!-- UISELECT-->
+            <div class="card">
+              <div class="card-heading">
+                <div class="card-title">More Method & Directions</div>
+               
+              </div>
+              <div class="card-body">
+                <div class="form-horizontal">
+                  <div class="form-group">
+                    <div class="col-md-3 col-sm-4">
+                      <p class="m0">Optional</p>
+                    </div>
+                    <div class="col-md-8 col-sm-8">
+
+                      <label> Additional method & directions </label>
+                            <%= f.trix_editor :subbody1, placeholder: "Additional content goes here" %>
+
+                           
+
+                          
+
+                    </div>
+                  </div>
+
+
+
+                    
+
+
+
+
+
+
+
+
+
+                 
+
+                </div>
+              </div>
+            </div>
+            <!-- END UISELECT-->
+
+
+            
+
+<!--image2 ends-->
+
+
+<!--start acknowledgments  card-->
+
+             <!-- UISELECT-->
+            <!--div class="card">
+              <div class="card-heading">
+                <div class="card-title">Acknowledgments</div>
+        
+              </div>
+              <div class="card-body">
+                <div class="form-horizontal">
+                  <div class="form-group">
+                    <div class="col-md-3 col-sm-4">
+                    
+                    </div>
+                    <div class="col-md-8 col-sm-8">
+
+                      <label>Add acknowledgments (if available) </label>
+                            <%# f.trix_editor :acknowledgments, placeholder: "List acknowledgments here. You can number them or in bullet points" %>
+
+                      
+                    </div>
+                  </div>
+
+
+
+              
+                 
+
+                </div>
+              </div>
+            </div-->
+            <!-- END UISELECT-->
+
+            
+
+<!--end Acknowledgments-->
+
+                           <!-- begin col-6 -->
+          <div class="card-body">
+              <div class="panel-group" id="accordion">
+
+
+              <!--Services-->
+                <div class="panel overflow-hidden card-divider btn-raised">
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#ingredients">
+                      <i class="fa fa-plus-circle pull-right title-20px-black blk"></i> 
+                    <span class="title-20px-black blk">Is this post a recipe or cooking related? Click here</span>
+                  </a>
+                </h3>
+              </div>
+              <div id="ingredients" class="panel-collapse collapse">
+                <div class="panel-body lead">
+                  <div class="col-md-12 col-sm-12">
+
+                      <label><strong>Add Ingredients:</strong> in a format of numbered or bullet points </label>
+                            <%= f.trix_editor :ingredients, placeholder: "Ingredients list goes here" %>
+
+                      
+                    </div>
+                </div>
+              </div>
+            </div>
+            <br>
+            <!--Services ends-->
+
+
+<!--start references  card-->
+
+             <!-- UISELECT-->
+            <div class="card">
+              <div class="card-heading">
+                <div class="card-title">References</div>
+        
+              </div>
+              <div class="card-body lead">
+                <div class="form-horizontal">
+                  <div class="form-group">
+                    <div class="col-md-3 col-sm-4">
+                      
+                    </div>
+                    <div class="col-md-12 col-sm-12">
+
+                      <label>Add references to this Echo (if available) </label>
+                            <%= f.trix_editor :references, placeholder: "List your references here. You can number them or in bullet points and add external links" %>
+
+                      
+                    </div>
+                  </div>
+
+
+
+              
+                 
+
+                </div>
+              </div>
+            </div>
+            <!-- END UISELECT-->
+
+
+            <!--start hints and tips  card-->
+
+             <!-- UISELECT-->
+            <div class="card">
+              <div class="card-heading">
+                <div class="card-title">Hints and Tips</div>
+        
+              </div>
+              <div class="card-body lead">
+                <div class="form-horizontal">
+                  <div class="form-group">
+                    <div class="col-md-3 col-sm-4">
+                      
+                    </div>
+                    <div class="col-md-12 col-sm-12">
+
+                      <label>Add any additional hints and tips to this  </label>
+                            <%= f.trix_editor :hints_and_tips, placeholder: "List hints and tips" %>
+
+                      
+                    </div>
+                  </div>
+
+
+
+              
+                 
+
+                </div>
+              </div>
+            </div>
+            <!-- END hints and tips-->
+
+            
+
+<!--end Acknowledgments-->
+
+
+
+
+<br>
+
+<div class="form-actions text-center">
+    <%= f.button :submit, class: "bg-green-dft" %>
+  </div>
+
+<br>
+
+
+
+           
+
+                  
+                </div>
+              </div>
+            </div><br><br><br><br>
+          </div>
+        </section>
+        <!-- Page footer-->
+        <footer><span>2017 - Centric app.</span></footer>
+      </main>
+  
+  <% end %>
+
+</div>
 
 
 
@@ -264,51 +581,24 @@ Text Content
       </div>
       <div class="modal-body">
 
-
-
-      <%# form_for Tag.new do |f| %>
-          <div class='form-group'>
-    <%# f.label :name, "Name" %>
-    <%# f.text_field :name, autofocus: true, class: 'form-control' %>
-  </div>
+         <!--div class="modal-body">
+        <%# form_for Tag.new do |f| %>
+          <div class="form-group">
+            <%# f.label :name %>
+            <%# f.text_field :name, class: "form-control" %>
+          </div-->
+          
           <div class="form-group">
             <%# f.submit class: "btn btn-primary" %>
           </div>
-<%#ß   end %>
-
-
-
-
-
-
-
+        <%# end %>
       </div>
     </div>
   </div>
 </div>
 
 
-
-
-            <!--div class="card">
-              <div class="card-body reader-block">
-                
-
-                <span class="text-center"><strong>BREAKING IT DOWN</strong></span>
-              <br>
-               
-
-              <span><%# @how.inaction %></span>
-
-
-
-
-
-                <div class="text-center">
-
-                      post  image
-
-                      </div>
+<!-- end Form-->
 
 
 
@@ -316,49 +606,21 @@ Text Content
 
 
 
-              </div>
-            </div-->
-
-
-
-            <!--breaking it down ends-->
-
-            <!--images starts -->
 
 
 
 
-            <!--Video ends -->
-
-<!-- comments card-->
-
-
-              
 
 
 
 
-          </div>
+
+
+
+
 
 
 
      
 
-        
-       
-                  
 
-              
-
-             
-               
-                    
-                     
-                
-
-                
-       
-    
-        <!-- Page footer-->
-        <footer><span>2017 - Centric app.</span></footer>
-      </main>
