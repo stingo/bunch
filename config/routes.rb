@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :events
   resources :profiles
   resources :comments
+  resources :alltags, :only => [:index, :search]
   resources :ghana, :only => [:index, :search]
   resources :main, :only => [:index, :search]
   resources :contacts, :only => [:new, :create]
@@ -27,13 +28,15 @@ Rails.application.routes.draw do
 
   #get 'tags/:tag', to: 'urbanterms#index'
 
-  get 'tags/:tag', to: 'echos#index'
+  #get 'tags/:tag', to: 'tags#index'
 
   #get '/user/:id' => 'pages#profile'
 
    get 'main/market' => 'main#search'
 
-   get 'tags/:tag', to: 'hows#index'
+   get 'tags/:tag', to: 'alltags#index'
+
+
 
 
 

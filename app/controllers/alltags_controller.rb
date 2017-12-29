@@ -1,4 +1,4 @@
-class HowsController < ApplicationController
+class AlltagsController < ApplicationController
   before_action :authenticate_profile!, :except => [:index, :show]
   before_action :set_how, only: [:show, :edit, :update, :destroy]
   impressionist actions: [:show,:index], unique: [:session_hash]

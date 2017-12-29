@@ -22,6 +22,7 @@
 //= require trix
 //= require bootstrap
 //= require post
+//= require products
 // require superbox
 // require superbox.min
 //= require jquery.easy-autocomplete

@@ -1,7 +1,7 @@
 module HowsHelper
 
 
-#include ActsAsTaggableOn::TagsHelper
+include ActsAsTaggableOn::TagsHelper
 
 
 

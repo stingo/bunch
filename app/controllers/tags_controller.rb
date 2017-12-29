@@ -8,6 +8,26 @@ class TagsController < ApplicationController
     
   end
 
+  #def index
+
+  #if params[:tag]
+
+  #@tags = Tag.order("created_at desc").tagged_with(params[:tag]).paginate(:page => params[:page], :per_page => 20)
+
+  
+  #else
+
+  #tags = Tag.order("created_at desc").paginate(:page => params[:page], :per_page => 20)
+
+  #respond_to do |format|
+      #format.html
+      #format.js # add this line for your js template
+    #end
+    #end
+
+ 
+  #end
+
 
   # GET /tags/1
   # GET /tags/1.json

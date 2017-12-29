@@ -1,19 +1,125 @@
-<p id="notice"><%= notice %></p>
+        
+<!-- begin #header -->
+ 
+        <!-- begin Eechocat nav container -->
+        <div class="container m-b-10">
+            <!-- begin navbar-header -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="index.html" class="navbar-brand">
+                    
+                    <span class="brand-text m-l-10">
+                        HOW CATEGORIES
+                    </span>
+                </a>
+            </div>
+            <!-- end navbar-header -->
+            <!-- begin navbar-collapse -->
+            <div class="collapse navbar-collapse" id="header-navbar">
+                <ul class="nav navbar-nav navbar-right">
+                   
+                    <li>
+                        <a href="javascript:;" data-toggle="dropdown">ALL HOW CATEGORIES <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <% @howcategories.each do |howcategory| %>
+ 
+                            <li><%= link_to howcategory.name+ ' '+ '('+ howcategory.hows.count.to_s + ')', howcategory  %> </li>
 
-<p>
-  <strong>Name:</strong>
-  <%= @howcategory.name %>
-</p>
+                              <% end %>
+                            
+                        </ul>
+                    </li>
+                    
+                    <li><a href="/hows">BACK TO HOWS</a></li>
+                </ul>
+            </div>
+            <!-- end navbar-collapse -->
+        </div>
+        <!-- end echo nav container -->
+   
+    <!-- end #header -->
+    
 
-<p>
-  <strong>Description:</strong>
-  <%= @howcategory.description %>
-</p>
+<hr>
 
-<p>
-  <strong>Slug:</strong>
-  <%= @howcategory.slug %>
-</p>
 
-<%= link_to 'Edit', edit_howcategory_path(@howcategory) %> |
-<%= link_to 'Back', howcategories_path %>
+
+
+
+
+
+
+
+
+
+
+<div class="transitions-enabled m-t-10" id="upfrica-pins">
+  <% How.where(howcategory_id: @howcategory.id).each do |how| %>
+    <div class="box panel panel-default">
+
+      <% if how.howcover %>
+
+      <%= link_to (image_tag(how.howcover.url(:thumb), :class => "img-responsive", :alt =>"how image")), how_path(how) %>
+
+
+      <% elsif how.videourl? %>
+
+      
+
+     
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <%= embed(how.videourl) %> 
+                                    </div>
+                               
+      <% else %>
+
+      <% end %>
+
+
+
+
+      <h2>
+        <%= link_to (truncate(sanitize(how.title.titleize, tags: %w(strong em p u br #ff0000 font-size)),:class =>"blk in-inner m-t-5", length: 120)), how %>
+      </h2>
+      
+
+      <p class="profile">
+
+
+
+    <div class="post-left-info">
+                      <% if how.profile.pesnavatar? %>
+        <%= link_to (image_tag(how.profile.pesnavatar.url(:large), :class => "m-l-20 img-circle thumb48 btn-raised btn-circle text-center", :alt =>"profile image")), profile_path(how.profile_id) %>
+
+
+        <% else %> 
+        <%= link_to (image_tag("noimage.jpg", :class => "media-object img-circle thumb40 btn-raised btn-circle text-center", :alt =>"profile image")), profile_path(@cho.profile_id) %>
+
+
+               <% end %>
+
+
+     </div>
+
+
+
+
+
+
+            <div class="post-by">
+             Posted By <%= link_to how.profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ how.profile.last_name.split(" ").map(&:capitalize).join(" "), profile_path(how.profile_id) if how.profile.first_name || how.profile.last_name %>, <%="#{time_ago_in_words(how.created_at)} ago"%>  <span class="divider">|</span> <%= link_to Howcategory.friendly.find(how.howcategory_id).name, howcategory_path(how.howcategory_id) %><span class="divider">|</span>
+                                        <%= pluralize(how.impressionist_count(:filter=>:session_hash), "View") %> <span class="divider">|</span> <%# pluralize(how.comment_threads.size, "Comment")%>
+             </div>
+      </p>
+
+
+
+    </div>  
+  <% end %> 
+</div>  
+
+

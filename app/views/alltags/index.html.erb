@@ -1,3 +1,6 @@
+
+
+
   <html lang="en">
 <!--<![endif]-->
 <head>
@@ -33,7 +36,7 @@
                 <a href="index.html" class="navbar-brand">
                     
                     <span class="brand-text m-l-10">
-                        HOW CATEGORIES
+                        TAGS
                     </span>
                 </a>
             </div>
@@ -77,92 +80,93 @@
 
 
 
-<div class="transitions-enabled m-t-10" id="upfrica-pins">
-  <% @hows.each do |how| %>
-    <div class="box panel panel-default">
+<div class="transitions-enabled m-t-10" id="upfrica-pins"><!-- All tags transition-->
 
-      <% if how.howcover? %>
+    
 
-      <%= link_to (image_tag(how.howcover.url(:thumb), :class => "img-responsive", :alt =>"how image")), how_path(how) %>
+<% @echos.each do |echo| %>  
+    <div class="box panel panel-default"><!--echos parnel box starts-->
+<% if echo.echoimage1? %>
+      <%= link_to (image_tag(echo.echoimage1.url(:thumb), :class => "img-responsive", :alt =>"echoimage")), echo_path(echo) %>
+  
+  <% elsif echo.videourl? %>
+  <div class="embed-responsive embed-responsive-16by9">
+    <%= embed(echo.videourl) %> 
+  </div>                      
+  <% else %>
+  <% end %>
+  <h2>
+        <%= link_to (truncate(sanitize(echo.headline.titleize, tags: %w(strong em p u br #ff0000 font-size)),:class =>"blk in-inner m-t-5", length: 120)), echo %>
+    </h2>
+    
+      <p class="profile">
+    <div class="post-left-info">
+    <% if echo.profile.pesnavatar? %>
+        <%= link_to (image_tag(echo.profile.pesnavatar.url(:large), :class => "m-l-20 img-circle thumb48 btn-raised btn-circle text-center", :alt =>"profile image")), profile_path(echo.profile_id) %>
+        <% else %> 
+        <%= link_to (image_tag("noimage.jpg", :class => "media-object img-circle thumb40 btn-raised btn-circle text-center", :alt =>"profile image")), profile_path(@echo.profile_id) %>
+         <% end %>
 
-     
+     </div>
 
-      <% elsif how.videourl? %>
-
-      
-
-     
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                        <%= embed(how.videourl) %> 
-                                    </div>
-                               
-      <% else %>
-
+       <div class="post-by">
+             Published By <%= link_to echo.profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ echo.profile.last_name.split(" ").map(&:capitalize).join(" "), profile_path(echo.profile_id) if echo.profile.first_name || echoprofile.last_name %>, <%="#{time_ago_in_words(echo.created_at)} ago"%>  <span class="divider">|</span> <%= link_to Echocategory.friendly.find(echo.echocategory_id).name, echocategory_path(echo.echocategory_id) %><span class="divider">|</span>
+           <%= pluralize(echo.impressionist_count(:filter=>:session_hash), "View") %> <span class="divider">|</span> <%= pluralize(echo.comment_threads.size, "Comment")%> <%# echo.tag_counts.map(&:name) %>
+             </div>
+      </p>
+    </div><!--echos panel box ends-->
       <% end %>
 
 
 
-
-      <h2>
+<% @hows.each do |how| %> 
+ <div class="box panel panel-default"> <!--hows parnel box starts-->
+  <% if how.howcover? %>
+      <%= link_to (image_tag(how.howcover.url(:thumb), :class => "img-responsive", :alt =>"how image")), how_path(how) %>
+  
+  <% elsif how.videourl? %>
+  <div class="embed-responsive embed-responsive-16by9">
+    <%= embed(how.videourl) %> 
+  </div>                      
+  <% else %>
+  <% end %>
+  <h2>
         <%= link_to (truncate(sanitize(how.title.titleize, tags: %w(strong em p u br #ff0000 font-size)),:class =>"blk in-inner m-t-5", length: 120)), how %>
-      </h2>
-      
+    </h2>
 
       <p class="profile">
-
-
-
     <div class="post-left-info">
-                      <% if how.profile.pesnavatar? %>
+    <% if how.profile.pesnavatar? %>
         <%= link_to (image_tag(how.profile.pesnavatar.url(:large), :class => "m-l-20 img-circle thumb48 btn-raised btn-circle text-center", :alt =>"profile image")), profile_path(how.profile_id) %>
-
-
         <% else %> 
         <%= link_to (image_tag("noimage.jpg", :class => "media-object img-circle thumb40 btn-raised btn-circle text-center", :alt =>"profile image")), profile_path(@cho.profile_id) %>
-
-
-               <% end %>
-
+         <% end %>
 
      </div>
 
-
-
-
-
-
-            <div class="post-by">
+       <div class="post-by">
              Published By <%= link_to how.profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ how.profile.last_name.split(" ").map(&:capitalize).join(" "), profile_path(how.profile_id) if how.profile.first_name || how.profile.last_name %>, <%="#{time_ago_in_words(how.created_at)} ago"%>  <span class="divider">|</span> <%# link_to Howcategory.friendly.find(echo.echocategory_id).name, ehowcategory_path(echo.echocategory_id) %><span class="divider">|</span>
-                                        <%= pluralize(how.impressionist_count(:filter=>:session_hash), "View") %> <span class="divider">|</span> <%# pluralize(how.comment_threads.size, "Comment")%> <%# how.tag_counts.map(&:name) %>
+           <%= pluralize(how.impressionist_count(:filter=>:session_hash), "View") %> <span class="divider">|</span> <%# pluralize(how.comment_threads.size, "Comment")%> <%# how.tag_counts.map(&:name) %>
              </div>
       </p>
 
-
-
-    </div>  
-  <% end %> 
-
-
-</div>  
-
-  <% @echos.each do |echo| %>  
-
-<%= echo.headline %>
-
-
-
-
-
+    </div>
 <% end %>
 
-<div class="section-container">
-                        
-                        <!-- begin pagination -->
-                        <div class="pagination-container text-center">
-                            <%= will_paginate @hows %>
-                        </div>
-                        <!-- end pagination -->
-                    </div>
+
+
+</div><!--hows panel box ends-->
+
+
+
+
+
+     
+</div>  <!--All tags transition ends-->
+
+
+  
+
 
 </body>
 </html>

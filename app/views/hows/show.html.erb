@@ -208,9 +208,24 @@
 
 <hr>
 
-<div class="text-center">
+<div class="text-center ">
 
-                       Views <%= @how.impressionist_count(:filter=>:session_hash) %> | Likes 3 | Comments 2
+
+  Featured in: <%= link_to Howcategory.friendly.find(@how.howcategory_id).name, howcategory_path(@how.howcategory_id) if @how.howcategory_id %><span class="divider">|</span>
+                                        <%= pluralize(@how.impressionist_count(:filter=>:session_hash), "View") %> <span class="divider">|</span> <%# pluralize(echo.comment_threads.size, "Comment")%> 
+
+                                        <%# if @how.comment_threads.blank? %>
+
+                                         <a href="/hows/<%= @how.id %>/#comments">Be the first to add comments</a>
+                                         <%# else %>
+                                         <%# end %>
+
+                                         <%= "| Tagged:" if @how.tag_ids.present? %> <span class="tags text-center"><%= raw(@how.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')) %>
+                                         
+
+                                  
+
+                  
                   
 
     </div>
