@@ -39,7 +39,7 @@
                     <li class="active">iPhone 6S Plus</li>
                 </ul>
                 <!-- END breadcrumb -->
-                
+             
                 <!-- BEGIN product -->
                 <div class="product">
                     <!-- BEGIN product-detail -->
@@ -48,45 +48,45 @@
                         <div class="product-image">
                             <!-- BEGIN product-thumbnail -->
                             <div class="product-thumbnail">
-                                <ul class="product-thumbnail-list">
-                                    <li class="active"><a href="#" data-click="show-main-image" data-url="http://via.placeholder.com/190x600"><img src="http://via.placeholder.com/190x300" alt="" /></a></li>
-
+                                
+                              
                                     <%# if @product.listingimages? %>
 
          <%# image_tag(@product.listingimages[0].url(:large), :class => " ", :alt =>"product image") %>
          <%# else %> 
          <%# image_tag("http://via.placeholder.com/190x300", :class => " ", :alt =>"product image") %>
          <%# end %> 
+ <ul class="product-thumbnail-list">
+                                    <li class="active"><a href="#" data-click="show-main-image" data-url="assets/img/iphone-6s-plus-2.jpg">
 
-                                  
+                                        <img src="<%= image_url('store/iphone-6s-plus-2.jpg') %>" alt="" />
 
 
-                                    <li><a href="#" data-click="show-main-image" data-url="http://via.placeholder.com/190x300"><img src="http://via.placeholder.com/190x300" alt="" /></a></li>
-                                    <li><a href="#" data-click="show-main-image" data-url="http://via.placeholder.com/190x300"><img src="http://via.placeholder.com/190x300" alt="" /></a></li>
-                                    <li><a href="#" data-click="show-main-image" data-url="http://via.placeholder.com/190x300"><img src="http://via.placeholder.com/190x300" alt="" /></a></li>
-                                    <li><a href="#" data-click="show-main-image" data-url="http://via.placeholder.com/190x300"><img src="http://via.placeholder.com/190x300" alt="" /></a></li>
-                                    <li><a href="#" data-click="show-main-image" data-url="http://via.placeholder.com/190x300"><img src="http://via.placeholder.com/190x300" alt="" /></a></li>
+                                    </a></li>
+                                    <li><a href="#" data-click="show-main-image" data-url="assets/img/iphone-6s-plus-3.jpg">
+
+                                        <img src="<%= image_url('store/iphone-6s-plus-3.jpg') %>" alt="" />
+
+                                    </a></li>
+                                    <li><a href="#" data-click="show-main-image" data-url="assets/img/iphone-6s-plus-4.jpg">
+                                        <img src="<%= image_url('store/iphone-6s-plus-4.jpg') %>" alt="" />
+                                    </a></li>
+                                    <li><a href="#" data-click="show-main-image" data-url="assets/img/iphone-6s-plus-5.jpg">
+                                        <img src="<%= image_url('store/iphone-6s-plus-5.jpg') %>" alt="" />
+                                    </a></li>
+                                    <li><a href="#" data-click="show-main-image" data-url="assets/img/iphone-6s-plus-6.jpg">
+                                        <img src="<%= image_url('store/iphone-6s-plus-6.jpg') %>" alt="" />
+                                    </a></li>
+                                    <li><a href="#" data-click="show-main-image" data-url="assets/img/iphone-6s-plus-7.jpg">
+                                        <img src="<%= image_url('store/iphone-6s-plus-7.jpg') %>" alt="" />
+                                    </a></li>
                                 </ul>
                             </div>
                             <!-- END product-thumbnail -->
                             <!-- BEGIN product-main-image -->
                             <div class="product-main-image" data-id="main-image">
-
-                                <img src="http://via.placeholder.com/550x615" alt="" />
-
-
-
-         <%# if @product.listingimages? %>
-
-         <%# image_tag(@product.listingimages[0].url(:large), :class => "product-main-image imagecenter ", :alt =>"product image") %>
-         <%# else %> 
-         <%# image_tag("http://via.placeholder.com/550x615", :class => "product-main-image imagecenter ", :alt =>"product image") %>
-         <%# end %> 
-
-
-
                                 
-                                <%# image_tag("store/iphone-6s-plus.png") %>
+                                <img src="<%= image_url('store/iphone-6s-plus.png') %>" alt="" />
                             </div>
                             <!-- END product-main-image -->
                         </div>
@@ -170,7 +170,10 @@
                                 <!-- BEGIN product-desc -->
                                 <div class="product-desc">
                                     <div class="image">
-                                        <img src="assets/img/product-main.jpg" alt="" />
+                                       
+                                       
+                                          
+                                           <%= image_tag("store/product-main.jpg") %>
                                     </div>
                                     <div class="desc">
                                         <h4>iPhone 6s</h4>
@@ -183,7 +186,8 @@
                                 <!-- BEGIN product-desc -->
                                 <div class="product-desc right">
                                     <div class="image">
-                                        <img src="assets/img/product-3dtouch.jpg" alt="" />
+                                        
+                                        <%= image_tag("store/product-3dtouch.jpg") %>
                                     </div>
                                     <div class="desc">
                                         <h4>3D Touch</h4>
@@ -196,7 +200,8 @@
                                 <!-- BEGIN product-desc -->
                                 <div class="product-desc">
                                     <div class="image">
-                                        <img src="assets/img/product-cameras.jpg" alt="" />
+                                        
+                                        <%= image_tag("store/product-cameras.jpg") %>
                                     </div>
                                     <div class="desc">
                                         <h4>Cameras</h4>
@@ -209,7 +214,8 @@
                                 <!-- BEGIN product-desc -->
                                 <div class="product-desc right">
                                     <div class="image">
-                                        <img src="assets/img/product-technology.jpg" alt="" />
+                                       
+                                        <%= image_tag("store/product-technology.jpg") %>
                                     </div>
                                     <div class="desc">
                                         <h4>Technology</h4>
@@ -222,7 +228,8 @@
                                 <!-- BEGIN product-desc -->
                                 <div class="product-desc">
                                     <div class="image">
-                                        <img src="assets/img/product-design.jpg" alt="" />
+                                       
+                                        <%= image_tag("store/product-design.jpg") %>
                                     </div>
                                     <div class="desc">
                                         <h4>Design</h4>
@@ -413,7 +420,9 @@
                                         <!-- BEGIN review -->
                                         <div class="review">
                                             <div class="review-info">
-                                                <div class="review-icon"><img src="assets/img/user-3.jpg" alt="" /></div>
+                                                <div class="review-icon">
+                                                    <%= image_tag '/store/user-3.jpg' %>
+                                                </div>
                                                 <div class="review-rate">
                                                     <ul class="review-star">
                                                         <li class="active"><i class="fa fa-star"></i></li>
@@ -549,7 +558,8 @@
                         <!-- BEGIN item -->
                         <div class="item item-thumbnail">
                             <a href="product_detail.html" class="item-image">
-                                <img src="assets/img/iphone.png" alt="">
+                               
+                                <%= image_tag("store/iphone.png") %>
                                 <div class="discount">15% OFF</div>
                             </a>
                             <div class="item-info">
@@ -567,7 +577,8 @@
                         <!-- BEGIN item -->
                         <div class="item item-thumbnail">
                             <a href="product_detail.html" class="item-image">
-                                <img src="assets/img/samsung-note5.png" alt="">
+                                
+                                <%= image_tag("store/samsung-note5.png") %>
                                 <div class="discount">32% OFF</div>
                             </a>
                             <div class="item-info">
@@ -586,6 +597,7 @@
                         <div class="item item-thumbnail">
                             <a href="product_detail.html" class="item-image">
                                 <img src="assets/img/iphone-se.png" alt="">
+                                <%= image_tag("store/iphone-se.png") %>
                                 <div class="discount">20% OFF</div>
                             </a>
                             <div class="item-info">
@@ -603,7 +615,8 @@
                         <!-- BEGIN item -->
                         <div class="item item-thumbnail">
                             <a href="product_detail.html" class="item-image">
-                                <img src="assets/img/zenfone2.png" alt="">
+                               
+                                <%= image_tag("store/zenfone2.png") %>
                                 <div class="discount">15% OFF</div>
                             </a>
                             <div class="item-info">
@@ -621,7 +634,8 @@
                         <!-- BEGIN item -->
                         <div class="item item-thumbnail">
                             <a href="product_detail.html" class="item-image">
-                                <img src="assets/img/xperia-z.png" alt="">
+                                
+                                <%= image_tag("store/xperia-z.png") %>
                                 <div class="discount">32% OFF</div>
                             </a>
                             <div class="item-info">
@@ -639,7 +653,8 @@
                         <!-- BEGIN item -->
                         <div class="item item-thumbnail">
                             <a href="product_detail.html" class="item-image">
-                                <img src="assets/img/lumia-532.png" alt="">
+                                
+                                <%= image_tag("store/lumia-532.png") %>
                                 <div class="discount">20% OFF</div>
                             </a>
                             <div class="item-info">
@@ -797,12 +812,22 @@
 
 
 	<script>
-	   /*
-Template Name: Color Admin - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.7
-Version: 2.1.0
-Author: Sean Ngu
-Website: http://www.seantheme.com/color-admin-v2.1/frontend/e-commerce/
-*/var handleHeaderFixedTop=function(){0!==$('#header[data-fixed-top="true"]').length&&$(window).on("scroll",function(){$("body").scrollTop()>=40?($("body").css("padding-top","76px"),$("#header").addClass("header-fixed")):($("#header").removeClass("header-fixed"),$("body").css("padding-top","0"))})},handlePageContainerShow=function(){$("#page-container").addClass("in")},handlePaceLoadingPlugins=function(){Pace.on("hide",function(){setTimeout(function(){$(".pace").addClass("hide")},500)})},handleTooltipActivation=function(){0!==$("[data-toggle=tooltip]").length&&$("[data-toggle=tooltip]").tooltip()},handleThemePanelExpand=function(){$('[data-click="theme-panel-expand"]').live("click",function(){var e=".theme-panel",t="active";$(e).hasClass(t)?$(e).removeClass(t):$(e).addClass(t)})},handleThemePageControl=function(){if($.cookie&&$.cookie("theme")){0!==$(".theme-list").length&&($(".theme-list [data-theme]").closest("li").removeClass("active"),$('.theme-list [data-theme="'+$.cookie("theme")+'"]').closest("li").addClass("active"));var e="assets/css/theme/"+$.cookie("theme")+".css";$("#theme").attr("href",e)}$(".theme-list [data-theme]").live("click",function(){var e="assets/css/theme/"+$(this).attr("data-theme")+".css";$("#theme").attr("href",e),$(".theme-list [data-theme]").not(this).closest("li").removeClass("active"),$(this).closest("li").addClass("active"),$.cookie("theme",$(this).attr("data-theme"))})},handlePaymentTypeSelection=function(){$('[data-click="set-payment"]').click(function(e){e.preventDefault();var t=$(this).closest("li"),a=$(this).attr("data-value");$('[data-click="set-payment"]').closest("li").not(t).removeClass("active"),$('[data-id="payment-type"]').val(a),$(t).addClass("active")})},handleQtyControl=function(){$('[data-click="increase-qty"]').click(function(e){e.preventDefault();var t=$(this).attr("data-target"),a=parseInt($(t).val())+1;$(t).val(a)}),$('[data-click="decrease-qty"]').click(function(e){e.preventDefault();var t=$(this).attr("data-target"),a=parseInt($(t).val())-1;a=0>a?0:a,$(t).val(a)})},handleProductImage=function(){$('[data-click="show-main-image"]').click(function(e){e.preventDefault();var t='[data-id="main-image"]',a='<img src="'+$(this).attr("data-url")+'" />',i=$(this).closest("li");$(t).html(a),$(i).addClass("active"),$('[data-click="show-main-image"]').closest("li").not(i).removeClass("active")})},App=function(){"use strict";return{init:function(){handleHeaderFixedTop(),handlePageContainerShow(),handlePaceLoadingPlugins(),handleTooltipActivation(),handleThemePanelExpand(),handleThemePageControl(),handlePaymentTypeSelection(),handleQtyControl(),handleProductImage()}}}();
+	  /* 09. Handle Product Image
+------------------------------------------------ */
+var handleProductImage = function() {
+    $('[data-click="show-main-image"]').click(function(e) {
+        e.preventDefault();
+        
+        var targetContainer = '[data-id="main-image"]';
+        var targetImage = '<img src="'+ $(this).attr('data-url') +'" />';
+        var targetLi = $(this).closest('li');
+        
+        $(targetContainer).html(targetImage);
+        $(targetLi).addClass('active');
+        $('[data-click="show-main-image"]').closest('li').not(targetLi).removeClass('active');
+    });
+};
+
 	</script>
 </body>
 </html>
