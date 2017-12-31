@@ -1,7 +1,7 @@
 class ArtistsController < ApplicationController
   before_action :authenticate_profile!, :except => [:index, :show]
   before_action :set_artist, only: [:show, :edit, :update, :destroy]
-  mpressionist actions: [:show,:index], unique: [:session_hash]
+  impressionist actions: [:show,:index], unique: [:session_hash]
 
   # GET /artists
   # GET /artists.json

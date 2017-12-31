@@ -1,4 +1,5 @@
 class Artist < ApplicationRecord
+	is_impressionable
 	belongs_to :profiles
 	has_many :songs
 
