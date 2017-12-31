@@ -7,6 +7,7 @@ class SongsController < ApplicationController
   # GET /songs.json
   def index
     @songs = Song.all
+    @artists = Artist.all
   end
 
   # GET /songs/1
@@ -96,6 +97,6 @@ class SongsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def song_params
-      params.require(:song).permit(:title, :description, :songcover, :sound, :lyricsbody1, :lyricschorus1, :lyricsbody2, :lyricschorus2, :lyricsbody3, :lyricschorus3, :youtubeurl)
+      params.require(:song).permit(:title, :description, :songcover, :sound, :slug, :artist_id, :lyricsbody1, :lyricschorus1, :lyricsbody2, :lyricschorus2, :lyricsbody3, :lyricschorus3, :youtubeurl)
     end
 end

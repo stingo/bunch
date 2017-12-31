@@ -1,5 +1,6 @@
 class Song < ApplicationRecord
 	belongs_to :profile, foreign_key: "profile_id"
+	belongs_to :artist
 
 	mount_uploader :songcover, SongcoverUploader
 	mount_uploader :sound, SoundUploader
