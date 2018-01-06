@@ -28,6 +28,10 @@
 //= require jquery.easy-autocomplete
 // require rails-ujs
 //= require selectize
+//= require jquery.jplayer.min
+//= require jquery.playlist
+// require songs
+//= require YTPlayer.min
 //= require lightbox
 //= require masonry/jquery.masonry
 //= require bootstrap-datepicker

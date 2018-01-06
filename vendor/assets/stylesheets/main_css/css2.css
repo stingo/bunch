@@ -3239,8 +3239,8 @@ fieldset[disabled] .btn-inverse.active {
  * Themes
  */
 .theme-1 .layout-container > aside {
-  background-color: #fff;
-  color: #6C7177;
+  background-color: #101113;
+  color: #ffffff;
 }
 .theme-1 .layout-container > aside > .sidebar-header {
   background-color: #1976D2;

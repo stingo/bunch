@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Bootstrap Admin Template">
+    <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
+    <title>Centric - Bootstrap Admin Template</title>
+    <!-- Vendor styles-->
+    <!-- build:css(../app) css/vendor.css-->
+    <!-- Animate.CSS-->
+    
+  </head>
+  <body class="theme-1 bg-upfrica-black-lighter">
+    <div class="layout-container">
+      <!-- top navbar-->
+      <header class="header-container">
+        
+
+        <!--nav>
+          <ul class="visible-xs visible-sm">
+            <li><a id="sidebar-toggler" href="#" class="menu-link menu-link-slide"><span><em></em></span></a></li>
+          </ul>
+          <ul class="hidden-xs">
+            <li><a id="sidebar-wrapper" href="#" class="menu-link menu-link-slide"><span><em></em></span></a></li>
+          </ul>
+          <h2 class="header-title">Columns Layout</h2>
+          <ul class="pull-right">
+            <li><a id="header-search" href="#" class="ripple"><em class="ion-ios-search-strong"></em></a></li>
+            <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle has-badge ripple"><em class="ion-person"></em><sup class="badge bg-danger">3</sup></a>
+              <ul class="dropdown-menu dropdown-menu-right md-dropdown-menu">
+                <li><a href="profile.html"><em class="ion-home icon-fw"></em>Profile</a></li>
+                <li><a href="messages.html"><em class="ion-gear-a icon-fw"></em>Messages</a></li>
+                <li role="presentation" class="divider"></li>
+                <li><a href="user.login.html"><em class="ion-log-out icon-fw"></em>Logout</a></li>
+              </ul>
+            </li>
+            <li><a id="header-settings" href="#" class="ripple"><em class="ion-gear-b"></em></a></li>
+          </ul>
+        </nav-->
+        <!-- begin Eechocat nav container -->
+        <div class="container m-b-10 visible-xs visible-sm">
+            <!-- begin navbar-header -->
+            <div class="navbar-header visible-xs visible-sm">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="index.html" class="navbar-brand">
+                    
+                    <span class="brand-text m-l-10">
+                        ECHO CATEGORIES
+                    </span>
+                </a>
+            </div>
+            <!-- end navbar-header -->
+            <!-- begin navbar-collapse -->
+            <div class="collapse navbar-collapse" id="header-navbar">
+                <ul class="nav navbar-nav navbar-right">
+                   
+                    <li>
+                        <a href="javascript:;" data-toggle="dropdown">ALL ECHO CATEGORIES <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <% @artists.each do |artist| %>
+ 
+                            <li><%= link_to artist.name+ ' '+ '('+ artist.songs.count.to_s + ')', artist  %> </li>
+
+                              <% end %>
+                            
+                        </ul>
+                    </li>
+                    
+                    <li><a href="/echos">BACK TO ECHOS</a></li>
+                </ul>
+            </div>
+            <!-- end navbar-collapse -->
+        </div>
+        <!-- end echo nav container -->
+
+      </header>
+      <!-- sidebar-->
+      <aside class="sidebar-container">
+        
+        <div class="sidebar-content">
+          <div class="sidebar-toolbar text-center"><a href=""><img src="img/user/01.jpg" alt="Profile" class="img-circle thumb64"></a>
+            <div class="mt">Welcome, Willie Webb</div>
+          </div>
+          <nav class="sidebar-nav">
+            <ul>
+              <li><a href="dashboard.html" class="ripple"><span class="pull-right nav-label"><span class="badge bg-success">2</span></span><span class="nav-icon"><img src="" data-svg-replace="img/icons/aperture.svg" alt="MenuItem" class="hidden"></span><span>Dashboard</span></a></li>
+              <li><a href="cards.html" class="ripple"><span class="pull-right nav-label"></span><span class="nav-icon"><img src="" data-svg-replace="img/icons/radio-waves.svg" alt="MenuItem" class="hidden"></span><span>Cards</span></a></li>
+              <li><a href="#" class="ripple"><span class="pull-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="pull-right nav-label"></span><span class="nav-icon"><img src="" data-svg-replace="img/icons/connection-bars.svg" alt="MenuItem" class="hidden"></span><span>Charts</span></a>
+                <ul class="sidebar-subnav">
+                  <li><a href="flot.html" class="ripple"><span class="pull-right nav-label"></span><span>Flot</span></a></li>
+                  <li><a href="radial.html" class="ripple"><span class="pull-right nav-label"></span><span>Radial</span></a></li>
+                  <li><a href="rickshaw.html" class="ripple"><span class="pull-right nav-label"></span><span>Rickshaw</span></a></li>
+                </ul>
+              </li>
+              <li><a href="#" class="ripple"><span class="pull-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="pull-right nav-label"></span><span class="nav-icon"><img src="" data-svg-replace="img/icons/clipboard.svg" alt="MenuItem" class="hidden"></span><span>Forms</span></a>
+                <ul class="sidebar-subnav">
+                  <li><a href="forms.classic.html" class="ripple"><span class="pull-right nav-label"></span><span>Classic</span></a></li>
+                  <li><a href="validation.html" class="ripple"><span class="pull-right nav-label"></span><span>Validation</span></a></li>
+                  <li><a href="forms.advanced.html" class="ripple"><span class="pull-right nav-label"></span><span>Advanced</span></a></li>
+                  <li><a href="material.html" class="ripple"><span class="pull-right nav-label"></span><span>Material</span></a></li>
+                  <li><a href="editor.html" class="ripple"><span class="pull-right nav-label"></span><span>Editors</span></a></li>
+                  <li><a href="dropzone.html" class="ripple"><span class="pull-right nav-label"></span><span>Dropzone</span></a></li>
+                  <li><a href="xeditable.html" class="ripple"><span class="pull-right nav-label"></span><span>xEditable</span></a></li>
+                  <li><a href="wizard.html" class="ripple"><span class="pull-right nav-label"></span><span>Wizard</span></a></li>
+                </ul>
+              </li>
+              <li><a href="#" class="ripple"><span class="pull-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="pull-right nav-label"></span><span class="nav-icon"><img src="" data-svg-replace="img/icons/navicon.svg" alt="MenuItem" class="hidden"></span><span>Tables</span></a>
+                <ul id="tables" class="sidebar-subnav">
+                  <li><a href="tables.classic.html" class="ripple"><span class="pull-right nav-label"></span><span>Classic</span></a></li>
+                  <li><a href="datatable.html" class="ripple"><span class="pull-right nav-label"></span><span>Datatable</span></a></li>
+                  <li><a href="bootgrid.html" class="ripple"><span class="pull-right nav-label"></span><span>Bootgrid</span></a></li>
+                </ul>
+              </li>
+              <li><a href="#" class="ripple"><span class="pull-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="pull-right nav-label"></span><span class="nav-icon"><img src="" data-svg-replace="img/icons/grid.svg" alt="MenuItem" class="hidden"></span><span>Layouts</span></a>
+                <ul id="layouts" class="sidebar-subnav">
+                  <li><a href="layouts.columns.html" class="ripple"><span class="pull-right nav-label"></span><span>Columns</span></a></li>
+                  <li><a href="layouts.overlap.html" class="ripple"><span class="pull-right nav-label"></span><span>Overlap</span></a></li>
+                  <li><a href="layouts.boxed.html" class="ripple"><span class="pull-right nav-label"></span><span>Boxed</span></a></li>
+                  <li><a href="layouts.tabs.html" class="ripple"><span class="pull-right nav-label"></span><span>Tabs</span></a></li>
+                  <li><a href="layouts.containers.html" class="ripple"><span class="pull-right nav-label"></span><span>Containers</span></a></li>
+                </ul>
+              </li>
+              
+              
+              <li><a href="#" class="ripple"><span class="pull-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="pull-right nav-label"></span><span class="nav-icon"><img src="" data-svg-replace="img/icons/ios-browsers.svg" alt="MenuItem" class="hidden"></span><span>Pages</span></a>
+                <ul id="pages" class="sidebar-subnav">
+                  <li><a href="timeline.html" class="ripple"><span class="pull-right nav-label"></span><span>Timeline</span></a></li>
+                  <li><a href="invoice.html" class="ripple"><span class="pull-right nav-label"></span><span>Invoice</span></a></li>
+                  <li><a href="pricing.html" class="ripple"><span class="pull-right nav-label"></span><span>Pricing</span></a></li>
+                  <li><a href="contacts.html" class="ripple"><span class="pull-right nav-label"></span><span>Contacts</span></a></li>
+                  <li><a href="faq.html" class="ripple"><span class="pull-right nav-label"></span><span>FAQ</span></a></li>
+                  <li><a href="projects.html" class="ripple"><span class="pull-right nav-label"></span><span>Projects</span></a></li>
+                  <li><a href="blog.html" class="ripple"><span class="pull-right nav-label"></span><span>Blog</span></a></li>
+                  <li><a href="blog.article.html" class="ripple"><span class="pull-right nav-label"></span><span>Article</span></a></li>
+                  <li><a href="profile.html" class="ripple"><span class="pull-right nav-label"></span><span>Profile</span></a></li>
+                  <li><a href="gallery.html" class="ripple"><span class="pull-right nav-label"></span><span>Gallery</span></a></li>
+                  <li><a href="wall.html" class="ripple"><span class="pull-right nav-label"></span><span>Wall</span></a></li>
+                  <li><a href="search.html" class="ripple"><span class="pull-right nav-label"></span><span>Search</span></a></li>
+                  <li><a href="messages.html" class="ripple"><span class="pull-right nav-label"></span><span>Messages Board</span></a></li>
+                </ul>
+              </li>
+              <li><a href="#" class="ripple"><span class="pull-right nav-caret"><em class="ion-ios-arrow-right"></em></span><span class="pull-right nav-label"></span><span class="nav-icon"><img src="" data-svg-replace="img/icons/person-stalker.svg" alt="MenuItem" class="hidden"></span><span>User</span></a>
+                <ul id="user" class="sidebar-subnav">
+                  <li><a href="login.html" class="ripple"><span class="pull-right nav-label"></span><span>Login</span></a></li>
+                  <li><a href="signup.html" class="ripple"><span class="pull-right nav-label"></span><span>Signup</span></a></li>
+                  <li><a href="lock.html" class="ripple"><span class="pull-right nav-label"></span><span>Lock</span></a></li>
+                  <li><a href="recover.html" class="ripple"><span class="pull-right nav-label"></span><span>Recover</span></a></li>
+                </ul>
+              </li>
+              <li><a href="../../angularjs/" class="ripple"><span class="nav-icon"><em class="ion-android-open"></em></span><span>AngularJS</span></a></li>
+            </ul>
+          </nav>
+        </div>
+      </aside>
+      <div class="sidebar-layout-obfuscator"></div>
+      
+
+      <!-- Main section-->
+      <main class="main-container">
+        <!-- Page content-->
+        <section>
+          <div class="container-full">
+            
+            <div class="row fh bg-white">
+              
+<!--left content 
+              <div class="col-md-2 fh-md oa text-center">
+                <div class="p-lg">
+                  <h5>Left Column</h5>
+                  <p class="text-center">Nullam pretium fermentum sapien ut convallis.</p>
+                </div>
+                <div class="p-lg">
+                  <p>Pellentesque sed purus libero. Nam eleifend, ipsum at suscipit pellentesque, diam enim dignissim nunc, eu egestas sem velit vel nunc. Phasellus vel nisl orci.</p>
+                </div>
+              </div>
+
+end left content -->
+
+<!--mid content -->
+              <div class="col-md-10 fh-md oa text-center bg-upfrica-black-lighter">
+                <h2>Content</h2>
+                <p class="lead">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia. Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent adipiscing. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero. Cras id dui. Aenean ut eros et nisl sagittis vestibulum. Nullam nulla eros, ultricies sit amet, nonummy id, imperdiet feugiat, pede. Sed lectus. Donec mollis hendrerit risus. Phasellus nec sem in justo pellentesque facilisis. Etiam imperdiet imperdiet orci. Nunc nec neque. Phasellus leo dolor, tempus non, auctor et, hendrerit quis, nisi. Curabitur ligula sapien, tincidunt non, euismod vitae, posuere imperdiet, leo. Maecenas malesuada. Praesent congue erat at massa. Sed cursus turpis vitae tortor. Donec posuere vulputate arcu. Phasellus accumsan cursus velit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed aliquam, nisi quis porttitor congue, elit erat euismod orci, ac placerat dolor lectus quis orci. Phasellus consectetuer vestibulum elit. Aenean tellus metus, bibendum sed, posuere ac, mattis non, nunc. Vestibulum fringilla pede sit amet augue. In turpis. Pellentesque posuere. Praesent turpis. Aenean posuere, tortor sed cursus feugiat, nunc augue blandit nunc, eu sollicitudin urna dolor sagittis lacus. Donec elit libero, sodales nec, volutpat a, suscipit non, turpis. Nullam sagittis. Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce id purus. Ut varius tincidunt libero. Phasellus dolor. Maecenas vestibulum mollis diam. Pellentesque ut neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In dui magna, posuere eget, vestibulum et, tempor auctor, justo. In ac felis quis tortor malesuada pretium. Pellentesque auctor neque nec urna. Proin sapien ipsum, porta a, auctor quis, euismod ut, mi. Aenean viverra rhoncus pede. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut non enim eleifend felis pretium feugiat. Vivamus quis mi. Phasellus a est. Phasellus magna. In hac habitasse platea dictumst. Curabitur at lacus ac velit ornare lobortis. Curabitur a felis in nunc fringilla tristique. Morbi mattis ullamcorper velit. Phasellus gravida semper nisi. Nullam vel sem. Pellentesque libero tortor, tincidunt et, tincidunt eget, semper nec, quam. Sed hendrerit. Morbi ac felis. Nunc egestas, augue at pellentesque laoreet, felis eros vehicula leo, at malesuada velit leo quis pede. Donec interdum, metus et hendrerit aliquet, dolor diam sagittis ligula, eget egestas libero turpis vel mi. Nunc nulla. Fusce risus nisl, viverra et, tempor et, pretium in, sapien. Donec venenatis vulputate lorem. Morbi nec metus. Phasellus blandit leo ut odio. Maecenas ullamcorper, dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem. Sed magna purus, fermentum eu, tincidunt eu, varius ut, felis. In auctor lobortis lacus. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Vestibulum ullamcorper mauris at ligula. Fusce fermentum. Nullam cursus lacinia erat. Praesent blandit laoreet nibh. Fusce convallis metus id felis luctus adipiscing. Pellentesque egestas, neque sit amet convallis pulvinar, justo nulla eleifend augue, ac auctor orci leo non est. Quisque id mi. Ut tincidunt tincidunt erat. Etiam feugiat lorem non metus. Vestibulum dapibus nunc ac augue. Curabitur vestibulum aliquam leo. Praesent egestas neque eu enim. In hac habitasse platea dictumst. Fusce a quam. Etiam ut purus mattis mauris sodales aliquam. Curabitur nisi. Quisque malesuada placerat nisl. Nam ipsum risus, rutrum vitae, vestibulum eu, molestie vel, lacus. Sed augue ipsum, egestas nec, vestibulum et, malesuada adipiscing, dui. Vestibulum facilisis, purus nec pulvinar iaculis, ligula mi congue nunc, vitae euismod ligula urna in dolor. Mauris sollicitudin fermentum libero. Praesent nonummy mi in odio. Nunc interdum lacus sit amet orci. Vestibulum rutrum, mi nec elementum vehicula, eros quam gravida nisl, id fringilla neque ante vel mi. Morbi mollis tellus ac sapien. Phasellus volutpat, metus eget egestas mollis, lacus lacus blandit dui, id egestas quam mauris ut lacus. Fusce vel dui. Sed in libero ut nibh placerat accumsan. Proin faucibus arcu quis ante. In consectetuer turpis ut velit. Nulla sit amet est. Praesent metus tellus, elementum eu, semper a, adipiscing nec, purus. Cras risus ipsum, faucibus ut, ullamcorper id, varius ac, leo. Suspendisse feugiat. Suspendisse enim turpis, dictum sed, iaculis a, condimentum nec, nisi. Praesent nec nisl a purus blandit viverra. Praesent ac massa at ligula laoreet iaculis. Nulla neque dolor, sagittis eget, iaculis quis, molestie non, velit. Mauris turpis nunc, blandit et, volutpat molestie, porta ut, ligula. Fusce pharetra convallis urna. Quisque ut nisi. Donec mi odio, faucibus at, scelerisque quis, convallis in, nisi. Suspendisse non nisl sit amet velit hendrerit rutrum. Ut leo. Ut a nisl id ante tempus hendrerit. Proin pretium, leo ac pellentesque mollis, felis nunc ultrices eros, sed gravida augue augue mollis justo. Suspendisse eu ligula. Nulla facilisi. Donec id justo. Praesent porttitor, nulla vitae posuere iaculis, arcu nisl dignissim dolor, a pretium mi sem ut ipsum. Curabitur suscipit suscipit tellus. Praesent vestibulum dapibus nibh. Etiam iaculis nunc ac metus. Ut id nisl quis enim dignissim sagittis. Etiam sollicitudin, ipsum eu pulvinar rutrum, tellus ipsum laoreet sapien, quis venenatis ante odio sit amet eros. Proin magna. Duis vel nibh at velit scelerisque suscipit. Curabitur turpis. Vestibulum suscipit nulla quis orci. Fusce ac felis sit amet ligula pharetra condimentum. Maecenas egestas arcu quis ligula mattis placerat. Duis lobortis massa imperdiet quam. Suspendisse potenti. Pellentesque commodo eros a enim. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl. Sed libero. Aliquam erat volutpat. Etiam vitae tortor. Morbi vestibulum volutpat enim. Aliquam eu nunc. Nunc sed turpis. Sed mollis, eros et ultrices tempus, mauris ipsum aliquam libero, non adipiscing dolor urna a orci. Nulla porta dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Pellentesque dapibus hendrerit tortor. Praesent egestas tristique nibh. Sed a libero. Cras varius. Donec vitae orci sed dolor rutrum auctor. Fusce egestas elit eget lorem. Suspendisse nisl elit, rhoncus eget, elementum ac, condimentum eget, diam. Nam at tortor in tellus interdum sagittis. Aliquam lobortis. Donec orci lectus, aliquam ut, faucibus non, euismod id, nulla. Curabitur blandit mollis lacus. Nam adipiscing. Vestibulum eu odio. Vivamus laoreet. Nullam tincidunt adipiscing enim. Phasellus tempus. Proin viverra, ligula sit amet ultrices semper, ligula arcu tristique sapien, a accumsan nisi mauris ac eros. Fusce neque. Suspendisse faucibus, nunc et pellentesque egestas, lacus ante convallis tellus, vitae iaculis lacus elit id tortor. Vivamus aliquet elit ac nisl. Fusce fermentum odio nec arcu. Vivamus euismod mauris. In ut quam vitae odio lacinia tincidunt. Praesent ut ligula non mi varius sagittis. Cras sagittis. Praesent ac sem eget est egestas volutpat. Vivamus consectetuer hendrerit lacus. Cras non dolor. Vivamus in erat ut urna cursus vestibulum. Fusce commodo aliquam arcu. Nam commodo suscipit quam. Quisque id odio. Praesent venenatis metus at tortor pulvinar varius.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia. Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent adipiscing. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero. Cras id dui. Aenean ut eros et nisl sagittis vestibulum. Nullam nulla eros, ultricies sit amet, nonummy id, imperdiet feugiat, pede. Sed lectus. Donec mollis hendrerit risus. Phasellus nec sem in justo pellentesque facilisis. Etiam imperdiet imperdiet orci. Nunc nec neque. Phasellus leo dolor, tempus non, auctor et, hendrerit quis, nisi. Curabitur ligula sapien, tincidunt non, euismod vitae, posuere imperdiet, leo. Maecenas malesuada. Praesent congue erat at massa. Sed cursus turpis vitae tortor. Donec posuere vulputate arcu. Phasellus accumsan cursus velit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed aliquam, nisi quis porttitor congue, elit erat euismod orci, ac placerat dolor lectus quis orci. Phasellus consectetuer vestibulum elit. Aenean tellus metus, bibendum sed, posuere ac, mattis non, nunc. Vestibulum fringilla pede sit amet augue. In turpis. Pellentesque posuere. Praesent turpis. Aenean posuere, tortor sed cursus feugiat, nunc augue blandit nunc, eu sollicitudin urna dolor sagittis lacus. Donec elit libero, sodales nec, volutpat a, suscipit non, turpis. Nullam sagittis. Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce id purus. Ut varius tincidunt libero. Phasellus dolor. Maecenas vestibulum mollis diam. Pellentesque ut neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In dui magna, posuere eget, vestibulum et, tempor auctor, justo. In ac felis quis tortor malesuada pretium. Pellentesque auctor neque nec urna. Proin sapien ipsum, porta a, auctor quis, euismod ut, mi. Aenean viverra rhoncus pede. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut non enim eleifend felis pretium feugiat. Vivamus quis mi. Phasellus a est. Phasellus magna. In hac habitasse platea dictumst. Curabitur at lacus ac velit ornare lobortis. Curabitur a felis in nunc fringilla tristique. Morbi mattis ullamcorper velit. Phasellus gravida semper nisi. Nullam vel sem. Pellentesque libero tortor, tincidunt et, tincidunt eget, semper nec, quam. Sed hendrerit. Morbi ac felis. 
+                <p class="lead">Bottom</p>
+              </div>
+    <!--end mid content -->  
+
+    <!--right content -->        
+
+              <div class="col-md-2 fh-md oa text-center bg-upfrica-black-2">
+                <div class="p-lg">
+                  <h5>Right Column</h5>
+                  <p class="text-center">Nullam pretium fermentum sapien ut convallis.</p>
+                </div>
+                <div class="p-lg">
+                  <p>Pellentesque sed purus libero. Nam eleifend, ipsum at suscipit pellentesque, diam enim dignissim nunc, eu egestas sem velit vel nunc. Phasellus vel nisl orci.</p>
+                </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                <p class="lead">Bottom</p>
+              </div>
+ <!--end right content -->  
+
+            </div>
+          </div>
+        </section>
+        <!-- Page footer-->
+        <!--footer><span>2017 - Centric app.</span></footer-->
+      </main>
+    </div>
+    <!-- Search template-->
+    <div tabindex="-1" role="dialog" class="modal modal-top fade modal-search">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="pull-left">
+              <button type="button" data-dismiss="modal" class="btn btn-flat"><em class="ion-arrow-left-c icon-24"></em></button>
+            </div>
+            <div class="pull-right">
+              <button type="button" class="btn btn-flat"><em class="ion-android-microphone icon-24"></em></button>
+            </div>
+            <form action="#" class="oh">
+              <div class="mda-form-control pt0">
+                <input type="text" placeholder="Search.." data-localize="header.SEARCH" class="form-control header-input-search">
+                <div class="mda-form-control-line"></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Search template-->
+    <!-- Settings template-->
+    <div tabindex="-1" role="dialog" class="modal-settings modal modal-right fade">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div data-dismiss="modal" class="pull-right clickable"><em class="ion-close-round text-soft"></em></div>
+            <h4 class="modal-title"><span>Settings</span></h4>
+          </div>
+          <div class="modal-body">
+            <div class="clearfix mb">
+              <div class="pull-left wd-tiny mb">
+                <div class="setting-color">
+                  <label class="preview-theme-1">
+                    <input type="radio" checked="checked" name="setting-theme" value="0"><span class="ion-checkmark-round"></span>
+                    <div class="t-grid">
+                      <div class="t-row">
+                        <div class="t-col preview-header"></div>
+                        <div class="t-col preview-sidebar"></div>
+                        <div class="t-col preview-content"></div>
+                      </div>
+                    </div>
+                  </label>
+                </div>
+              </div>
+              <div class="pull-left wd-tiny mb">
+                <div class="setting-color">
+                  <label class="preview-theme-2">
+                    <input type="radio" name="setting-theme" value="1"><span class="ion-checkmark-round"></span>
+                    <div class="t-grid">
+                      <div class="t-row">
+                        <div class="t-col preview-header"></div>
+                        <div class="t-col preview-sidebar"></div>
+                        <div class="t-col preview-content"></div>
+                      </div>
+                    </div>
+                  </label>
+                </div>
+              </div>
+              <div class="pull-left wd-tiny mb">
+                <div class="setting-color">
+                  <label class="preview-theme-3">
+                    <input type="radio" name="setting-theme" value="2"><span class="ion-checkmark-round"></span>
+                    <div class="t-grid">
+                      <div class="t-row">
+                        <div class="t-col preview-header"></div>
+                        <div class="t-col preview-sidebar"></div>
+                        <div class="t-col preview-content"></div>
+                      </div>
+                    </div>
+                  </label>
+                </div>
+              </div>
+              <div class="pull-left wd-tiny mb">
+                <div class="setting-color">
+                  <label class="preview-theme-4">
+                    <input type="radio" name="setting-theme" value="3"><span class="ion-checkmark-round"></span>
+                    <div class="t-grid">
+                      <div class="t-row">
+                        <div class="t-col preview-header"></div>
+                        <div class="t-col preview-sidebar"></div>
+                        <div class="t-col preview-content"></div>
+                      </div>
+                    </div>
+                  </label>
+                </div>
+              </div>
+              <div class="pull-left wd-tiny mb">
+                <div class="setting-color">
+                  <label class="preview-theme-5">
+                    <input type="radio" name="setting-theme" value="4"><span class="ion-checkmark-round"></span>
+                    <div class="t-grid">
+                      <div class="t-row">
+                        <div class="t-col preview-header"></div>
+                        <div class="t-col preview-sidebar"></div>
+                        <div class="t-col preview-content"></div>
+                      </div>
+                    </div>
+                  </label>
+                </div>
+              </div>
+              <div class="pull-left wd-tiny mb">
+                <div class="setting-color">
+                  <label class="preview-theme-6">
+                    <input type="radio" name="setting-theme" value="5"><span class="ion-checkmark-round"></span>
+                    <div class="t-grid">
+                      <div class="t-row">
+                        <div class="t-col preview-header"></div>
+                        <div class="t-col preview-sidebar"></div>
+                        <div class="t-col preview-content"></div>
+                      </div>
+                    </div>
+                  </label>
+                </div>
+              </div>
+              <div class="pull-left wd-tiny mb">
+                <div class="setting-color">
+                  <label class="preview-theme-7">
+                    <input type="radio" name="setting-theme" value="6"><span class="ion-checkmark-round"></span>
+                    <div class="t-grid">
+                      <div class="t-row">
+                        <div class="t-col preview-header"></div>
+                        <div class="t-col preview-sidebar"></div>
+                        <div class="t-col preview-content"></div>
+                      </div>
+                    </div>
+                  </label>
+                </div>
+              </div>
+              <div class="pull-left wd-tiny mb">
+                <div class="setting-color">
+                  <label class="preview-theme-8">
+                    <input type="radio" name="setting-theme" value="7"><span class="ion-checkmark-round"></span>
+                    <div class="t-grid">
+                      <div class="t-row">
+                        <div class="t-col preview-header"></div>
+                        <div class="t-col preview-sidebar"></div>
+                        <div class="t-col preview-content"></div>
+                      </div>
+                    </div>
+                  </label>
+                </div>
+              </div>
+              <div class="pull-left wd-tiny mb">
+                <div class="setting-color">
+                  <label class="preview-theme-9">
+                    <input type="radio" name="setting-theme" value="8"><span class="ion-checkmark-round"></span>
+                    <div class="t-grid">
+                      <div class="t-row">
+                        <div class="t-col preview-header"></div>
+                        <div class="t-col preview-sidebar"></div>
+                        <div class="t-col preview-content"></div>
+                      </div>
+                    </div>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <p>
+              <label class="mda-checkbox">
+                <input id="sidebar-showheader" type="checkbox" checked=""><em class="bg-indigo-500"></em>Sidebar header
+              </label>
+            </p>
+            <p>
+              <label class="mda-checkbox">
+                <input id="sidebar-showtoolbar" type="checkbox" checked=""><em class="bg-indigo-500"></em>Sidebar toolbar
+              </label>
+            </p>
+            <p>
+              <label class="mda-checkbox">
+                <input id="sidebar-offcanvas" type="checkbox"><em class="bg-indigo-500"></em>Sidebar offcanvas
+              </label>
+            </p>
+            <hr>
+            <p>Navigation icon</p>
+            <p>
+              <label class="mda-radio">
+                <input type="radio" name="headerMenulink" value="menu-link-close"><em class="bg-indigo-500"></em>Close icon
+              </label>
+            </p>
+            <p>
+              <label class="mda-radio">
+                <input type="radio" checked="" name="headerMenulink" value="menu-link-slide"><em class="bg-indigo-500"></em>Slide arrow
+              </label>
+            </p>
+            <p>
+              <label class="mda-radio">
+                <input type="radio" name="headerMenulink" value="menu-link-arrow"><em class="bg-indigo-500"></em>Big arrow
+              </label>
+            </p>
+            <hr>
+            <button type="button" data-toggle-fullscreen="" class="btn btn-default btn-raised">Toggle fullscreen</button>
+            <hr>
+            <p>Change language</p>
+            <!-- START Language list-->
+            <div class="btn-group">
+              <button type="button" data-toggle="dropdown" class="btn btn-default btn-block btn-raised">English</button>
+              <ul role="menu" class="dropdown-menu dropdown-menu-right animated fadeInUpShort">
+                <li><a href="#" data-set-lang="en">English</a></li>
+                <li><a href="#" data-set-lang="es">Spanish</a></li>
+              </ul>
+            </div>
+            <!-- END Language list-->
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+  </body>
+
+  <script>
+   $(document).on("turbolinks:load", function() {
+  var trigger = $('.hamburger'),
+      overlay = $('.overlay'),
+     isClosed = false;
+
+    trigger.click(function () {
+      hamburger_cross();      
+    });
+
+    function hamburger_cross() {
+
+      if (isClosed == true) {          
+        overlay.hide();
+        trigger.removeClass('is-open');
+        trigger.addClass('is-closed');
+        isClosed = false;
+      } else {   
+        overlay.show();
+        trigger.removeClass('is-closed');
+        trigger.addClass('is-open');
+        isClosed = true;
+      }
+  }
+  
+  $('[data-toggle="offcanvas"]').click(function () {
+        $('#wrapper').toggleClass('toggled');
+  });  
+});
+  </script>
+
+
+
+</html>

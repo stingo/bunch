@@ -50,6 +50,8 @@ gem 'fog-aws'
 
 gem 'acts-as-taggable-on', github: 'mbleigh/acts-as-taggable-on'
 
+gem "paperclip", "~> 5.0.0"
+
 
 
 gem 'figaro'

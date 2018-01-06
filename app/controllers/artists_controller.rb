@@ -33,7 +33,7 @@ class ArtistsController < ApplicationController
   # POST /artists.json
   def create
     @artist = current_profile.artists.build(artist_params)
-    @artist = Artist.new(artist_params)
+ 
 
     respond_to do |format|
       if @artist.save

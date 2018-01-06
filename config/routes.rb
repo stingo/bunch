@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :genres
   resources :artists
   resources :howcategories
   devise_for :profiles

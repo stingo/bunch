@@ -44,18 +44,18 @@
         </div>
         <div class="sidebar-content">
           <div class="sidebar-toolbar text-center">
-          	<% if @echo.profile.pesnavatar? %>
-        <%= link_to (image_tag(@echo.profile.pesnavatar.url(:large), :class => "img-circle thumb48 btn-raised btn-circle text-center", :alt =>"user")), profile_path(@echo.profile_id) %>
+          	<%# if @echo.profile.pesnavatar? %>
+        <%# link_to (image_tag(@echo.profile.pesnavatar.url(:large), :class => "img-circle thumb48 btn-raised btn-circle text-center", :alt =>"user")), profile_path(@echo.profile_id) %>
 
 
          
 
-        <% else %> 
-        <%= link_to (image_tag("noimage.jpg", :class => "media-object img-circle thumb40 btn-raised btn-circle text-center", :alt =>"user")), profile_path(@echo.profile_id) %>
+        <%# else %> 
+        <%# link_to (image_tag("noimage.jpg", :class => "media-object img-circle thumb40 btn-raised btn-circle text-center", :alt =>"user")), profile_path(@echo.profile_id) %>
 
 
-       <% end %>
-            <div class="mt">Welcome, <%= link_to @echo.profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ @echo.profile.last_name.split(" ").map(&:capitalize).join(" "), profile_path(@echo.profile_id) if @echo.profile.first_name || @echo.profile.last_name %> </div>
+       <%# end %>
+            <div class="mt">Welcome, <%# link_to @echo.profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ @echo.profile.last_name.split(" ").map(&:capitalize).join(" "), profile_path(@echo.profile_id) if @echo.profile.first_name || @echo.profile.last_name %> </div>
           </div>
           <nav class="sidebar-nav">
             <ul>

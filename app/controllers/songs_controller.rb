@@ -8,6 +8,7 @@ class SongsController < ApplicationController
   def index
     @songs = Song.all
     @artists = Artist.all
+    @genres = Genre.all
   end
 
   # GET /songs/1
@@ -20,17 +21,22 @@ class SongsController < ApplicationController
   # GET /songs/new
   def new
     @song = Song.new
+    @artists = Artist.all.map{|c| [ c.name, c.id ] }
+    @genres =   Genre.all.map{|c| [ c.name, c.id ] }
   end
 
   # GET /songs/1/edit
   def edit
     @song = Song.friendly.find(params[:id])
+
   end
 
   # POST /songs
   # POST /songs.json
   def create
    @song = current_profile.songs.build(song_params)
+   @song.artist_id = params[:artist_id] 
+   @song.genre_id = params[:genre_id]
    #@song = Song.friendly.find(params[:id])
 
 
@@ -49,6 +55,10 @@ class SongsController < ApplicationController
   # PATCH/PUT /songs/1.json
   def update
     @song = Song.friendly.find(params[:id])
+    @song.artist_id = params[:artist_id]
+    @song.genre_id = params[:genre_id]
+
+
     respond_to do |format|
       if @song.update(song_params)
         format.html { redirect_to @song, notice: 'Song was successfully updated.' }
@@ -97,6 +107,6 @@ class SongsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def song_params
-      params.require(:song).permit(:title, :description, :songcover, :sound, :slug, :artist_id, :lyricsbody1, :lyricschorus1, :lyricsbody2, :lyricschorus2, :lyricsbody3, :lyricschorus3, :youtubeurl)
+      params.require(:song).permit(:title, :description, :songcover, :sound, :mp3, :slug, :artist_id, :genre_id, :lyricsbody1, :lyricschorus1, :lyricsbody2, :lyricschorus2, :lyricsbody3, :lyricschorus3, :youtubeurl)
     end
 end

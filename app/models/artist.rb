@@ -1,7 +1,8 @@
 class Artist < ApplicationRecord
-	is_impressionable
-	belongs_to :profiles
+
+	belongs_to :profile
 	has_many :songs
+    is_impressionable
 
 	extend FriendlyId
   friendly_id :name, use: :slugged

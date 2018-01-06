@@ -20,26 +20,12 @@ class Profile < ApplicationRecord
 
 
 
-
-
-
-
- 
-
-
-
-   
-
-
-
-	
-
 	has_many :thing_industries
     has_many :industries, through: :thing_industries
     
 
 
-    #Destruy object when profile is removed	
+    #Destroy object when profile is removed	
 	has_many :events, dependent: :destroy
 	has_many :jobs, dependent: :destroy
 	has_many :hows, dependent: :destroy
@@ -49,6 +35,8 @@ class Profile < ApplicationRecord
 	has_many :listings, dependent: :destroy
 	has_many :echos, dependent: :destroy
 	has_many :comments, dependent: :destroy 
+	has_many :artists
+	has_many :genres
 
 
 

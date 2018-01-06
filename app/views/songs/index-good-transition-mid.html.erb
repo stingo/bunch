@@ -1,0 +1,182 @@
+  <html lang="en">
+<!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+  <title>Color Admin | Blog Concept Front End Theme</title>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+  <meta content="" name="description" />
+  <meta content="" name="author" />
+  
+  <!-- ================== BEGIN BASE CSS STYLE ================== -->
+
+  <!-- ================== END BASE CSS STYLE ================== -->
+    
+  <!-- ================== BEGIN BASE JS ================== -->
+  
+  <!-- ================== END BASE JS ================== -->
+</head>
+<body class="bg-upfrica-grey" style=" height: auto;">      
+
+
+
+<!-- begin #header -->
+ 
+        <!-- begin Howcat nav container -->
+        <div class="container m-b-10">
+            <!-- begin navbar-header -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="index.html" class="navbar-brand">
+                    
+                    <span class="brand-text m-l-10">
+                        MUSIC
+                    </span>
+                </a>
+            </div>
+            <!-- end navbar-header -->
+            <!-- begin navbar-collapse -->
+            <div class="collapse navbar-collapse" id="header-navbar">
+                <ul class="nav navbar-nav navbar-right">
+                   
+                    <li>
+                        <a href="javascript:;" data-toggle="dropdown">ALL ARTISTS <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <% @songs.each do |song| %>
+ 
+                            <li><%= link_to song.title, song  %> </li>
+
+                              <% end %>
+                            
+                        </ul>
+                    </li>
+                    
+                    <li><a href="/songs">BACK TO SONGS</a></li>
+                </ul>
+            </div>
+            <!-- end navbar-collapse -->
+        </div>
+        <!-- end how nav container -->
+   
+    <!-- end #header -->
+    
+
+<hr>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="transitions-enabled m-t-10" id="upfrica-pins">
+  <% @songs.each do |song| %>
+
+  <div id="music" class="music-section ">
+
+    <div class="albums-block">
+
+    <div class="box panel panel-default">
+
+      <div class="record-holder">
+
+      <% if song.songcover? %>
+
+      <%= link_to (image_tag(song.songcover.url(:thumb), :class => "img-responsive", :alt =>"Song image")), song_path(song) %>
+      
+      </div>
+     
+
+      
+                               
+      <% else %>
+
+      <% end %>
+
+
+
+
+      <h2>
+        <%= link_to (truncate(sanitize(song.title.titleize, tags: %w(strong em p u br #ff0000 font-size)),:class =>"blk in-inner m-t-5", length: 120)), song %>
+      </h2>
+      
+
+      <p class="profile">
+
+
+
+    <div class="post-left-info">
+                      <% if song.profile.pesnavatar? %>
+        <%= link_to (image_tag(song.profile.pesnavatar.url(:large), :class => "m-l-20 img-circle thumb48 btn-raised btn-circle text-center", :alt =>"profile image")), profile_path(song.profile_id) %>
+
+
+        <% else %> 
+        <%= link_to (image_tag("noimage.jpg", :class => "media-object img-circle thumb40 btn-raised btn-circle text-center", :alt =>"profile image")), profile_path(@cho.profile_id) %>
+
+
+               <% end %>
+
+
+     </div>
+
+
+
+
+
+
+            <div class="post-by">
+             Published By <%= link_to song.profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ song.profile.last_name.split(" ").map(&:capitalize).join(" "), profile_path(song.profile_id) if song.profile.first_name || song.profile.last_name %>, <%="#{time_ago_in_words(song.created_at)} ago"%>  <span class="divider">|</span> <%# link_to Howcategory.friendly.find(echo.echocategory_id).name, ehowcategory_path(echo.echocategory_id) %><span class="divider">|</span>
+                                        <%= pluralize(song.impressionist_count(:filter=>:session_hash), "View") %> <span class="divider">|</span> <%# pluralize(how.comment_threads.size, "Comment")%> <%# how.tag_counts.map(&:name) %>
+             </div>
+      </p>
+
+
+
+    </div>  <!--box panel ends-->
+  </div> <!--album block ends-->
+  </div> <!--music id/section ends-->
+  <% end %> <!--songs.each ends-->
+
+
+</div><!--transition ends-->  
+
+  
+
+<!--div class="section-container">
+                        
+                        <!-begin pagination 
+                        <div class="pagination-container text-center">
+                            <%# will_paginate @songs %>
+                        </div>
+                         end pagination 
+                    </div-->
+ <div id="music" class="music-section text-center">
+ <div class="albums-block">
+          
+                            <div class="cover-holder">
+                                
+                                <a class="cover-figure" href="#">
+                                   
+                                    <div class="record-holder"><img class="img-responsive" src="<%= image_url('record.png') %>" alt=""></div>
+                                    <img class="cover-image img-responsive" src="<%= image_url('album-cover-4.jpg') %>" alt="">
+                                    
+
+                                </a><!--//cover-figure-->
+
+                              
+                               
+                            </div><!--//cover-holder-->
+                            
+                </div>
+              </div>
+
+</body>
+</html>
