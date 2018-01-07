@@ -2,6 +2,8 @@ class Echocategory < ApplicationRecord
 	has_many :echos
 	belongs_to :profile
 
+	
+
 	extend FriendlyId
          friendly_id :name, use: :slugged
 

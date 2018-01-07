@@ -4,7 +4,8 @@ class Echo < ApplicationRecord
 
 	validates :headline, presence: true
 	validates :body, presence: true
-	validates :echocategory_id, presence: true
+	validates :echocategory, presence: true
+  
 
 	is_impressionable
 

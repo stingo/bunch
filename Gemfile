@@ -70,7 +70,7 @@ gem 'mail_form', '~> 1.5', '>= 1.5.1'
 gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
 #gem 'social-share-button', '~> 0.1.10'
 
-gem 'masonry-rails', '~> 0.2.4'
+gem 'masonry-rails'
 
 gem 'acts_as_commentable_with_threading', '~> 2.0', '>= 2.0.1'
 

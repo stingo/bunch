@@ -33,7 +33,6 @@
 // require songs
 //= require YTPlayer.min
 //= require lightbox
-//= require masonry/jquery.masonry
 //= require bootstrap-datepicker
 //= require summernote
 //= require btsnip

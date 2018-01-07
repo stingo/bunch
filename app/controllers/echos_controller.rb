@@ -66,6 +66,7 @@ class EchosController < ApplicationController
     @echo = Echo.new
     @echocategories = Echocategory.all.map{|c| [ c.name, c.id ] }
     @tag = Tag.new
+    
 
 
   end
