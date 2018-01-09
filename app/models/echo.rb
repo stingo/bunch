@@ -1,10 +1,10 @@
 class Echo < ApplicationRecord
 	belongs_to :profile, foreign_key:"profile_id"
-	belongs_to :echocategory, :optional => true
+	belongs_to :echocategory
 
 	validates :headline, presence: true
 	validates :body, presence: true
-	validates :echocategory, presence: true
+	validates :echocategory_id, presence: true
   
 
 	is_impressionable

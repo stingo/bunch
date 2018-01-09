@@ -82,7 +82,7 @@ class EchosController < ApplicationController
   # POST /echos.json
   def create
     @echo = current_profile.echos.build(echo_params)
-    @echo.echocategory_id = params[:echocategory_id] 
+    #@echo.echocategory_id = params[:echocategory_id] 
 
     respond_to do |format|
       if @echo.save
