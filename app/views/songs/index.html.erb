@@ -77,14 +77,19 @@
 
 
 
-<div class="transitions-enabled infinite-scroll clearfix m-t-10" id="upfrica-pins">
- 
-  <% @songs.each do |song| %>
+<% @songs.each_slice(5) do |slice| %>
+  <div class="col-md-12 clmn-gaps" >
+  <br>
+
+    <% slice.each do |song| %>
+    <div class="col-md-2 col-lg-2 panel panel-default " style="padding: 0px!important; margin: 10px">
 
 
 
-    <div class="box panel panel-default">
- <ul id="playlist" class="">
+     
+
+   
+ <ul id="playlist" class="playlist-hov">
        
 <li song="<%= song.sound.url if song.sound %>" cover="<%= song.songcover.url if song.songcover %>" artist="<%= Artist.find(song.artist_id).name if song.artist %>" title="<%= truncate(song.title, length: 14) %>">
 
@@ -95,7 +100,7 @@
           
                             <div class="cover-holder">
                                 
-                                <a class="cover-figure" href="<%= song_path(song) %>">
+                                <a class="cover-figure" href="<%# song_path(song) %>">
                                    
                                     <div class="record-holder"><img class="img-responsive" src="<%= image_url('record.png') %>" alt=""></div>
                            
@@ -117,9 +122,9 @@
 
 </ul>
 
-      <h2>
-        <%= link_to (truncate(sanitize(song.title.titleize, tags: %w(strong em p u br #ff0000 font-size)),:class =>"blk in-inner m-t-5", length: 120)), song %>
-      </h2>
+    <span class="text-center pnk" style="padding: 10px!important">
+        <%= link_to (truncate(sanitize(song.title.titleize), :class =>"text-center", length: 120)), song %>
+    </span>
       
 
       <p class="profile">
@@ -128,11 +133,11 @@
 
     <div class="post-left-info">
                       <% if song.profile.pesnavatar? %>
-        <%= link_to (image_tag(song.profile.pesnavatar.url(:large), :class => "m-l-20 img-circle thumb48 btn-raised btn-circle text-center", :alt =>"profile image")), profile_path(song.profile_id) %>
+        <%= link_to (image_tag(song.profile.pesnavatar.url(:large), :class => "m-l-10 img-circle thumb48 btn-raised btn-circle text-center", :alt =>"profile image")), profile_path(song.profile_id) %>
 
 
         <% else %> 
-        <%= link_to (image_tag("noimage.jpg", :class => "media-object img-circle thumb40 btn-raised btn-circle text-center", :alt =>"profile image")), profile_path(@cho.profile_id) %>
+        <%= link_to (image_tag("noimage.jpg", :class => "m-l-10 img-circle thumb48 btn-raised btn-circle text-center", :alt =>"profile image")), profile_path(@cho.profile_id) %>
 
 
                <% end %>
@@ -151,14 +156,17 @@
              </div>
       </p>
 
+</div>
 
+<% end %> 
 
-    </div>  <!--box panel ends-->
+   <!--box panel ends-->
+  </div>
 
   <% end %> <!--songs.each ends-->
 
 
-</div><!--transition ends-->  
+
 
   
 
@@ -364,5 +372,9 @@ function showDuration(){
     $('#progress').css('width',value+'%');
   });
 }</script>
+
+
+
+
 
 

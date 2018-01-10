@@ -653,12 +653,12 @@ label {
   bottom: -20px;
 }
 .music-section .albums-block .cover-figure {
-  max-width: 235px;
-  max-height: 235px;
+  width: auto;
+  height:auto;
   position: relative;
   display: inline-block;
-  margin-bottom: 15px;
-  background: #101113;
+  margin-bottom: 0px;
+  background: none;
   -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
@@ -670,8 +670,8 @@ label {
   opacity: 0.95;
 }
 .music-section .albums-block .cover-figure .record-holder {
-  max-width: 235px;
-  max-height: 235px;
+  width: auto;
+  height:auto;
   display: inline-block;
   position: absolute;
   right: -10px !important;

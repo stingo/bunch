@@ -22,6 +22,13 @@
 .custombgD9E0E7 {
   background: rgba(0, 0, 0, 0) linear-gradient(40deg, #d1edf0 10%, #ecc8c6 100%) !important; 
 }
+
+.clmn-gaps {
+    -webkit-column-gap: 40px; /* Chrome, Safari, Opera */
+    -moz-column-gap: 40px; /* Firefox */
+    column-gap: 40px;
+}
+
 /*Upfrica Nav & logo*/
 .upfrica-navbar.upfrica-navbar-inverse .upfrica-navbar-form .upfrica-form-control {
     background: url(../img/transparent/black-0.2.png);
@@ -815,17 +822,20 @@ margin-bottom: 0px !important;
 
 .wht a:visited {
 
-	color:#FFFFFF;
+	color:#FFFFFF !important;
+    text-decoration: none;
 
 }
 .wht a:hover {
 
-	color:#eeeeee;
+	color:#eeeeee !important;
+    text-decoration: none;
 
 }
 .wht a:active {
 
-	color:#FFFFFF;
+	color:#FFFFFF !important;
+    text-decoration: none;
 
 }
 
@@ -837,17 +847,20 @@ margin-bottom: 0px !important;
 
 .blu a:visited {
 
-  color:#167ac6;
+  color:#167ac6 !important;
+    text-decoration: none;
 
 }
 .blu a:hover {
 
-  color:#167ac6;
+  color:#167ac6 !important;
+    text-decoration: none;
 
 }
 .blu a:active {
 
-  color:#167ac6;
+  color:#167ac6 !important;
+    text-decoration: none;
 
 }
 
@@ -859,17 +872,20 @@ margin-bottom: 0px !important;
 
 .blk a:visited {
 
-    color:#000000;
+    color:#000000 !important;
+    text-decoration: none;
 
 }
 .blk a:hover {
 
-    color:#000000;
+    color:#000000 !important;
+    text-decoration: none;
 
 }
 .blk a:active {
 
-    color:#000000;
+    color:#000000 !important;
+    text-decoration: none;
 
 }
 
@@ -878,17 +894,20 @@ margin-bottom: 0px !important;
 
 .pnk a:visited {
 
-    color:#E91E63;
+    color:#E91E63 !important;
+    text-decoration: none;
 
 }
 .pnk a:hover {
 
-    color:#AD1457;
+    color:#AD1457 !important;
+    text-decoration: none;
 
 }
 .pnk a:active {
 
-    color:#E91E63;
+    color:#E91E63 !important;
+    text-decoration: none;
 
 }
 
@@ -2280,6 +2299,19 @@ button#next{
     margin:0px;
 }
 
+#playlist:hover {
+
+  cursor: pointer;
+  position: relative;
+  width: auto;
+  padding: 0px!important;
+
+  box-shadow: 0 8px 17px rgba(22, 24, 27, 0.2);
+
+}
+
+
+
 #tracker{
   position:relative;
   width:100%;
@@ -2287,8 +2319,8 @@ button#next{
 
 #playlist li.active {
     font-weight: bold;
-  padding:3px;
-  background:#666;
+  padding:0px;
+  background:none;
 }
 
 /*#progressBar { 
