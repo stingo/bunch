@@ -2253,28 +2253,29 @@ input#volume::-webkit-slider-thumb {
 button#play{
   width:25px;
   height:25px;
-  background:url(play.png) no-repeat;float:left;
+  /*background:url(play.png) no-repeat;float:left;*/
   border: none !important;
 }
 
 button#pause{
   width:25px;
   height:25px;
-  background:url(pause.png) no-repeat;float:left;
+  /*background:url(pause.png) no-repeat;float:left;
+  border: none !important;*/
   border: none !important;
 }
 
 button#stop{
   width:25px;
   height:25px;
-  background:url(stop.png) no-repeat;float:left;
+  /*background:url(stop.png) no-repeat;float:left;*/
   border: none !important;
 }
 
 button#prev{
   width:25px;
   height:25px;
-  background:url(prev.png) no-repeat;
+  /*background:url(prev.png) no-repeat;*/
   float:left;
   margin-top:0px;
   border: none !important;
@@ -2283,7 +2284,7 @@ button#prev{
 button#next{
   width:25px;
   height:25px;
-  background:url(next.png) no-repeat;
+  /*background:url(next.png) no-repeat;*/
   float:right;
   margin-top:0px;
   border: none !important;
@@ -2393,7 +2394,7 @@ display:inline-block;
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
-  height: 60px;
+  height: 70px;
   background-color: #000000;
   border-top: 1px solid rgba(0, 0, 0, 0.15);
   z-index:999;

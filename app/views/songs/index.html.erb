@@ -15,7 +15,7 @@
   
   <!-- ================== END BASE JS ================== -->
 </head>
-<body class="bg-upfrica-grey" style=" height: auto;">      
+<body class="custombgD9E0E7" style=" height: auto;">      
 
 
 
@@ -78,7 +78,7 @@
 
 
 <% @songs.each_slice(5) do |slice| %>
-  <div class="col-md-12 clmn-gaps" >
+  <div class="col-md-12" style="margin-bottom: 70px">
   <br>
 
     <% slice.each do |song| %>
@@ -100,7 +100,7 @@
           
                             <div class="cover-holder">
                                 
-                                <a class="cover-figure" href="<%# song_path(song) %>">
+                                <a class="cover-figure">
                                    
                                     <div class="record-holder"><img class="img-responsive" src="<%= image_url('record.png') %>" alt=""></div>
                            
@@ -122,7 +122,7 @@
 
 </ul>
 
-    <span class="text-center pnk" style="padding: 10px!important">
+    <span class="text-center pnk brand-text" style="padding: 10px!important">
         <%= link_to (truncate(sanitize(song.title.titleize), :class =>"text-center", length: 120)), song %>
     </span>
       
@@ -151,7 +151,7 @@
 
 
             <div class="post-by">
-             Published By <%= link_to song.profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ song.profile.last_name.split(" ").map(&:capitalize).join(" "), profile_path(song.profile_id) if song.profile.first_name || song.profile.last_name %>, <%="#{time_ago_in_words(song.created_at)} ago"%>  <span class="divider">|</span> <%# link_to Howcategory.friendly.find(echo.echocategory_id).name, ehowcategory_path(echo.echocategory_id) %><span class="divider">|</span>
+             Uploaded By <%= link_to song.profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ song.profile.last_name.split(" ").map(&:capitalize).join(" "), profile_path(song.profile_id) if song.profile.first_name || song.profile.last_name %>, <%="#{time_ago_in_words(song.created_at)} ago"%>  <span class="divider">|</span> <%# link_to Howcategory.friendly.find(echo.echocategory_id).name, ehowcategory_path(echo.echocategory_id) %><span class="divider">|</span>
                                         <%= pluralize(song.impressionist_count(:filter=>:session_hash), "View") %> <span class="divider">|</span> <%# pluralize(how.comment_threads.size, "Comment")%> <%# how.tag_counts.map(&:name) %>
              </div>
       </p>
@@ -164,7 +164,6 @@
   </div>
 
   <% end %> <!--songs.each ends-->
-
 
 
 
@@ -185,17 +184,13 @@
      <div class="audio-player">
 
 
-<footer class="footer" style="margin-top: -60px !important">
+<footer class="footer" style="margin-top: -70px !important">
 
   <!--div id="audio-image">
     <img class="cover" />
   </div-->
 
-    <div class="album-info">
-          <div id="cover">
-              <img  class="img-responsive" src="images/album-cover.jpg" alt="Image">
-          </div>
-    </div>
+
 
 
 
@@ -206,23 +201,30 @@
     
     <div id="audio-info">
       <span class="artist"></span> - <span class="title"></span>
+
+      <br>
+
+      <span id="progress" style=""></span>
+
+
+
     </div>
      <!--input id="volume" type="range" min="0" max="10" value="5" /-->
      
  
      
      <div class="jp-type-playlist">
-      <div class="jp-interface">
+      <div class="jp-interface" >
 
-     <div id="buttons" class="jp-controls">
-     <span class="jp-controls" style="max-height: 25px;">
-      <button id="prev"></button>
+     <div id="buttons" class="  ">
+    
+      <button id="prev" style="background: #1E2329"><i class="fa fa-step-backward" style="font-size: 32px; color:#4EF604"></i></button>
 
-      <button id="stop"></button>
-      <button id="next"></button>
-      <button id="play"></button>
-      <button id="pause"></button>
-      </span><span id="progress"></span>
+      <button id="stop" style="background: #1E2329"><i class="fa fa-stop" style="font-size: 25px; color:#4EF604"></i></button>
+      <button id="next" style="background: #1E2329"><i class="fa fa-step-forward" style="font-size: 25px; color:#4EF604;"></i></button>
+      <button id="play" style="background: #1E2329"><i class="fa fa-play" style="font-size: 25px; color:#4EF604"></i></button>
+      <button id="pause" style="background: #1E2329"><i class="fa fa-pause" style="font-size: 25px; color:#4EF604"></i></button>
+  
        </div>
 
 
