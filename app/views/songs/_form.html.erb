@@ -16,24 +16,7 @@
 
   <div class="form-inputs">
     <%= f.input :title %>
-    <div class="col-md-5 col-sm-8">
-
-                       <label>Select a Artist for this Song</label>
-
-
-                       <%= f.collection_select :artist_id, Artist.all, :id, :name, {:include_blank => 'Select Artist'}, :class => "form-control", input_html: { class: "dropdown-toggle "} %>
-                      
-                    </div>
-
-                    <div class="col-md-5 col-sm-8">
-
-                       <label>Select a Genre for this Song</label>
-
-
-                       <%= f.collection_select :genre_id, Genre.all, :id, :name, {:include_blank => 'Select Genre'}, :class => "form-control", input_html: { class: "dropdown-toggle "} %>
-                      
-                    </div>
-
+   
 
 
 

@@ -4,8 +4,7 @@ class Song < ApplicationRecord
 	belongs_to :genre, :optional => true
 
   validates :title, presence: true
-  validates :artist_id, presence: true
-  validates :genre_id, presence: true
+
 
 #carrierwavw
 	mount_uploader :songcover, SongcoverUploader
