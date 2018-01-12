@@ -30,7 +30,7 @@
                        <label>Select a Genre for this Song</label>
 
 
-                       <%= f.collection_select :artist_id, Genre.all, :id, :name, {:include_blank => 'Select Genre'}, :class => "form-control", input_html: { class: "dropdown-toggle "} %>
+                       <%= f.collection_select :genre_id, Genre.all, :id, :name, {:include_blank => 'Select Genre'}, :class => "form-control", input_html: { class: "dropdown-toggle "} %>
                       
                     </div>
 

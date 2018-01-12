@@ -77,12 +77,12 @@
 
 
 
-<% @songs.each_slice(5) do |slice| %>
-  <div class="col-md-12" style="margin-bottom: 70px">
+<% @songs.each_slice(6) do |slice| %>
+  <div class="container-fluid" style="margin-bottom: 70px">
   <br>
 
     <% slice.each do |song| %>
-    <div class="col-md-2 col-lg-2 panel panel-default " style="padding: 0px!important; margin: 10px">
+    <div class="col-md-2 col-lg-2 panel panel-default " style="padding: 0px!important; margin: 5px">
 
 
 
@@ -91,7 +91,7 @@
    
  <ul id="playlist" class="playlist-hov">
        
-<li song="<%= song.sound.url if song.sound %>" cover="<%= song.songcover.url if song.songcover %>" artist="<%= Artist.find(song.artist_id).name if song.artist %>" title="<%= truncate(song.title, length: 14) %>">
+<li song="<%= song.sound.url if song.sound %>" cover="<%= song.songcover.url(:thumb) if song.songcover %>" artist="<%= Artist.find(song.artist_id).name if song.artist %>" title="<%= truncate(song.title, length: 14) %>">
 
 <!--records effects starts-->
      <div id="music" class="music-section text-center">
@@ -102,7 +102,7 @@
                                 
                                 <a class="cover-figure">
                                    
-                                    <div class="record-holder"><img class="img-responsive" src="<%= image_url('record.png') %>" alt=""></div>
+                                    <div class="record-holder img-responsive"><img class="img-responsive" src="<%= image_url('record.png') %>" alt=""></div>
                            
 
                                     <%=  image_tag(song.songcover.url(:thumb), :class => "cover-image img-responsive", :alt =>"Song image") %>
@@ -200,7 +200,18 @@
 
     
     <div id="audio-info">
-      <span class="artist"></span> - <span class="title"></span>
+      <span class="artist"></span> - <span class="title"> </span>  
+
+
+      <!--span class="cover" style="color: #fff;">gggg</span-->
+
+
+        <div class="pull-right">
+          
+           <img class="cover" />          
+      
+
+           </div>
 
       <br>
 
@@ -213,34 +224,51 @@
      
  
      
-     <div class="jp-type-playlist">
-      <div class="jp-interface" >
 
      <div id="buttons" class="  ">
     
-      <button id="prev" style="background: #1E2329"><i class="fa fa-step-backward" style="font-size: 32px; color:#4EF604"></i></button>
+      <button id="prev" style="background: #1E2329"><i class="fa fa-step-backward" style="font-size: 25px; color:#4EF604"></i></button> 
 
       <button id="stop" style="background: #1E2329"><i class="fa fa-stop" style="font-size: 25px; color:#4EF604"></i></button>
-      <button id="next" style="background: #1E2329"><i class="fa fa-step-forward" style="font-size: 25px; color:#4EF604;"></i></button>
+      <button id="next" style="background: #1E2329"><i class="fa fa-step-forward" style="font-size: 25px; color:#4EF604;"></i></button>  
       <button id="play" style="background: #1E2329"><i class="fa fa-play" style="font-size: 25px; color:#4EF604"></i></button>
       <button id="pause" style="background: #1E2329"><i class="fa fa-pause" style="font-size: 25px; color:#4EF604"></i></button>
-  
+ 
        </div>
 
 
+  <!--div id="buttons" class="play-container">
+  <div class="play-col" style="background:orange">
+111
+  </div>
+
+  <div class="play-col" style="background:yellow">
+22222
+  </div>
+
+  <div class="play-col" style="background:orange">
+33333
+  </div>
+</div-->
 
 
 
 
-     </div>
-   </div>
+
+
+    
 
 
      <div class="clearfix"></div>
      
       <span id="duration"></span>
-     </div>
-         <div id="audio-info">
+
+     
+
+      
+     
+
+
       
   
     </footer>
