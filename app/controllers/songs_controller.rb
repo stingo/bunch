@@ -35,8 +35,8 @@ class SongsController < ApplicationController
   # POST /songs.json
   def create
    @song = current_profile.songs.build(song_params)
-   @song.artist_id = params[:artist_id] 
-   @song.genre_id = params[:genre_id]
+   #@song.artist_id = params[:artist_id] 
+   #@song.genre_id = params[:genre_id]
    #@song = Song.friendly.find(params[:id])
 
 
