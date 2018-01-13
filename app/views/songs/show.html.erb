@@ -1,111 +1,84 @@
-<style>
-
-  #canvas {
-    width: 100%;
-    height: 250px;
-  }
-
-  audio {
-    width: calc(100% - 20px);
-  }
-</style>
-
-<div class="col-sm-12">
-  <p id="notice"><%= notice %></p>
-
-  <div class="col-sm-12 text-left"><strong>Title: </strong><%= @song.title %></div>
-
-  <div class="col-sm-3">
-    <% if @song.songcover? %>
-      <%= image_tag(@song.songcover_url(:thumb), style: 'width: 100%; height: 250px', alt: 'Song cover') %>
-    <% else %>
-      <%= image_tag('http://via.placeholder.com/468x400', class: 'img-responsive', style: 'width: 100%; height: 250px', alt: 'song image') %>
-    <%- end %>
-
-    <p class="text-left">Played <strong><%= @song.impressionist_count %></strong> times.</p>
-    <p class="text-left">
-      <%= link_to 'Edit', edit_song_path(@song) %> |
-      <%= link_to 'Back', songs_path %> |
-      <%= link_to 'Destroy', @song, method: :delete, data: { confirm: 'Are you sure?' } %>
-    </p>
+<nav class="navbar navbar-inverse sidebar" role="navigation">
+    <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Brand</a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
+        <li ><a href="#">Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
+        <li ><a href="#">Messages<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-envelope"></span></a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
+          <ul class="dropdown-menu forAnimate" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
+        <li ><a href="#">Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
+        <li ><a href="#">Messages<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-envelope"></span></a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
+          <ul class="dropdown-menu forAnimate" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
   </div>
-
-  <div class="col-sm-9">
-    <input type="hidden" name="audio_file" id="audio-file" value="<%= @song.sound.url %>">
-    <canvas id="canvas"></canvas>
-    <audio id="audio" controls>
-      <source src="<%= @song.sound.url %>" type="audio/mpeg">
-    </audio>
-  </div>
+</nav>
+<div class="main">
+<!-- Content Here -->
 </div>
-
-<%= @song.sound.url %>
-
-<!--script for player-->
 <script>
-//  $(document).ready(function(){
-//    window.onload = function() {
-//
-//      var file = document.getElementById("audio-file").value;
-//      var audio = document.getElementById("audio");
-//      audio.crossOrigin = "anonymous";
-////      audio.src = file;
-////      audio.load();
-////      audio.play();
-//      var context = new AudioContext();
-//      var src = context.createMediaElementSource(audio);
-//      var analyser = context.createAnalyser();
-//
-//      var canvas = document.getElementById("canvas");
-//      canvas.width = window.innerWidth;
-//      canvas.height = window.innerHeight;
-//      var ctx = canvas.getContext("2d");
-//
-//      src.connect(analyser);
-//      analyser.connect(context.destination);
-//
-//      analyser.fftSize = 256;
-//
-//      var bufferLength = analyser.frequencyBinCount;
-//      console.log(bufferLength);
-//
-//      var dataArray = new Uint8Array(bufferLength);
-//
-//      var WIDTH = canvas.width;
-//      var HEIGHT = canvas.height;
-//
-//      var barWidth = (WIDTH / bufferLength) * 2.5;
-//      var barHeight;
-//      var x = 0;
-//
-//      function renderFrame() {
-//        requestAnimationFrame(renderFrame);
-//
-//        x = 0;
-//
-//        analyser.getByteFrequencyData(dataArray);
-//
-//        ctx.fillStyle = "#000";
-//        ctx.fillRect(0, 0, WIDTH, HEIGHT);
-//
-//        for (var i = 0; i < bufferLength; i++) {
-//          barHeight = dataArray[i];
-//
-//          var r = barHeight + (25 * (i/bufferLength));
-//          var g = 250 * (i/bufferLength);
-//          var b = 50;
-//
-//          ctx.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
-//          ctx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
-//
-//          x += barWidth + 1;
-//        }
-//      };
-//
-////      audio.play();
-//      renderFrame();
-//    }();
-//  });
-</script>
 
+
+
+    function htmlbodyHeightUpdate(){
+    var height3 = $( window ).height()
+    var height1 = $('.nav').height()+50
+    height2 = $('.main').height()
+    if(height2 > height3){
+      $('html').height(Math.max(height1,height3,height2)+10);
+      $('body').height(Math.max(height1,height3,height2)+10);
+    }
+    else
+    {
+      $('html').height(Math.max(height1,height3,height2));
+      $('body').height(Math.max(height1,height3,height2));
+    }
+    
+  }
+  $(document).ready(function () {
+    htmlbodyHeightUpdate()
+    $( window ).resize(function() {
+      htmlbodyHeightUpdate()
+    });
+    $( window ).scroll(function() {
+      height2 = $('.main').height()
+        htmlbodyHeightUpdate()
+    });
+  });
+
+  </script>
 

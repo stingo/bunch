@@ -1,66 +1,89 @@
-<nav class="navbar navbar-inverse sidebar" role="navigation">
-    <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Brand</a>
-    </div>
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
-        <li ><a href="#">Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
-        <li ><a href="#">Messages<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-envelope"></span></a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
-          <ul class="dropdown-menu forAnimate" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
-        <li><a href="#">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
-        <li ><a href="#">Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
-        <li ><a href="#">Messages<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-envelope"></span></a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
-          <ul class="dropdown-menu forAnimate" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+  <html lang="en">
+<!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+  <title>Color Admin | Blog Concept Front End Theme</title>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+  <meta content="" name="description" />
+  <meta content="" name="author" />
+  
+  <!-- ================== BEGIN BASE CSS STYLE ================== -->
+
+  <!-- ================== END BASE CSS STYLE ================== -->
+    
+  <!-- ================== BEGIN BASE JS ================== -->
+  
+  <!-- ================== END BASE JS ================== -->
+</head>
+<body class="custombgD9E0E7" style=" height: auto;">      
+
+
+
+<!-- begin #header -->
+ 
+        <!-- begin Howcat nav container -->
+        <div class="container m-b-10">
+            <!-- begin navbar-header -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="index.html" class="navbar-brand">
+                    
+                    <span class="brand-text m-l-10">
+                        MUSIC
+                    </span>
+                </a>
+            </div>
+            <!-- end navbar-header -->
+            <!-- begin navbar-collapse -->
+            <div class="collapse navbar-collapse" id="header-navbar">
+                <ul class="nav navbar-nav navbar-right">
+                   
+                    <li>
+                        <a href="javascript:;" data-toggle="dropdown">ALL ARTISTS <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <% @songs.each do |song| %>
+ 
+                            <li><%= link_to song.title, song  %> </li>
+
+                              <% end %>
+                            
+                        </ul>
+                    </li>
+                    
+                    <li><a href="/songs">BACK TO SONGS</a></li>
+                </ul>
+            </div>
+            <!-- end navbar-collapse -->
+        </div>
+        <!-- end how nav container -->
+   
+    <!-- end #header -->
+    
+
+<hr>
 
 
 
 
 
 
-<div class="main bg-upfrica-grey">
-<!-- Content Here -->
+
+
+
+
+
+
 <% @songs.each_slice(8) do |slice| %>
-  <div class="container-fluid gid" style="margin-bottom: 70px">
+  <div class="container-fluid" style="margin-bottom: 70px">
   <br>
 
     <% slice.each do |song| %>
-    <div class="col-md-2 col-lg-2 panel panel-default " style="padding: 0px!important; margin: 10px">
+    <div class="col-md-2 col-lg-2 panel panel-default " style="padding: 0px!important; margin: 5px">
+
 
 
      
@@ -68,18 +91,7 @@
    
  <ul id="playlist" class="playlist-hov">
        
-<li song="<%= song.sound.url if song.sound %>" 
-
-<% if song.songcover? %>
-  cover="<%= song.songcover.url(:thumb) %>"
-  <% else %>
-
-cover="<%= image_url('nosongcover-thumb.jpg') %>"
-  <% end %> 
-
-
-
-  artist="<%= Artist.find(song.artist_id).name if song.artist %>" title="<%= truncate(song.title, length: 14) %>">
+<li song="<%= song.sound.url if song.sound %>" cover="<%= song.songcover.url(:thumb) if song.songcover %>" artist="<%= Artist.find(song.artist_id).name if song.artist %>" title="<%= truncate(song.title, length: 14) %>">
 
 <!--records effects starts-->
      <div id="music" class="music-section text-center">
@@ -114,11 +126,11 @@ cover="<%= image_url('nosongcover-thumb.jpg') %>"
 
 </ul>
 
-    <div class="" style="padding: 0px 10px 0px 10px">
-       <span class="blk"> <% if song.artist %><%= link_to (truncate(sanitize(Artist.find(song.artist_id).name.titleize), :class =>'pnk', length: 10)), artist_path(song.artist_id) %> - <% else %> <% end %> </span>
+    <div class="upfrica-pad-10">
+       <span class="blk"> <% if song.artist %><%= link_to (truncate(sanitize(Artist.find(song.artist_id).name.titleize), :class =>'pnk', length: 17)), artist_path(song.artist_id) %> - <% else %> <% end %> </span>
 
 
-        <span class="pnk"><%= link_to (truncate(sanitize(song.title.titleize), :class =>"pnk ", length: 16)), song if song.title %></span>
+        <span class="pnk"><%= link_to (truncate(sanitize(song.title.titleize), :class =>"pnk ", length: 17)), song if song.title %></span>
     </div >
       
 
@@ -128,7 +140,7 @@ cover="<%= image_url('nosongcover-thumb.jpg') %>"
 
     <div class="post-left-info">
                       <% if song.profile.pesnavatar? %>
-        <%= link_to (image_tag(song.profile.pesnavatar.url(:large), :class => "m-l-10 img-circle thumb32 btn-raised btn-circle text-center", :alt =>"profile image")), profile_path(song.profile_id) %>
+        <%= link_to (image_tag(song.profile.pesnavatar.url(:large), :class => "m-l-10 img-circle thumb48 btn-raised btn-circle text-center", :alt =>"profile image")), profile_path(song.profile_id) %>
 
 
         <% else %> 
@@ -145,9 +157,8 @@ cover="<%= image_url('nosongcover-thumb.jpg') %>"
 
 
 
-            <div class="post-by upfrica-pad-10">
-
-             <i class="ion-ios-cloud-upload-outline fa-2x text-default"></i> by <%= link_to song.profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ song.profile.last_name.split(" ").map(&:capitalize).join(" "), profile_path(song.profile_id) if song.profile.first_name || song.profile.last_name %>, <%="#{time_ago_in_words(song.created_at)} ago"%>  <span class="divider">|</span> <%= link_to Genre.friendly.find(song.genre_id).name, genre_path(song.genre_id) %><span class="divider">|</span>
+            <div class="post-by">
+             Uploaded By <%= link_to song.profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ song.profile.last_name.split(" ").map(&:capitalize).join(" "), profile_path(song.profile_id) if song.profile.first_name || song.profile.last_name %>, <%="#{time_ago_in_words(song.created_at)} ago"%>  <span class="divider">|</span> <%# link_to Howcategory.friendly.find(echo.echocategory_id).name, ehowcategory_path(echo.echocategory_id) %><span class="divider">|</span>
                                         <%= pluralize(song.impressionist_count(:filter=>:session_hash), "View") %> <span class="divider">|</span> <%# pluralize(how.comment_threads.size, "Comment")%> <%# how.tag_counts.map(&:name) %>
              </div>
       </p>
@@ -160,6 +171,10 @@ cover="<%= image_url('nosongcover-thumb.jpg') %>"
   </div>
 
   <% end %> <!--songs.each ends-->
+
+
+
+  
 
 <!--div class="section-container">
                         
@@ -266,9 +281,14 @@ cover="<%= image_url('nosongcover-thumb.jpg') %>"
     </footer>
 
     </div><!--audio player-->
-</div><!-- Content ends -->
 
 
+
+
+
+
+</body>
+</html>
 
 
 
@@ -394,38 +414,4 @@ function showDuration(){
 
 
 
-<!-- layout script-->
-
-
-<script>
-
-
-
-    function htmlbodyHeightUpdate(){
-    var height3 = $( window ).height()
-    var height1 = $('.nav').height()+50
-    height2 = $('.main').height()
-    if(height2 > height3){
-      $('html').height(Math.max(height1,height3,height2)+10);
-      $('body').height(Math.max(height1,height3,height2)+10);
-    }
-    else
-    {
-      $('html').height(Math.max(height1,height3,height2));
-      $('body').height(Math.max(height1,height3,height2));
-    }
-    
-  }
-  $(document).ready(function () {
-    htmlbodyHeightUpdate()
-    $( window ).resize(function() {
-      htmlbodyHeightUpdate()
-    });
-    $( window ).scroll(function() {
-      height2 = $('.main').height()
-        htmlbodyHeightUpdate()
-    });
-  });
-
-  </script>
 
