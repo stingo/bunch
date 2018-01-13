@@ -72,14 +72,11 @@
 
 <% if song.songcover? %>
   cover="<%= song.songcover.url(:thumb) %>"
-  <% else %>
-
+ <% else %>
 cover="<%= image_url('nosongcover-thumb.jpg') %>"
-  <% end %> 
+  <% end %>
 
-
-
-  artist="<%= Artist.find(song.artist_id).name if song.artist %>" title="<%= truncate(song.title, length: 14) %>">
+artist="<%= Artist.find(song.artist_id).name if song.artist %>" title="<%= truncate(song.title.titleize, length: 80) %>">
 
 <!--records effects starts-->
      <div id="music" class="music-section text-center">
@@ -118,27 +115,27 @@ cover="<%= image_url('nosongcover-thumb.jpg') %>"
        <span class="blk"> <% if song.artist %><%= link_to (truncate(sanitize(Artist.find(song.artist_id).name.titleize), :class =>'pnk', length: 10)), artist_path(song.artist_id) %> - <% else %> <% end %> </span>
 
 
-        <span class="pnk"><%= link_to (truncate(sanitize(song.title.titleize), :class =>"pnk ", length: 16)), song if song.title %></span>
+        <span class="pnk"><%= link_to (truncate(sanitize(song.title.titleize), :class =>"pnk ", length: 15)), song if song.title %></span>
     </div >
       
 
-      <p class="profile">
+      <span class="profile">
 
 
 
-    <div class="post-left-info">
-                      <% if song.profile.pesnavatar? %>
-        <%= link_to (image_tag(song.profile.pesnavatar.url(:large), :class => "m-l-10 img-circle thumb32 btn-raised btn-circle text-center", :alt =>"profile image")), profile_path(song.profile_id) %>
+    <!--div class="post-left-info">
+                      <%# if song.profile.pesnavatar? %>
+        <%# link_to (image_tag(song.profile.pesnavatar.url(:large), :class => "m-l-10 img-circle thumb32 btn-raised btn-circle text-center", :alt =>"profile image")), profile_path(song.profile_id) %>
 
 
-        <% else %> 
-        <%= link_to (image_tag("noimage.jpg", :class => "m-l-10 img-circle thumb48 btn-raised btn-circle text-center", :alt =>"profile image")), profile_path(@cho.profile_id) %>
+        <%# else %> 
+        <%# link_to (image_tag("noimage.jpg", :class => "m-l-10 img-circle thumb48 btn-raised btn-circle text-center", :alt =>"profile image")), profile_path(@cho.profile_id) %>
 
 
-               <% end %>
+               <%# end %>
 
 
-     </div>
+     </div-->
 
 
 
@@ -150,7 +147,7 @@ cover="<%= image_url('nosongcover-thumb.jpg') %>"
              <i class="ion-ios-cloud-upload-outline fa-2x text-default"></i> by <%= link_to song.profile.first_name.split(" ").map(&:capitalize).join(" ") + ' '+ song.profile.last_name.split(" ").map(&:capitalize).join(" "), profile_path(song.profile_id) if song.profile.first_name || song.profile.last_name %>, <%="#{time_ago_in_words(song.created_at)} ago"%>  <span class="divider">|</span> <%= link_to Genre.friendly.find(song.genre_id).name, genre_path(song.genre_id) %><span class="divider">|</span>
                                         <%= pluralize(song.impressionist_count(:filter=>:session_hash), "View") %> <span class="divider">|</span> <%# pluralize(how.comment_threads.size, "Comment")%> <%# how.tag_counts.map(&:name) %>
              </div>
-      </p>
+      </span>
 
 </div>
 
