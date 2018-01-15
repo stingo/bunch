@@ -15,10 +15,10 @@
 
 
 
-<div class="col-md-4 col-md-offset-4 centered">
-  <div class="transitions-enabled" id="upfrica-pins" >
+<div class="col-md-4 col-md-offset-4" >
+  <div class="upfrica-pins-music m-b-40">
     <% @artists.each do |artist| %>
-    <div class="box panel panel-default">
+    <div class="boxmusic panel panel-default">
 
       <% if artist.artistphoto? %>
       <%= link_to image_tag(artist.artistphoto.url(:vert), :class => "img-responsive"), artist %>
