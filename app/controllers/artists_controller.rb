@@ -16,6 +16,7 @@ class ArtistsController < ApplicationController
   def show
     @artist = Artist.friendly.find(params[:id])
     @artists = Artist.all
+    @artist_songs = @artist.songs.order("created_at DESC") #important! to enable profiles urbanterms on profile
     impressionist(@artist)
   end
 
@@ -100,6 +101,6 @@ class ArtistsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def artist_params
-      params.require(:artist).permit(:name, :biography)
+      params.require(:artist).permit(:name, :biography, :artistphoto, :artistprofilecover)
     end
 end

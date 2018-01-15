@@ -4,6 +4,9 @@ class Artist < ApplicationRecord
 	has_many :songs
     is_impressionable
 
+    mount_uploader :artistphoto, ArtistphotoUploader
+	mount_uploader :artistprofilecover, ArtistprofilecoverUploader
+
 	extend FriendlyId
   friendly_id :name, use: :slugged
 

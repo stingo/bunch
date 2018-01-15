@@ -10,12 +10,20 @@
     <!-- build:css(../app) css/vendor.css-->
     
   </head>
-  <body class="theme-1" >
+  <body class="theme-1">
     <div class="layout-container">
      
 
       <!-- top navbar-->
       <header class="header-container">
+
+        <ul id="playlist" class="playlist-hov">
+       
+<li song="<%= @song.sound.url if @song.sound %>" >
+
+</li>
+
+</ul>
         <!--nav>
           <ul class="visible-xs visible-sm">
             <li><a id="sidebar-toggler" href="#" class="menu-link menu-link-slide"><span><em></em></span></a></li>
@@ -148,33 +156,30 @@
       <!-- Main section-->
 <main class="bg-white">
         <!-- Page content-->
+    <section class="custombgD9E0E7">
 
-        <% if @artist.artistprofilecover? %>
-    <section style="background: url(<%= @artist.artistprofilecover.url %>);
-    " data-stellar-background-ratio="0.5" id="home">
-
-    <% else %>
- <section style="background: url(<%= image_url('artistbg.png') %>);
-    " data-stellar-background-ratio="0.5" id="home">
-    <% end %>
+<canvas id="canvas" width="800" height="350"></canvas>
 
       <!--imagecover-->
 
+      <% if @song.songcover? %>
 
           <!--div class="container-overlap bg-blue-500" style="background: url(<%# @song.songcover.url %>) no-repeat center top fixed;
     " data-stellar-background-ratio="0.5" id="home"--><!--1-->
-    <div class="container-overlap " ><!--1-->
+    <div class="container-overlap bg-blue-500" ><!--1-->
 
+    <% else %>
 
+    <div class="container-overlap bg-blue-500" ><!--1-->
 
-   
-
+      <% end %>
 
       <!--end-image-cover-->
           
 
        
         <div class="container container-md"><!--2-->
+
 
 
 
@@ -215,34 +220,29 @@
             
 
         </div>
- <div class="col-md-8  col-xs-12">
+
+        <div class="col-md-8  col-xs-12">
 
 
      <div class="ccard-background">
 
-        <% if @artist.profile.pesnavatar? %> 
 
-            
-           <img class="ccard-bkimg" alt="" src="<%= @artist.profile.pesnavatar.url(:large) %>">
-            <!-- http://lorempixel.com/850/280/people/9/ -->
-
-        <% else %>
-
-          <img class="ccard-bkimg" alt="" src="<%= image_path "noimage.jpg" %>">
-
-        <% end %>
-
+     <!--fade image goes here-->
+      
 
      </div>
 
 
-        <% if @artist.artistphoto? %> 
+
+
+
+        <% if @song.profile.pesnavatar? %> 
        
 
-            <img src="<%= @artist.artistphoto.url(:larger) %>" class="img-thumbnail picture hidden-xs" />
+            <img src="<%= @song.profile.pesnavatar.url(:large) %>" class="img-thumbnail picture hidden-xs" />
 
 
-            <img alt="" src="<%= @artist.artistphoto.url(:larger) %>" class="img-thumbnail visible-xs picture_mob" />
+            <img alt="" src="<%= @song.profile.pesnavatar.url(:large) %>" class="img-thumbnail visible-xs picture_mob" />
 
         <% else %>
 
@@ -255,11 +255,9 @@
     
     </div>
 
-   
+     
 
         <div class="ccard-info m-b-40 m-l-40"> 
-
-        	<span class="text-center largelettersize" style="background: #ffffff; padding: 10px; border: 1px solid #000000; border-radius: 5px!important"> <%= @artist.name %>
 
             
 
@@ -267,8 +265,6 @@
                 <!--h4><%# render @profile.skills if @profile.skills.present? %></h4>
 
                 <span class="ccard-title" style="background: #ffffff;"> <i class="fa fa-eye" style="color:#337ab7;"></i><%# @profile.impressionist_count(:filter=>:session_hash) %> &nbsp | <i class="fa fa-fw fa-map-marker"></i><%# render @profile.locations if @profile.locations.present? %></span>
-
-
  
 
 <br>
@@ -338,7 +334,7 @@
 </table> 
 </div>
   <!--edit/destroy user's hows-->
-<% if profile_signed_in? && current_profile == @artist.profile %>
+<% if profile_signed_in? && current_profile == @song.profile %>
 
                     
                   <div class="card-divider cutbtn20px"></div>
@@ -352,12 +348,12 @@
 
 
                          
-                <%= link_to edit_artist_path(@artist) do %><span class="btn-raised btn btn-warning btn-circle btn-lg"><em class="ion-edit"></em> <% end %></span>
+                <%= link_to edit_song_path(@song) do %><span class="btn-raised btn btn-warning btn-circle btn-lg"><em class="ion-edit"></em> <% end %></span>
 
                 
 
 
-                <%= link_to @artist.profile, method: :delete, remote: true, data: { confirm: 'Are you sure you want to delete this profile?' } do %><span class="btn-raised btn btn-default btn-circle btn-lg"><em class="ion-close"></em> <% end %></span>
+                <%= link_to @song.profile, method: :delete, remote: true, data: { confirm: 'Are you sure you want to delete this profile?' } do %><span class="btn-raised btn btn-default btn-circle btn-lg"><em class="ion-close"></em> <% end %></span>
 
                
 
@@ -372,63 +368,6 @@
                   
                   <!-- begin col-6 -->
           <div class="card-body">
-
-
- <ul id="playlist" class="playlist-hov">
-          	 <div class="panel-body">
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Title</th>
-                                        <th>Genre</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-<% @artist_songs.each_with_index do |song, i| %> 
-
-
-       
-
-
-
-
-
-
-
-                                    <tr>
-
-                                        <td><%= i + 1 %></td>
-                                        <td>  <li song="<%= song.sound.url if song.sound %>" 
-
-<% if song.songcover? %>
-  cover="<%= song.songcover.url(:thumb) %>"
- <% else %>
-cover="<%= image_url('nosongcover-thumb.jpg') %>"
-  <% end %>
-
-artist="<%= Artist.find(song.artist_id).name if song.artist %>" title="<%= truncate(song.title.titleize, length: 80) %>"><%= song.title %></li></td>
-                                        <td><%= link_to Genre.friendly.find(song.genre_id).name, genre_path(song.genre_id) %></td>
- 
-                                    </tr>
-
-<% end %>
-
-                                
-                                </tbody>
-                            </table>
-                        </div>
-                   
-                    <!-- end panel -->
-
-
-</ul>
-
-
-
-
-
-
               <div class="panel-group" id="accordion">
 
 
@@ -1000,102 +939,30 @@ artist="<%= Artist.find(song.artist_id).name if song.artist %>" title="<%= trunc
           </div>
         </section>
         <!-- Page footer-->
-        <div class="audio-player">
-
-
-<footer class="footer" style="margin-top: -70px !important">
-
-  <!--div id="audio-image">
-    <img class="cover" />
-  </div-->
-
-
-
-
-
-
-  <div id="audio-player" style="margin-top: -60px !important">
-
-
-    
-    <div id="audio-info">
-      <span class="artist"></span> - <span class="title"> </span>  
-
-
-      <!--span class="cover" style="color: #fff;">gggg</span-->
-
-
-        <div class="pull-right">
-          
-           <img class="cover" />          
-      
-
-           </div>
-
-      <br>
-
-      <span id="progress" style=""></span>
-
-
-
-    </div>
-     <!--input id="volume" type="range" min="0" max="10" value="5" /-->
-     
- 
-     
-
-     <div id="buttons" class="  ">
-    
-      <button id="prev" style="background: #1E2329"><i class="fa fa-step-backward" style="font-size: 25px; color:#4EF604"></i></button> 
-
-      <button id="stop" style="background: #1E2329"><i class="fa fa-stop" style="font-size: 25px; color:#4EF604"></i></button>
-      <button id="next" style="background: #1E2329"><i class="fa fa-step-forward" style="font-size: 25px; color:#4EF604;"></i></button>  
-      <button id="play" style="background: #1E2329"><i class="fa fa-play" style="font-size: 25px; color:#4EF604"></i></button>
-      <button id="pause" style="background: #1E2329"><i class="fa fa-pause" style="font-size: 25px; color:#4EF604"></i></button>
- 
-       </div>
-
-
-  <!--div id="buttons" class="play-container">
-  <div class="play-col" style="background:orange">
-111
-  </div>
-
-  <div class="play-col" style="background:yellow">
-22222
-  </div>
-
-  <div class="play-col" style="background:orange">
-33333
-  </div>
-</div-->
-
-
-
-
-
-
-    
-
-
-     <div class="clearfix"></div>
-     
-      <span id="duration"></span>
-
-     
-
-      
-     
-
-
-      
-  
-    </footer>
-
-    </div><!--audio player-->
+        <footer><span>2017 - Centric app.</span></footer>
       </main>
     </div>
-   
+    <!-- Search template-->
+    <div tabindex="-1" role="dialog" class="modal modal-top fade modal-search">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="pull-left">
+              <button type="button" data-dismiss="modal" class="btn btn-flat"><em class="ion-arrow-left-c icon-24"></em></button>
+            </div>
+            <div class="pull-right">
+              <button type="button" class="btn btn-flat"><em class="ion-android-microphone icon-24"></em></button>
+            </div>
+            <form action="#" class="oh">
+              <div class="mda-form-control pt0">
+                <input type="text" placeholder="Search.." data-localize="header.SEARCH" class="form-control header-input-search">
+                <div class="mda-form-control-line"></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
 
@@ -1114,6 +981,7 @@ artist="<%= Artist.find(song.artist_id).name if song.artist %>" title="<%= trunc
     
   </body>
 </html>
+
 
 
 
@@ -1234,11 +1102,3 @@ function showDuration(){
   });
 }</script>
 
-
-
-
-
-<!-- layout script-->
-
-
-<script>

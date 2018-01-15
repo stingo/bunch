@@ -332,6 +332,16 @@ a[data]:hover:after {
   font-style: thin;
 }
 
+.largelettersize {
+  font-family: "Questrial";
+  font-size: 42px;
+  font-weight: 300;
+
+  line-height: 1;
+  margin-top: inherit;
+  font-style: thin;
+}
+
 .imagecenter{
   margin: auto;
  
