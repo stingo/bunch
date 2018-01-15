@@ -34,8 +34,8 @@ class ArtistphotoUploader < CarrierWave::Uploader::Base
    end
 
 
-   version :small do
-     process :resize_to_fill => [80, 80]
+   version :vert do
+     process :resize_to_fill => [440, 520]
    end
 
    #version :large do

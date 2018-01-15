@@ -10,7 +10,7 @@
     <!-- build:css(../app) css/vendor.css-->
     
   </head>
-  <body class="theme-1" >
+  <body class="theme-1" style="background: #1A1E23" >
     <div class="layout-container">
      
 
@@ -146,7 +146,7 @@
       <div class="sidebar-layout-obfuscator"></div-->
 
       <!-- Main section-->
-<main class="bg-white">
+<main style="background: #1A1E23" >
         <!-- Page content-->
 
         <% if @artist.artistprofilecover? %>
@@ -220,10 +220,10 @@
 
      <div class="ccard-background">
 
-        <% if @artist.profile.pesnavatar? %> 
+        <% if @artist.artistphoto? %> 
 
             
-           <img class="ccard-bkimg" alt="" src="<%= @artist.profile.pesnavatar.url(:large) %>">
+           <img class="ccard-bkimg" alt="" src="<%= @artist.artistphoto.url(:larger) %>">
             <!-- http://lorempixel.com/850/280/people/9/ -->
 
         <% else %>
@@ -379,9 +379,9 @@
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
-                                        <th>Title</th>
-                                        <th>Genre</th>
+                                        <th><h5>#</h5></th>
+                                        <th><h5>Title</h5></th>
+                                        <th><h5>Genre</h5></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -913,7 +913,7 @@ artist="<%= Artist.find(song.artist_id).name if song.artist %>" title="<%= trunc
                         <li><a href="#">Action 2</a></li>
                       </ul>
                     </div>
-                    <!-- END dropdown-->Contacts
+                    <!-- END dropdown-->You May Also Like
                   </h5>
                   <div class="mda-list">
                     <div class="mda-list-item"><img src="img/user/01.jpg" alt="List user" class="mda-list-item-img">
