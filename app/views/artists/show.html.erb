@@ -259,7 +259,8 @@
 
         <div class="ccard-info m-b-40 m-l-40"> 
 
-        	<span class="text-center largelettersize" style="background: #ffffff; padding: 10px; border: 1px solid #000000; border-radius: 5px!important"> <%= @artist.name %>
+        	<span class="text-center largelettersize" style="background: #ffffff; padding: 10px; border: 1px solid #000000; border-radius: 5px!important"> <%= @artist.name %> 
+                                        <span class="text-primary tags" style="font-size: 15px!important"><%= pluralize(@artist.impressionist_count(:filter=>:session_hash), "View") %> <%= "| Tagged:" if @artist.tag_ids.present? %> <span class="tags text-center"><%= raw(@artist.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')) %></span>
 
             
 
@@ -374,8 +375,31 @@
           <div class="card-body">
 
 
- <ul id="playlist" class="playlist-hov">
-          	 <div class="panel-body">
+ 
+
+
+
+
+
+              <div class="panel-group" id="accordion">
+
+
+              <!--Music-->
+                <div class="panel overflow-hidden card-divider btn-raised">
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#music">
+                      <i class="fa fa-plus-circle pull-right title-20px-black blk"></i> 
+                    <span class="title-20px-black blk">Music</span>
+                  </a>
+                </h3>
+              </div>
+              <div id="music" class="panel-collapse collapse in">
+                <div class="panel-body lead">
+
+
+                  <ul id="playlist" class="playlist-hov">
+          	 
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
@@ -417,7 +441,7 @@ artist="<%= Artist.find(song.artist_id).name if song.artist %>" title="<%= trunc
                                 
                                 </tbody>
                             </table>
-                        </div>
+                      
                    
                     <!-- end panel -->
 
@@ -426,29 +450,10 @@ artist="<%= Artist.find(song.artist_id).name if song.artist %>" title="<%= trunc
 
 
 
-
-
-
-              <div class="panel-group" id="accordion">
-
-
-              <!--Services-->
-                <div class="panel overflow-hidden card-divider btn-raised">
-              <div class="panel-heading">
-                <h3 class="panel-title">
-                  <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#services">
-                      <i class="fa fa-plus-circle pull-right title-20px-black blk"></i> 
-                    <span class="title-20px-black blk">What We Do</span>
-                  </a>
-                </h3>
-              </div>
-              <div id="services" class="panel-collapse collapse">
-                <div class="panel-body lead">
-                  <%#raw @company.services if @company.services %>
                 </div>
               </div>
             </div>
-            <!--Services ends-->
+            <!--Music ends-->
 
                       <!--Media-->
                       <%# if @company.video1? %>
@@ -457,7 +462,7 @@ artist="<%= Artist.find(song.artist_id).name if song.artist %>" title="<%= trunc
                 <h3 class="panel-title">
                   <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#media">
                       <i class="fa fa-plus-circle pull-right title-20px-black blk"></i> 
-                    <span class="title-20px-black blk">Media</span>
+                    <span class="title-20px-black blk">Videos</span>
                   </a>
                 </h3>
               </div>
@@ -472,7 +477,32 @@ artist="<%= Artist.find(song.artist_id).name if song.artist %>" title="<%= trunc
                         <%# end %>
             <!--media ends-->
 
-            <!--company details-->
+
+
+                      <!--Bio-->
+                      <%# if @company.video1? %>
+                <div class="panel overflow-hidden card-divider btn-raised ">
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#media">
+                      <i class="fa fa-plus-circle pull-right title-20px-black blk"></i> 
+                    <span class="title-20px-black blk">Bio</span>
+                  </a>
+                </h3>
+              </div>
+            
+              <div id="media" class="panel-collapse collapse text-center">
+                <div class="panel-body text-center">
+                  <%# embed(@company.video1) %>
+                </div>
+              </div>
+            </div>
+            <%# else %>
+                        <%# end %>
+            <!--Bio ends-->
+
+
+            <!--Booking details-->
 
 
             <div class="panel overflow-hidden card-divider btn-raised">
@@ -480,7 +510,7 @@ artist="<%= Artist.find(song.artist_id).name if song.artist %>" title="<%= trunc
                 <h3 class="panel-title">
                   <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
                       <i class="fa fa-plus-circle pull-right title-20px-black blk"></i> 
-                    <span class="title-20px-black blk">Company Details</span>
+                    <span class="title-20px-black blk">Booking Details</span>
                   </a>
                 </h3>
               </div>
@@ -754,7 +784,7 @@ artist="<%= Artist.find(song.artist_id).name if song.artist %>" title="<%= trunc
                 <h3 class="panel-title">
                   <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#jobs">
                       <i class="fa fa-plus-circle pull-right title-20px-black blk"></i> 
-                    <span class="title-20px-black blk">Recent jobs by <%# @company.name %>  </span>
+                    <span class="title-20px-black blk">Photo Gallery <%# @company.name %>  </span>
                   </a>
                 </h3>
               </div>
@@ -889,12 +919,16 @@ artist="<%= Artist.find(song.artist_id).name if song.artist %>" title="<%= trunc
                   </div>
                 </form>
 
+
+<br><br>
                           
               </div>
 
 
 
 
+
+              <%#raw tag_links(@artist.all_tags) %>
 
 
 
@@ -913,35 +947,48 @@ artist="<%= Artist.find(song.artist_id).name if song.artist %>" title="<%= trunc
                         <li><a href="#">Action 2</a></li>
                       </ul>
                     </div>
-                    <!-- END dropdown-->You May Also Like
+                    <!-- END dropdown--><h4 class="text-center m-b-20" style="margin-top: -10px">You May Also Like</h4>
+
+        
+                    	
+
+                    	
+
+                    
+
                   </h5>
                   <div class="mda-list">
-                    <div class="mda-list-item"><img src="img/user/01.jpg" alt="List user" class="mda-list-item-img">
+<% @artists.each do |artist| %>
+                    <div class="mda-list-item">
+
+                    	<span style="float: left; margin-right: 15px">
+                    	
+
+                    	 <% if artist.artistphoto? %>
+                         <%= link_to image_tag(artist.artistphoto.url(:vert), :class => "mg-circle thumb48 btn-raised btn-circle"), artist %>
+                         <% elsif artist.artistprofilecover?  %>
+                         <%= link_to image_tag(artist.artistprofilecover.url, :class => "mg-circle thumb48 btn-raised btn-circle"), artist %>
+                         <% else %>
+                         <%= link_to image_tag('noimage.jpg', :class => "mg-circle thumb48 btn-raised btn-circle"), artist %>
+                         <% end %>
+
+                        </span>
+
                       <div class="mda-list-item-text mda-2-line">
-                        <h3><a href="#">Eric Graves</a></h3>
-                        <div class="text-muted text-ellipsis">Ut ac nisi id mauris</div>
+                        <h3><a href="#"><%= link_to truncate(artist.name.titleize, length: 20), artist %></a></h3>
+                        <div class="text-muted text-ellipsis"><%= pluralize(artist.songs.count, "Song") %></div>
                       </div>
                     </div>
-                    <div class="mda-list-item"><img src="img/user/02.jpg" alt="List user" class="mda-list-item-img">
-                      <div class="mda-list-item-text mda-2-line">
-                        <h3><a href="#">Jessie Cox</a></h3>
-                        <div class="text-muted text-ellipsis">Sed lacus nisl luctus</div>
-                      </div>
-                    </div>
-                    <div class="mda-list-item"><img src="img/user/03.jpg" alt="List user" class="mda-list-item-img">
-                      <div class="mda-list-item-text mda-2-line">
-                        <h3><a href="#">Marie Hall</a></h3>
-                        <div class="text-muted text-ellipsis">Donec congue sagittis mi</div>
-                      </div>
-                    </div>
-                    <div class="mda-list-item"><img src="img/user/04.jpg" alt="List user" class="mda-list-item-img">
-                      <div class="mda-list-item-text mda-2-line">
-                        <h3><a href="#">Guy Carpenter</a></h3>
-                        <div class="text-muted text-ellipsis">Donec convallis arcu sit</div>
-                      </div>
-                    </div>
+                    <hr>
+
+	<% end %>
+                    
+
                   </div>
-                  <div class="card-body pv0 text-right"><a href="#" class="btn btn-flat btn-info">View all</a></div>
+
+
+
+                  <div class="card-body pv0 text-right"><a class="btn btn-flat btn-info"<%= link_to 'View All Artists', artists_path %></a></div>
                   <div class="card-divider"></div>
                   <h5 class="card-heading">Activity</h5>
                   <div class="card-body pb0">

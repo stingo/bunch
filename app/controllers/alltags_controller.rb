@@ -13,12 +13,14 @@ class AlltagsController < ApplicationController
 
   @hows = How.order("created_at desc").tagged_with(params[:tag]).paginate(:page => params[:page], :per_page => 20)
   @echos = Echo.order("created_at desc").tagged_with(params[:tag]).paginate(:page => params[:page], :per_page => 20)
+  @artists = Artist.order("created_at desc").tagged_with(params[:tag]).paginate(:page => params[:page], :per_page => 20)
 
   
   else
 
   @hows = How.order("created_at desc").paginate(:page => params[:page], :per_page => 20)
   @echos = Echo.order("created_at desc").paginate(:page => params[:page], :per_page => 20)
+  @artists = Artist.order("created_at desc").paginate(:page => params[:page], :per_page => 20)
 
   respond_to do |format|
       format.html

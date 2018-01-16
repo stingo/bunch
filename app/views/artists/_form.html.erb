@@ -18,6 +18,13 @@
     <%= f.input :biography %>
   </div>
 
+   <%= f.label :tag_list, 'Tags (separated with comas)' %>
+<%# f.text_field :tag_list, class: 'form-control' %>
+
+<%# f.select :tag_ids, Tag.all.pluck(:name, :id), {}, {multiple: true, class: "selectize"} %>
+
+<%= f.collection_select :tag_ids, Tag.order(:name), :id, :name, {}, {multiple: true, class: "selectize"} %>
+
 
   <div class="field">
 

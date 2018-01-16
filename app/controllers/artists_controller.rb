@@ -5,19 +5,47 @@ class ArtistsController < ApplicationController
 
   # GET /artists
   # GET /artists.json
+  
+
   def index
-    @artists = Artist.all.order("created_at desc")
 
+  if params[:tag]
 
+    #@echos = Echo.paginate(page: params[:page], per_page: 3).order("created_at DESC")
+  @artists = Artist.order("created_at desc").tagged_with(params[:tag]).paginate(:page => params[:page], :per_page => 2)
+
+  
+  else
+
+  @artists = Artist.order("created_at desc").paginate(:page => params[:page], :per_page => 2)
+
+  respond_to do |format|
+      format.html
+      format.js # add this line for your js template
+    end
+    end
+
+ 
+
+  @comment = Comment.all.order("created_at DESC")
+ 
   end
+
+
+
+
 
   # GET /artists/1
   # GET /artists/1.json
   def show
     @artist = Artist.friendly.find(params[:id])
+    @related_artists = Artist.tagged_with(@artist.tag_list, any: true)
     @artists = Artist.all
     @artist_songs = @artist.songs.order("created_at DESC") #important! to enable profiles urbanterms on profile
     impressionist(@artist)
+
+     @artists = Artist.tagged_with(@artist.tag_list, any: true)
+     
   end
 
   # GET /artists/new
@@ -101,6 +129,6 @@ class ArtistsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def artist_params
-      params.require(:artist).permit(:name, :biography, :artistphoto, :artistprofilecover)
+      params.require(:artist).permit(:name, :biography, :artistphoto, :tag_list, :tag, { tag_ids: [] }, :tag_ids, :artistprofilecover)
     end
 end

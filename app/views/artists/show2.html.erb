@@ -1,5 +1,14 @@
-<% @artist_songs.each do |song| %> 
+<p id="notice"><%= notice %></p>
 
-<%= song.title %>
+<p>
+  <strong>Name:</strong>
+  <%= @artist.name %>
+</p>
 
-<% end %>
+<p>
+  <strong>Biography:</strong>
+  <%= @artist.biography %>
+</p>
+
+<%= link_to 'Edit', edit_artist_path(@artist) %> |
+<%= link_to 'Back', artists_path %>

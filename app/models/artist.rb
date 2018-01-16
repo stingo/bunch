@@ -3,6 +3,7 @@ class Artist < ApplicationRecord
 	belongs_to :profile
 	has_many :songs
     is_impressionable
+    acts_as_taggable
 
     mount_uploader :artistphoto, ArtistphotoUploader
 	mount_uploader :artistprofilecover, ArtistprofilecoverUploader
