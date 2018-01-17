@@ -81,6 +81,17 @@
   display: none;
 }
 
+.list-check > li {
+  margin-bottom: 3px;
+  padding-left: 18px;
+  position: relative; }
+  .list-check > li:after {
+    position: absolute;
+    font-family: fontello;
+    content: '\e80d';
+    left: 0;
+    top: 0; }
+
 
 .li {
     list-style: outside !important;

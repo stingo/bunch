@@ -16,6 +16,8 @@
 
       <!-- top navbar-->
       <header class="header-container">
+
+
         <!--nav>
           <ul class="visible-xs visible-sm">
             <li><a id="sidebar-toggler" href="#" class="menu-link menu-link-slide"><span><em></em></span></a></li>
@@ -148,6 +150,8 @@
       <!-- Main section-->
 <main style="background: #1A1E23" >
         <!-- Page content-->
+	
+
 
         <% if @artist.artistprofilecover? %>
     <section style="background: url(<%= @artist.artistprofilecover.url %>);
@@ -177,6 +181,8 @@
         <div class="container container-md"><!--2-->
 
 
+
+<span class="lead m" style="z-index: 999; color: #E1E1E1; font-size: 15px!important">ARTIST  <i class="ion-android-checkmark-circle" style="font-size: 20px; color: #E1E1E1"></i></span>
 
 
 
@@ -255,12 +261,13 @@
     
     </div>
 
-   
+ 
 
         <div class="ccard-info m-b-40 m-l-40"> 
 
+
         	<span class="text-center largelettersize" style="background: #ffffff; padding: 10px; border: 1px solid #000000; border-radius: 5px!important"> <%= @artist.name %> 
-                                        <span class="text-primary tags" style="font-size: 15px!important"><%= pluralize(@artist.impressionist_count(:filter=>:session_hash), "View") %> <%= "| Tagged:" if @artist.tag_ids.present? %> <span class="tags text-center"><%= raw(@artist.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')) %></span>
+                                        <span class="text-primary tags" style="font-size: 15px!important"><%= pluralize(@artist.impressionist_count(:filter=>:session_hash), "view") %> <%= "|" if @artist.tag_ids.present? %> <i class="ion-pricetag text-muted"></i> <span class="tags text-center"><%= raw(@artist.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')) %></span>
 
             
 
@@ -460,14 +467,14 @@ artist="<%= Artist.find(song.artist_id).name if song.artist %>" title="<%= trunc
                 <div class="panel overflow-hidden card-divider btn-raised ">
               <div class="panel-heading">
                 <h3 class="panel-title">
-                  <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#media">
+                  <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#video">
                       <i class="fa fa-plus-circle pull-right title-20px-black blk"></i> 
                     <span class="title-20px-black blk">Videos</span>
                   </a>
                 </h3>
               </div>
             
-              <div id="media" class="panel-collapse collapse text-center">
+              <div id="video" class="panel-collapse collapse text-center">
                 <div class="panel-body text-center">
                   <%# embed(@company.video1) %>
                 </div>
@@ -480,25 +487,25 @@ artist="<%= Artist.find(song.artist_id).name if song.artist %>" title="<%= trunc
 
 
                       <!--Bio-->
-                      <%# if @company.video1? %>
+                      <% if @artist.biography? %>
                 <div class="panel overflow-hidden card-divider btn-raised ">
               <div class="panel-heading">
                 <h3 class="panel-title">
-                  <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#media">
+                  <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#bio">
                       <i class="fa fa-plus-circle pull-right title-20px-black blk"></i> 
-                    <span class="title-20px-black blk">Bio</span>
+                    <span class="title-20px-black blk">About</span>
                   </a>
                 </h3>
               </div>
             
-              <div id="media" class="panel-collapse collapse text-center">
-                <div class="panel-body text-center">
-                  <%# embed(@company.video1) %>
+              <div id="bio" class="panel-collapse collapse text-center">
+                <div class="panel-body lead m">
+                  <%= sanitize(@artist.biography, tags: %w(strong em p br div ul ol li)).html_safe %>
                 </div>
               </div>
             </div>
-            <%# else %>
-                        <%# end %>
+            <% else %>
+                        <% end %>
             <!--Bio ends-->
 
 
@@ -510,7 +517,7 @@ artist="<%= Artist.find(song.artist_id).name if song.artist %>" title="<%= trunc
                 <h3 class="panel-title">
                   <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
                       <i class="fa fa-plus-circle pull-right title-20px-black blk"></i> 
-                    <span class="title-20px-black blk">Booking Details</span>
+                    <span class="title-20px-black blk">Contact & Booking Details</span>
                   </a>
                 </h3>
               </div>
@@ -518,57 +525,17 @@ artist="<%= Artist.find(song.artist_id).name if song.artist %>" title="<%= trunc
                 <table class="table table-striped">
                       <tbody>
 
-                        <%#if @company.websiteurl? %>
-
-                         <tr>
-                          <td><span class="col-md-2 control-label fa text-primary semi-bold">
-
-
-                            <a href="<%# "http://#{@company.websiteurl}" %>" target="_blank" ><i class="fa fa-globe"></i></a>
-                          </span>Website</td>
-                          <td><%# link_to @company.websiteurl, "http://#{@company.websiteurl}"  %></td>
-                        </tr>
-
-                        <%# else %>
-                        <%# end %>
-
-                        <%# link_to 'facebook', 'https://www.facebook.com' %> 
-
-
-                       
-
 
                         <tr>
                           <td><span class="col-md-2 control-label fa text-primary">
 
 
                             <a href="<%# "#" %>" target="_blank" ><i class="fa fa-building-o "></i></a>
-                          </span>Industry</td>
+                          </span>Specialty</td>
                           <td><h4><%# render @company.industries if @company.industries.present? %></h4></td>
                         </tr>
 
-                       
-
-
-                        <%# if @company.yearfounded? %>
-                        <tr>
-                          <small>
-
-                        <td><span class="col-md-2 control-label fa text-primary">
-
-
-                            <a href="<%# "#" %>" target="_blank" ><i class="fa fa-calendar fa-stack"></i></a></span>Year founded</td>
-                          <td><span data-type="date" data-mode="popup" class="is-editable text-inherit">
-
-                            <%# @company.yearfounded.strftime(" %Y ") %> 
-
-                            </span></td>
-                        </tr>
-
-                         <%# else %>
-                        <%#end %>
-
-
+                      
 
 
                         <tr>
@@ -577,11 +544,11 @@ artist="<%= Artist.find(song.artist_id).name if song.artist %>" title="<%= trunc
 
                             <a href="<%# "#" %>" target="_blank" ><i class="fa fa-handshake-o"></i></a>
                           </span></em>Member since</td>
-                          <td><span data-type="date" data-mode="popup" class="is-editable text-inherit"><%# if @company.created_at > Time.now.beginning_of_day %>
-    <%#"#{time_ago_in_words(@company.created_at)} ago"%> 
-<%# else %>
-    <%#@company.created_at.strftime("%b %d, %Y ") %> 
-<%# end %></small></span></td>
+                          <td><span data-type="date" data-mode="popup" class="is-editable text-inherit"><% if @artist.created_at > Time.now.beginning_of_day %>
+    <%="#{time_ago_in_words(@artist.created_at)} ago"%> 
+<% else %>
+    <%= @artist.created_at.strftime("%b %d, %Y ") %> 
+<% end %></small></span></td>
                         </tr>
 
                        <%# if @company.companyemail? %>
@@ -611,48 +578,7 @@ artist="<%= Artist.find(song.artist_id).name if song.artist %>" title="<%= trunc
                         <%#else %>
                         <%#end %>
 
-                        <% #if @company.companytype_id? %>
-                         <tr>
-                          <td><span class="col-md-2 control-label fa text-primary">
-
-
-                            <a href="<%# "#" %>" target="_blank" ><i class="fa fa-building"></i></a>
-                          </span></em>Company type</td>
-                          <td><span class="is-editable text-inherit">
-
-
-                            <%# link_to @company.companytype.name, companies_path(companytype: @company.companytype.name)  %>
-
-                            
-                            
-
-
-                          </span></td>
-
-
-                        </tr>
-
-                          <%# else %>
-                        <%# end %>
-
-                         <%# if @company.companysize_id? %>
-
-                        <tr>
-                          <td><span class="col-md-2 control-label fa text-primary">
-
-
-                            <a href="<%= "#" %>" target="_blank" ><i class="fa fa-expand "></i></a>
-                          </span></em>Company size</td>
-                          <td><span class="is-editable text-inherit">
-
-                            <%# @company.companysize.name  %>
-                            
-
-                          </span></td>
-                        </tr>
-
-                        <%# else %>
-                        <%# end %>
+                       
 
 
                       </tbody>
@@ -884,7 +810,7 @@ artist="<%= Artist.find(song.artist_id).name if song.artist %>" title="<%= trunc
 
               
 
-                  <div class="card-divider"></div>
+                  <!--div class="card-divider"></div>
                   <h5 class="card-heading pb0">Recent articles</h5>
                   <div class="card-body">
                     <ul class="mda-list">
@@ -916,11 +842,11 @@ artist="<%= Artist.find(song.artist_id).name if song.artist %>" title="<%= trunc
                         </div>
                       </li>
                     </ul>
-                  </div>
+                  </div-->
                 </form>
 
 
-<br><br>
+
                           
               </div>
 
@@ -928,7 +854,7 @@ artist="<%= Artist.find(song.artist_id).name if song.artist %>" title="<%= trunc
 
 
 
-              <%#raw tag_links(@artist.all_tags) %>
+            
 
 
 
@@ -947,7 +873,7 @@ artist="<%= Artist.find(song.artist_id).name if song.artist %>" title="<%= trunc
                         <li><a href="#">Action 2</a></li>
                       </ul>
                     </div>
-                    <!-- END dropdown--><h4 class="text-center m-b-20" style="margin-top: -10px">You May Also Like</h4>
+                    <!-- END dropdown--><h4 class="text-center m-b-20" style="margin-top: -10px">Related Artists</h4>
 
         
                     	
@@ -976,7 +902,7 @@ artist="<%= Artist.find(song.artist_id).name if song.artist %>" title="<%= trunc
 
                       <div class="mda-list-item-text mda-2-line">
                         <h3><a href="#"><%= link_to truncate(artist.name.titleize, length: 20), artist %></a></h3>
-                        <div class="text-muted text-ellipsis"><%= pluralize(artist.songs.count, "Song") %></div>
+                        <div class="text-muted text-ellipsis"><%= pluralize(artist.songs.count, "Song") %> | <%= pluralize(artist.impressionist_count(:filter=>:session_hash), "view") %></div>
                       </div>
                     </div>
                     <hr>
@@ -1046,6 +972,7 @@ artist="<%= Artist.find(song.artist_id).name if song.artist %>" title="<%= trunc
             </div>
           </div>
         </section>
+        <br><br><br><br>
         <!-- Page footer-->
         <div class="audio-player">
 
@@ -1093,12 +1020,12 @@ artist="<%= Artist.find(song.artist_id).name if song.artist %>" title="<%= trunc
 
      <div id="buttons" class="  ">
     
-      <button id="prev" style="background: #1E2329"><i class="fa fa-step-backward" style="font-size: 25px; color:#4EF604"></i></button> 
+      <button id="prev" style="background: #1E2329"><i class="ion-ios-skipbackward-outline" style="font-size: 30px; color:#4EF604"></i></button> 
 
-      <button id="stop" style="background: #1E2329"><i class="fa fa-stop" style="font-size: 25px; color:#4EF604"></i></button>
-      <button id="next" style="background: #1E2329"><i class="fa fa-step-forward" style="font-size: 25px; color:#4EF604;"></i></button>  
-      <button id="play" style="background: #1E2329"><i class="fa fa-play" style="font-size: 25px; color:#4EF604"></i></button>
-      <button id="pause" style="background: #1E2329"><i class="fa fa-pause" style="font-size: 25px; color:#4EF604"></i></button>
+      <button id="stop" style="background: #1E2329"><i class="ion-android-checkbox-blank" style="font-size: 30px; color:#4EF604"></i></button>
+      <button id="next" style="background: #1E2329"><i class="ion-ios-skipforward-outline" style="font-size: 30px; color:#4EF604;"></i></button>  
+      <button id="play" style="background: #1E2329"><i class="ion-ios-play-outline" style="font-size: 30px; color:#4EF604"></i></button>
+      <button id="pause" style="background: #1E2329"><i class="ion-ios-pause-outline" style="font-size: 30px; color:#4EF604"></i></button>
  
        </div>
 

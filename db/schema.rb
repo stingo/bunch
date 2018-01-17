@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180114210743) do
+ActiveRecord::Schema.define(version: 20180117111705) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,18 @@ ActiveRecord::Schema.define(version: 20180114210743) do
     t.integer "profile_id"
     t.string "artistphoto"
     t.string "artistprofilecover"
+    t.string "telephone"
+    t.string "email"
+    t.string "facebook_url"
+    t.string "twitter_url"
+    t.string "googleplus_url"
+    t.string "pinterest_url"
+    t.string "youtube_chanel_url"
+    t.string "linkedin_url"
+    t.integer "genre_id"
+    t.json "photos"
+    t.string "instagram_url"
+    t.string "website_url"
     t.index ["profile_id"], name: "index_artists_on_profile_id"
   end
 

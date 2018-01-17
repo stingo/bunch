@@ -1,0 +1,49 @@
+<%= simple_form_for(@artist) do |f| %>
+  <%= f.error_notification %>
+
+  <% if artist.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(artist.errors.count, "error") %> prohibited this artist from being saved:</h2>
+
+      <ul>
+      <% artist.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :biography %>
+  </div>
+
+   <%= f.label :tag_list, 'Tags (separated with comas)' %>
+<%# f.text_field :tag_list, class: 'form-control' %>
+
+<%# f.select :tag_ids, Tag.all.pluck(:name, :id), {}, {multiple: true, class: "selectize"} %>
+
+<%= f.collection_select :tag_ids, Tag.order(:name), :id, :name, {}, {multiple: true, class: "selectize"} %>
+
+
+  <div class="field">
+
+   <%= f.label :add_artist_photo %><br>
+    <%= f.file_field :artistphoto %><br>
+
+    </div>
+
+    <div class="field">
+
+   <%= f.label :add_artist_profilecover %><br>
+    <%= f.file_field :artistprofilecover %><br>
+
+    </div>
+
+
+
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

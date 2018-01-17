@@ -2,6 +2,7 @@ class Genre < ApplicationRecord
 	is_impressionable
 	belongs_to :profile
 	has_many :songs
+	has_many :artists
 
 	extend FriendlyId
   friendly_id :name, use: :slugged

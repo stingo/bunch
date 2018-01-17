@@ -44,13 +44,17 @@ class ArtistsController < ApplicationController
     @artist_songs = @artist.songs.order("created_at DESC") #important! to enable profiles urbanterms on profile
     impressionist(@artist)
 
-     @artists = Artist.tagged_with(@artist.tag_list, any: true)
+     @artists = Artist.where.not(id: @artist.id).tagged_with(@artist.tag_list, any: true)# magit code to shore related tagged items
      
   end
 
   # GET /artists/new
   def new
     @artist = Artist.new
+    @generes = Genre.all.map{|c| [ c.name, c.id ] }
+    @tag = Tag.new
+
+    @song = Song.new
   end
 
   # GET /artists/1/edit
@@ -129,6 +133,8 @@ class ArtistsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def artist_params
-      params.require(:artist).permit(:name, :biography, :artistphoto, :tag_list, :tag, { tag_ids: [] }, :tag_ids, :artistprofilecover)
+      params.require(:artist).permit(:name, :biography, :artistphoto, :tag_list, :tag, { tag_ids: [] }, :tag_ids, :artistprofilecover,
+            :telephone, :email, :facebook_url, :twitter_url, :googleplus_url, 
+    :pinterest_url, :youtube_chanel_url, :linkedin_url, :instagram_url, :website, :genre_id, :photos )
     end
 end

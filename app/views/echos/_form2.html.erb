@@ -1,15 +1,25 @@
-
-
-
-<div class="row" style="background: #F1F2F3;">
-  <div class="col-xs-12 col-sm-6 col-md-8">
-
-
-    <%= simple_form_for(@echo) do |f| %>
+<div class="" style="background: #F1F2F3">
+<%= simple_form_for(@echo) do |f| %>
  <%= f.error_notification %>
 
+ <% if echo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(echo.errors.count, "error") %> prohibited this echo from being saved:</h2>
 
-          <div class="container-md">
+      <ul>
+      <% echo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+   <!-- Main section-->
+      <main class="container">
+        <!-- Page content-->
+        <section>
+          <div class="container-fluid">
             <!-- UISELECT-->
             <div class="card">
               <div class="card-heading">
@@ -403,12 +413,14 @@
 
                   
                 </div>
-         
-
-        
-         
-
-
+              </div>
+            </div><br><br><br><br>
+          </div>
+        </section>
+        <!-- Page footer-->
+        <footer><span>2017 - Centric app.</span></footer>
+      </main>
+  
   <% end %>
 
 </div>
@@ -416,80 +428,10 @@
 
 
 
-<div class="col-xs-12 col-md-4">
-
-<div class="container-fluid">
-
-  <div class="card sidebar-card">
-                            <div class="card-header uppercase ">
-                                <h4 class="m-l-20"><strong><i class="ion-android-bulb fa-2x text-inverse m-r-5"></i>Tips</strong></h4>
-                            </div>
-                            <div class="card-content">
-                               
-                                    
-
-                      <div class="card-body pb0">
-                    <p class="pull-left mr"><em class="ion-record text-warning"></em></p>
-                    <div class="oh">
-                      <p><strong class="mr-sm">Tag your post to increase user views</strong><span> choose the relevant tags available from the tag list or create a new tag for your post</span></p>
-                      <div class="clearfix"></div>
-
-                    </div>
-                  </div>
-
-                   <div class="card-body pb0">
-                    <p class="pull-left mr"><em class="ion-record text-success"></em></p>
-                    <div class="oh">
-                      <p><strong class="mr-sm">Add a photo and a video</strong><span> to keep users more engaged</span></p>
-                      <div class="clearfix"></div>
-
-                    </div>
-                  </div>
-
-                  <div class="card-body pb0">
-                    <p class="pull-left mr"><em class="ion-record text-warning"></em></p>
-                    <div class="oh">
-                      <p><strong class="mr-sm">Formate your content nicely</strong><span> use the text editor for a good formating</span></p>
-                      <div class="clearfix"></div>
-
-                    </div>
-                  </div>
-
-                  <div class="card-body pb0">
-                    <p class="pull-left mr"><em class="ion-record text-success"></em></p>
-                    <div class="oh">
-                      <p><strong class="mr-sm">Share!</strong><span> after creating your post, use the share button and with friends to increase user views </span></p>
-                      <div class="clearfix"></div>
-
-                    </div>
-                  </div>
 
 
 
-
-                                </div>
-                            </div>
-                        </div>
-
-  
-
-</div>
-
-
-
-
-  </div>
-</div>
-
-
-
-
-
-
-
-
-<!--Modal-->
-<div class="modal fade tag-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal fade tag-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
   <div class="modal-dialog modal-sm" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -513,8 +455,5 @@
     </div>
   </div>
 </div>
-
-
-
 
 
