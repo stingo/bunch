@@ -266,7 +266,7 @@
         <div class="ccard-info m-b-40 m-l-40"> 
 
 
-        	<span class="text-center largelettersize" style="background: #ffffff; padding: 10px; border: 1px solid #000000; border-radius: 5px!important"> <%= @artist.name %> 
+        	<span class="text-center largelettersize" style="background: #ffffff; padding: 10px; border: 1px solid #000000; border-radius: 5px!important"> <%= @artist.name.titleize %> 
                                         <span class="text-primary tags" style="font-size: 15px!important"><%= pluralize(@artist.impressionist_count(:filter=>:session_hash), "view") %> <%= "|" if @artist.tag_ids.present? %> <i class="ion-pricetag text-muted"></i> <span class="tags text-center"><%= raw(@artist.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')) %></span>
 
             
@@ -525,6 +525,8 @@ artist="<%= Artist.find(song.artist_id).name if song.artist %>" title="<%= trunc
                 <table class="table table-striped">
                       <tbody>
 
+                      	<% if @artist.genre_id? %>
+
 
                         <tr>
                           <td><span class="col-md-2 control-label fa text-primary">
@@ -532,8 +534,12 @@ artist="<%= Artist.find(song.artist_id).name if song.artist %>" title="<%= trunc
 
                             <a href="<%# "#" %>" target="_blank" ><i class="fa fa-building-o "></i></a>
                           </span>Specialty</td>
-                          <td><h4><%# render @company.industries if @company.industries.present? %></h4></td>
+                          <td><h4><%= link_to Genre.friendly.find(@artist.genre_id).name, genre_path(@artist.genre_id) %></h4></td>
                         </tr>
+
+
+                         <% else %>
+                        <% end %>
 
                       
 
@@ -551,7 +557,7 @@ artist="<%= Artist.find(song.artist_id).name if song.artist %>" title="<%= trunc
 <% end %></small></span></td>
                         </tr>
 
-                       <%# if @company.companyemail? %>
+                       <% if @artist.email? %>
 
                         <tr>
                           <td><span class="col-md-2 control-label fa text-primary">
@@ -559,24 +565,24 @@ artist="<%= Artist.find(song.artist_id).name if song.artist %>" title="<%= trunc
 
                             <a href="<%# "#" %>" target="_blank" ><i class="fa fa-envelope "></i></a>
                           </span>Email</td>
-                          <td><span class="is-editable text-inherit"><a href="#">user@mail.com</a></span></td>
+                          <td><span class="is-editable text-inherit"><a href="#"><%= @artist.email %></a></span></td>
                         </tr>
-                          <%# else %>
-                        <%# end %>
+                          <% else %>
+                        <% end %>
 
 
-                        <%# if @company.contactphone? %>
+                        <% if @artist.telephone? %>
                         <tr>
                           <td><span class="col-md-2 control-label fa text-primary">
 
 
                             <a href="<%# "#" %>" target="_blank" ><i class="fa fa-phone"></i></a>
                           </span>Contact phone</td>
-                          <td><span class="is-editable text-inherit"><%# @company.contactphone %></span></td>
+                          <td><span class="is-editable text-inherit"><%= @artist.telephone %></span></td>
                         </tr>
 
-                        <%#else %>
-                        <%#end %>
+                        <% else %>
+                        <% end %>
 
                        
 
@@ -606,85 +612,85 @@ artist="<%= Artist.find(song.artist_id).name if song.artist %>" title="<%= trunc
                 <table class="table table-striped">
                       <tbody>
 
-                        <%# if @company.facebookurl? %>
+                        <% if @artist.facebook_url? %>
 
                          <tr>
 
                           <td><span class="col-md-2 control-label fa text-primary">
 
 
-                            <a href="<%# "http://#{@company.facebookurl}" %>" target="_blank" ><i class="fa fa-facebook-square fa-stack-2x"></i></a>
+                            <a href="<%= "http://#{@artist.facebook_url}" %>" target="_blank" ><i class="fa fa-facebook-square fa-stack-2x"></i></a>
                           </span></td>
                          
-                          <td><strong class="mt-l"><%# link_to 'Facebook', "http://#{@company.facebookurl}", target: "_blank"  %></strong></td>
+                          <td><strong class="mt-l"><%= link_to 'Facebook', "http://#{@artist.facebook_url}", target: "_blank"  %></strong></td>
                         </tr>
 
-                        <%# else %>
-                        <%# end %>
+                        <% else %>
+                        <% end %>
 
                         <%# link_to 'facebook', 'https://www.facebook.com' %> 
 
 
-                          <%# if @company.twitterurl? %>
+                          <% if @artist.twitter_url? %>
 
                          <tr>
 
                           <td><span class="col-md-2 control-label fa text-primary">
-                            <a href="<%# "http://#{@company.twitterurl}" %>" target="_blank" ><i class="fa fa-twitter-square fa-stack-2x"></i></a>
+                            <a href="<%= "http://#{@artist.twitter_url}" %>" target="_blank" ><i class="fa fa-twitter-square fa-stack-2x"></i></a>
                           </span></td>
-                          <td><strong class="mt-l"><%# link_to 'Twitter', "http://#{@company.twitterurl}", target: "_blank"  %></strong></td>
+                          <td><strong class="mt-l"><%= link_to 'Twitter', "http://#{@artist.twitter_url}", target: "_blank"  %></strong></td>
                         </tr>
 
-                        <%# else %>
-                        <%# end %>
+                        <% else %>
+                        <% end %>
 
-                        <%# if @company.linkedinurl? %>
+                        <% if @artist.linkedin_url? %>
 
                          <tr>
 
                           <td><span class="col-md-2 control-label fa text-primary">
-                            <a href="<%# "http://#{@company.linkedinurl}" %>" target="_blank" ><i class="fa fa-linkedin-square fa-stack-2x"></i></a></span></td>
-                          <td><strong class="mt-l"><%# link_to 'Linkedin', "http://#{@company.linkedinurl}", target: "_blank"  %></strong></td>
+                            <a href="<%= "http://#{@artist.linkedin_url}" %>" target="_blank" ><i class="fa fa-linkedin-square fa-stack-2x"></i></a></span></td>
+                          <td><strong class="mt-l"><%= link_to 'Linkedin', "http://#{@artist.linkedin_url}", target: "_blank"  %></strong></td>
                         </tr>
 
-                        <%# else %>
-                        <%# end %>
+                        <% else %>
+                        <% end %>
 
-                        <%# if @company.instagramurl? %>
+                        <% if @artist.instagram_url? %>
 
                          <tr>
 
-                          <td><span class="col-md-2 control-label fa text-primary"><a href="<%# "http://#{@company.instagramurl}" %>" target="_blank" ><i class="fa fa-instagram fa-stack-2x"></i></a></span></td>
-                          <td><strong class="mt-l"><%# link_to 'Instagram', "http://#{@company.instagramurl}", target: "_blank"  %></strong></td>
+                          <td><span class="col-md-2 control-label fa text-primary"><a href="<%="http://#{@artist.instagram_url}" %>" target="_blank" ><i class="fa fa-instagram fa-stack-2x"></i></a></span></td>
+                          <td><strong class="mt-l"><%= link_to 'Instagram', "http://#{@artist.instagram_url}", target: "_blank"  %></strong></td>
                         </tr>
 
-                        <%# else %>
-                        <%# end %>
+                        <% else %>
+                        <% end %>
 
                        
 
-                      <% #if @company.googleplusurl? %>
+                      <% if @artist.googleplus_url? %>
 
                          <tr>
 
-                          <td><span class="col-md-2 control-label fa text-primary"><a href="<%# "http://#{@company.googleplusnurl}" %>" target="_blank" ><i class="fa fa-google-plus-square fa-stack-2x"></i></a></span></td>
-                          <td><strong class="mt-l"><%# link_to 'Google +', "http://#{@company.googleplusurl}", target: "_blank"  %></strong></td>
+                          <td><span class="col-md-2 control-label fa text-primary"><a href="<%= "http://#{@artist.googleplus_url}" %>" target="_blank" ><i class="fa fa-google-plus-square fa-stack-2x"></i></a></span></td>
+                          <td><strong class="mt-l"><%= link_to 'Google +', "http://#{@artist.googleplus_url}", target: "_blank"  %></strong></td>
                         </tr>
 
-                        <%# else %>
-                        <%# end %>
+                        <% else %>
+                        <% end %>
 
 
-                          <%# if @company.pinteresturl? %>
+                          <% if @artist.pinterest_url? %>
 
                          <tr>
 
-                          <td><span class="col-md-2 control-label fa text-danger"><a href="<%#  "http://#{@company.pinteresturl}" %>" target="_blank" ><i class="fa fa-pinterest-square fa-stack-2x"></i></a><</span></td>
-                          <td><strong class="mt-l"><%# link_to 'Pinterest', "http://#{@company.pinteresturl}", target: "_blank"  %></strong></td>
+                          <td><span class="col-md-2 control-label fa text-danger"><a href="<%=  "http://#{@artist.pinterest_url}" %>" target="_blank" ><i class="fa fa-pinterest-square fa-stack-2x"></i></a><</span></td>
+                          <td><strong class="mt-l"><%= link_to 'Pinterest', "http://#{@artist.pinterest_url}", target: "_blank"  %></strong></td>
                         </tr>
 
-                        <%# else %>
-                        <%# end %>
+                        <% else %>
+                        <% end %>
 
 
 
@@ -716,7 +722,23 @@ artist="<%= Artist.find(song.artist_id).name if song.artist %>" title="<%= trunc
               </div>
               <div id="jobs" class="panel-collapse collapse">
                 <div class="panel-body lead">
-                  <%#raw @company.services if @company.services %>
+                  <%= @artist.photos[1].url %>
+                  <%= @artist.photos[2].url %>
+                  <%= @artist.photos[0].url %>
+
+                  <div>
+      <a class="example-image-link" href="<%= @artist.photos[0].url %>" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="<%= @artist.photos[0].url %>" alt=""/></a>
+
+      <a class="example-image-link" href="<%= @artist.photos[2].url %>" data-lightbox="example-set" data-title="Or press the right arrow on your keyboard."><img class="example-image" src="<%= @artist.photos[2].url %>" alt="" /></a>
+
+      <a class="example-image-link" href="<%= @artist.photos[1].url %>" data-lightbox="example-set" data-title="The next image in the set is preloaded as you're viewing."><img class="example-image" src="<%= @artist.photos[1].url %>" alt="" /></a>
+
+      <a class="example-image-link" href="http://lokeshdhakar.com/projects/lightbox2/images/image-6.jpg" data-lightbox="example-set" data-title="Click anywhere outside the image or the X to the right to close."><img class="example-image" src="http://lokeshdhakar.com/projects/lightbox2/images/thumb-6.jpg" alt="" /></a>
+  </div>
+
+	
+
+
                 </div>
               </div>
             </div>

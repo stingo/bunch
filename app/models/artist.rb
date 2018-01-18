@@ -8,6 +8,7 @@ class Artist < ApplicationRecord
 
     mount_uploader :artistphoto, ArtistphotoUploader
 	mount_uploader :artistprofilecover, ArtistprofilecoverUploader
+	mount_uploaders :photos, PhotosUploader
 
 	extend FriendlyId
   friendly_id :name, use: :slugged

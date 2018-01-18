@@ -28,6 +28,8 @@ class ArtistsController < ApplicationController
  
 
   @comment = Comment.all.order("created_at DESC")
+
+  @genres = Genre.all
  
   end
 
@@ -41,6 +43,7 @@ class ArtistsController < ApplicationController
     @artist = Artist.friendly.find(params[:id])
     @related_artists = Artist.tagged_with(@artist.tag_list, any: true)
     @artists = Artist.all
+   
     @artist_songs = @artist.songs.order("created_at DESC") #important! to enable profiles urbanterms on profile
     impressionist(@artist)
 
@@ -60,6 +63,7 @@ class ArtistsController < ApplicationController
   # GET /artists/1/edit
   def edit
     @artist = Artist.friendly.find(params[:id])
+ 
   end
 
   # POST /artists
@@ -83,6 +87,7 @@ class ArtistsController < ApplicationController
   # PATCH/PUT /artists/1.json
   def update
     @artist = Artist.friendly.find(params[:id])
+    @artist.genre_id = params[:genre_id]
     respond_to do |format|
       if @artist.update(artist_params)
         format.html { redirect_to @artist, notice: 'Artist was successfully updated.' }
@@ -135,6 +140,6 @@ class ArtistsController < ApplicationController
     def artist_params
       params.require(:artist).permit(:name, :biography, :artistphoto, :tag_list, :tag, { tag_ids: [] }, :tag_ids, :artistprofilecover,
             :telephone, :email, :facebook_url, :twitter_url, :googleplus_url, 
-    :pinterest_url, :youtube_chanel_url, :linkedin_url, :instagram_url, :website, :genre_id, :photos )
+    :pinterest_url, :youtube_chanel_url, :linkedin_url, :instagram_url, :website, :genre_id, {photos: []} )
     end
 end

@@ -5,15 +5,15 @@
   <div class="col-xs-12 col-sm-6 col-md-8">
 
 
-    <%= simple_form_for(@artist) do |f| %>
+    <%= simple_form_for(@ad) do |f| %>
  <%= f.error_notification %>
 
- <% if artist.errors.any? %>
+ <% if ad.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(artist.errors.count, "error") %> prohibited this artist from being saved:</h2>
+      <h2><%= pluralize(ad.errors.count, "error") %> prohibited this ad from being saved:</h2>
 
       <ul>
-      <% artist.errors.full_messages.each do |message| %>
+      <% ad.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -34,7 +34,7 @@
 
                   <div class="form-group">
                     <div class="col-md-3 col-sm-4">
-                      <p class="m0">Name</p>
+                      <p class="m0">Ad Title</p>
                     </div>
                     <div class="col-md-5 col-sm-8 m-l-15 m-r-15">
 
@@ -42,7 +42,7 @@
 
 
 
-                      <%= f.input :name, :label => 'Artist name', :class => "form-control" %>
+                      <%= f.input :name, :label => 'Ad Title', :class => "form-control" %>
                      
                     </div>
                   </div>
@@ -59,7 +59,7 @@
                        <label>Select a category for this Artist</label>
 
 
-                       <%= f.collection_select :genre_id, Genre.all, :id, :name, {:include_blank => 'Select Genre Category'}, :class => "form-control", input_html: { class: "dropdown-toggle "} %>
+                       <%# f.collection_select :genre_id, Genre.all, :id, :name, {:include_blank => 'Select Genre Category'}, :class => "form-control", input_html: { class: "dropdown-toggle "} %>
                       
                     </div>
                   </div>
@@ -77,15 +77,15 @@
 
                       <label style="color: #FFFFFF; font-family: Questrial"; >Add artist profile photo </label>
 
-                      <%= f.file_field :artistphoto %>
-                      <%= f.hidden_field :artistphoto_cache %>
+                      <%# f.file_field :artistphoto %>
+                      <%# f.hidden_field :artistphoto_cache %>
 
-                      <span style="float: left;"><% if f.object.artistphoto? %>
-      <%= image_tag f.object.artistphoto.url, :class => "img-responsive thumb48" %>
+                      <span style="float: left;"><%# if f.object.artistphoto? %>
+      <%# image_tag f.object.artistphoto.url, :class => "img-responsive thumb48" %>
       <br>
-      <%= f.label :remove_artist_photo, :class => "lead ml-l"  %>
-      <%= f.check_box :remove_artistphoto %> 
-    <% end %></span>
+      <%# f.label :remove_artist_photo, :class => "lead ml-l"  %>
+      <%# f.check_box :remove_artistphoto %> 
+    <%# end %></span>
 
 
                       
@@ -114,7 +114,7 @@
              <!-- UISELECT-->
             <div class="card">
               <div class="card-heading">
-                <div class="card-title">Biography</div>
+                <div class="card-title">Ad Details</div>
                
               </div>
               <div class="card-body">
@@ -125,8 +125,8 @@
                     </div>
                     <div class="col-md-8 col-sm-8">
 
-                      <label> Write something about this artist </label>
-                            <%= f.trix_editor :biography, placeholder: "About the artist" %>
+                      <label> Write something about this aad </label>
+                            <%= f.trix_editor :ad_details, placeholder: "About the ad" %>
 
                            
 
@@ -170,7 +170,7 @@
              <!-- UISELECT-->
             <div class="card">
               <div class="card-heading">
-                <div class="card-title">Contact Details & Bookings</div>
+                <div class="card-title">Contact Details</div>
         
               </div>
               <div class="card-body">
@@ -182,11 +182,11 @@
                     <div class="col-md-5 col-sm-8 m-l-15 m-r-15">
 
                       
-                            <%= f.input :telephone, :label => 'Contact phone', :class => "form-control" %>
+                            <%# f.input :telephone, :label => 'Contact phone', :class => "form-control" %>
 
-                           <%= f.input :email, :label => 'Email address', :class => "form-control" %>
+                           <%# f.input :email, :label => 'Email address', :class => "form-control" %>
 
-                           <%= f.input :website_url, :label => 'Website link', :class => "form-control" %>
+                           <%# f.input :website_url, :label => 'Website link', :class => "form-control" %>
 
                                                  
                     </div>
@@ -221,19 +221,19 @@
                     <div class="col-md-5 col-sm-8 m-l-15 m-r-15">
 
                       
-                            <%= f.input :facebook_url, :label => 'Facebook link', :class => "form-control" %>
+                            <%# f.input :facebook_url, :label => 'Facebook link', :class => "form-control" %>
 
-                           <%= f.input :twitter_url, :label => 'Twitter link', :class => "form-control" %>
+                           <%# f.input :twitter_url, :label => 'Twitter link', :class => "form-control" %>
 
-                           <%= f.input :instagram_url, :label => 'Instagram link', :class => "form-control" %>
+                           <%# f.input :instagram_url, :label => 'Instagram link', :class => "form-control" %>
 
-                           <%= f.input :youtube_chanel_url, :label => 'Youtube Charnel link', :class => "form-control" %>
+                           <%# f.input :youtube_chanel_url, :label => 'Youtube Charnel link', :class => "form-control" %>
 
-                           <%= f.input :googleplus_url, :label => 'Googleplus link', :class => "form-control" %>
+                           <%# f.input :googleplus_url, :label => 'Googleplus link', :class => "form-control" %>
 
-                           <%= f.input :pinterest_url, :label => 'Pinterest link', :class => "form-control" %>
+                           <%# f.input :pinterest_url, :label => 'Pinterest link', :class => "form-control" %>
 
-                           <%= f.input :linkedin_url, :label => 'Linkedin link', :class => "form-control" %>
+                           <%# f.input :linkedin_url, :label => 'Linkedin link', :class => "form-control" %>
 
 
 
@@ -276,7 +276,7 @@
 
                       <label style="color: #000000; font-size: 15px; padding: 10px; font-family: Questrial"; ><strong>Add artist profile photo</strong> </label>
 
-                     <%= f.file_field :photos, multiple: true, accept: "image/jpeg, image/jpg, image/gif, image/png" %>
+                     <%# f.file_field :photos, multiple: true, accept: "image/jpeg, image/jpg, image/gif, image/png" %>
 
                       </div>
 
@@ -285,7 +285,7 @@
 
                       <label style="color: #00000; font-size: 15px; padding: 10px; font-family: Questrial"; ><strong>Add artist profile cover image</strong> </label>
 
-                      <%= f.file_field :artistprofilecover %>
+                      <%# f.file_field :artistprofilecover %>
 
 
                     </div>
@@ -352,7 +352,7 @@
 
   <div class="card sidebar-card">
                             <div class="card-header uppercase ">
-                                <h4 class="m-l-20"><strong><i class="ion-android-bulb fa-2x text-inverse m-r-5"></i>Successful Artist Page Tips</strong></h4>
+                                <h4 class="m-l-20"><strong><i class="ion-android-bulb fa-2x text-inverse m-r-5"></i>Successful Ad Tips</strong></h4>
                             </div>
                             <div class="card-content">
                                

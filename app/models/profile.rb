@@ -37,6 +37,7 @@ class Profile < ApplicationRecord
 	has_many :comments, dependent: :destroy 
 	has_many :artists
 	has_many :genres
+	has_many :ads, dependent: :destroy 
 
 
 

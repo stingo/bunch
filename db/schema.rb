@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180117111705) do
+ActiveRecord::Schema.define(version: 20180118111805) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "ads", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.decimal "price"
+    t.string "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "profile_id"
+    t.string "website_link"
+    t.string "youtube_video_link"
+    t.text "ad_details"
+    t.index ["profile_id"], name: "index_ads_on_profile_id"
+  end
 
   create_table "artists", force: :cascade do |t|
     t.string "name"
