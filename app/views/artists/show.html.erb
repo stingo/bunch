@@ -724,28 +724,30 @@ artist="<%= Artist.find(song.artist_id).name if song.artist %>" title="<%= trunc
               </div>
               <div id="jobs" class="panel-collapse collapse">
                 <div class="panel-body lead">
+  <% if @artist.photos? %>
+
   <% @artist.photos.each do |photo| %>
 
   	
 
-  	<%= image_tag(photo.url) %>
+
+  	 <a class="example-image-link" href="<%= @artist.photos[0].url %>" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="<%= @artist.photos[0].url %>" alt=""/></a>
 
   
 <% end %>
 
+
+
+
+
+<% else %>
+
+   <% end %>
                   <div>
 
                   	<br>
 
 
-
-      <a class="example-image-link" href="<%= @artist.photos[0].url %>" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="<%= @artist.photos[0].url %>" alt=""/></a>
-
-      <a class="example-image-link" href="<%= @artist.photos[2].url %>" data-lightbox="example-set" data-title="Or press the right arrow on your keyboard."><img class="example-image" src="<%= @artist.photos[2].url %>" alt="" /></a>
-
-      <a class="example-image-link" href="<%= @artist.photos[1].url %>" data-lightbox="example-set" data-title="The next image in the set is preloaded as you're viewing."><img class="example-image" src="<%= @artist.photos[1].url %>" alt="" /></a>
-
-      <a class="example-image-link" href="http://lokeshdhakar.com/projects/lightbox2/images/image-6.jpg" data-lightbox="example-set" data-title="Click anywhere outside the image or the X to the right to close."><img class="example-image" src="http://lokeshdhakar.com/projects/lightbox2/images/thumb-6.jpg" alt="" /></a>
   </div>
 
 
@@ -765,23 +767,7 @@ artist="<%= Artist.find(song.artist_id).name if song.artist %>" title="<%= trunc
 
 
            
-
-
-                         <div class="ads-image">
-                            <h1 class="pricetag"> $25</h1>
-                            <ul class="bxslider">
-                            	<% @artist.photos.each do |photo| %>
-                                <li><img src="<%= photo.url %>" alt="img"/></li>
-                                <% end %>
-                            </ul>
-                            <div id="bx-pager">
-                            	 <% @artist_photos.each_with_index do |photo, i| %> 
-                                <a class="thumb-item-link" data-slide-index="<%= i %>" href=""><img
-                                        src="<%= photo.url %>" alt="img"/></a>
-                                <% end %>
-                            </div>
-                        </div>
-                        <!--ads-image-->
+ 
 
 
 
