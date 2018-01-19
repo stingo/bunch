@@ -1,4 +1,12 @@
 
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <script type="text/javascript" src="jquery.charactercounter.js"></script>
+</head>
+<body>
+
 
 
 <div class="row" style="background: #F1F2F3;">
@@ -34,20 +42,29 @@
 
                   <div class="form-group">
                     <div class="col-md-3 col-sm-4">
-                      <p class="m0">Ad Title</p>
+                      
                     </div>
-                    <div class="col-md-5 col-sm-8 m-l-15 m-r-15">
+                    <div class="col-md-11 col-sm-8 m-l-15 m-r-15">
 
 
 
 
 
-                      <%= f.input :name, :label => 'Ad Title', :class => "form-control" %>
+        
+
+                      <label> <strong class="lead m ">Ad Title:</strong> Write a short description of your ad and include all of the key highlights. 100 characters max. </label>
+<%= f.text_area :name, :label => 'Ad Title', class: "form-control ", id: "counted" %>
+<p>Current character count: <span id="char-count">0</span> / 100</p>
+
+
+
                      
                     </div>
                   </div>
 
-                    <div class="form-group">
+
+
+                    <!--div class="form-group">
                     <div class="col-md-3 col-sm-4">
                       <p class="m0">Genre</p>
                     </div>
@@ -62,35 +79,13 @@
                        <%# f.collection_select :genre_id, Genre.all, :id, :name, {:include_blank => 'Select Genre Category'}, :class => "form-control", input_html: { class: "dropdown-toggle "} %>
                       
                     </div>
-                  </div>
+                  </div-->
 
 
 
 
 
-                  <div class="form-group">
-                    <div class="col-md-3 col-sm-4">
-                      <p class="m0">Profile photo</p>
-                    </div>
-                    <div class="col-md-8 col-sm-8 bg-green-dft">
 
-
-                      <label style="color: #FFFFFF; font-family: Questrial"; >Add artist profile photo </label>
-
-                      <%# f.file_field :artistphoto %>
-                      <%# f.hidden_field :artistphoto_cache %>
-
-                      <span style="float: left;"><%# if f.object.artistphoto? %>
-      <%# image_tag f.object.artistphoto.url, :class => "img-responsive thumb48" %>
-      <br>
-      <%# f.label :remove_artist_photo, :class => "lead ml-l"  %>
-      <%# f.check_box :remove_artistphoto %> 
-    <%# end %></span>
-
-
-                      
-                    </div>
-                  </div>
                 
 
 
@@ -109,12 +104,17 @@
 <%= f.collection_select :tag_ids, Tag.order(:name), :id, :name, {}, {multiple: true, class: "selectize"} %>
 
 
+
+
+
+
+
 <!--start main content card-->
 
              <!-- UISELECT-->
             <div class="card">
               <div class="card-heading">
-                <div class="card-title">Ad Details</div>
+                <div><strong class="lead">Ad Details</strong></div>
                
               </div>
               <div class="card-body">
@@ -125,8 +125,30 @@
                     </div>
                     <div class="col-md-8 col-sm-8">
 
-                      <label> Write something about this aad </label>
-                            <%= f.trix_editor :ad_details, placeholder: "About the ad" %>
+                     
+
+
+
+
+
+
+
+                      <label> Write a short summary about this Ad 230 characters max </label>
+
+                      <%= f.input :description, label: false, as: :text, autofocus: true, :input_html => {:style => 'width: 100%', :rows => 3, class: 'form-control' } %>
+
+                      
+
+
+
+                      <br>
+
+
+
+
+                      <label> Now add as much details or specs possible. Ads with detailed and longer descriptions get more views and replies! <p>Current character count: <span id="char-count">0</span> / 1000 (12 words minimum).</p>
+ </label>
+                            <%= f.trix_editor :ad_details %>
 
                            
 
@@ -170,7 +192,7 @@
              <!-- UISELECT-->
             <div class="card">
               <div class="card-heading">
-                <div class="card-title">Contact Details</div>
+                <div><strong class="lead">Contact Details</strong></div>
         
               </div>
               <div class="card-body">
@@ -209,7 +231,7 @@
              <!-- UISELECT-->
             <div class="card">
               <div class="card-heading">
-                <div class="card-title">Social Media Link</div>
+                <div><strong class="lead">Add a Video</strong></div>
         
               </div>
               <div class="card-body">
@@ -221,7 +243,7 @@
                     <div class="col-md-5 col-sm-8 m-l-15 m-r-15">
 
                       
-                            <%# f.input :facebook_url, :label => 'Facebook link', :class => "form-control" %>
+                            <%= f.input :youtube_video_link, :placeholder =>'example: https://www.youtube.com/watch?v=nLl0z0YC6hk', :class => "form-control" %>
 
                            <%# f.input :twitter_url, :label => 'Twitter link', :class => "form-control" %>
 
@@ -256,7 +278,7 @@
              <!-- UISELECT-->
             <div class="card">
               <div class="card-heading">
-                <div class="card-title">Photo Gallery</div>
+                <div><strong class="lead">Images for this Ad</strong></div>
              
               </div>
               <div class="card-body">
@@ -274,21 +296,13 @@
                       <div class="card ">
 
 
-                      <label style="color: #000000; font-size: 15px; padding: 10px; font-family: Questrial"; ><strong>Add artist profile photo</strong> </label>
+                      <label style="color: #000000; font-size: 15px; padding: 10px; font-family: Questrial"; ><strong>Add nice and clear images to this Ad (5 images max) </strong> </label>
 
-                     <%# f.file_field :photos, multiple: true, accept: "image/jpeg, image/jpg, image/gif, image/png" %>
+                     <%= f.file_field :adimages, multiple: true, accept: "image/jpeg, image/jpg, image/gif, image/png" %>
 
                       </div>
 
-                      <div class="card">
-
-
-                      <label style="color: #00000; font-size: 15px; padding: 10px; font-family: Questrial"; ><strong>Add artist profile cover image</strong> </label>
-
-                      <%# f.file_field :artistprofilecover %>
-
-
-                    </div>
+                      
 
                   </div>
 
@@ -411,7 +425,8 @@
   </div>
 </div>
 
-
+</body>
+</html>
 
 
 <!--Modal-->
@@ -439,3 +454,26 @@
     </div>
   </div>
 </div>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#char-count').html($('#counted').val().length);
+    });
+
+    $('#counted').keyup(function() {
+        $('#char-count').html($(this).val().length);
+    });
+    $('#char-count').html($('#counted').val().replace(/\n/g, "\n\r").length);
+    $('#char-count').html($(this).val().replace(/\n/g, "\n\r").length)
+</script>
+
+
+
+
+
+
+
+
+

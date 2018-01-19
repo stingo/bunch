@@ -67,20 +67,19 @@
                                 class="category">Electronics </span>- <span class="item-location"><i
                                 class="fa fa-map-marker"></i> New York </span> </span>
 
-                        <div class="ads-image">
+                        
+                         <div class="ads-image">
                             <h1 class="pricetag"> $25</h1>
                             <ul class="bxslider">
-                                <li><img src="<%= image_url('store/tp-big/Image00014.jpg') %>" alt="img"/></li>
-                                <li><img src="<%= image_url('store/tp-big/Image00015.jpg') %>" alt="img"/></li>
-                                <li><img src="<%= image_url('store/tp-big/Image00013.jpg') %>" alt="img"/></li>
+                            	<% @ad.adimages.each do |adimage| %>
+                                <li><img src="<%= adimage.url %>" alt="img"/></li>
+                                <% end %>
                             </ul>
                             <div id="bx-pager">
-                                <a class="thumb-item-link" data-slide-index="0" href=""><img
-                                        src="<%= image_url('store/Image00014.jpg') %>" alt="img"/></a>
-                                <a class="thumb-item-link" data-slide-index="1" href=""><img
-                                        src="<%= image_url('store/Image00015.jpg') %>" alt="img"/></a>
-                                <a class="thumb-item-link" data-slide-index="2" href=""><img
-                                        src="<%= image_url('store/Image00013.jpg') %>" alt="img"/></a>
+                            	 <% @ad_adimages.each_with_index do |adimage, i| %> 
+                                <a class="thumb-item-link" data-slide-index="<%= i %>" href=""><img
+                                        src="<%= adimage.url %>" alt="img"/></a>
+                                <% end %>
                             </div>
                         </div>
                         <!--ads-image-->

@@ -41,11 +41,13 @@ class ArtistsController < ApplicationController
   # GET /artists/1.json
   def show
     @artist = Artist.friendly.find(params[:id])
-    @related_artists = Artist.tagged_with(@artist.tag_list, any: true)
+
     @artists = Artist.all
    
     @artist_songs = @artist.songs.order("created_at DESC") #important! to enable profiles urbanterms on profile
     impressionist(@artist)
+
+    @artist_photos = @artist.photos
 
      @artists = Artist.where.not(id: @artist.id).tagged_with(@artist.tag_list, any: true)# magit code to shore related tagged items
      

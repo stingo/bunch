@@ -13,6 +13,7 @@ class AdsController < ApplicationController
   # GET /ads/1.json
   def show
     @ad = Ad.friendly.find(params[:id])
+    @ad_adimages = @ad.adimages
     impressionist(@ad)
   end
 
@@ -97,6 +98,6 @@ class AdsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def ad_params
       params.require(:ad).permit(:name, :description, :price, :slug, :website_link, :youtube_video_link, 
-        :ad_details,)
+        :ad_details, {adimages: []})
     end
 end

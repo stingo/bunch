@@ -10,6 +10,14 @@ class Artist < ApplicationRecord
 	mount_uploader :artistprofilecover, ArtistprofilecoverUploader
 	mount_uploaders :photos, PhotosUploader
 
+
+   validate :photos_count_validation, :if => "photos?"  
+
+  def photos_count_validation
+    errors[:photos] << "should be less than 5" if photos.count > 4
+  end
+
+
 	extend FriendlyId
   friendly_id :name, use: :slugged
 
