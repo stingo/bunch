@@ -1,20 +1,8 @@
 // Place all the styles related to the Ads controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700);
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900|Roboto+Condensed:400,300,700,700italic|Montserrat:400,700);
-@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700,400italic,700italic);
-@import url("animate.min.css");
-@import url("../plugins/font-awesome-4.7.0/css/font-awesome.css");
-@import url("fontello.css");
-@import url("../plugins/jquery-nice-select/css/nice-select.css");
-@import url("fileinput.min.css");
-@import url("../plugins/flag-icon-css-master/css/flag-icon.css");
-html {
-  font-family: sans-serif;
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%; }
+
+
 
 body {
   margin: 0;
@@ -1322,6 +1310,13 @@ label {
 
 .panel-group .card + .card {
   margin-top: 10px; }
+
+  .card-header {
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: rgba(0, 0, 0, 0.03);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
 
 /* ================================================================== */
 /* CUSTOMIZE NAVBAR
@@ -3605,10 +3600,10 @@ hr.thin {
   padding-top: 5px; }
 
 .pricetag {
-  background: #0094af;
+  background-color: #96c322 !important;
+  color: #FFFFFF !important;
   border-radius: 3px 0 0 3px;
-  color: #fff;
-  font-size: 20px;
+  font-size: 26px;
   min-width: 100px;
   padding: 15px 25px;
   position: absolute;
@@ -3623,7 +3618,7 @@ hr.thin {
     width: 0;
     top: 100%;
     right: 0;
-    border-top: 10px solid #007286;
+    border-top: 10px solid #96c322;
     border-right: 10px solid transparent; }
 
 @media (max-width: 479px) {
@@ -3660,6 +3655,10 @@ h1.pricetag span {
   float: right; }
 h1.trtri span {
   float: right; }
+
+  .li {
+    list-style: outside !important;
+}
 
 .list-dot {
   margin-left: 30px; }
@@ -3753,6 +3752,8 @@ h1.trtri span {
 .card-contact-seller .card-body {
   padding: 10px; }
 
+  
+
 .bx-controls-direction a:after {
   background: rgba(0, 0, 0, 0.3);
   border-radius: 3px;
@@ -3812,9 +3813,11 @@ h1.trtri span {
 .list-border > li {
   border-top: 1px solid #ebebeb;
   line-height: 36px;
-  position: relative; }
+  position: relative;
+  list-style: none !important; }
   .list-border > li:first-child {
-    border: none; }
+    border: none !important;
+    list-style: none !important; }
 
 .list-check > li {
   margin-bottom: 3px;

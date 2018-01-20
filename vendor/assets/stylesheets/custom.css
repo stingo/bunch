@@ -148,7 +148,7 @@ video-container {
 }
 
 /*ordered unordered list*/
-/*ul {
+ul {
  
     list-style-type: square;
     margin-top: 1em;
@@ -243,12 +243,7 @@ ol.d {
   list-style-position: inside;
 }
 
-.image {
-  line-height: 1.5em;
-  list-style-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4621/treehouse-marker.png);
-}
-*/
-
+/* end of ul li*/
 
 
 

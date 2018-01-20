@@ -52,8 +52,8 @@
 
         
 
-                      <label> <strong class="lead m ">Ad Title:</strong> Write a short description of your ad and include all of the key highlights. 100 characters max. </label>
-<%= f.text_area :name, :label => 'Ad Title', class: "form-control ", id: "counted" %>
+                      <label> <strong class="lead m text-primary ">Ad Title:</strong> Write a short description of your ad and include all of the key highlights. 100 characters max. </label>
+<%= f.text_area :name, :label => 'Ad Title', class: "form-control", id: "counted" %>
 <p>Current character count: <span id="char-count">0</span> / 100</p>
 
 
@@ -96,7 +96,7 @@
             <!-- END UISELECT-->
 
 
-            <%= f.label :tag_list, 'Tags (start typing to select or create new)' %>
+            <%= f.label :tag_list, 'Tags (start typing to select or create new)', :class => "lead m text-primary" %>
 <%# f.text_field :tag_list, class: 'form-control' %>
 
 <%# f.select :tag_ids, Tag.all.pluck(:name, :id), {}, {multiple: true, class: "selectize"} %>
@@ -114,7 +114,7 @@
              <!-- UISELECT-->
             <div class="card">
               <div class="card-heading">
-                <div><strong class="lead">Ad Details</strong></div>
+                <div><strong class="lead m text-primary">Ad Details</strong></div>
                
               </div>
               <div class="card-body">
@@ -192,7 +192,7 @@
              <!-- UISELECT-->
             <div class="card">
               <div class="card-heading">
-                <div><strong class="lead">Contact Details</strong></div>
+                <div><strong class="lead m text-primary">Contact Details</strong></div>
         
               </div>
               <div class="card-body">
@@ -231,7 +231,7 @@
              <!-- UISELECT-->
             <div class="card">
               <div class="card-heading">
-                <div><strong class="lead">Add a Video</strong></div>
+                <div><strong class="lead m text-primary">Add a Video</strong></div>
         
               </div>
               <div class="card-body">
@@ -278,7 +278,7 @@
              <!-- UISELECT-->
             <div class="card">
               <div class="card-heading">
-                <div><strong class="lead">Images for this Ad</strong></div>
+                <div><strong class="lead m text-primary">Images for this Ad</strong></div>
              
               </div>
               <div class="card-body">
@@ -336,7 +336,7 @@
 <br>
 
 <div class="form-actions text-center">
-    <%= f.button :submit, class: "bg-green-dft" %>
+    <%= f.button :submit, class: "bg-green-dft" %> <%= link_to "Cancel", :back, :class =>"btn btn-sm btn btn-danger" %>
   </div>
 
 <br>
